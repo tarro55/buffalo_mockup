@@ -1,4 +1,5 @@
 <template>
+<div style="padding:20px;">
 <v-container>
     <div>
         <h3>ข้อมูลผู้ใช้งานระบบ</h3>
@@ -15,7 +16,7 @@
                 </v-toolbar-title>
                 <v-spacer></v-spacer>
 
-                <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-2"></v-overflow-btn>
+                <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
                 <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0"></v-overflow-btn>
                 <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0"></v-overflow-btn>
                 <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
@@ -82,11 +83,165 @@
     </v-data-table>
 
 </v-container>
+</div>
 </template>
 
 <script>
 export default {
-    data: () => ({
+    data: () => (
+        {
+            province: [{
+                    text: 'พะเยา'
+                },
+                {
+                    text: 'เชียงราย'
+                },
+                {
+                    text: 'แพร่'
+                },
+                {
+                    text: 'น่าน'
+                },
+            ],
+            district: [{
+                    text: 'พะเยา'
+                },
+                {
+                    text: 'เชียงราย'
+                },
+                {
+                    text: 'แพร่'
+                },
+                {
+                    text: 'น่าน'
+                },
+            ],
+            place: [{
+                    text: 'ปัว'
+                },
+                {
+                    text: 'แงง'
+                },
+                {
+                    text: 'สถาน'
+                },
+                {
+                    text: 'ศิลาแลง'
+                },
+                {
+                    text: 'ศิลาเพชร'
+                },
+                {
+                    text: 'อวน'
+                },
+                {
+                    text: 'ไชยวัฒนา'
+                },
+                {
+                    text: 'เจดีย์ชัย'
+                },
+                {
+                    text: 'ภูคา'
+                },
+                {
+                    text: 'สกาด'
+                },
+                {
+                    text: 'ป่ากลาง'
+                },
+                {
+                    text: '	วรนคร'
+                },
+            ],
+
+            place: [{
+                    text: 'เชียงกลาง'
+                },
+                {
+                    text: 'ท่าวังผา'
+                },
+                {
+                    text: 'ทุ่งช้าง'
+                },
+                {
+                    text: 'นาน้อย'
+                },
+                {
+                    text: 'บ่อเกลือ'
+                },
+                {
+                    text: 'นาน้อย'
+                },
+                {
+                    text: 'บ้านหลวง'
+                },
+                {
+                    text: 'ปัว'
+                },
+                {
+                    text: 'ภูเพียง'
+                },
+                {
+                    text: 'แม่จริม'
+                },
+                {
+                    text: 'เมืองน่าน'
+                },
+                {
+                    text: 'เวียงสา'
+                },
+                {
+                    text: 'สองแคว'
+                },
+                {
+                    text: 'สันติสุข'
+                },
+            ],
+            farm: [{
+                    text: 'เชียงกลาง'
+                },
+                {
+                    text: 'ท่าวังผา'
+                },
+                {
+                    text: 'ทุ่งช้าง'
+                },
+                {
+                    text: 'นาน้อย'
+                },
+                {
+                    text: 'บ่อเกลือ'
+                },
+                {
+                    text: 'นาน้อย'
+                },
+                {
+                    text: 'บ้านหลวง'
+                },
+                {
+                    text: 'ปัว'
+                },
+                {
+                    text: 'ภูเพียง'
+                },
+                {
+                    text: 'แม่จริม'
+                },
+                {
+                    text: 'เมืองน่าน'
+                },
+                {
+                    text: 'เวียงสา'
+                },
+                {
+                    text: 'สองแคว'
+                },
+                {
+                    text: 'สันติสุข'
+                },
+            ],
+        },
+        {
         search: '',
         dialog: false,
         headers: [{

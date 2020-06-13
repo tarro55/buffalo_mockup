@@ -1,4 +1,5 @@
 <template>
+<div style="padding:20px;">
 <v-container>
     <div>
         <h3>
@@ -32,22 +33,7 @@
                         <v-card-text>
                             <v-container>
                                 <v-row>
-                                    <v-col cols="12" sm="6" md="4">
-                                        <!-- <v-text-field v-model="editedItem.name" label="Dessert name"></v-text-field> -->
-                                        <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" sm="6" md="4">
-                                        <!-- <v-text-field v-model="editedItem.calories" label="Calories"></v-text-field> -->
-                                        <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" sm="6" md="4">
-                                        <!-- <v-text-field v-model="editedItem.fat" label="Fat (g)"></v-text-field> -->
-                                        <v-text-field v-model="editedItem.Phonenumber" label="อีเมล์"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" sm="6" md="4">
-                                        <!-- <v-text-field v-model="editedItem.carbs" label="Carbs (g)"></v-text-field> -->
-                                        <v-text-field v-model="editedItem.group" label="สถานะ"></v-text-field>
-                                    </v-col>
+                                    <v-overflow-btn :items="province" label="กรุณาเลือกสถานะ" hide-details class="pa-0"></v-overflow-btn>
                                 </v-row>
                             </v-container>
                         </v-card-text>
@@ -62,9 +48,6 @@
             </v-toolbar>
         </template>
         <template v-slot:item.actions="{ item }">
-            <v-icon  class="mr-2" @click="editItem(item)">
-                mdi-file-excel-outline
-            </v-icon>
             <v-icon  class="mr-2" @click="editItem(item)">
                 mdi-clipboard-file-outline
             </v-icon>
@@ -81,11 +64,27 @@
     </v-data-table>
 
 </v-container>
+</div>
 </template>
 
 <script>
 export default {
-    data: () => ({
+    data: () => (
+        {
+         province: [{
+                    text: 'พะเยา'
+                },
+                {
+                    text: 'เชียงราย'
+                },
+                {
+                    text: 'แพร่'
+                },
+                {
+                    text: 'น่าน'
+                },
+            ],
+        },{
         search: '',
         dialog: false,
         headers: [{
