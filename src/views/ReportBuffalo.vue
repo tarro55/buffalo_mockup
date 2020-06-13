@@ -2,13 +2,19 @@
 <div style="padding:20px;">
     <h1>รายงานสรุปจำนวนกระบือที่มีชีวิต</h1>
     <div>
-    <v-row>
-        <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
-        <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0"></v-overflow-btn>
-        <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0"></v-overflow-btn>
-        <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
+        <v-row>
+            <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
+            <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0"></v-overflow-btn>
+            <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0"></v-overflow-btn>
+            <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
         </v-row>
-    </div>
+    </div><br>
+
+    <v-card class="pa-4" flat height="500px" img="https://www.img.in.th/images/cc42d27c171e081701fe9cd825e5cc61.png">
+        <v-btn icon>
+            <v-icon>mdi-dots-vertical</v-icon>
+        </v-btn>
+    </v-card>
 </div>
 </template>
 
@@ -40,49 +46,6 @@ export default {
                 },
             ],
             district: [{
-                    text: 'เชียงกลาง'
-                },
-                {
-                    text: 'ท่าวังผา'
-                },
-                {
-                    text: 'ทุ่งช้าง'
-                },
-                {
-                    text: 'นาน้อย'
-                },
-                {
-                    text: 'บ่อเกลือ'
-                },
-                {
-                    text: 'นาน้อย'
-                },
-                {
-                    text: 'บ้านหลวง'
-                },
-                {
-                    text: 'ปัว'
-                },
-                {
-                    text: 'ภูเพียง'
-                },
-                {
-                    text: 'แม่จริม'
-                },
-                {
-                    text: 'เมืองน่าน'
-                },
-                {
-                    text: 'เวียงสา'
-                },
-                {
-                    text: 'สองแคว'
-                },
-                {
-                    text: 'สันติสุข'
-                },
-            ],
-            place: [{
                     text: 'พะเยา'
                 },
                 {
@@ -95,6 +58,44 @@ export default {
                     text: 'น่าน'
                 },
             ],
+            place: [{
+                    text: 'ปัว'
+                },
+                {
+                    text: 'แงง'
+                },
+                {
+                    text: 'สถาน'
+                },
+                {
+                    text: 'ศิลาแลง'
+                },
+                {
+                    text: 'ศิลาเพชร'
+                },
+                {
+                    text: 'อวน'
+                },
+                {
+                    text: 'ไชยวัฒนา'
+                },
+                {
+                    text: 'เจดีย์ชัย'
+                },
+                {
+                    text: 'ภูคา'
+                },
+                {
+                    text: 'สกาด'
+                },
+                {
+                    text: 'ป่ากลาง'
+                },
+                {
+                    text: '	วรนคร'
+                },
+            ],
+
             place: [{
                     text: 'เชียงกลาง'
                 },
@@ -181,7 +182,6 @@ export default {
                     text: 'สันติสุข'
                 },
             ],
-
 
         };
     },
