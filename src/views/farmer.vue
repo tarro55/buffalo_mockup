@@ -1,9 +1,7 @@
 <template>
 <v-container>
     <div>
-        <h3>
-            ข้อมูลผู้ใช้งานระบบ
-        </h3>
+        <h3>ข้อมูลผู้ใช้งานระบบ</h3>
     </div>
     <br>
     <v-divider></v-divider>
@@ -11,13 +9,19 @@
     <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
         <template v-slot:top>
             <v-toolbar flat color="white">
-                <v-toolbar-title>ข้อมูลผู้ใช้</v-toolbar-title>
-                <v-divider class="mx-4" inset vertical></v-divider>
+                
                 <v-toolbar-title>
                     <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
                 </v-toolbar-title>
                 <v-spacer></v-spacer>
+
+                <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-2"></v-overflow-btn>
+                <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0"></v-overflow-btn>
+                <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0"></v-overflow-btn>
+                <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
+
                 <v-dialog v-model="dialog" max-width="500px">
+
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
                     </template>
@@ -59,16 +63,16 @@
             </v-toolbar>
         </template>
         <template v-slot:item.actions="{ item }">
-            <v-icon  class="mr-2" @click="editItem(item)">
+            <v-icon class="mr-2" @click="editItem(item)">
                 mdi-file-excel-outline
             </v-icon>
-            <v-icon  class="mr-2" @click="$router.push(`farmer_detail`)">
+            <v-icon class="mr-2" @click="$router.push(`farmer_detail`)">
                 mdi-clipboard-file-outline
             </v-icon>
-            <v-icon  class="mr-2" @click="editItem(item)">
+            <v-icon class="mr-2" @click="editItem(item)">
                 mdi-pencil
             </v-icon>
-            <v-icon  @click="deleteItem(item)">
+            <v-icon @click="deleteItem(item)">
                 mdi-delete
             </v-icon>
         </template>

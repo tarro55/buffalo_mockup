@@ -23,6 +23,11 @@
                                 <td>{{ item.describe }}</td>
                                 <td>{{ item.calories }}</td>
                             </tr>
+                            <tr>
+                                <td>
+                                    ใบพันธุ์ประวัติอ้างอิง
+                                </td>
+                            </tr>
                         </tbody>
                     </template>
                 </v-simple-table>
@@ -100,6 +105,7 @@ export default {
                     describe: 'ความสูง',
                     calories: '100 เซนติเมตร',
                 },
+                
             ],
         };
     },
