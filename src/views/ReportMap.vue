@@ -1,13 +1,15 @@
 <template>
-<div style="padding:20px;">
-    <h1>รายงานเชิงแผนที่</h1>
-    
-    <v-card class="pa-4" flat height="500px" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">
+    <div style="padding:20px;">
+        <h1>รายงานเชิงแผนที่</h1>
+        <div>
+            <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn><br>
+        </div>
+        <v-card class="pa-4" flat height="500px" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">
             <v-btn icon>
                 <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
-    </v-card>
-</div>
+        </v-card>
+    </div>
 </template>
 
 <script>
@@ -24,10 +26,21 @@ export default {
     /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
     data() {
         return {
+            province: [{
+                    text: 'พะเยา'
+                },
+                {
+                    text: 'เชียงราย'
+                },
+                {
+                    text: 'แพร่'
+                },
+                {
+                    text: 'น่าน'
+                },
+            ],
 
-            txt: 'Hello World'
-
-        };
+        }
     },
     /*------------------------- สิ่งทที่อยู่ในนี้จะถูกรัยเมื่อโหลด ------------------------------------------*/
     mounted: async function () {
