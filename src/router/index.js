@@ -51,6 +51,11 @@ function view(name){
     path: '/farmer',
     name: 'farmer', 
     component: view('farmer')
+  },
+  {
+    path: '/SetUser',
+    name: 'SetUser', 
+    component: view('SetUser')
   }
 
 

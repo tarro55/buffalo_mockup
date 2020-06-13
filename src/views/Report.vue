@@ -6,6 +6,7 @@
                     <v-card class="elevation-12">
                         <v-card-text class="text-center">
                             <h1 >รายงานสรุปจำนวนกระบือที่มีชีวิต</h1>
+                            <v-icon></v-icon>
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
