@@ -46,17 +46,24 @@ export default {
         return {
             drawer: null,
             item: 0,
-            items: [{
-                    text: "Dashboard",
-                    sub: "ข้อมูลสรุปยอดรวม",
-                    icon: "em em-rocket",
-                    router: "/"
-                },
+            items: [
                 {
                      text: "จัดการข้อมูลผู้ใช้",
                     sub: "จัดการข้อผูลผู้ใช้",
                     icon: "em em-information_source",
                     router: "/farmer"
+                },
+                {
+                     text: "จัดการผู้ดูแลระบบ",
+                    sub: "จัดการผู้ดูแลระบบ",
+                    icon: "em em-information_source",
+                    router: "/farmer"
+                },
+                {
+                     text: "จัดการสิทธิ์การใช้งาน",
+                    sub: "จัดการสิทธิ์การใช้งาน",
+                    icon: "em em-information_source",
+                    router: "/SetUser"
                 },
                 {
                      text: "รายงาน",

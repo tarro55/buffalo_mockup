@@ -61,6 +61,11 @@ function view(name){
     path: '/buffalo_detail',
     name: 'buffalo_detail', 
     component: view('buffalo_detail')
+  },
+  {
+    path: '/SetUser',
+    name: 'SetUser', 
+    component: view('SetUser')
   }
 
 

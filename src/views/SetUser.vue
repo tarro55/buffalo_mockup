@@ -1,7 +1,8 @@
 <template>
 <div style="padding:20px;">
+    <v-row>
     <h1>รายงาน</h1><br><hr><br>
-
+    </v-row>
     <v-card max-width="1000" class="mx-auto">
 
         <v-list two-line subheader>
@@ -41,11 +42,11 @@ export default {
     data: () => ({
         items: [{
                 icon: 'mdi-clipboard-text',
-                title: 'ข้อมูลการเจริญเติบโตของกระบือ',
+                title: 'ผู้ดูแลระบบ',
             },
             {
                 icon: 'mdi-clipboard-text',
-                title: 'รายงานข้อมูลผู้ใช้งาน',
+                title: 'ผู้ใช้งานทั่วไป',
             },
         ],
         
