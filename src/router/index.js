@@ -51,7 +51,18 @@ function view(name){
     path: '/farmer',
     name: 'farmer', 
     component: view('farmer')
+  },
+  {
+    path: '/farmer_detail',
+    name: 'farmer_detail', 
+    component: view('farmer_detail')
+  },
+  {
+    path: '/buffalo_detail',
+    name: 'buffalo_detail', 
+    component: view('buffalo_detail')
   }
+
 
 
 ]
