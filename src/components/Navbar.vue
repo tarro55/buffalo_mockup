@@ -4,7 +4,8 @@
         <v-list shaped> 
             <br />
             <v-list-item-group v-model="item" color="purple">
-                <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`/officer${item.router}`)">
+                <!-- <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`/officer${item.router}`)"> -->
+                <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`${item.router}`)">
                     <h2 style="font-size:16px;">{{item.text}}</h2> 
                 </v-list-item>  
             </v-list-item-group>
@@ -62,13 +63,15 @@ export default {
                     sub: "ข้อมูลของระบบนี้",
                     icon: "em em-information_source",
                     router: "/about"
-                },{
-                     text: "เกี่ยวกับ",
-                    sub: "ข้อมูลของระบบนี้",
+                },
+                {
+                     text: "จัดการข้อมูลผู้ใช้",
+                    sub: "จัดการข้อผูลผู้ใช้",
                     icon: "em em-information_source",
-                    router: "/about"
+                    router: "/farmer"
                 }
             ],
+            
             txt: "Hello World",
             active: false
         };
