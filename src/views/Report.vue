@@ -5,8 +5,8 @@
                 <v-col cols="12" sm="12" md="8">
                     <v-card class="elevation-12">
                         <v-card-text class="text-center">
-                            <h1 >รายงานสรุปจำนวนกระบือที่มีชีวิต</h1>
-                            <v-icon></v-icon>
+                            <h1 >รายงานสรุปจำนวนกระบือที่มีชีวิต</h1><br>
+                            <v-icon ></v-icon>
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
@@ -20,7 +20,7 @@
                 <v-col cols="12" sm="12" md="8">
                     <v-card class="elevation-12">
                         <v-card-text class="text-center">
-                            <h1>รายงานเชิงแผนที่</h1>
+                            <h1>รายงานเชิงแผนที่</h1><br>
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
@@ -34,7 +34,7 @@
                 <v-col cols="12" sm="12" md="8">
                     <v-card class="elevation-12">
                         <v-card-text class="text-center">
-                            <h1>รายงานความเคลื่อนไหวการใช้งานระบบ</h1>
+                            <h1>รายงานความเคลื่อนไหวการใช้งานระบบ</h1><br>
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
@@ -48,11 +48,11 @@
                 <v-col cols="12" sm="12" md="8">
                     <v-card class="elevation-12">
                         <v-card-text class="text-center">
-                            <h1>ส่งออกรายงาน</h1>
+                            <h1>ส่งออกรายงาน</h1><br>
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn @click="$router.push('Export')" color="primary">รายละเพิ่มเติม</v-btn>
+                            <v-btn @click="$router.push('Export')" color="primary">ดูรายงาน</v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-col>

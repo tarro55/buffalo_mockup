@@ -57,7 +57,7 @@ export default {
                      text: "จัดการผู้ดูแลระบบ",
                     sub: "จัดการผู้ดูแลระบบ",
                     icon: "em em-information_source",
-                    router: "/farmer"
+                    router: "/EditAdmin"
                 },
                 {
                      text: "จัดการสิทธิ์การใช้งาน",

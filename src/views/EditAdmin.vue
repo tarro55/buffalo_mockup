@@ -2,16 +2,16 @@
 <v-container>
     <div>
         <h3>
-            ข้อมูลผู้ใช้งานระบบ
+            จัดการผู้ดูแลระบบ
         </h3>
     </div>
     <br>
-    <v-divider></v-divider>
+    <v-divider>จัดการผู้ดูแลระบบ</v-divider>
 
     <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
         <template v-slot:top>
             <v-toolbar flat color="white">
-                <v-toolbar-title>ข้อมูลผู้ใช้</v-toolbar-title>
+                <v-toolbar-title>ผู้ดูแลระบบ</v-toolbar-title>
                 <v-divider class="mx-4" inset vertical></v-divider>
                 <v-toolbar-title>
                     <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
@@ -39,11 +39,11 @@
                                     </v-col>
                                     <v-col cols="12" sm="6" md="4">
                                         <!-- <v-text-field v-model="editedItem.fat" label="Fat (g)"></v-text-field> -->
-                                        <v-text-field v-model="editedItem.Phonenumber" label="เบอร์โทรศัพท์"></v-text-field>
+                                        <v-text-field v-model="editedItem.Phonenumber" label="อีเมล์"></v-text-field>
                                     </v-col>
                                     <v-col cols="12" sm="6" md="4">
                                         <!-- <v-text-field v-model="editedItem.carbs" label="Carbs (g)"></v-text-field> -->
-                                        <v-text-field v-model="editedItem.group" label="กลุ่มผู้ใช้"></v-text-field>
+                                        <v-text-field v-model="editedItem.group" label="สถานะ"></v-text-field>
                                     </v-col>
                                 </v-row>
                             </v-container>
@@ -94,12 +94,12 @@ export default {
                 value: 'name'
             },
             {
-                text: 'เบอร์โทรศัพท์',
-                value: 'Phonenumber'
+                text: 'อีเมล์',
+                value: 'email'
             },
             {
-                text: 'กลุ่มผู้ใช้',
-                value: 'group'
+                text: 'สถานะ',
+                value: 'status'
             },
             {
                 text: 'การจัดการ',
@@ -112,14 +112,14 @@ export default {
         editedItem: {
             IDCard: '',
             name: '',
-            Phonenumber: '',
-            group: '',
+            email: '',
+            status: '',
         },
         defaultItem: {
             IDCard: '',
             name: '',
-            Phonenumber: '',
-            group: '',
+            email: '',
+            status: '',
         },
     }),
 
@@ -144,62 +144,20 @@ export default {
             this.desserts = [{
                     IDCard: 1234567890123,
                     name: 'นายแดง แดงแดง',
-                    Phonenumber: '0911231231',
-                    group: 'กลุ่มแม่ใจ',
+                    email: 'dang@gmail.com',
+                    status: 'ผู้ดูแลระบบ',
                 },
                 {
                     IDCard: 3123412345612,
                     name: 'นายดำ ดำดำ',
-                    Phonenumber: '0914123412',
-                    group: 'กลุ่มแม่ใจ',
+                    email: 'dum@gmail.com',
+                    status: 'ผู้ดูแลระบบ',
                 },
                 {
                     IDCard: 1231241231233,
                     name: 'นายเขียว เขียวเขียว',
-                    Phonenumber: '0812312312',
-                    group: 'กลุ่มพาน',
-                },
-                {
-                    IDCard: 1111111111111,
-                    name: 'นายเขียว เขียวขจี',
-                    Phonenumber: '0822312312',
-                    group: 'กลุ่มพาน',
-                },
-                {
-                    IDCard: 2222222222222,
-                    name: 'นายเหลือง เหลืองเหลือง',
-                    Phonenumber: '0833333333',
-                    group: 'กลุ่มแม่กา',
-                },
-                {
-                    IDCard: 3333333333333,
-                    name: 'นายชัย',
-                    Phonenumber: '0844444444',
-                    group: 'กลุ่มแม่กา',
-                },
-                {
-                    IDCard: 4444444444444,
-                    name: 'นายใหญ่',
-                    Phonenumber: '0855555555',
-                    group: 'กลุ่มพะเยา',
-                },
-                {
-                    IDCard: 5555555555555,
-                    name: 'นายเล็ก',
-                    Phonenumber: '0866666666',
-                    group: 'กลุ่มพะเยา',
-                },
-                {
-                    IDCard: 6666666666666,
-                    name: 'นายคำ',
-                    Phonenumber: '0877777777',
-                    group: 'กลุ่มพะเยา',
-                },
-                {
-                    IDCard: 7777777777777,
-                    name: 'นายนาย',
-                    Phonenumber: '0888888888',
-                    group: 'กลุ่มพะเยา',
+                    email: 'green@gmail.com',
+                    status: 'ผู้ดูแลระบบ',
                 },
 
             ]

@@ -1,8 +1,11 @@
 <template>
 <div style="padding:20px;">
     <v-row>
-    <h1>รายงาน</h1><br><hr><br>
+        <h1>จัดการสิทธิ์การใช้งาน</h1><br>
+        
     </v-row>
+    
+    <v-divider></v-divider><br>
     <v-card max-width="1000" class="mx-auto">
 
         <v-list two-line subheader>
@@ -49,7 +52,7 @@ export default {
                 title: 'ผู้ใช้งานทั่วไป',
             },
         ],
-        
+
     }),
     /*------------------------- สิ่งทที่อยู่ในนี้จะถูกรัยเมื่อโหลด ------------------------------------------*/
     mounted: async function () {
