@@ -47,6 +47,11 @@ function view(name){
     name: 'ReportSystem', 
     component: view('ReportSystem')
   },
+  {
+    path: '/farmer',
+    name: 'farmer', 
+    component: view('farmer')
+  }
 
 
 ]
