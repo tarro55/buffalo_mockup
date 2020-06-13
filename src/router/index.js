@@ -16,11 +16,39 @@ function view(name){
     path: '/about',
     name: 'About', 
     component: view('About')
-  },{
+  },
+  {
     path: '/Login',
     name: 'Login', 
     component: view('Login')
-  }
+  },
+  {
+    path: '/Report',
+    name: 'Report', 
+    component: view('Report')
+  },
+  {
+    path: '/ReportBuffalo',
+    name: 'ReportBuffalo', 
+    component: view('ReportBuffalo')
+  },
+  {
+    path: '/ReportMap',
+    name: 'ReportMap', 
+    component: view('ReportMap')
+  },
+  {
+    path: '/Export',
+    name: 'Export', 
+    component: view('Export')
+  },
+  {
+    path: '/ReportSystem',
+    name: 'ReportSystem', 
+    component: view('ReportSystem')
+  },
+
+
 ]
 
 const router = new VueRouter({
