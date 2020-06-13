@@ -53,6 +53,16 @@ function view(name){
     component: view('farmer')
   },
   {
+    path: '/farmer_detail',
+    name: 'farmer_detail', 
+    component: view('farmer_detail')
+  },
+  {
+    path: '/buffalo_detail',
+    name: 'buffalo_detail', 
+    component: view('buffalo_detail')
+  },
+  {
     path: '/SetUser',
     name: 'SetUser', 
     component: view('SetUser')
@@ -62,6 +72,7 @@ function view(name){
     name: 'EditAdmin', 
     component: view('EditAdmin')
   }
+
 
 
 ]
