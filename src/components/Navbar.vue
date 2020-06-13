@@ -53,23 +53,17 @@ export default {
                     router: "/"
                 },
                 {
-                    text: "โปรไฟล์",
-                    sub: "จัดการข้อผูลผู้ใช้",
-                    icon: "em em-information_desk_person",
-                    router: "/profile"
-                },
-                {
-                    text: "เกี่ยวกับ",
-                    sub: "ข้อมูลของระบบนี้",
-                    icon: "em em-information_source",
-                    router: "/about"
-                },
-                {
                      text: "จัดการข้อมูลผู้ใช้",
                     sub: "จัดการข้อผูลผู้ใช้",
                     icon: "em em-information_source",
                     router: "/farmer"
-                }
+                },
+                {
+                     text: "รายงาน",
+                    sub: "รายงานข้อมูลต่างๆ",
+                    icon: "em em-information_source",
+                    router: "/report"
+                },
             ],
             
             txt: "Hello World",
