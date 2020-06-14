@@ -84,6 +84,9 @@
                                                 <v-col cols="12" sm="6">
                                                     <v-text-field label="ความสูง(เซนติเมตร)"></v-text-field>
                                                 </v-col>
+                                                <v-col cols="12" sm="6">
+                                                    <v-text-field label="ใบพันธุ์ประวัติอ้างอิง"></v-text-field>
+                                                </v-col>
                                             </v-row>
                                         </v-container>
                                     </v-card-text>
