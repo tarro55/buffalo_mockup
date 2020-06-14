@@ -77,8 +77,8 @@
 
 <script>
 export default {
-    data: () => (
-        {
+      data() {
+        return {
         search: '',
         dialog: false,
         headers: [{
@@ -100,7 +100,7 @@ export default {
             email: '',
             status: '',
         },
-    }),
+    };},
 
     computed: {
         formTitle() {

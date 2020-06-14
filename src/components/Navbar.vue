@@ -10,9 +10,7 @@
                 </v-list-item>  
             </v-list-item-group>
         </v-list>
-        <div style="padding:20px;">
-        <v-btn style="width:100%" @click="$router.push('Login')" color="error">ออกจากระบบ</v-btn>
-        </div>
+
 
     </v-navigation-drawer>
 
@@ -79,6 +77,12 @@ export default {
                     icon: "em em-information_source",
                     router: "/report"
                 },
+                {
+                    text: "ออกจากระบบ",
+                    icon: "em em-information_source",
+                    router: "/Login"
+                },
+                
                 
             ],
             

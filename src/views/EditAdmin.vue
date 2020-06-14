@@ -34,7 +34,7 @@
                                             <v-text-field v-model="editedItem.email" label="อีเมล์"></v-text-field>
                                         </v-col>
                                         <v-col cols="12"> 
-                                            <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
+                                            <v-overflow-btn v-model="editedItem.status"  :items="farm" label="กรุณาเลือกสถานะ" hide-details class="pa-0"></v-overflow-btn>
                                         </v-col>
                                     </v-row>
                                 </v-container>
@@ -82,20 +82,7 @@
 <script>
 export default {
     data: () => ({
-        province: [{
-                text: 'พะเยา'
-            },
-            {
-                text: 'เชียงราย'
-            },
-            {
-                text: 'แพร่'
-            },
-            {
-                text: 'น่าน'
-            },
-        ],
-    }, {
+        
         search: '',
         dialog: false,
         headers: [{
@@ -138,7 +125,7 @@ export default {
 
     computed: {
         formTitle() {
-            return this.editedIndex === -1 ? ' ' : ' '
+            return this.editedIndex === -1 ? ' เพิ่มผู้ดูแล ' : 'แก้ไขข้อมูล'
         },
     },
 

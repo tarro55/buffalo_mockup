@@ -7,87 +7,28 @@
 
     <center>
         <v-flex xs8>
-            
+
             <template>
                 <v-simple-table>
                     <template>
-                        <v-toolbar-title>รายละเอียดกระบือ
+                        <v-toolbar-title>รายละเอียดกระบือ <v-btn color="success" @click="dialog=false">แก้ไข</v-btn>
                             <!-- <v-row justify="center"> -->
-                            <v-dialog v-model="dialog" persistent max-width="600px">
-                                <template v-slot:activator="{ on, attrs }">
-                                    <v-btn icon color="primary" dark v-bind="attrs" v-on="on">
-                                        <v-icon class="mr-2" @click="editItem(item)">
-                                            mdi-pencil
-                                        </v-icon>
-                                    </v-btn>
-                                </template>
-                                <v-card>
-                                    <v-card-title>
-                                        <span class="headline">ประวัติกระบือ</span>
-                                    </v-card-title>
-                                    <v-card-text>
-                                        <v-container>
-                                            <v-row>
-                                                <v-col cols="12" sm="6">
-                                                    <v-text-field label="ชื่อ"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12" sm="6">
-                                                    <v-text-field label="เบอร์หู"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12" sm="6">
-                                                    <v-text-field label="อายุ"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12" sm="6">
-                                                    <v-text-field label="เพศ"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12" sm="6">
-                                                    <v-text-field label="สี"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12" sm="6">
-                                                    <v-text-field label="ชื่อหรือหมายเลขพ่อพันธุ์"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12" sm="6">
-                                                    <v-text-field label="ชื่อหรือหมายเลขแม่พันธุ์"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12" sm="6">
-                                                    <v-text-field label="น้ำหนัก(กิโลกรัม)"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12" sm="6">
-                                                    <v-text-field label="ความกว้างรอบอก(เซนติเมตร)"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12" sm="6">
-                                                    <v-text-field label="ความยาวลำตัว(เซนติเมตร)"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12" sm="6">
-                                                    <v-text-field label="ความสูง(เซนติเมตร)"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12" sm="6">
-                                                    <v-text-field label="ใบพันธุ์ประวัติอ้างอิง"></v-text-field>
-                                                </v-col>
-                                            </v-row>
-                                        </v-container>
-                                    </v-card-text>
-                                    <v-card-actions>
-                                        <v-spacer></v-spacer>
-                                        <v-btn color="blue darken-1" text @click="dialog = false">ยกเลิก</v-btn>
-                                        <v-btn color="blue darken-1" text @click="dialog = false">บันทึก</v-btn>
-                                    </v-card-actions>
-                                </v-card>
-                            </v-dialog>
+                            
                             <!-- </v-row> -->
                             <!-- <v-spacer></v-spacer>
                             <v-btn color="success">อัพโหลดใบพันธุ์ประวัติ</v-btn> -->
                         </v-toolbar-title>
 
                         <tbody>
-                            <tr v-for="item in desserts" :key="item.name">
-                                <td>{{ item.describe }}</td>
-                                <td>{{ item.calories }}<v-icon @click="">{{item.icons}}</v-icon></td>
-                                
+                            <tr>
+                                <div v-for="item in desserts" :key="item.name">
+                                    <v-text-field :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
+                                </div>
                             </tr>
+                            
                             <tr row wrap>
                                 <td>
-                                    
+
                                     <template>
                                         <v-file-input label="ใบรับรองพันธุ์ประวัติแบบเป็นทางการ" prepend-icon="mdi-camera"></v-file-input>
                                     </template>
@@ -121,7 +62,7 @@ export default {
     /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
     data() {
         return {
-            dialog: false,
+            dialog: true,
             items: [{
                     src: 'https://images.pexels.com/photos/46188/bison-buffalo-american-animal-46188.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
                 },
@@ -176,7 +117,7 @@ export default {
                 {
                     describe: 'ใบพันธุ์ประวัติอ้างอิง',
                     calories: '',
-                    icons:'mdi-file-pdf-outline',
+                    icons: 'mdi-file-pdf-outline',
                 },
                 {
                     describe: 'ใบรับรองพันธุ์ประวัติแบบเป็นทางการ',
