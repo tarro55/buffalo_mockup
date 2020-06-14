@@ -230,7 +230,7 @@ export default {
 
     computed: {
         formTitle() {
-            return this.editedIndex === -1 ? 'เพิ่ม' : 'Edit Item'
+            return this.editedIndex === -1 ? 'เพิ่ม' : 'เพิ่ม'
         },
     },
 

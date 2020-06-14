@@ -6,32 +6,120 @@
     <br>
 
     <center>
-        <v-flex xs8> 
+        <v-flex xs8>
+            <!-- <v-card>
+                    <v-toolbar color="cyan" dark flat>
+                        <v-toolbar-title>ข้อมูลผู้ใช้</v-toolbar-title>
+                        <v-spacer></v-spacer>
+                        <v-btn icon>
+                            <v-icon class="mr-2" @click="editItem(item)">
+                                mdi-pencil
+                            </v-icon>
+                        </v-btn>
+                    </v-toolbar>
+                </v-card>
+                <v-card>
+                    <v-card-text class="font-weight-black">ชื่อ : กระบือ1</v-card-text>
+                    <v-card-text class="font-weight-black">เบอร์หู : 1</v-card-text>
+                    <v-card-text class="font-weight-black">อายุ :3</v-card-text>
+                    <v-card-text class="font-weight-black">เพศ : ผู้</v-card-text>
+                    <v-card-text class="font-weight-black">สี : ดำ</v-card-text>
+                    <v-card-text class="font-weight-black">ชื่อหรือหมายเลขพ่อพันธุ์ : 2</v-card-text>
+                    <v-card-text class="font-weight-black">ชื่อหรือหมายเลขแม่พันธุ์ : 4</v-card-text>
+                    <v-card-text class="font-weight-black">น้ำหนัก : 340 กก</v-card-text>
+                    <v-card-text class="font-weight-black">ความกว้างรอบอก : 170 ซม.</v-card-text>
+                    <v-card-text class="font-weight-black">ความยาวลำตัว : 340 ซม.</v-card-text>
+                    <v-card-text class="font-weight-black">ความสูง : 100 ซม.</v-card-text> 
+                </v-card> -->
             <template>
                 <v-simple-table>
-                    <template v-slot:default>
-                        <thead>
-                            รายละเอียดควาย
-                            <v-btn icon>
-                                <v-icon class="mr-2" @click="editItem(item)">
-                                    mdi-pencil
-                                </v-icon>
-                            </v-btn>
-                        </thead>
+                    <template>
+                        <v-toolbar-title>รายละเอียดกระบือ
+                            <!-- <v-row justify="center"> -->
+                            <v-dialog v-model="dialog" persistent max-width="600px">
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn icon color="primary" dark v-bind="attrs" v-on="on">
+                                        <v-icon class="mr-2" @click="editItem(item)">
+                                            mdi-pencil
+                                        </v-icon>
+                                    </v-btn>
+                                </template>
+                                <v-card>
+                                    <v-card-title>
+                                        <span class="headline">ประวัติกระบือ</span>
+                                    </v-card-title>
+                                    <v-card-text>
+                                        <v-container>
+                                            <v-row>
+                                                <v-col cols="12" sm="6">
+                                                    <v-text-field label="ชื่อ"></v-text-field>
+                                                </v-col>
+                                                <v-col cols="12" sm="6">
+                                                    <v-text-field label="เบอร์หู"></v-text-field>
+                                                </v-col>
+                                                <v-col cols="12" sm="6">
+                                                    <v-text-field label="อายุ"></v-text-field>
+                                                </v-col>
+                                                <v-col cols="12" sm="6">
+                                                    <v-text-field label="เพศ"></v-text-field>
+                                                </v-col>
+                                                <v-col cols="12" sm="6">
+                                                    <v-text-field label="สี"></v-text-field>
+                                                </v-col>
+                                                <v-col cols="12" sm="6">
+                                                    <v-text-field label="ชื่อหรือหมายเลขพ่อพันธุ์"></v-text-field>
+                                                </v-col>
+                                                <v-col cols="12" sm="6">
+                                                    <v-text-field label="ชื่อหรือหมายเลขแม่พันธุ์"></v-text-field>
+                                                </v-col>
+                                                <v-col cols="12" sm="6">
+                                                    <v-text-field label="น้ำหนัก(กิโลกรัม)"></v-text-field>
+                                                </v-col>
+                                                <v-col cols="12" sm="6">
+                                                    <v-text-field label="ความกว้างรอบอก(เซนติเมตร)"></v-text-field>
+                                                </v-col>
+                                                <v-col cols="12" sm="6">
+                                                    <v-text-field label="ความยาวลำตัว(เซนติเมตร)"></v-text-field>
+                                                </v-col>
+                                                <v-col cols="12" sm="6">
+                                                    <v-text-field label="ความสูง(เซนติเมตร)"></v-text-field>
+                                                </v-col>
+                                            </v-row>
+                                        </v-container>
+                                    </v-card-text>
+                                    <v-card-actions>
+                                        <v-spacer></v-spacer>
+                                        <v-btn color="blue darken-1" text @click="dialog = false">ยกเลิก</v-btn>
+                                        <v-btn color="blue darken-1" text @click="dialog = false">บันทึก</v-btn>
+                                    </v-card-actions>
+                                </v-card>
+                            </v-dialog>
+                            <!-- </v-row> -->
+                            <!-- <v-spacer></v-spacer>
+                            <v-btn color="success">อัพโหลดใบพันธุ์ประวัติ</v-btn> -->
+                        </v-toolbar-title>
+
                         <tbody>
                             <tr v-for="item in desserts" :key="item.name">
                                 <td>{{ item.describe }}</td>
                                 <td>{{ item.calories }}</td>
                             </tr>
-                            <tr>
+                            <tr row wrap>
                                 <td>
-                                    ใบพันธุ์ประวัติอ้างอิง
+                                    ใบรับรองพันธุ์ประวัติ
+                                    <template>
+                                        <v-file-input label="ใบรับรองพันธุ์ประวัติ" prepend-icon="mdi-camera"></v-file-input>
+                                    </template>
+                                </td>
+                                <td>
+                                    <v-btn color="blue" dark>บันทึก</v-btn>
                                 </td>
                             </tr>
                         </tbody>
+
                     </template>
                 </v-simple-table>
-            </template> 
+            </template>
         </v-flex>
     </center>
 
@@ -52,7 +140,7 @@ export default {
     /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
     data() {
         return {
-
+            dialog: false,
             items: [{
                     src: 'https://images.pexels.com/photos/46188/bison-buffalo-american-animal-46188.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
                 },
@@ -60,7 +148,6 @@ export default {
                     src: 'https://images.pexels.com/photos/360592/pexels-photo-360592.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
                 },
             ],
-
             desserts: [{
                     describe: 'ชื่อ',
                     calories: 'กระบือ1',
@@ -71,7 +158,7 @@ export default {
                 },
                 {
                     describe: 'อายุ',
-                    calories: '4ปี 1เดือน',
+                    calories: '4',
                 },
                 {
                     describe: 'เพศ',
@@ -90,33 +177,29 @@ export default {
                     calories: '392',
                 },
                 {
-                    describe: 'น้ำหนัก',
-                    calories: '408 กิโลกรัม',
+                    describe: 'น้ำหนัก(กิโลกรัม)',
+                    calories: '408',
                 },
                 {
-                    describe: 'ความกว้างรอบอก',
-                    calories: '170 เซนติเมตร',
+                    describe: 'ความกว้างรอบอก(เซนติเมตร)',
+                    calories: '170',
                 },
                 {
-                    describe: 'ความยาวลำตัว',
-                    calories: '240 เซนติเมตร',
+                    describe: 'ความยาวลำตัว(เซนติเมตร)',
+                    calories: '240',
                 },
                 {
-                    describe: 'ความสูง',
-                    calories: '100 เซนติเมตร',
+                    describe: 'ความสูง(เซนติเมตร)',
+                    calories: '100',
                 },
-                
             ],
+
         };
     },
     /*------------------------- สิ่งทที่อยู่ในนี้จะถูกรัยเมื่อโหลด ------------------------------------------*/
-    methods: {
-        editItem(item) {
-            this.editedIndex = this.desserts.indexOf(item)
-            this.editedItem = Object.assign({}, item)
-            this.dialog = true
-        },
-
+    mounted: async function () {
+        /**** เรียกใช้ methods ชื่อ load() */
+        await this.load();
     },
     /*------------------------- กระทำการตอน router ถูกโหลดเข้ามา------------------------------------------*/
     async beforeRouteEnter(to, from, next) {
