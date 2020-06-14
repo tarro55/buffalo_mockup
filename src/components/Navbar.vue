@@ -20,11 +20,11 @@
         <v-spacer></v-spacer>
 
         <v-menu offset-y>
-            <template v-slot:activator="{ on }">
+            <!-- <template v-slot:activator="{ on }">
                 <v-avatar>
                     <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
                 </v-avatar>
-            </template>
+            </template> -->
             <v-list>
                 <v-list-item @click="logout()">
                     <v-list-item-title>
