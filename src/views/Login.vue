@@ -1,11 +1,14 @@
 <template>
-<div>
+<div class="bg">
     <v-dialog v-model="dialog" scrollable fullscreen persistent :overlay="false" max-width="500px" transition="dialog-transition">
         <v-card style="padding:20px;">
-            <v-container class="fill-height" fluid>
+            <v-container class="fill-height bg" fluid>
                 <v-row align="center" justify="center">
                     <v-col cols="12" sm="8" md="4">
-                        <v-card class="elevation-12"> 
+                        <v-card class="elevation-12">
+                            <v-card-text>
+                                <h1>เข้าสู่ระบบ</h1>
+                            </v-card-text>
                             <v-card-text>
                                 <v-form>
                                     <v-text-field label="Login" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
@@ -66,6 +69,13 @@ export default {
 }
 </script>
 
-<style  scoped>
-
+<style scoped>
+.bg {
+    background-image: url("https://images.pexels.com/photos/3341338/pexels-photo-3341338.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); 
+    background-color: #cccccc; 
+    /* height: 500px;  */
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
 </style>
