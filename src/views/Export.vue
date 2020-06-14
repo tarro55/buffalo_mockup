@@ -5,7 +5,7 @@
     <v-card max-width="1000" class="mx-auto">
 
         <v-list two-line subheader>
-            <v-list-item v-for="item in items" :key="item.title" @click="">
+            <v-list-item v-for="item in items" :key="item.title" >
                 <v-list-item-avatar>
                     <v-icon :class="[item.iconClass]" v-text="item.icon"></v-icon>
                 </v-list-item-avatar>
