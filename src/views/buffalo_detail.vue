@@ -105,13 +105,14 @@
                         <tbody>
                             <tr v-for="item in desserts" :key="item.name">
                                 <td>{{ item.describe }}</td>
-                                <td>{{ item.calories }}</td>
+                                <td>{{ item.calories }}<v-icon @click="">{{item.icons}}</v-icon></td>
+                                
                             </tr>
                             <tr row wrap>
                                 <td>
-                                    ใบรับรองพันธุ์ประวัติ
+                                    
                                     <template>
-                                        <v-file-input label="ใบรับรองพันธุ์ประวัติ" prepend-icon="mdi-camera"></v-file-input>
+                                        <v-file-input label="ใบรับรองพันธุ์ประวัติแบบเป็นทางการ" prepend-icon="mdi-camera"></v-file-input>
                                     </template>
                                 </td>
                                 <td>
@@ -194,6 +195,15 @@ export default {
                 {
                     describe: 'ความสูง(เซนติเมตร)',
                     calories: '100',
+                },
+                {
+                    describe: 'ใบพันธุ์ประวัติอ้างอิง',
+                    calories: '',
+                    icons:'mdi-file-pdf-outline',
+                },
+                {
+                    describe: 'ใบรับรองพันธุ์ประวัติแบบเป็นทางการ',
+                    calories: '',
                 },
             ],
 
