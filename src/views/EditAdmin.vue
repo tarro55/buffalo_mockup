@@ -23,24 +23,17 @@
 
                             <v-card-text>
                                 <v-container>
-                                    <v-row>
-                                        <v-toolbar-title>
-                                            <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
-                                        </v-toolbar-title>
-                                        <v-col cols="12" sm="6" md="4">
-                                            <!-- <v-text-field v-model="editedItem.name" label="Dessert name"></v-text-field> -->
+                                    <v-row> 
+                                        <v-col cols="12" sm="6" md="4"> 
                                             <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
                                         </v-col>
-                                        <v-col cols="12" sm="6" md="4">
-                                            <!-- <v-text-field v-model="editedItem.calories" label="Calories"></v-text-field> -->
+                                        <v-col cols="12" sm="6" md="4"> 
                                             <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
                                         </v-col>
-                                        <v-col cols="12" sm="6" md="4">
-                                            <!-- <v-text-field v-model="editedItem.fat" label="Fat (g)"></v-text-field> -->
-                                            <v-text-field v-model="editedItem.Phonenumber" label="อีเมล์"></v-text-field>
+                                        <v-col cols="12" sm="6" md="4"> 
+                                            <v-text-field v-model="editedItem.email" label="อีเมล์"></v-text-field>
                                         </v-col>
-                                        <v-col cols="12" sm="6" md="4">
-                                            <!-- <v-text-field v-model="editedItem.carbs" label="Carbs (g)"></v-text-field> -->
+                                        <v-col cols="12"> 
                                             <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
                                         </v-col>
                                     </v-row>
@@ -79,6 +72,8 @@
                 <v-btn color="primary" @click="initialize">Reset</v-btn>
             </template>
         </v-data-table>
+
+
 
     </v-container>
 </div>
@@ -143,7 +138,7 @@ export default {
 
     computed: {
         formTitle() {
-            return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+            return this.editedIndex === -1 ? ' ' : ' '
         },
     },
 

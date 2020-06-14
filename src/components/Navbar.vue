@@ -36,8 +36,12 @@
                     </v-list-item-title>
                 </v-list-item>
             </v-list>
+
+            
         </v-menu>
+        
     </v-app-bar>
+    
 </div>
 </template>
 
@@ -70,7 +74,7 @@ export default {
                     router: "/SetUser"
                 },
                 {
-                     text: "รายงาน",
+                    text: "รายงาน",
                     sub: "รายงานข้อมูลต่างๆ",
                     icon: "em em-information_source",
                     router: "/report"

@@ -7,30 +7,7 @@
 
     <center>
         <v-flex xs8>
-            <!-- <v-card>
-                    <v-toolbar color="cyan" dark flat>
-                        <v-toolbar-title>ข้อมูลผู้ใช้</v-toolbar-title>
-                        <v-spacer></v-spacer>
-                        <v-btn icon>
-                            <v-icon class="mr-2" @click="editItem(item)">
-                                mdi-pencil
-                            </v-icon>
-                        </v-btn>
-                    </v-toolbar>
-                </v-card>
-                <v-card>
-                    <v-card-text class="font-weight-black">ชื่อ : กระบือ1</v-card-text>
-                    <v-card-text class="font-weight-black">เบอร์หู : 1</v-card-text>
-                    <v-card-text class="font-weight-black">อายุ :3</v-card-text>
-                    <v-card-text class="font-weight-black">เพศ : ผู้</v-card-text>
-                    <v-card-text class="font-weight-black">สี : ดำ</v-card-text>
-                    <v-card-text class="font-weight-black">ชื่อหรือหมายเลขพ่อพันธุ์ : 2</v-card-text>
-                    <v-card-text class="font-weight-black">ชื่อหรือหมายเลขแม่พันธุ์ : 4</v-card-text>
-                    <v-card-text class="font-weight-black">น้ำหนัก : 340 กก</v-card-text>
-                    <v-card-text class="font-weight-black">ความกว้างรอบอก : 170 ซม.</v-card-text>
-                    <v-card-text class="font-weight-black">ความยาวลำตัว : 340 ซม.</v-card-text>
-                    <v-card-text class="font-weight-black">ความสูง : 100 ซม.</v-card-text> 
-                </v-card> -->
+            
             <template>
                 <v-simple-table>
                     <template>
