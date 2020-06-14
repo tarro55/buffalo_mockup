@@ -22,6 +22,85 @@
     </v-card>
     <br>
 
+    <v-container>
+        <v-flex xs12 row wrap>
+            <v-flex xs6 pa-1>
+                <v-card>
+                    <v-toolbar color="green accent-3" dark flat>
+                        <v-toolbar-title>ข้อมูลผู้ใช้</v-toolbar-title>
+                        <v-spacer></v-spacer>
+                        <v-btn icon>
+                            <v-icon class="mr-2" @click="editItem(item)">
+                                mdi-pencil
+                            </v-icon>
+                        </v-btn>
+                    </v-toolbar>
+                </v-card>
+                <v-card>
+                    <v-card-text class="font-weight-black">ชื่อ-นายสกุล : นายแดง</v-card-text>
+                    <v-card-text class="font-weight-black">เลขบัตรประจำตัวประชาชน : 1234567890123</v-card-text>
+                    <v-card-text class="font-weight-black">ที่อยู่ :12/11 หมู่ที่1 ตำบลแม่กา อำเภอเมือง จังหวัดพะเยา 56000</v-card-text>
+                    <v-card-text class="font-weight-black">เบอร์โทรศัพท์ : 0123123123</v-card-text>
+                </v-card>
+            </v-flex>
+
+            <v-flex xs6 pa-1>
+                <v-card>
+                    <v-toolbar color="green accent-3" dark flat>
+                        <v-toolbar-title>ข้อมูลฟาร์ม</v-toolbar-title>
+                        <v-spacer></v-spacer>
+                        <v-btn icon>
+                            <v-icon class="mr-2" @click="editItem1(item)">
+                                mdi-pencil
+                            </v-icon>
+                        </v-btn>
+                    </v-toolbar>
+                </v-card>
+                <v-card>
+                    <v-card-text class="font-weight-black">ชื่อฟาร์ม : ฟาร์มนายแดง</v-card-text>
+                    <v-card-text class="font-weight-black">ละติจูด : </v-card-text>
+                    <v-card-text class="font-weight-black">ลองจิจูด : </v-card-text>
+                </v-card>
+            </v-flex>
+
+        </v-flex>
+
+        <v-flex xs12 row wrap>
+            <v-flex xs6 pa-1>
+                <v-card>
+                    <v-toolbar color="green accent-3" dark flat>
+                        <v-toolbar-title>แผนที่ฟาร์ม</v-toolbar-title>
+                        <v-spacer></v-spacer> 
+                    </v-toolbar>
+                </v-card>
+                <v-card class="pa-4" flat height="500px" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">
+                    <v-btn icon>
+                        <v-icon>mdi-dots-vertical</v-icon>
+                    </v-btn>
+                </v-card>
+            </v-flex>
+
+            <v-flex xs6 pa-1>
+                <v-card>
+                    <v-toolbar color="green accent-3" dark flat>
+                        <v-toolbar-title>จำนวนกระบือ(ตัวผู้-ตัวเมีย)</v-toolbar-title>
+                        <v-spacer></v-spacer>
+                        <!-- <v-btn icon>
+                            <v-icon class="mr-2" @click="editItem(item)">
+                                mdi-pencil
+                            </v-icon>
+                        </v-btn> -->
+                    </v-toolbar>
+                </v-card>
+                <v-card class="pa-4" flat height="500px" img="https://scontent.fbkk5-6.fna.fbcdn.net/v/t1.15752-9/103827409_1121454478239871_5644132384704264031_n.png?_nc_cat=101&_nc_sid=b96e70&_nc_eui2=AeHiwwEblVQmEtJw3BASXCXxKgHge3QlrGwqAeB7dCWsbCr__5fY8Dn3yHtHWnzm-m5sG1ej5wDqOHOGuYBqLBqq&_nc_ohc=FdGy486LDjEAX89Y0Ce&_nc_ht=scontent.fbkk5-6.fna&oh=f33f0943c59af3a35fc8e18e510213f6&oe=5F09A1B2">
+                    <v-btn icon>
+                        <v-icon>mdi-dots-vertical</v-icon>
+                    </v-btn>
+                </v-card>
+            </v-flex> 
+        </v-flex> 
+    </v-container>
+
     <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
         <template v-slot:top>
             <v-toolbar flat color="white">
@@ -87,92 +166,6 @@
         </template>
     </v-data-table>
     <br><br>
-
-    <v-container>
-        <v-flex xs12 row wrap>
-            <v-flex xs6 pa-1>
-                <v-card>
-                    <v-toolbar color="cyan" dark flat>
-                        <v-toolbar-title>ข้อมูลผู้ใช้</v-toolbar-title>
-                        <v-spacer></v-spacer>
-                        <v-btn icon>
-                            <v-icon class="mr-2" @click="editItem(item)">
-                                mdi-pencil
-                            </v-icon>
-                        </v-btn>
-                    </v-toolbar>
-                </v-card>
-                <v-card>
-                    <v-card-text class="font-weight-black">ชื่อ-นายสกุล : นายแดง</v-card-text>
-                    <v-card-text class="font-weight-black">เลขบัตรประจำตัวประชาชน : 1234567890123</v-card-text>
-                    <v-card-text class="font-weight-black">ที่อยู่ :12/11 หมู่ที่1 ตำบลแม่กา อำเภอเมือง จังหวัดพะเยา 56000</v-card-text>
-                    <v-card-text class="font-weight-black">เบอร์โทรศัพท์ : 0123123123</v-card-text>
-                </v-card>
-            </v-flex>
-
-            <v-flex xs6 pa-1>
-                <v-card>
-                    <v-toolbar color="cyan" dark flat>
-                        <v-toolbar-title>ข้อมูลฟาร์ม</v-toolbar-title>
-                        <v-spacer></v-spacer>
-                        <v-btn icon>
-                            <v-icon class="mr-2" @click="editItem(item)">
-                                mdi-pencil
-                            </v-icon>
-                        </v-btn>
-                    </v-toolbar>
-                </v-card>
-                <v-card>
-                    <v-card-text class="font-weight-black">ชื่อฟาร์ม : ฟาร์มนายแดง</v-card-text>
-                    <v-card-text class="font-weight-black">ละติจูด : </v-card-text>
-                    <v-card-text class="font-weight-black">ลองจิจูด : </v-card-text>
-                </v-card>
-            </v-flex>
-
-        </v-flex>
-
-        <v-flex xs12 row wrap>
-            <v-flex xs6 pa-1>
-                <v-card>
-                    <v-toolbar color="cyan" dark flat>
-                        <v-toolbar-title>แผนที่ฟาร์ม</v-toolbar-title>
-                        <v-spacer></v-spacer>
-                        <!-- <v-btn icon>
-                            <v-icon class="mr-2" @click="editItem(item)">
-                                mdi-pencil
-                            </v-icon>
-                        </v-btn> -->
-                    </v-toolbar>
-                </v-card>
-                <v-card class="pa-4" flat height="500px" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">
-                    <v-btn icon>
-                        <v-icon>mdi-dots-vertical</v-icon>
-                    </v-btn>
-                </v-card>
-            </v-flex>
-
-            <v-flex xs6 pa-1>
-                <v-card>
-                    <v-toolbar color="cyan" dark flat>
-                        <v-toolbar-title>จำนวนกระบือ(ตัวผู้-ตัวเมีย)</v-toolbar-title>
-                        <v-spacer></v-spacer>
-                        <v-btn icon>
-                            <v-icon class="mr-2" @click="editItem(item)">
-                                mdi-pencil
-                            </v-icon>
-                        </v-btn>
-                    </v-toolbar>
-                </v-card>
-                <v-card class="pa-4" flat height="500px" img="https://scontent.fbkk5-6.fna.fbcdn.net/v/t1.15752-9/103827409_1121454478239871_5644132384704264031_n.png?_nc_cat=101&_nc_sid=b96e70&_nc_eui2=AeHiwwEblVQmEtJw3BASXCXxKgHge3QlrGwqAeB7dCWsbCr__5fY8Dn3yHtHWnzm-m5sG1ej5wDqOHOGuYBqLBqq&_nc_ohc=FdGy486LDjEAX89Y0Ce&_nc_ht=scontent.fbkk5-6.fna&oh=f33f0943c59af3a35fc8e18e510213f6&oe=5F09A1B2">
-        <v-btn icon>
-            <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>
-    </v-card>
-            </v-flex>
-
-        </v-flex>
-
-    </v-container>
 
 </v-container>
 </template>
@@ -250,19 +243,19 @@ export default {
                     name: 'กระบือ1',
                     number: '3',
                     gene: 'thai',
-                    age: '4ปี',
+                    age: '4ปี0เดือน',
                 },
                 {
                     name: 'กระบือ2',
                     number: '2',
                     gene: 'thai',
-                    age: '2ปี',
+                    age: '2ปี1เดือน',
                 },
                 {
                     name: 'กระบือ3',
                     number: '9',
                     gene: 'thai',
-                    age: '6ปี',
+                    age: '6ปี2เดือน',
                 },
                 {
                     name: 'กระบือ4',
@@ -289,7 +282,7 @@ export default {
             this.editedIndex = this.desserts.indexOf(item)
             this.editedItem = Object.assign({}, item)
             this.dialog = true
-        },
+        }, 
 
         deleteItem(item) {
             const index = this.desserts.indexOf(item)
