@@ -65,7 +65,7 @@
         </template>
         <template v-slot:item.actions="{ item }">
             <v-icon class="mr-2" @click="editItem(item)">
-                mdi-file-excel-outline
+                mdi-microsoft-excel
             </v-icon>
             <v-icon class="mr-2" @click="$router.push(`farmer_detail`)">
                 mdi-clipboard-file-outline

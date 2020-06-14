@@ -20,11 +20,11 @@
         <v-spacer></v-spacer>
 
         <v-menu offset-y>
-            <!-- <template v-slot:activator="{ on }">
+            <template v-slot:activator="{ on }">
                 <v-avatar>
                     <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
                 </v-avatar>
-            </template> -->
+            </template>
             <v-list>
                 <v-list-item @click="logout()">
                     <v-list-item-title>
@@ -32,8 +32,12 @@
                     </v-list-item-title>
                 </v-list-item>
             </v-list>
+
+            
         </v-menu>
+        
     </v-app-bar>
+    
 </div>
 </template>
 
@@ -66,11 +70,17 @@ export default {
                     router: "/SetUser"
                 },
                 {
-                     text: "รายงาน",
+                    text: "รายงาน",
                     sub: "รายงานข้อมูลต่างๆ",
                     icon: "em em-information_source",
                     router: "/report"
                 },
+                // {
+                //     text: "ออกจากระบบ",
+                //     sub: "ออกจากระบบ",
+                //     icon: "mdi-logout",
+                //     router: "/"
+                // },
             ],
             
             txt: "Hello World",

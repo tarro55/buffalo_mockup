@@ -73,6 +73,8 @@
             </template>
         </v-data-table>
 
+
+
     </v-container>
 </div>
 </template>
@@ -136,7 +138,7 @@ export default {
 
     computed: {
         formTitle() {
-            return this.editedIndex === -1 ? 'แก้ไข' : 'แก้ไข'
+            return this.editedIndex === -1 ? ' ' : ' '
         },
     },
 
