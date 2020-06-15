@@ -22,150 +22,113 @@
     </v-card>
     <br>
 
-    <v-container>
-        <v-flex xs12 row wrap>
-            <v-flex xs6 pa-1>
-                <v-card>
-                    <v-toolbar color="green accent-3" dark flat>
-                        <v-toolbar-title>ข้อมูลผู้ใช้</v-toolbar-title>
-                        <v-spacer></v-spacer>
-                        <v-btn icon>
-                            <v-icon class="mr-2" @click="editItem(item)">
-                                mdi-pencil
+    <v-card class="basil basil--text">
+        <v-tabs grow>
+            <v-tab>
+                <v-icon>mdi-account-outline</v-icon>
+                <h5>ข้อมูลเกษตกร</h5>
+            </v-tab>
+            <v-tab>
+                <v-icon dark>mdi-file-outline</v-icon>
+                <h5>ข้อมูลกระบือ</h5>
+            </v-tab>
+
+            <v-tab-item>
+                <v-card flat>
+                    <v-card-text>
+                        <h6>
+                            <p class="font-weight-black">ข้อมูลผู้ใช้</p>
+                            <hr>
+                            <p>ชื่อ-นายสกุล : นายแดง
+                                <p>เลขบัตรประจำตัวประชาชน : 1234567890123</p>
+                                <p>ที่อยู่ :12/11 หมู่ที่1 ตำบลแม่กา อำเภอเมือง จังหวัดพะเยา 56000</p>
+                                <p>เบอร์โทรศัพท์ : 0123123123</p>
+                                <hr>
+                                <p class="font-weight-black">ข้อมูลฟาร์ม</p>
+                                <hr>
+                                <p>ชื่อฟาร์ม : ฟาร์มนายแดง</p>
+                                <p>ที่อยู่ฟาร์ม : 12/11 หมู่ที่1 ตำบลแม่กา อำเภอเมือง จังหวัดพะเยา 56000</p>
+                                <p>ละติจูด : </p>
+                                <p>ลองจิจูด : </p>
+                                <br>
+                                <p>แผนที่ฟาร์ม</p>
+                                <v-card class="pa-4" flat height="500px" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">
+                                    <!-- <v-btn icon>
+                                        <v-icon>mdi-dots-vertical</v-icon>
+                                    </v-btn> -->
+                                </v-card>
+                        </h6>
+
+                    </v-card-text>
+                </v-card>
+            </v-tab-item>
+
+            <v-tab-item>
+                <v-card flat background-color="transparent" color="basil">
+                    <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
+                        <template v-slot:top>
+                            <v-toolbar flat color="white">
+                                <v-toolbar-title>ข้อมูลควาย</v-toolbar-title>
+                                <v-divider class="mx-4" inset vertical></v-divider>
+                                <v-toolbar-title>
+                                    <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
+                                </v-toolbar-title>
+                                <v-spacer></v-spacer>
+                                <v-dialog v-model="dialog" max-width="500px">
+                                    <template v-slot:activator="{ on, attrs }">
+                                        <v-btn color="primary" large dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
+                                    </template>
+                                    <v-card>
+                                        <v-card-title>
+                                            <span class="headline">{{ formTitle }}</span>
+                                        </v-card-title>
+
+                                        <v-card-text>
+                                            <v-container>
+                                                <v-row>
+                                                    <v-col cols="12" sm="6" md="4">
+                                                        <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6" md="4">
+                                                        <v-text-field v-model="editedItem.number" label="เบอร์หู"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6" md="4">
+                                                        <v-text-field v-model="editedItem.gene" label="พันธุ์"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6" md="4">
+                                                        <v-text-field v-model="editedItem.age" label="อายุ"></v-text-field>
+                                                    </v-col>
+                                                </v-row>
+                                            </v-container>
+                                        </v-card-text>
+
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                            <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
+                                            <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
+                                        </v-card-actions>
+                                    </v-card>
+                                </v-dialog>
+                            </v-toolbar>
+                        </template>
+                        
+                        <template v-slot:item.actions="{ item }"> 
+                            <v-icon class="mr-2" @click="$router.push(`buffalo_detail`)">
+                                mdi-eye-outline
+                            </v-icon> 
+                            <v-icon @click="deleteItem(item)">
+                                mdi-delete
                             </v-icon>
-                        </v-btn>
-                    </v-toolbar>
+                        </template>
+                        <template v-slot:no-data>
+                            <v-btn color="primary" @click="initialize">Reset</v-btn>
+                        </template>
+                    </v-data-table>
                 </v-card>
-                <v-card>
-                    <v-card-text class="font-weight-black">ชื่อ-นายสกุล : นายแดง</v-card-text>
-                    <v-card-text class="font-weight-black">เลขบัตรประจำตัวประชาชน : 1234567890123</v-card-text>
-                    <v-card-text class="font-weight-black">ที่อยู่ :12/11 หมู่ที่1 ตำบลแม่กา อำเภอเมือง จังหวัดพะเยา 56000</v-card-text>
-                    <v-card-text class="font-weight-black">เบอร์โทรศัพท์ : 0123123123</v-card-text>
-                </v-card>
-            </v-flex>
+            </v-tab-item>
 
-            <v-flex xs6 pa-1>
-                <v-card>
-                    <v-toolbar color="green accent-3" dark flat>
-                        <v-toolbar-title>ข้อมูลฟาร์ม</v-toolbar-title>
-                        <v-spacer></v-spacer>
-                        <v-btn icon>
-                            <v-icon class="mr-2" @click="editItem1(item)">
-                                mdi-pencil
-                            </v-icon>
-                        </v-btn>
-                    </v-toolbar>
-                </v-card>
-                <v-card>
-                    <v-card-text class="font-weight-black">ชื่อฟาร์ม : ฟาร์มนายแดง</v-card-text>
-                    <v-card-text class="font-weight-black">ละติจูด : </v-card-text>
-                    <v-card-text class="font-weight-black">ลองจิจูด : </v-card-text>
-                </v-card>
-            </v-flex>
-
-        </v-flex>
-
-        <v-flex xs12 row wrap>
-            <v-flex xs6 pa-1>
-                <v-card>
-                    <v-toolbar color="green accent-3" dark flat>
-                        <v-toolbar-title>แผนที่ฟาร์ม</v-toolbar-title>
-                        <v-spacer></v-spacer> 
-                    </v-toolbar>
-                </v-card>
-                <v-card class="pa-4" flat height="500px" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">
-                    <v-btn icon>
-                        <v-icon>mdi-dots-vertical</v-icon>
-                    </v-btn>
-                </v-card>
-            </v-flex>
-
-            <v-flex xs6 pa-1>
-                <v-card>
-                    <v-toolbar color="green accent-3" dark flat>
-                        <v-toolbar-title>จำนวนกระบือ(ตัวผู้-ตัวเมีย)</v-toolbar-title>
-                        <v-spacer></v-spacer>
-                        <!-- <v-btn icon>
-                            <v-icon class="mr-2" @click="editItem(item)">
-                                mdi-pencil
-                            </v-icon>
-                        </v-btn> -->
-                    </v-toolbar>
-                </v-card>
-                <v-card class="pa-4" flat height="500px" img="https://scontent.fbkk5-6.fna.fbcdn.net/v/t1.15752-9/103827409_1121454478239871_5644132384704264031_n.png?_nc_cat=101&_nc_sid=b96e70&_nc_eui2=AeHiwwEblVQmEtJw3BASXCXxKgHge3QlrGwqAeB7dCWsbCr__5fY8Dn3yHtHWnzm-m5sG1ej5wDqOHOGuYBqLBqq&_nc_ohc=FdGy486LDjEAX89Y0Ce&_nc_ht=scontent.fbkk5-6.fna&oh=f33f0943c59af3a35fc8e18e510213f6&oe=5F09A1B2">
-                    <v-btn icon>
-                        <v-icon>mdi-dots-vertical</v-icon>
-                    </v-btn>
-                </v-card>
-            </v-flex> 
-        </v-flex> 
-    </v-container>
-
-    <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
-        <template v-slot:top>
-            <v-toolbar flat color="white">
-                <v-toolbar-title>ข้อมูลควาย</v-toolbar-title>
-                <v-divider class="mx-4" inset vertical></v-divider>
-                <v-toolbar-title>
-                    <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
-                </v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-dialog v-model="dialog" max-width="500px">
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-btn color="primary" large dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
-                    </template>
-                    <v-card>
-                        <v-card-title>
-                            <span class="headline">{{ formTitle }}</span>
-                        </v-card-title>
-
-                        <v-card-text>
-                            <v-container>
-                                <v-row>
-                                    <v-col cols="12" sm="6" md="4">
-                                        <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" sm="6" md="4">
-                                        <v-text-field v-model="editedItem.number" label="เบอร์หู"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" sm="6" md="4">
-                                        <v-text-field v-model="editedItem.gene" label="พันธุ์"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" sm="6" md="4">
-                                        <v-text-field v-model="editedItem.age" label="อายุ"></v-text-field>
-                                    </v-col>
-                                </v-row>
-                            </v-container>
-                        </v-card-text>
-
-                        <v-card-actions>
-                            <v-spacer></v-spacer>
-                            <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
-                            <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
-                        </v-card-actions>
-                    </v-card>
-                </v-dialog>
-            </v-toolbar>
-        </template>
-        <template v-slot:item.actions="{ item }">
-            <v-icon class="mr-2" @click="editItem(item)">
-                mdi-microsoft-excel
-            </v-icon>
-            <v-icon class="mr-2" @click="$router.push(`buffalo_detail`)">
-                mdi-clipboard-file-outline
-            </v-icon>
-            <v-icon class="mr-2" @click="editItem(item)">
-                mdi-pencil
-            </v-icon>
-            <v-icon @click="deleteItem(item)">
-                mdi-delete
-            </v-icon>
-        </template>
-        <template v-slot:no-data>
-            <v-btn color="primary" @click="initialize">Reset</v-btn>
-        </template>
-    </v-data-table>
-    <br><br>
+        </v-tabs>
+    </v-card>
 
 </v-container>
 </template>
@@ -173,29 +136,26 @@
 <script>
 export default {
     data: () => ({
+        tab: null,
         search: '',
+        dialog: true,
+        items: [
+            'ข้อมูลเกษตกร', 'ข้อมูลกระบือ',
+        ],
         dialog: false,
         headers: [{
-                // text: 'Dessert (100g serving)',
-                // value: 'name',
                 text: 'ชื่อ',
                 value: 'name'
             },
             {
-                // text: 'Calories',
-                // value: 'calories'
                 text: 'เบอร์หู',
                 value: 'number'
             },
             {
-                // text: 'Fat (g)',
-                // value: 'fat'
                 text: 'พันธุ์',
                 value: 'gene'
             },
             {
-                // text: 'Carbs (g)',
-                // value: 'carbs'
                 text: 'อายุ',
                 value: 'age'
             },
@@ -282,7 +242,7 @@ export default {
             this.editedIndex = this.desserts.indexOf(item)
             this.editedItem = Object.assign({}, item)
             this.dialog = true
-        }, 
+        },
 
         deleteItem(item) {
             const index = this.desserts.indexOf(item)
@@ -309,6 +269,12 @@ export default {
 }
 </script>
 
-<style  scoped>
+<style scoped>
+.basil {
+    background-color: #FFFBE6 !important;
+}
 
+.basil--text {
+    color: #356859 !important;
+}
 </style>

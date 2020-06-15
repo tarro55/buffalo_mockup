@@ -7,16 +7,17 @@
                     <v-col cols="12" sm="8" md="4">
                         <v-card class="elevation-12">
                             <v-card-text class="text-center">
-                                <h1>เข้าสู่ระบบ</h1><br>
+                                <h1>ยินดีต้อนรับเข้าสู่ระบบ</h1>
+                                <h1>พันธุ์ประวัติกระบือ</h1><br>
                                 <v-form>
-                                    <v-text-field label="Login" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
+                                    <v-text-field label="เข้าสู่ระบบ" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
 
-                                    <v-text-field id="password" label="Password" name="password" prepend-icon="mdi-lock" type="password"></v-text-field>
+                                    <v-text-field id="password" label="รหัสผ่าน" name="password" prepend-icon="mdi-lock" type="password"></v-text-field>
                                 </v-form>
                             </v-card-text>
                             <v-card-actions>
                                 <v-spacer></v-spacer>
-                                <v-btn @click="$router.push('farmer')" color="primary">Login</v-btn>
+                                <v-btn @click="$router.push('farmer')" large color="primary">เข้าสู่ระบบ</v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-col>
@@ -75,5 +76,6 @@ export default {
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
+ 
 }
 </style>

@@ -59,11 +59,8 @@
             </v-toolbar>
         </template>
         <template v-slot:item.actions="{ item }">
-            <v-icon class="mr-2" @click="editItem(item)">
-                mdi-microsoft-excel
-            </v-icon>
             <v-icon class="mr-2" @click="$router.push(`farmer_detail`)">
-                mdi-clipboard-file-outline
+                mdi-eye-outline
             </v-icon>
             <v-icon class="mr-2" @click="editItem(item)">
                 mdi-pencil
@@ -234,8 +231,7 @@ export default {
                     text: 'สันติสุข'
                 },
             ],
-        },
-        {
+         
         search: '',
         dialog: false,
         headers: [{
