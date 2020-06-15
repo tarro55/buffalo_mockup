@@ -36,6 +36,7 @@
             <v-tab-item>
                 <v-card flat>
                     <v-card-text>
+
                         <h6>
                             <p class="font-weight-black">ข้อมูลผู้ใช้</p>
                             <hr>
@@ -98,6 +99,9 @@
                                                     <v-col cols="12" sm="6" md="4">
                                                         <v-text-field v-model="editedItem.age" label="อายุ"></v-text-field>
                                                     </v-col>
+                                                    <v-col cols="12" sm="6" md="4">
+                                                        <v-text-field v-model="editedItem.certifacate" label="ใบพันธุ์ประวัติ"></v-text-field>
+                                                    </v-col>
                                                 </v-row>
                                             </v-container>
                                         </v-card-text>
@@ -111,11 +115,11 @@
                                 </v-dialog>
                             </v-toolbar>
                         </template>
-                        
-                        <template v-slot:item.actions="{ item }"> 
+
+                        <template v-slot:item.actions="{ item }">
                             <v-icon class="mr-2" @click="$router.push(`buffalo_detail`)">
                                 mdi-eye-outline
-                            </v-icon> 
+                            </v-icon>
                             <v-icon @click="deleteItem(item)">
                                 mdi-delete
                             </v-icon>
@@ -160,9 +164,13 @@ export default {
                 value: 'age'
             },
             {
+                text: 'ใบพันธุ์ประวัติ',
+                value: 'certifacate'
+            },
+            {
                 text: 'การจัดการ',
                 value: 'actions',
-                sortable: false
+                // sortable: false
             },
         ],
         desserts: [],
@@ -172,12 +180,14 @@ export default {
             number: '',
             gene: '',
             age: '',
+            certifacate: ''
         },
         defaultItem: {
             name: '',
             number: '',
             gene: '',
             age: '',
+            certifacate: ''
         },
     }),
 
@@ -204,36 +214,42 @@ export default {
                     number: '3',
                     gene: 'thai',
                     age: '4ปี0เดือน',
+                    certifacate: ''
                 },
                 {
                     name: 'กระบือ2',
                     number: '2',
                     gene: 'thai',
                     age: '2ปี1เดือน',
+                    certifacate: ''
                 },
                 {
                     name: 'กระบือ3',
                     number: '9',
                     gene: 'thai',
                     age: '6ปี2เดือน',
+                    certifacate: ''
                 },
                 {
                     name: 'กระบือ4',
                     number: '7',
                     gene: 'thai',
                     age: '1ปี',
+                    certifacate: ''
                 },
                 {
                     name: 'กระบือ5',
                     number: '1',
                     gene: 'thai',
                     age: '2ปี',
+                    certifacate: ''
                 },
                 {
                     name: 'กระบือ6',
                     number: '2',
                     gene: 'thai',
                     age: '3ปี',
+                    certifacate: ''
                 },
             ]
         },

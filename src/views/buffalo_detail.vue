@@ -1,31 +1,44 @@
 <template>
 <v-container grid-list-xs>
-    <v-carousel>
-        <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src" reverse-transition="fade-transition" transition="fade-transition"></v-carousel-item>
-    </v-carousel>
+    <v-flex xs12 row wrap>
+        <v-flex xs6 pa-3>
+            <v-card elevation="10" >
+                <v-img src="https://images.pexels.com/photos/1054650/pexels-photo-1054650.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" aspect-ratio="1.7"></v-img>
+                <v-list two-line>
+                    <center>
+                        <h5>ภาพด้านข้าง</h5>
+                    </center>
+                </v-list>
+            </v-card>
+        </v-flex>
+        <v-flex xs6 pa-3>
+            <v-card elevation="10" >
+                <v-img src="https://images.pexels.com/photos/2261770/pexels-photo-2261770.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" aspect-ratio="1.7"></v-img>
+                <v-list two-line>
+                    <center>
+                        <h5>ภาพด้านหลัง</h5>
+                    </center>
+                </v-list>
+            </v-card>
+        </v-flex>
+
+    </v-flex>
     <br>
 
     <center>
-        <v-flex xs8>
+        <v-flex xs6>
 
             <template>
                 <v-simple-table>
                     <template>
                         <v-toolbar-title>รายละเอียดกระบือ <v-btn color="success" @click="dialog=false">แก้ไข</v-btn>
-                            <!-- <v-row justify="center"> -->
-                            
-                            <!-- </v-row> -->
-                            <!-- <v-spacer></v-spacer>
-                            <v-btn color="success">อัพโหลดใบพันธุ์ประวัติ</v-btn> -->
                         </v-toolbar-title>
-
                         <tbody>
                             <tr>
                                 <div v-for="item in desserts" :key="item.name">
                                     <v-text-field :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
                                 </div>
                             </tr>
-                            
                             <tr row wrap>
                                 <td>
 
@@ -42,6 +55,7 @@
                     </template>
                 </v-simple-table>
             </template>
+            
         </v-flex>
     </center>
 
