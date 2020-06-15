@@ -1,100 +1,89 @@
 <template>
 <div style="padding:20px;">
-    <v-container>
-        <div>
-            <h3>ข้อมูลผู้ใช้งานระบบ</h3>
-        </div>
-        <br>
-        <v-divider></v-divider>
-        <v-card>
+<v-container>
+    <div>
+        <h3>ข้อมูลผู้ใช้งานระบบ</h3>
+    </div>
+    <br>
+    <v-divider></v-divider>
 
-        </v-card>
+    <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
+        <template v-slot:top>
+            <v-toolbar flat color="white">
+                
+                <v-toolbar-title>
+                    <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
+                </v-toolbar-title>
+                <v-spacer></v-spacer>
 
-        <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
-            <template v-slot:top>
-                <v-toolbar flat color="white">
+                <v-overflow-btn :items="province"  label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
+                <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0"></v-overflow-btn>
+                <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0"></v-overflow-btn>
+                <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
 
-                    <v-toolbar-title>
-                        <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="ค้นหา" single-line></v-text-field>
-                    </v-toolbar-title>
-                    <v-spacer></v-spacer>
+                <v-dialog v-model="dialog" max-width="500px">
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
+                    </template>
+                    <v-card>
+                        <v-card-title>
+                            <span class="headline">{{ formTitle }}</span>
+                        </v-card-title>
 
-                    <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
-                    <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0"></v-overflow-btn>
-                    <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0"></v-overflow-btn>
-                    <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
+                        <v-card-text>
+                            <v-container>
+                                <v-row>
+                                    <v-col cols="12" sm="6" md="4">
+                                        <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
+                                    </v-col>
+                                    <v-col cols="12" sm="6" md="4">
+                                        <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
+                                    </v-col>
+                                    <v-col cols="12" sm="6" md="4">
+                                        <v-text-field v-model="editedItem.Phonenumber" label="เบอร์โทรศัพท์"></v-text-field>
+                                    </v-col>
+                                    <v-col cols="12" sm="6" md="4">
+                                        <v-text-field v-model="editedItem.group" label="กลุ่มผู้ใช้"></v-text-field>
+                                    </v-col>
+                                </v-row>
+                            </v-container>
+                        </v-card-text>
 
-                    <v-dialog v-model="dialog" max-width="500px">
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
+                            <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-dialog>
+            </v-toolbar>
+        </template>
+        <template v-slot:item.actions="{ item }">
+            <v-icon class="mr-2" @click="editItem(item)">
+                mdi-microsoft-excel
+            </v-icon>
+            <v-icon class="mr-2" @click="$router.push(`farmer_detail`)">
+                mdi-clipboard-file-outline
+            </v-icon>
+            <v-icon class="mr-2" @click="editItem(item)">
+                mdi-pencil
+            </v-icon>
+            <v-icon @click="deleteItem(item)">
+                mdi-delete
+            </v-icon>
+        </template>
+        <template v-slot:no-data>
+            <v-btn color="primary" @click="initialize">Reset</v-btn>
+        </template>
+    </v-data-table>
 
-                        <template v-slot:activator="{ on, attrs }">
-                            <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
-                        </template>
-                        <v-card>
-                            <v-card-title>
-                                <span class="headline">{{ formTitle }}</span>
-                            </v-card-title>
-
-                            <v-card-text>
-                                <v-container>
-                                    <v-row>
-                                        <v-col cols="12" sm="6" md="4">
-                                            <!-- <v-text-field v-model="editedItem.name" label="Dessert name"></v-text-field> -->
-                                            <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" sm="6" md="4">
-                                            <!-- <v-text-field v-model="editedItem.calories" label="Calories"></v-text-field> -->
-                                            <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" sm="6" md="4">
-                                            <!-- <v-text-field v-model="editedItem.fat" label="Fat (g)"></v-text-field> -->
-                                            <v-text-field v-model="editedItem.Phonenumber" label="เบอร์โทรศัพท์"></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" sm="6" md="4">
-                                            <!-- <v-text-field v-model="editedItem.carbs" label="Carbs (g)"></v-text-field> -->
-                                            <v-text-field v-model="editedItem.group" label="กลุ่มผู้ใช้"></v-text-field>
-                                        </v-col>
-                                    </v-row>
-                                </v-container>
-                            </v-card-text>
-
-                            <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
-                                <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
-                            </v-card-actions>
-                        </v-card>
-                    </v-dialog>
-                </v-toolbar>
-            </template>
-            <template v-slot:item.actions="{ item }">
-                <v-icon class="mr-2" @click="editItem(item)">
-                    mdi-microsoft-excel
-                </v-icon>
-                <v-icon class="mr-2" @click="$router.push(`farmer_detail`)">
-                    mdi-clipboard-file-outline
-                </v-icon>
-                <v-icon class="mr-2" @click="editItem(item)">
-                    mdi-pencil
-                </v-icon>
-                <v-icon @click="deleteItem(item)">
-                    mdi-delete
-                </v-icon>
-            </template>
-            <template v-slot:no-data>
-                <v-btn color="primary" @click="initialize">Reset</v-btn>
-            </template>
-        </v-data-table>
-
-    </v-container>
+</v-container>
 </div>
 </template>
 
 <script>
 export default {
-
-    data() {
-        return {
-
+    data: () => ({ 
             province: [{
                     text: 'พะเยา'
                 },
@@ -245,51 +234,51 @@ export default {
                     text: 'สันติสุข'
                 },
             ],
-       
-            search: '',
-            dialog: false,
-            headers: [{
-                    text: 'เลขบัตรประชาชน',
-                    value: 'IDCard'
-                },
-                {
-                    text: 'ชื่อ',
-                    value: 'name'
-                },
-                {
-                    text: 'เบอร์โทรศัพท์',
-                    value: 'Phonenumber'
-                },
-                {
-                    text: 'กลุ่มผู้ใช้',
-                    value: 'group'
-                },
-                {
-                    text: 'การจัดการ',
-                    value: 'actions',
-                    sortable: false
-                },
-            ],
-            desserts: [],
-            editedIndex: -1,
-            editedItem: {
-                IDCard: '',
-                name: '',
-                Phonenumber: '',
-                group: '',
+        },
+        {
+        search: '',
+        dialog: false,
+        headers: [{
+                text: 'เลขบัตรประชาชน',
+                value: 'IDCard'
             },
-            defaultItem: {
-                IDCard: '',
-                name: '',
-                Phonenumber: '',
-                group: '',
-            }
-        };
-    },
+            {
+                text: 'ชื่อ',
+                value: 'name'
+            },
+            {
+                text: 'เบอร์โทรศัพท์',
+                value: 'Phonenumber'
+            },
+            {
+                text: 'กลุ่มผู้ใช้',
+                value: 'group'
+            },
+            {
+                text: 'การจัดการ',
+                value: 'actions',
+                sortable: false
+            },
+        ],
+        desserts: [],
+        editedIndex: -1,
+        editedItem: {
+            IDCard: '',
+            name: '',
+            Phonenumber: '',
+            group: '',
+        },
+        defaultItem: {
+            IDCard: '',
+            name: '',
+            Phonenumber: '',
+            group: '',
+        },
+    }),
 
     computed: {
         formTitle() {
-            return this.editedIndex === -1 ? 'เพิ่มข้อมูลเกษตรกร' : 'แก้ไขข้อมูล'
+            return this.editedIndex === -1 ? 'เพิ่ม' : 'แก้ไข'
         },
     },
 
