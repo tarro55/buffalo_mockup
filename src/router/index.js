@@ -63,15 +63,15 @@ function view(name){
     component: view('buffalo_detail')
   },
   {
-    path: '/SetUser',
-    name: 'SetUser', 
-    component: view('SetUser')
-  },
-  {
     path: '/EditAdmin',
     name: 'EditAdmin', 
     component: view('EditAdmin')
-  }
+  },
+  {
+    path: '/Dashboard',
+    name: 'Dashboard', 
+    component: view('Dashboard')
+  },
 
 
 

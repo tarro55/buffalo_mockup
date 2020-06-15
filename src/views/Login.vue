@@ -17,7 +17,7 @@
                             </v-card-text>
                             <v-card-actions>
                                 <v-spacer></v-spacer>
-                                <v-btn @click="$router.push('farmer')" large color="primary">เข้าสู่ระบบ</v-btn>
+                                <v-btn @click="$router.push('Dashboard')" large color="primary">เข้าสู่ระบบ</v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-col>

@@ -58,9 +58,6 @@
             </template>
             <template v-slot:item.actions="{ item }">
 
-                <v-icon class="mr-2" @click="$router.push(`farmer_detail`)">
-                    mdi-clipboard-file-outline
-                </v-icon>
                 <v-icon class="mr-2" @click="editItem(item)">
                     mdi-pencil
                 </v-icon>
@@ -96,10 +93,6 @@ export default {
             {
                 text: 'อีเมล์',
                 value: 'email'
-            },
-            {
-                text: 'สถานะ',
-                value: 'status'
             },
             {
                 text: 'การจัดการ',

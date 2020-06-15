@@ -54,6 +54,11 @@ export default {
             item: 0,
             items: [
                 {
+                    text: "รายงานแดชบอร์ด",
+                    icon: "em em-information_source",
+                    router: "/Dasboard"
+                },
+                {
                      text: "จัดการข้อมูลผู้ใช้",
                     sub: "จัดการข้อผูลผู้ใช้",
                     icon: "em em-information_source",
@@ -64,12 +69,6 @@ export default {
                     sub: "จัดการผู้ดูแลระบบ",
                     icon: "em em-information_source",
                     router: "/EditAdmin"
-                },
-                {
-                     text: "จัดการสิทธิ์การใช้งาน",
-                    sub: "จัดการสิทธิ์การใช้งาน",
-                    icon: "em em-information_source",
-                    router: "/SetUser"
                 },
                 {
                     text: "รายงาน",

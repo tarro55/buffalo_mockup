@@ -1,37 +1,79 @@
 <template>
 <div style="padding:20px;">
-    <h1>รายงานสรุปจำนวนกระบือที่มีชีวิต</h1>
+<v-container>
     <div>
-        <v-row>
-            <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
-            <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0"></v-overflow-btn>
-            <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0"></v-overflow-btn>
-            <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
-        </v-row>
-    </div><br>
+        <h3>รายงานสรุปจำนวนกระบือที่มีชีวิต</h3>
+    </div>
+    <br>
+    <v-divider></v-divider>
 
-    <v-card class="pa-4" flat height="500px" img="https://www.img.in.th/images/cc42d27c171e081701fe9cd825e5cc61.png">
-        <v-btn icon>
-            <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>
-    </v-card>
+    <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
+        <template v-slot:top>
+            <v-toolbar flat color="white">
+                
+                <v-toolbar-title>
+                    <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
+                </v-toolbar-title>
+                <v-spacer></v-spacer>
+
+                <v-overflow-btn :items="province"  label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
+                <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0"></v-overflow-btn>
+                <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0"></v-overflow-btn>
+                <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
+
+                <v-dialog v-model="dialog" max-width="500px">
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
+                    </template>
+                    <v-card>
+                        <v-card-title>
+                            <span class="headline">{{ formTitle }}</span>
+                        </v-card-title>
+
+                        <v-card-text>
+                            <v-container>
+                                <v-row>
+                                    <v-col cols="12" sm="6" md="4">
+                                        <v-text-field v-model="editedItem.id" label="ชื่อหรือหมายเลขกระบือ"></v-text-field>
+                                    </v-col>
+                                    <v-col cols="12" sm="6" md="4">
+                                        <v-text-field v-model="editedItem.sex" label="เพศ"></v-text-field>
+                                    </v-col>
+                                    <v-col cols="12" sm="6" md="4">
+                                        <v-text-field v-model="editedItem.age" label="อายุ"></v-text-field>
+                                    </v-col>
+                                    <v-col cols="12" sm="6" md="4">
+                                        <v-text-field v-model="editedItem.farm" label="ชื่อฟาร์ม"></v-text-field>
+                                    </v-col>
+                                    <v-col cols="12" sm="6" md="4">
+                                        <v-text-field v-model="editedItem.group" label="กลุ่มผู้ใช้"></v-text-field>
+                                    </v-col>
+                                </v-row>
+                            </v-container>
+                        </v-card-text>
+
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
+                            <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-dialog>
+            </v-toolbar>
+        </template>
+        
+        <template v-slot:no-data>
+            <v-btn color="primary" @click="initialize">Reset</v-btn>
+        </template>
+    </v-data-table>
+
+</v-container>
 </div>
 </template>
 
 <script>
 export default {
-    name: 'Root',
-    /*-------------------------ประกาศ components ---------------------------------------*/
-    components: {
-
-    },
-    /*-------------------------รับค่าเมื่อเราเป็น components---------------------------------------*/
-    props: {
-
-    },
-    /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
-    data() {
-        return {
+    data: () => ({ 
             province: [{
                     text: 'พะเยา'
                 },
@@ -95,50 +137,6 @@ export default {
                     text: '	วรนคร'
                 },
             ],
-
-            place: [{
-                    text: 'เชียงกลาง'
-                },
-                {
-                    text: 'ท่าวังผา'
-                },
-                {
-                    text: 'ทุ่งช้าง'
-                },
-                {
-                    text: 'นาน้อย'
-                },
-                {
-                    text: 'บ่อเกลือ'
-                },
-                {
-                    text: 'นาน้อย'
-                },
-                {
-                    text: 'บ้านหลวง'
-                },
-                {
-                    text: 'ปัว'
-                },
-                {
-                    text: 'ภูเพียง'
-                },
-                {
-                    text: 'แม่จริม'
-                },
-                {
-                    text: 'เมืองน่าน'
-                },
-                {
-                    text: 'เวียงสา'
-                },
-                {
-                    text: 'สองแคว'
-                },
-                {
-                    text: 'สันติสุข'
-                },
-            ],
             farm: [{
                     text: 'เชียงกลาง'
                 },
@@ -182,26 +180,168 @@ export default {
                     text: 'สันติสุข'
                 },
             ],
+         
+        search: '',
+        dialog: false,
+        headers: [{
+                text: 'ชื่อหรือหมายเลขกระบือ',
+                value: 'id'
+            },
+            {
+                text: 'เพศ',
+                value: 'sex'
+            },
+            {
+                text: 'อายุ',
+                value: 'age'
+            },
+            {
+                text: 'ชื่อฟาร์ม',
+                value: 'farm'
+            },
+            {
+                text: 'กลุ่มผู้ใช้',
+                value: 'group',
+                sortable: false
+            },
+        ],
+        desserts: [],
+        editedIndex: -1,
+        editedItem: {
+            id: '',
+            sex: '',
+            age: '',
+            farm:'',
+            group: '',
+        },
+        defaultItem: {
+            id: '',
+            sex: '',
+            age: '',
+            farm:'',
+            group: '',
+        },
+    }),
 
-        };
-    },
-    /*------------------------- สิ่งทที่อยู่ในนี้จะถูกรัยเมื่อโหลด ------------------------------------------*/
-    mounted: async function () {
-        /**** เรียกใช้ methods ชื่อ load() */
-        await this.load();
-    },
-    /*------------------------- กระทำการตอน router ถูกโหลดเข้ามา------------------------------------------*/
-    async beforeRouteEnter(to, from, next) {
-        next()
-    },
-    /*-------------------------ใช้จัดการ operation  หรือ คำนวณค่าต่างๆ (คล้าย methods)------------------------------------------*/
     computed: {
-
+        formTitle() {
+            return this.editedIndex === -1 ? 'เพิ่ม' : 'แก้ไข'
+        },
     },
-    /*-------------------------Methods------------------------------------------*/
+
+    watch: {
+        dialog(val) {
+            val || this.close()
+        },
+    },
+
+    created() {
+        this.initialize()
+    },
+
     methods: {
-        /******* Methods default run ******/
-        load: async function () {}
+        initialize() {
+            this.desserts = [{
+                    id: 'ลูกมะลิ1',
+                    sex: 'เมีย',
+                    age: '4 ปี 2 เดือน',
+                    farm:'สวัสดิ์ฟาร์ม',
+                    group: 'กลุ่มแม่ใจ',
+                },
+                {
+                    id: 'ลูกมะลิ2',
+                    sex: 'ผู้',
+                    age: '2 ปี 2 เดือน',
+                    farm:'สวัสดิ์ฟาร์ม',
+                    group: 'กลุ่มแม่ใจ',
+                },
+                {
+                    id: 'ชบา',
+                    sex: 'เมีย',
+                    age: '4 ปี 0 เดือน',
+                    farm:'สวัสดิ์ฟาร์ม',
+                    group: 'กลุ่มพาน',
+                },
+                {
+                    id: 'ทองดี',
+                    sex: 'ผู้',
+                    age: '2 เดือน',
+                    farm:'สมพจน์ฟาร์ม',
+                    group: 'กลุ่มพาน',
+                },
+                {
+                    id: 'ขวัญ',
+                    sex: 'ผู้',
+                    age: '3 เดือน',
+                    farm:'สมพจน์ฟาร์ม',
+                    group: 'กลุ่มแม่กา',
+                },
+                {
+                    id: 'มาลี',
+                    sex: 'ผู้',
+                    age: '2 ปี 9 เดือน',
+                    farm:'ไพรัชฟาร์ม',
+                    group: 'กลุ่มแม่กา',
+                },
+                {
+                    id: 'เปีย',
+                    sex: 'เมีย',
+                    age: '1 ปี 2 เดือน',
+                    farm:'พิเชษฐ์ฟาร์ม',
+                    group: 'กลุ่มพะเยา',
+                },
+                {
+                    id: 'ดำ',
+                    sex: 'ผู้',
+                    age: '5 ปี 7 เดือน',
+                    farm:'พิเชษฐ์ฟาร์ม',
+                    group: 'กลุ่มพะเยา',
+                },
+                {
+                    id: 'ทุย',
+                    sex: 'เมีย',
+                    age: '3 ปี 1 เดือน',
+                    farm:'ฟาร์มพ่อหร่วน',
+                    group: 'กลุ่มพะเยา',
+                },
+                {
+                    id: 'แท่งทอง',
+                    sex: 'เมีย',
+                    age: '9 เดือน',
+                    farm:'ฟาร์มพ่อหร่วน',
+                    group: 'กลุ่มพะเยา',
+                },
+
+            ]
+        },
+
+        editItem(item) {
+            this.editedIndex = this.desserts.indexOf(item)
+            this.editedItem = Object.assign({}, item)
+            this.dialog = true
+        },
+
+        deleteItem(item) {
+            const index = this.desserts.indexOf(item)
+            confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+        },
+
+        close() {
+            this.dialog = false
+            this.$nextTick(() => {
+                this.editedItem = Object.assign({}, this.defaultItem)
+                this.editedIndex = -1
+            })
+        },
+
+        save() {
+            if (this.editedIndex > -1) {
+                Object.assign(this.desserts[this.editedIndex], this.editedItem)
+            } else {
+                this.desserts.push(this.editedItem)
+            }
+            this.close()
+        },
     },
 }
 </script>
