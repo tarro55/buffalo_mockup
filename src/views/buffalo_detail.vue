@@ -88,14 +88,7 @@ export default {
     /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
     data() {
         return {
-            dialog: true,
-            items: [{
-                    src: 'https://images.pexels.com/photos/46188/bison-buffalo-american-animal-46188.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-                },
-                {
-                    src: 'https://images.pexels.com/photos/360592/pexels-photo-360592.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-                },
-            ],
+            dialog: true, 
             desserts: [{
                     describe: 'หมายเลขบัตรประชาชนเกษตรกร',
                     calories: '3560700337836',

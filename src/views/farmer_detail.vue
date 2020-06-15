@@ -35,32 +35,40 @@
 
             <v-tab-item>
                 <v-card flat>
-                    <v-card-text> 
-                            <v-toolbar-title class="font-weight-black">ข้อมูลผู้ใช้ <v-btn color="success">แก้ไข<v-icon @click="dialog=false">mdi-pencil</v-icon>
-                                </v-btn>
-                            </v-toolbar-title>
-                        <h6>
-                            <!-- <p class="font-weight-black">ข้อมูลผู้ใช้</p> -->
-                            <hr>
-                            <p>ชื่อ-นายสกุล : นายแดง
-                                <p>เลขบัตรประจำตัวประชาชน : 1234567890123</p>
-                                <p>ที่อยู่ :12/11 หมู่ที่1 ตำบลแม่กา อำเภอเมือง จังหวัดพะเยา 56000</p>
-                                <p>เบอร์โทรศัพท์ : 0123123123</p>
-                                <hr>
-                                <p class="font-weight-black">ข้อมูลฟาร์ม</p>
-                                <hr>
-                                <p>ชื่อฟาร์ม : ฟาร์มนายแดง</p>
-                                <p>ที่อยู่ฟาร์ม : 12/11 หมู่ที่1 ตำบลแม่กา อำเภอเมือง จังหวัดพะเยา 56000</p>
-                                <p>ละติจูด : </p>
-                                <p>ลองจิจูด : </p>
-                                <br>
-                                <p>แผนที่ฟาร์ม</p>
-                                <v-card class="pa-4" flat height="500px" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">
-                                    <!-- <v-btn icon>
-                                        <v-icon>mdi-dots-vertical</v-icon>
-                                    </v-btn> -->
-                                </v-card>
-                        </h6>
+                    <v-card-text>
+                        <br>
+                        <h5>ข้อมูลผู้ใช้ <v-divider-vertical></v-divider-vertical>
+                            <v-btn color="success" @click="dialog1=false">แก้ไข<v-icon>mdi-pencil</v-icon>
+                            </v-btn>
+                        </h5>
+                        <br>
+                        <v-flex xs12>
+                            <div v-for="item in informationfarmer" :key="item.name">
+                                <v-text-field :readonly="dialog1" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
+                            </div>
+                            <div>
+                                <h8>ภาพถ่ายบัตรประจำตัวประชาชน</h8>
+                                <v-img height="200" width="350" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSNf3OTIf1lugjQhtLRTP8cwuosPAJmIykTsry1UL87ArfVFx84&usqp=CAU"></v-img>
+                            </div>
+                        </v-flex>
+                        <hr>
+
+                        <br>
+                        <h5>ข้อมูลฟาร์ม <v-divider-vertical></v-divider-vertical>
+                            <v-btn color="success" @click="dialog1=false">แก้ไข<v-icon>mdi-pencil</v-icon>
+                            </v-btn>
+                        </h5>
+                        <div>
+                                <h8>สภาพฟาร์ม</h8>
+                                <v-img height="200" width="350" src="https://images.pexels.com/photos/158179/lake-constance-sheep-pasture-sheep-blue-158179.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></v-img>
+                            </div>
+                        <br>
+                        <v-flex xs12>
+                            <div v-for="item in informationfarm" :key="item.name">
+                                <v-text-field :readonly="dialog1" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
+                            </div>
+                            
+                        </v-flex> 
 
                     </v-card-text>
                 </v-card>
@@ -71,7 +79,7 @@
                     <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
                         <template v-slot:top>
                             <v-toolbar flat color="white">
-                                <v-toolbar-title>ข้อมูลควาย</v-toolbar-title>
+                                <v-toolbar-title>ข้อมูลกระบือ</v-toolbar-title>
                                 <v-divider class="mx-4" inset vertical></v-divider>
                                 <v-toolbar-title>
                                     <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
@@ -89,21 +97,70 @@
                                         <v-card-text>
                                             <v-container>
                                                 <v-row>
-                                                    <v-col cols="12" sm="6" md="4">
-                                                        <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
+                                                    <v-col cols="12" sm="6" >
+                                                        <v-text-field v-model="editedItem.IDcardFarmer" label="หมายเลขบัตรประชาชนเกษตรกร"></v-text-field>
                                                     </v-col>
-                                                    <v-col cols="12" sm="6" md="4">
-                                                        <v-text-field v-model="editedItem.number" label="เบอร์หู"></v-text-field>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.nonb" label="ชื่อหรือหมายเลขควาย"></v-text-field>
                                                     </v-col>
-                                                    <v-col cols="12" sm="6" md="4">
-                                                        <v-text-field v-model="editedItem.gene" label="พันธุ์"></v-text-field>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.nid" label="หมายเลข NID"></v-text-field>
                                                     </v-col>
-                                                    <v-col cols="12" sm="6" md="4">
-                                                        <v-text-field v-model="editedItem.age" label="อายุ"></v-text-field>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.nmi" label="หมายเลขไมโครชิป"></v-text-field>
                                                     </v-col>
-                                                    <v-col cols="12" sm="6" md="4">
-                                                        <v-text-field v-model="editedItem.certifacate" label="ใบพันธุ์ประวัติ"></v-text-field>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.birth" label="วัน/เดือน/ปี เกิด"></v-text-field>
                                                     </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.sex" label="เพศ"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.age" label="อายุ (..ปี..เดือน)"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.color" label="สี"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.from" label="แหล่งที่มา"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.price" label="ราคา"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.status" label="สถานะควาย"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.nonf" label="ชื่อหรือหมายเลขพ่อ"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.nidf" label="หมายเลข NID พ่อ"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.nmif" label="หมายเลขไมโครชิปพ่อ"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.nmim" label="ชื่อหรือหมายเลขแม่"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.nidm" label="หมายเลข NID แม่"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.mim" label="หมายเลขไมโครชิปแม่"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.weight" label="น้ำหนัก (กิโลกรัม)"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.cwidth" label="ความกว้างรอบอก (เซนติเมตร)"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.blength" label="ความยาวลำตัว (เซนติเมตร)"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field v-model="editedItem.height" label="ความสูง (เซนติเมตร)"></v-text-field>
+                                                    </v-col>
+
                                                 </v-row>
                                             </v-container>
                                         </v-card-text>
@@ -144,11 +201,11 @@ export default {
     data: () => ({
         tab: null,
         search: '',
-        dialog: true,
+        dialog1: true,
+        dialog: false,
         items: [
             'ข้อมูลเกษตกร', 'ข้อมูลกระบือ',
         ],
-        dialog: false,
         headers: [{
                 text: 'ชื่อ',
                 value: 'name'
@@ -165,24 +222,103 @@ export default {
                 text: 'อายุ',
                 value: 'age'
             },
-            {
-                text: 'ใบพันธุ์ประวัติ',
-                value: 'certifacate'
-            },
+            // {
+            //     text: 'ใบพันธุ์ประวัติ',
+            //     value: 'certifacate'
+            // },
             {
                 text: 'การจัดการ',
                 value: 'actions',
                 // sortable: false
             },
         ],
+
+        informationfarmer: [{
+                describe: 'คำนำหน้า',
+                calories: 'นาย',
+            },
+            {
+                describe: 'ชื่อ',
+                calories: 'เชิดชู',
+            },
+            {
+                describe: 'นามสกุล',
+                calories: 'แก้วบุญเรือง',
+            },
+            {
+                describe: 'หมายเลขบัตรประจำตัวประชาชน',
+                calories: '3560700347135',
+            },
+            {
+                describe: 'เพศ',
+                calories: 'ชาย',
+            },
+            {
+                describe: 'อายุ',
+                calories: '58',
+            },
+            {
+                describe: 'ที่อยู่ตามทะเบียนบ้าน',
+                calories: '4 หมู่ 7 ต.เจริญราษฎร์ อ.แม่ใจ จ.พะเยา 56130',
+            },
+            {
+                describe: 'เบอร์โทรศัพท์',
+                calories: '0861800385',
+            },
+
+        ],
+
+        informationfarm: [{
+                describe: 'ชื่อฟาร์ม',
+                calories: 'ฟาร์มพ่อหร่วน',
+            },
+            {
+                describe: 'บ้านเลขที่ ถนน ซอย',
+                calories: 'เชิดชู',
+            },
+            {
+                describe: 'พิกัดฟาร์มตามระบบ GPS (ละติจูด)',
+                calories: '19.391271',
+            },
+            {
+                describe: 'พิกัดฟาร์มตามระบบ GPS (ลองติจูด)',
+                calories: '99.816495',
+            },
+            {
+                describe: 'จำนวนควายทั้งหมด',
+                calories: '40',
+            },
+            {
+                describe: 'กลุ่มเกษตรกร',
+                calories: 'กลุ่มแม่ใจ',
+            },
+            {
+                describe: 'ตำบล',
+                calories: 'เจริญราษฎร์',
+            },
+            {
+                describe: 'อำเภอ',
+                calories: 'แม่กา',
+            },
+            {
+                describe: 'จังหวัด',
+                calories: 'พะเยา',
+            },
+            {
+                describe: 'ไปรษณีย์',
+                calories: '56000',
+            },
+
+        ],
+
         desserts: [],
         editedIndex: -1,
         editedItem: {
-            name: '',
-            number: '',
-            gene: '',
-            age: '',
-            certifacate: ''
+            IDcardFarmer: '',
+            nonb: '',
+            nid: '',
+            nmi: '',
+            birth: ''
         },
         defaultItem: {
             name: '',
