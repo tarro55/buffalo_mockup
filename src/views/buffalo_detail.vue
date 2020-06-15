@@ -22,25 +22,51 @@
                     </v-list>
                 </v-card>
             </v-flex>
-
         </v-flex>
     </center>
     <br>
 
     <center>
+        <v-container>
+            <v-flex xs8>
+                <v-card elevation="5">
+                    <br>
+                    <v-toolbar-title>รายละเอียดกระบือ <v-btn color="success" @click="dialog=false">แก้ไข<v-icon>mdi-pencil</v-icon>
+                        </v-btn>
+                    </v-toolbar-title>
+                    <br>
+                    <v-flex xs12 offset-xs2 row wrap>
+                        <div v-for="item in desserts" :key="item.name">
+                            <v-text-field :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
+                        </div>
+                    </v-flex>
+                </v-card>
+            </v-flex>
+            <br>
+        </v-container>
+
         <v-flex xs8>
-            <v-toolbar-title>รายละเอียดกระบือ <v-btn color="success">แก้ไข<v-icon @click="dialog=false">mdi-pencil</v-icon>
-                </v-btn>
-            </v-toolbar-title>
-        </v-flex>
-        <br>
-        <v-flex xs6 dense row wrap>
-            <div v-for="item in desserts" :key="item.name">
-                <v-text-field :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
-            </div>
-        </v-flex>
-        <v-flex xs6>
-            <v-file-input label="ใบรับรองพันธุ์ประวัติแบบเป็นทางการ" prepend-icon="mdi-camera"></v-file-input>
+            <v-card elevation="5" outlined>
+                <v-card-text class="text-center">
+                    <h4>ใบพันธุ์ประวัติอ้างอิง</h4>
+                    <v-icon size="70">mdi-file-pdf-outline</v-icon>
+                </v-card-text>
+                <center>
+
+                </center>
+            </v-card>
+            <br>
+            <v-card elevation="5" outlined>
+                <v-card-text class="text-center">
+                    <h4>ใบพันธุ์ประวัติทางการ</h4><br>
+                    <v-icon size="70">mdi-file-pdf-outline</v-icon>
+                </v-card-text>
+                <center> 
+                    <v-btn style="width:90%" color="success">อัพโหลดใบพันธุ์ประวัติทางการ</v-btn>
+                </center>
+                <br>
+            </v-card>
+
         </v-flex>
 
     </center>
@@ -71,57 +97,88 @@ export default {
                 },
             ],
             desserts: [{
-                    describe: 'ชื่อ',
-                    calories: 'กระบือ1',
+                    describe: 'หมายเลขบัตรประชาชนเกษตรกร',
+                    calories: '3560700337836',
                 },
                 {
-                    describe: 'เบอร์หู',
-                    calories: '237',
+                    describe: 'ชื่อหรือหมายเลขควาย',
+                    calories: 'เปีย',
                 },
                 {
-                    describe: 'อายุ',
-                    calories: '4',
+                    describe: 'หมายเลข NID',
+                    calories: ' ',
+                },
+                {
+                    describe: 'หมายเลขไมโครชิป',
+                    calories: ' ',
+                },
+                {
+                    describe: 'วัน/เดือน/ปี เกิด',
+                    calories: ' ',
                 },
                 {
                     describe: 'เพศ',
-                    calories: 'ผู้',
+                    calories: 'เมีย',
+                },
+                {
+                    describe: 'อายุ (..ปี..เดือน) ',
+                    calories: '4ปี 0เดือน',
                 },
                 {
                     describe: 'สี',
                     calories: 'ดำ',
                 },
                 {
-                    describe: 'ชื่อหรือหมายเลขพ่อพันธุ์',
-                    calories: '375',
+                    describe: 'แหล่งที่มา ',
+                    calories: 'พ่อค้าคนกลาง',
                 },
                 {
-                    describe: 'ชื่อหรือหมายเลขแม่พันธุ์',
-                    calories: '392',
+                    describe: 'ราคา',
+                    calories: '50000',
                 },
                 {
-                    describe: 'น้ำหนัก(กิโลกรัม)',
-                    calories: '408',
+                    describe: 'สถานะควาย',
+                    calories: 'ท้อง',
                 },
                 {
-                    describe: 'ความกว้างรอบอก(เซนติเมตร)',
-                    calories: '170',
+                    describe: 'ชื่อหรือหมายเลขพ่อ',
+                    calories: ' ',
                 },
                 {
-                    describe: 'ความยาวลำตัว(เซนติเมตร)',
-                    calories: '240',
+                    describe: 'หมายเลข NID พ่อ',
+                    calories: ' ',
                 },
                 {
-                    describe: 'ความสูง(เซนติเมตร)',
-                    calories: '100',
+                    describe: 'หมายเลขไมโครชิปพ่อ',
+                    calories: ' ',
                 },
                 {
-                    describe: 'ใบพันธุ์ประวัติอ้างอิง',
-                    calories: '',
-                    icons: 'mdi-file-pdf-outline',
+                    describe: 'ชื่อหรือหมายเลขแม่',
+                    calories: ' ',
                 },
                 {
-                    describe: 'ใบรับรองพันธุ์ประวัติแบบเป็นทางการ',
-                    calories: '',
+                    describe: 'หมายเลข NID แม่',
+                    calories: ' ',
+                },
+                {
+                    describe: 'หมายเลขไมโครชิปแม่',
+                    calories: ' ',
+                },
+                {
+                    describe: 'น้ำหนัก (กิโลกรัม)',
+                    calories: '400',
+                },
+                {
+                    describe: 'ความกว้างรอบอก (เซนติเมตร)',
+                    calories: '224',
+                },
+                {
+                    describe: 'ความยาวลำตัว (เซนติเมตร)',
+                    calories: '128',
+                },
+                {
+                    describe: 'ความสูง (เซนติเมตร)',
+                    calories: '132',
                 },
             ],
 

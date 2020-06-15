@@ -7,9 +7,7 @@
                         <v-card-text class="text-center">
                             <h1 >รายงานสรุปจำนวนกระบือที่มีชีวิต</h1><br>
                             <v-icon size="100">mdi-clipboard-text-outline</v-icon>
-                        </v-card-text>
-
-                        
+                        </v-card-text> 
                         <v-card-actions>
                             <v-btn style="width:100%" @click="$router.push('ReportBuffalo')" color="primary">ดูรายงาน</v-btn>
                         </v-card-actions>
