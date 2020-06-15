@@ -1,7 +1,7 @@
 <template>
 <v-container>
 
-    <v-card class="mx-auto" max-width="434" tile>
+    <v-card class="mx-auto" max-width="434" tile elevation="10">
         <v-img height="220" src="https://images.pexels.com/photos/3145153/pexels-photo-3145153.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
             <v-row align="end" class="fill-height">
                 <v-col align-self="start" class="pa-0" cols="12">
@@ -35,10 +35,12 @@
 
             <v-tab-item>
                 <v-card flat>
-                    <v-card-text>
-
+                    <v-card-text> 
+                            <v-toolbar-title class="font-weight-black">ข้อมูลผู้ใช้ <v-btn color="success">แก้ไข<v-icon @click="dialog=false">mdi-pencil</v-icon>
+                                </v-btn>
+                            </v-toolbar-title>
                         <h6>
-                            <p class="font-weight-black">ข้อมูลผู้ใช้</p>
+                            <!-- <p class="font-weight-black">ข้อมูลผู้ใช้</p> -->
                             <hr>
                             <p>ชื่อ-นายสกุล : นายแดง
                                 <p>เลขบัตรประจำตัวประชาชน : 1234567890123</p>

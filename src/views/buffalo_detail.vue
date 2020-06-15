@@ -1,62 +1,48 @@
 <template>
 <v-container grid-list-xs>
-    <v-flex xs12 row wrap>
-        <v-flex xs6 pa-3>
-            <v-card elevation="10" >
-                <v-img src="https://images.pexels.com/photos/1054650/pexels-photo-1054650.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" aspect-ratio="1.7"></v-img>
-                <v-list two-line>
-                    <center>
-                        <h5>ภาพด้านข้าง</h5>
-                    </center>
-                </v-list>
-            </v-card>
-        </v-flex>
-        <v-flex xs6 pa-3>
-            <v-card elevation="10" >
-                <v-img src="https://images.pexels.com/photos/2261770/pexels-photo-2261770.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" aspect-ratio="1.7"></v-img>
-                <v-list two-line>
-                    <center>
-                        <h5>ภาพด้านหลัง</h5>
-                    </center>
-                </v-list>
-            </v-card>
-        </v-flex>
+    <center>
+        <v-flex xs12 row wrap>
+            <v-flex xs6 pa-3>
+                <v-card elevation="10">
+                    <v-img src="https://images.pexels.com/photos/1054650/pexels-photo-1054650.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" aspect-ratio="1.7"></v-img>
+                    <v-list two-line>
+                        <center>
+                            <h5>ภาพด้านข้าง</h5>
+                        </center>
+                    </v-list>
+                </v-card>
+            </v-flex>
+            <v-flex xs6 pa-3>
+                <v-card elevation="10">
+                    <v-img src="https://images.pexels.com/photos/2261770/pexels-photo-2261770.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" aspect-ratio="1.7"></v-img>
+                    <v-list two-line>
+                        <center>
+                            <h5>ภาพด้านหลัง</h5>
+                        </center>
+                    </v-list>
+                </v-card>
+            </v-flex>
 
-    </v-flex>
+        </v-flex>
+    </center>
     <br>
 
     <center>
-        <v-flex xs6>
-
-            <template>
-                <v-simple-table>
-                    <template>
-                        <v-toolbar-title>รายละเอียดกระบือ <v-btn color="success" @click="dialog=false">แก้ไข</v-btn>
-                        </v-toolbar-title>
-                        <tbody>
-                            <tr>
-                                <div v-for="item in desserts" :key="item.name">
-                                    <v-text-field :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
-                                </div>
-                            </tr>
-                            <tr row wrap>
-                                <td>
-
-                                    <template>
-                                        <v-file-input label="ใบรับรองพันธุ์ประวัติแบบเป็นทางการ" prepend-icon="mdi-camera"></v-file-input>
-                                    </template>
-                                </td>
-                                <td>
-                                    <v-btn color="blue" dark>บันทึก</v-btn>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                    </template>
-                </v-simple-table>
-            </template>
-            
+        <v-flex xs8>
+            <v-toolbar-title>รายละเอียดกระบือ <v-btn color="success">แก้ไข<v-icon @click="dialog=false">mdi-pencil</v-icon>
+                </v-btn>
+            </v-toolbar-title>
         </v-flex>
+        <br>
+        <v-flex xs6 dense row wrap>
+            <div v-for="item in desserts" :key="item.name">
+                <v-text-field :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
+            </div>
+        </v-flex>
+        <v-flex xs6>
+            <v-file-input label="ใบรับรองพันธุ์ประวัติแบบเป็นทางการ" prepend-icon="mdi-camera"></v-file-input>
+        </v-flex>
+
     </center>
 
 </v-container>
