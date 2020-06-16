@@ -22,21 +22,16 @@
                             </v-card-title>
 
                             <v-card-text>
-                                <v-container>
-                                    <v-row> 
-                                        <v-col cols="12" sm="6" md="4"> 
+                                <v-container> 
+                                        <v-col cols="12" > 
                                             <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
                                         </v-col>
-                                        <v-col cols="12" sm="6" md="4"> 
+                                        <v-col cols="12" > 
                                             <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
                                         </v-col>
-                                        <v-col cols="12" sm="6" md="4"> 
+                                        <v-col cols="12" > 
                                             <v-text-field v-model="editedItem.email" label="อีเมล์"></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12"> 
-                                            <v-overflow-btn v-model="editedItem.status"  :items="farm" label="กรุณาเลือกสถานะ" hide-details class="pa-0"></v-overflow-btn>
-                                        </v-col>
-                                    </v-row>
+                                        </v-col>  
                                 </v-container>
                             </v-card-text>
 

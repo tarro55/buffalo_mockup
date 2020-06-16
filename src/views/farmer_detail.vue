@@ -59,16 +59,16 @@
                             </v-btn>
                         </h5>
                         <div>
-                                <h8>สภาพฟาร์ม</h8>
-                                <v-img height="200" width="350" src="https://images.pexels.com/photos/158179/lake-constance-sheep-pasture-sheep-blue-158179.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></v-img>
-                            </div>
+                            <h8>สภาพฟาร์ม</h8>
+                            <v-img height="200" width="350" src="https://images.pexels.com/photos/158179/lake-constance-sheep-pasture-sheep-blue-158179.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></v-img>
+                        </div>
                         <br>
                         <v-flex xs12>
                             <div v-for="item in informationfarm" :key="item.name">
                                 <v-text-field :readonly="dialog1" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
                             </div>
-                            
-                        </v-flex> 
+
+                        </v-flex>
 
                     </v-card-text>
                 </v-card>
@@ -97,7 +97,7 @@
                                         <v-card-text>
                                             <v-container>
                                                 <v-row>
-                                                    <v-col cols="12" sm="6" >
+                                                    <v-col cols="12" sm="6">
                                                         <v-text-field v-model="editedItem.IDcardFarmer" label="หมายเลขบัตรประชาชนเกษตรกร"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
@@ -176,12 +176,34 @@
                         </template>
 
                         <template v-slot:item.actions="{ item }">
-                            <v-icon class="mr-2" @click="$router.push(`buffalo_detail`)">
-                                mdi-eye-outline
-                            </v-icon>
-                            <v-icon @click="deleteItem(item)">
-                                mdi-delete
-                            </v-icon>
+
+                            <v-tooltip v-model="show" top>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn icon v-bind="attrs" v-on="on" >
+                                        <v-icon>mdi-clipboard-text-outline</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>ใบพันธุ์ประวัติ</span>
+                            </v-tooltip> 
+
+                            <v-tooltip v-model="show" top>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`buffalo_detail`)">
+                                        <v-icon>mdi-eye-outline</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>ดูข้อมูล</span>
+                            </v-tooltip>
+
+                            <v-tooltip v-model="show" top>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
+                                        <v-icon>mdi-delete</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>ลบ</span>
+                            </v-tooltip>
+
                         </template>
                         <template v-slot:no-data>
                             <v-btn color="primary" @click="initialize">Reset</v-btn>
@@ -222,10 +244,10 @@ export default {
                 text: 'อายุ',
                 value: 'age'
             },
-            // {
-            //     text: 'ใบพันธุ์ประวัติ',
-            //     value: 'certifacate'
-            // },
+            {
+                text: 'เพศ',
+                value: 'sex'
+            },
             {
                 text: 'การจัดการ',
                 value: 'actions',
@@ -352,42 +374,42 @@ export default {
                     number: '3',
                     gene: 'thai',
                     age: '4ปี0เดือน',
-                    certifacate: ''
+                    sex: 'เมีย'
                 },
                 {
                     name: 'กระบือ2',
                     number: '2',
                     gene: 'thai',
                     age: '2ปี1เดือน',
-                    certifacate: ''
+                    sex: 'ผู้'
                 },
                 {
                     name: 'กระบือ3',
                     number: '9',
                     gene: 'thai',
                     age: '6ปี2เดือน',
-                    certifacate: ''
+                    sex: 'ผู้'
                 },
                 {
                     name: 'กระบือ4',
                     number: '7',
                     gene: 'thai',
                     age: '1ปี',
-                    certifacate: ''
+                    sex: 'เมีย'
                 },
                 {
                     name: 'กระบือ5',
                     number: '1',
                     gene: 'thai',
                     age: '2ปี',
-                    certifacate: ''
+                    sex: 'เมีย'
                 },
                 {
                     name: 'กระบือ6',
                     number: '2',
                     gene: 'thai',
                     age: '3ปี',
-                    certifacate: ''
+                    sex: 'เมีย'
                 },
             ]
         },
