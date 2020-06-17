@@ -5,33 +5,34 @@
             <h3>ข้อมูลผู้ใช้งานระบบ</h3>
         </div>
         <br>
-        <v-divider></v-divider>
 
         <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
             <template v-slot:top>
                 <v-toolbar flat color="white">
-                    
+
                     <v-dialog v-model="dialog" max-width="500px">
 
                         <template v-slot:activator="{ on, attrs }">
-                            <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
+                            <v-btn color="teal" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
+                            <v-divider class="mx-4" inset vertical></v-divider>
                         </template>
+
                         <v-card>
                             <v-card-title>
                                 <span class="headline">{{ formTitle }}</span>
                             </v-card-title>
 
                             <v-card-text>
-                                <v-container> 
-                                        <v-col cols="12" > 
-                                            <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" > 
-                                            <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" > 
-                                            <v-text-field v-model="editedItem.email" label="อีเมล์"></v-text-field>
-                                        </v-col>  
+                                <v-container>
+                                    <v-col cols="12">
+                                        <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
+                                    </v-col>
+                                    <v-col cols="12">
+                                        <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
+                                    </v-col>
+                                    <v-col cols="12">
+                                        <v-text-field v-model="editedItem.email" label="อีเมล์"></v-text-field>
+                                    </v-col>
                                 </v-container>
                             </v-card-text>
 
@@ -42,13 +43,12 @@
                             </v-card-actions>
                         </v-card>
                     </v-dialog>
-                    
+
                     <v-toolbar-title>
                         <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
                     </v-toolbar-title>
                     <v-spacer></v-spacer>
-                    
-                    
+
                 </v-toolbar>
             </template>
             <template v-slot:item.actions="{ item }">
@@ -65,8 +65,6 @@
             </template>
         </v-data-table>
 
-
-
     </v-container>
 </div>
 </template>
@@ -74,7 +72,7 @@
 <script>
 export default {
     data: () => ({
-        
+
         search: '',
         dialog: false,
         headers: [{

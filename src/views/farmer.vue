@@ -4,8 +4,43 @@
         <div>
             <h3>ข้อมูลผู้ใช้งานระบบ</h3>
         </div>
+
+        <v-dialog v-model="dialog" max-width="500px">
+            <template v-slot:activator="{ on, attrs }">
+                <v-btn color="teal" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
+            </template>
+            <v-card>
+                <v-card-title>
+                    <span class="headline">{{ formTitle }}</span>
+                </v-card-title>
+
+                <v-card-text>
+                    <v-container>
+                        <v-row>
+                            <v-col cols="12" sm="6" md="4">
+                                <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="4">
+                                <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="4">
+                                <v-text-field v-model="editedItem.Phonenumber" label="เบอร์โทรศัพท์"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="4">
+                                <v-text-field v-model="editedItem.group" label="กลุ่มผู้ใช้"></v-text-field>
+                            </v-col>
+                        </v-row>
+                    </v-container>
+                </v-card-text>
+
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
+                    <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
         <br>
-        <v-divider></v-divider>
 
         <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
             <template v-slot:top>
@@ -21,7 +56,7 @@
                     <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0"></v-overflow-btn>
                     <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
 
-                    <v-dialog v-model="dialog" max-width="500px">
+                    <!-- <v-dialog v-model="dialog" max-width="500px">
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
                         </template>
@@ -55,7 +90,7 @@
                                 <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
                             </v-card-actions>
                         </v-card>
-                    </v-dialog>
+                    </v-dialog> -->
                 </v-toolbar>
             </template>
 
@@ -87,7 +122,7 @@
                     </template>
                     <span>ลบ</span>
                 </v-tooltip>
- 
+
             </template>
             <template v-slot:no-data>
                 <v-btn color="primary" @click="initialize">Reset</v-btn>
@@ -125,130 +160,6 @@ export default {
             },
             {
                 text: 'น่าน'
-            },
-        ],
-        place: [{
-                text: 'ปัว'
-            },
-            {
-                text: 'แงง'
-            },
-            {
-                text: 'สถาน'
-            },
-            {
-                text: 'ศิลาแลง'
-            },
-            {
-                text: 'ศิลาเพชร'
-            },
-            {
-                text: 'อวน'
-            },
-            {
-                text: 'ไชยวัฒนา'
-            },
-            {
-                text: 'เจดีย์ชัย'
-            },
-            {
-                text: 'ภูคา'
-            },
-            {
-                text: 'สกาด'
-            },
-            {
-                text: 'ป่ากลาง'
-            },
-            {
-                text: '	วรนคร'
-            },
-        ],
-
-        place: [{
-                text: 'เชียงกลาง'
-            },
-            {
-                text: 'ท่าวังผา'
-            },
-            {
-                text: 'ทุ่งช้าง'
-            },
-            {
-                text: 'นาน้อย'
-            },
-            {
-                text: 'บ่อเกลือ'
-            },
-            {
-                text: 'นาน้อย'
-            },
-            {
-                text: 'บ้านหลวง'
-            },
-            {
-                text: 'ปัว'
-            },
-            {
-                text: 'ภูเพียง'
-            },
-            {
-                text: 'แม่จริม'
-            },
-            {
-                text: 'เมืองน่าน'
-            },
-            {
-                text: 'เวียงสา'
-            },
-            {
-                text: 'สองแคว'
-            },
-            {
-                text: 'สันติสุข'
-            },
-        ],
-        farm: [{
-                text: 'เชียงกลาง'
-            },
-            {
-                text: 'ท่าวังผา'
-            },
-            {
-                text: 'ทุ่งช้าง'
-            },
-            {
-                text: 'นาน้อย'
-            },
-            {
-                text: 'บ่อเกลือ'
-            },
-            {
-                text: 'นาน้อย'
-            },
-            {
-                text: 'บ้านหลวง'
-            },
-            {
-                text: 'ปัว'
-            },
-            {
-                text: 'ภูเพียง'
-            },
-            {
-                text: 'แม่จริม'
-            },
-            {
-                text: 'เมืองน่าน'
-            },
-            {
-                text: 'เวียงสา'
-            },
-            {
-                text: 'สองแคว'
-            },
-            {
-                text: 'สันติสุข'
             },
         ],
 
