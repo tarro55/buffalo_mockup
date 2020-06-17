@@ -1,5 +1,7 @@
 <template>
-<div style="padding:20px;">
+
+
+    <div style="padding:20px;">
     <v-container class="fill-height" fluid>
         <v-flex>
             <v-row align="center" row wrap>
@@ -50,6 +52,8 @@
             </v-row>
         </v-flex>
     </v-container>
+
+    
 </div>
 </template>
 
