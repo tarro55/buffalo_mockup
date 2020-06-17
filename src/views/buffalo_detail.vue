@@ -45,24 +45,24 @@
             <br>
         </v-container>
 
-        <v-flex xs8>
-            <v-card elevation="5" outlined>
+        <v-flex xs8 row wrap>
+            <v-card elevation="5" outlined  height="150" width="150">
                 <v-card-text class="text-center">
-                    <h4>ใบพันธุ์ประวัติอ้างอิง</h4>
-                    <v-icon size="70">mdi-file-pdf-outline</v-icon>
+                    <h6>ใบพันธุ์ประวัติอ้างอิง</h6>
+                    <v-icon size="40">mdi-file-pdf-outline</v-icon>
                 </v-card-text>
                 <center>
 
                 </center>
             </v-card>
             <br>
-            <v-card elevation="5" outlined>
+            <v-card elevation="5" outlined height="200" width="200">
                 <v-card-text class="text-center">
-                    <h4>ใบพันธุ์ประวัติทางการ</h4><br>
-                    <v-icon size="70">mdi-file-pdf-outline</v-icon>
+                    <h6>ใบพันธุ์ประวัติทางการ</h6><br>
+                    <v-icon size="40">mdi-file-pdf-outline</v-icon>
                 </v-card-text>
                 <center> 
-                    <v-btn style="width:90%" color="success">อัพโหลดใบพันธุ์ประวัติทางการ</v-btn>
+                    <v-btn style="width:90%" color="success"><h7>อัพโหลดใบพันธุ์ประวัติทางการ</h7></v-btn>
                 </center>
                 <br>
             </v-card>

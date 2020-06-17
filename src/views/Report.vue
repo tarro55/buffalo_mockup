@@ -43,7 +43,6 @@
                             <v-icon size="100">mdi-file-export-outline</v-icon>
                         </v-card-text>
                         <v-card-actions>
-                            <v-spacer></v-spacer>
                             <v-btn style="width:100%" @click="$router.push('Export')" color="primary">ดูรายงาน</v-btn>
                         </v-card-actions>
                     </v-card>
