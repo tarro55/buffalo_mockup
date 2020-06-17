@@ -1,171 +1,168 @@
 <template>
 <div style="padding:20px;">
-<v-container>
-    <div>
-        <h3>รายงานความเคลื่อนไหวการใช้งานระบบ</h3>
-    </div>
-    <br>
-    <v-divider></v-divider>
+    <v-container>
+        <div>
+            <h3>รายงานความเคลื่อนไหวการใช้งานระบบ</h3>
+        </div>
+        <br>
+        <v-divider></v-divider>
 
-    <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
-        <template v-slot:top>
-            <v-toolbar flat color="white">
-                
-                <v-toolbar-title>
-                    <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
-                </v-toolbar-title>
-                <v-spacer></v-spacer>
+        <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
+            <template v-slot:top>
+                <v-toolbar flat color="white">
+                   
+                    <v-spacer></v-spacer>
 
-                <v-overflow-btn :items="province"  label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
-                <v-overflow-btn :items="district" label="กรุณาเลือกเดือน" hide-details class="pa-0"></v-overflow-btn>
-                <v-overflow-btn :items="place" label="กรุณาเลือกปี" hide-details class="pa-0"></v-overflow-btn>
+                    <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
+                    <v-overflow-btn :items="district" label="กรุณาเลือกเดือน" hide-details class="pa-0"></v-overflow-btn>
+                    <v-overflow-btn :items="place" label="กรุณาเลือกปี" hide-details class="pa-0"></v-overflow-btn>
 
-                <v-dialog v-model="dialog" max-width="500px">
-                    <v-card>
-                        <v-card-title>
-                            <span class="headline">{{ formTitle }}</span>
-                        </v-card-title>
+                    <v-dialog v-model="dialog" max-width="500px">
+                        <v-card>
+                            <v-card-title>
+                                <span class="headline">{{ formTitle }}</span>
+                            </v-card-title>
 
-                        <v-card-text>
-                            <v-container>
-                                <v-row>
-                                    <v-col cols="12" sm="6" md="4">
-                                        <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" sm="6" md="4">
-                                        <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" sm="6" md="4">
-                                        <v-text-field v-model="editedItem.Phonenumber" label="เบอร์โทรศัพท์"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" sm="6" md="4">
-                                        <v-text-field v-model="editedItem.group" label="กลุ่มผู้ใช้"></v-text-field>
-                                    </v-col>
-                                    
-                                </v-row>
-                            </v-container>
-                        </v-card-text>
+                            <v-card-text>
+                                <v-container>
+                                    <v-row>
+                                        <v-col cols="12" sm="6" md="4">
+                                            <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12" sm="6" md="4">
+                                            <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12" sm="6" md="4">
+                                            <v-text-field v-model="editedItem.Phonenumber" label="เบอร์โทรศัพท์"></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12" sm="6" md="4">
+                                            <v-text-field v-model="editedItem.group" label="กลุ่มผู้ใช้"></v-text-field>
+                                        </v-col>
 
-                        <v-card-actions>
-                            <v-spacer></v-spacer>
-                            <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
-                            <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
-                        </v-card-actions>
-                    </v-card>
-                </v-dialog>
-            </v-toolbar>
-        </template>
-        
-        <template v-slot:no-data>
-            <v-btn color="primary" @click="initialize">Reset</v-btn>
-        </template>
-    </v-data-table>
+                                    </v-row>
+                                </v-container>
+                            </v-card-text>
 
-</v-container>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
+                                <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
+                            </v-card-actions>
+                        </v-card>
+                    </v-dialog>
+                </v-toolbar>
+            </template>
+
+            <template v-slot:no-data>
+                <v-btn color="primary" @click="initialize">Reset</v-btn>
+            </template>
+        </v-data-table>
+
+    </v-container>
 </div>
 </template>
 
 <script>
 export default {
-    data: () => ({ 
-            province: [{
-                    text: 'พะเยา'
-                },
-                {
-                    text: 'เชียงราย'
-                },
-                {
-                    text: 'แพร่'
-                },
-                {
-                    text: 'น่าน'
-                },
-            ],
-            district: [{
-                    text: 'มกราคม'
-                },
-                {
-                    text: 'กุมภาพันธ์'
-                },
-                {
-                    text: 'มีนาคม'
-                },
-                {
-                    text: 'เมษายน'
-                },
-                {
-                    text: 'พฤษภาคม'
-                },
-                {
-                    text: 'มิถุนายน'
-                },
-                {
-                    text: 'สิงหาคม'
-                },
-                {
-                    text: 'กันยายน'
-                },
-                {
-                    text: 'ตุลาคม'
-                },
-                {
-                    text: 'พฤศจิกายน'
-                },
-                {
-                    text: 'ธันวาคม'
-                },
+    data: () => ({
+        province: [{
+                text: 'พะเยา'
+            },
+            {
+                text: 'เชียงราย'
+            },
+            {
+                text: 'แพร่'
+            },
+            {
+                text: 'น่าน'
+            },
+        ],
+        district: [{
+                text: 'มกราคม'
+            },
+            {
+                text: 'กุมภาพันธ์'
+            },
+            {
+                text: 'มีนาคม'
+            },
+            {
+                text: 'เมษายน'
+            },
+            {
+                text: 'พฤษภาคม'
+            },
+            {
+                text: 'มิถุนายน'
+            },
+            {
+                text: 'สิงหาคม'
+            },
+            {
+                text: 'กันยายน'
+            },
+            {
+                text: 'ตุลาคม'
+            },
+            {
+                text: 'พฤศจิกายน'
+            },
+            {
+                text: 'ธันวาคม'
+            },
 
-            ],
+        ],
 
-            place: [{
-                    text: '2563'
-                },
-                
-            ],
-            farm: [{
-                    text: 'เชียงกลาง'
-                },
-                {
-                    text: 'ท่าวังผา'
-                },
-                {
-                    text: 'ทุ่งช้าง'
-                },
-                {
-                    text: 'นาน้อย'
-                },
-                {
-                    text: 'บ่อเกลือ'
-                },
-                {
-                    text: 'นาน้อย'
-                },
-                {
-                    text: 'บ้านหลวง'
-                },
-                {
-                    text: 'ปัว'
-                },
-                {
-                    text: 'ภูเพียง'
-                },
-                {
-                    text: 'แม่จริม'
-                },
-                {
-                    text: 'เมืองน่าน'
-                },
-                {
-                    text: 'เวียงสา'
-                },
-                {
-                    text: 'สองแคว'
-                },
-                {
-                    text: 'สันติสุข'
-                },
-            ],
-         
+        place: [{
+                text: '2563'
+            },
+
+        ],
+        farm: [{
+                text: 'เชียงกลาง'
+            },
+            {
+                text: 'ท่าวังผา'
+            },
+            {
+                text: 'ทุ่งช้าง'
+            },
+            {
+                text: 'นาน้อย'
+            },
+            {
+                text: 'บ่อเกลือ'
+            },
+            {
+                text: 'นาน้อย'
+            },
+            {
+                text: 'บ้านหลวง'
+            },
+            {
+                text: 'ปัว'
+            },
+            {
+                text: 'ภูเพียง'
+            },
+            {
+                text: 'แม่จริม'
+            },
+            {
+                text: 'เมืองน่าน'
+            },
+            {
+                text: 'เวียงสา'
+            },
+            {
+                text: 'สองแคว'
+            },
+            {
+                text: 'สันติสุข'
+            },
+        ],
+
         search: '',
         dialog: false,
         headers: [{
@@ -229,70 +226,70 @@ export default {
                     name: 'นายแดง แดงแดง',
                     Phonenumber: '0911231231',
                     group: 'กลุ่มแม่ใจ',
-                    status:'ผู้ใช้สมัครสมาชิกเอง',
+                    status: 'ผู้ใช้สมัครสมาชิกเอง',
                 },
                 {
                     IDCard: 3123412345612,
                     name: 'นายดำ ดำดำ',
                     Phonenumber: '0914123412',
                     group: 'กลุ่มแม่ใจ',
-                    status:'เพิ่มโดยแอดมิน',
+                    status: 'เพิ่มโดยแอดมิน',
                 },
                 {
                     IDCard: 1231241231233,
                     name: 'นายเขียว เขียวเขียว',
                     Phonenumber: '0812312312',
                     group: 'กลุ่มพาน',
-                    status:'สมัครบนแอปพลิเคชัน',
+                    status: 'สมัครบนแอปพลิเคชัน',
                 },
                 {
                     IDCard: 1111111111111,
                     name: 'นายเขียว เขียวขจี',
                     Phonenumber: '0822312312',
                     group: 'กลุ่มพาน',
-                    status:'สมัครบนแอปพลิเคชัน',
+                    status: 'สมัครบนแอปพลิเคชัน',
                 },
                 {
                     IDCard: 2222222222222,
                     name: 'นายเหลือง เหลืองเหลือง',
                     Phonenumber: '0833333333',
                     group: 'กลุ่มแม่กา',
-                    status:'สมัครบนแอปพลิเคชัน',
+                    status: 'สมัครบนแอปพลิเคชัน',
                 },
                 {
                     IDCard: 3333333333333,
                     name: 'นายชัย',
                     Phonenumber: '0844444444',
                     group: 'กลุ่มแม่กา',
-                    status:'เพิ่มโดยแอดมิน',
+                    status: 'เพิ่มโดยแอดมิน',
                 },
                 {
                     IDCard: 4444444444444,
                     name: 'นายใหญ่',
                     Phonenumber: '0855555555',
                     group: 'กลุ่มพะเยา',
-                    status:'สมัครบนแอปพลิเคชัน',
+                    status: 'สมัครบนแอปพลิเคชัน',
                 },
                 {
                     IDCard: 5555555555555,
                     name: 'นายเล็ก',
                     Phonenumber: '0866666666',
                     group: 'กลุ่มพะเยา',
-                    status:'สมัครบนแอปพลิเคชัน',
+                    status: 'สมัครบนแอปพลิเคชัน',
                 },
                 {
                     IDCard: 6666666666666,
                     name: 'นายคำ',
                     Phonenumber: '0877777777',
                     group: 'กลุ่มพะเยา',
-                    status:'เพิ่มโดยแอดมิน',
+                    status: 'เพิ่มโดยแอดมิน',
                 },
                 {
                     IDCard: 7777777777777,
                     name: 'นายนาย',
                     Phonenumber: '0888888888',
                     group: 'กลุ่มพะเยา',
-                    status:'สมัครบนแอปพลิเคชัน',
+                    status: 'สมัครบนแอปพลิเคชัน',
                 },
 
             ]

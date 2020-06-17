@@ -56,7 +56,7 @@ export default {
                 {
                     text: "รายงานแดชบอร์ด",
                     icon: "em em-information_source",
-                    router: "/Dasboard"
+                    router: "/Dashboard"
                 },
                 {
                      text: "จัดการข้อมูลผู้ใช้",
