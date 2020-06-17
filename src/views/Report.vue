@@ -1,23 +1,20 @@
 <template>
-    <div style="padding:20px;">
-        <v-container class="fill-height" fluid>
-            <v-row align="center" justify="center">
-                <v-col cols="12" sm="12" md="8">
+<div style="padding:20px;">
+    <v-container class="fill-height" fluid>
+        <v-flex>
+            <v-row align="center" row wrap>
+                <v-col cols="12" sm="12" md="6">
                     <v-card class="elevation-12">
                         <v-card-text class="text-center">
-                            <h1 >รายงานสรุปจำนวนกระบือที่มีชีวิต</h1><br>
+                            <h1>รายงานสรุปจำนวนกระบือที่มีชีวิต</h1><br>
                             <v-icon size="100">mdi-clipboard-text-outline</v-icon>
-                        </v-card-text> 
+                        </v-card-text>
                         <v-card-actions>
                             <v-btn style="width:100%" @click="$router.push('ReportBuffalo')" color="primary">ดูรายงาน</v-btn>
                         </v-card-actions>
-                        
-                    </v-card>
-                </v-col>
-            </v-row>
 
-            <v-row align="center" justify="center">
-                <v-col cols="12" sm="12" md="8">
+                    </v-card>
+
                     <v-card class="elevation-12">
                         <v-card-text class="text-center">
                             <h1>รายงานเชิงแผนที่</h1><br>
@@ -28,11 +25,7 @@
                             <v-btn style="width:100%" @click="$router.push('ReportMap')" color="primary">ดูรายงาน</v-btn>
                         </v-card-actions>
                     </v-card>
-                </v-col>
-            </v-row>
 
-            <v-row align="center" justify="center">
-                <v-col cols="12" sm="12" md="8">
                     <v-card class="elevation-12">
                         <v-card-text class="text-center">
                             <h1>รายงานความเคลื่อนไหวการใช้งานระบบ</h1><br>
@@ -43,14 +36,10 @@
                             <v-btn style="width:100%" @click="$router.push('ReportSystem')" color="primary">ดูรายงาน</v-btn>
                         </v-card-actions>
                     </v-card>
-                </v-col>
-            </v-row>
 
-            <v-row align="center" justify="center">
-                <v-col cols="12" sm="12" md="8">
                     <v-card class="elevation-12">
                         <v-card-text class="text-center">
-                            <h1>ส่งออกรายงาน</h1><br>
+                            <h1>ข้อมูลการเจริญเติบโตของกระบือ </h1><br>
                             <v-icon size="100">mdi-file-export-outline</v-icon>
                         </v-card-text>
                         <v-card-actions>
@@ -60,11 +49,11 @@
                     </v-card>
                 </v-col>
             </v-row>
-        </v-container>
-    </div>
+        </v-flex>
+    </v-container>
+</div>
 </template>
 
-    
 <script>
 export default {
     name: 'Root',

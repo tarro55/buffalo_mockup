@@ -1,15 +1,14 @@
 <template>
-    <div style="padding:20px;">
-        <h1>รายงานเชิงแผนที่</h1>
-        <div>
-            <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn><br>
-        </div>
-        <v-card class="pa-4" flat height="500px" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">
-            <v-btn icon>
-                <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
-        </v-card>
+<div style="padding:20px;">
+    <h1>รายงานเชิงแผนที่</h1>
+    <div>
+        <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn><br>
     </div>
+    <v-row align="center" justify="center">
+        <v-card class="pa-4" flat height="400px" width="800" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">
+        </v-card>
+    </v-row>
+</div>
 </template>
 
 <script>
