@@ -4,7 +4,7 @@
         <h1>แดชบอร์ด</h1>
         <v-divider></v-divider>
     </v-container>
-    <v-container grid-list-xs class="w3-margin w3-padding-32">
+    <v-container grid-list-xs class="w3-padding-32">
         <v-flex xs12 row wrap>
             <v-flex xs4>
                 <v-hover v-slot:default="{ hover }" close-delay="200">
