@@ -2,7 +2,7 @@
 <div style="padding:20px;">
     <h1>รายงานเชิงแผนที่</h1>
     <div>
-        <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn><br>
+        <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0" outlined></v-overflow-btn><br>
     </div>
     <v-row align="center" justify="center">
         <v-card class="pa-4" flat height="400px" width="800" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">

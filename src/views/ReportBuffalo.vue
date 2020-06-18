@@ -12,14 +12,14 @@
             <v-toolbar flat color="white">
                 
                 <v-toolbar-title>
-                    <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
+                    <v-text-field v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                 </v-toolbar-title>
                 <v-spacer></v-spacer>
 
-                <v-overflow-btn :items="province"  label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
-                <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0"></v-overflow-btn>
-                <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0"></v-overflow-btn>
-                <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
+                <v-overflow-btn :items="province"  label="กรุณาเลือกจังหวัด" hide-details class="pa-0" outlined></v-overflow-btn>
+                <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0" outlined></v-overflow-btn>
+                <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0" outlined></v-overflow-btn>
+                <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0" outlined></v-overflow-btn>
 
                 
             </v-toolbar>

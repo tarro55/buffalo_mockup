@@ -13,7 +13,7 @@
                     <v-dialog v-model="dialog" max-width="500px">
 
                         <template v-slot:activator="{ on, attrs }">
-                            <v-btn color="teal" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
+                            <v-btn color="teal" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่มผู้ดูแล</v-btn>
                             <v-divider class="mx-4" inset vertical></v-divider>
                         </template>
 
@@ -25,13 +25,13 @@
                             <v-card-text>
                                 <v-container>
                                     <v-col cols="12">
-                                        <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
+                                        <v-text-field outlined v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
                                     </v-col>
                                     <v-col cols="12">
-                                        <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
+                                        <v-text-field outlined v-model="editedItem.name" label="ชื่อ"></v-text-field>
                                     </v-col>
                                     <v-col cols="12">
-                                        <v-text-field v-model="editedItem.email" label="อีเมล์"></v-text-field>
+                                        <v-text-field outlined v-model="editedItem.email" label="อีเมล์"></v-text-field>
                                     </v-col>
                                 </v-container>
                             </v-card-text>
@@ -45,20 +45,31 @@
                     </v-dialog>
 
                     <v-toolbar-title>
-                        <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
+                        <v-text-field v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                     </v-toolbar-title>
                     <v-spacer></v-spacer>
 
                 </v-toolbar>
             </template>
             <template v-slot:item.actions="{ item }">
+                <v-tooltip v-model="show" top>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn icon v-bind="attrs" v-on="on" @click="editItem(item)">
+                            <v-icon>mdi-pencil</v-icon>
+                        </v-btn>
+                    </template>
+                    <span>แก้ไข</span>
+                </v-tooltip>
 
-                <v-icon class="mr-2" @click="editItem(item)">
-                    mdi-pencil
-                </v-icon>
-                <v-icon @click="deleteItem(item)">
-                    mdi-delete
-                </v-icon>
+                <v-tooltip v-model="show" top>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
+                            <v-icon>mdi-delete</v-icon>
+                        </v-btn>
+                    </template>
+                    <span>ลบ</span>
+                </v-tooltip>
+
             </template>
             <template v-slot:no-data>
                 <v-btn color="primary" @click="initialize">Reset</v-btn>

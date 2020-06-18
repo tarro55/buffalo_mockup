@@ -7,7 +7,7 @@
 
         <v-dialog v-model="dialog" max-width="500px">
             <template v-slot:activator="{ on, attrs }">
-                <v-btn color="teal" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
+                <v-btn color="teal" large dark class="mb-2" v-bind="attrs" v-on="on">เพิ่มเกษตรกร</v-btn>
             </template>
             <v-card>
                 <v-card-title>
@@ -17,18 +17,68 @@
                 <v-card-text>
                     <v-container>
                         <v-row>
-                            <v-col cols="12" sm="6" md="4">
-                                <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.IDcardFarmer" label="หมายเลขบัตรประชาชนเกษตรกร"></v-text-field>
                             </v-col>
-                            <v-col cols="12" sm="6" md="4">
-                                <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.nonb" label="ชื่อ "></v-text-field>
                             </v-col>
-                            <v-col cols="12" sm="6" md="4">
-                                <v-text-field v-model="editedItem.Phonenumber" label="เบอร์โทรศัพท์"></v-text-field>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.nid" label="นามสกุล"></v-text-field>
                             </v-col>
-                            <v-col cols="12" sm="6" md="4">
-                                <v-text-field v-model="editedItem.group" label="กลุ่มผู้ใช้"></v-text-field>
+                            
+                            <v-col cols="12" sm="6">
+                                <v-file-input outlined accept="image/*" v-model="editedItem.birth" label="ภาพถ่ายบัตรประจำตัวประชาชน"></v-file-input>
                             </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.sex" label="เพศ"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.age" label="อายุ"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.color" label="ที่อยู่ตามทะเบียนบ้าน"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.nmi" label="เบอร์โทรศัพท์"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-file-input outlined accept="image/*" v-model="editedItem.from" label="ภาพถ่ายเจ้าของฟาร์ม"></v-file-input>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-file-input outlined accept="image/*" v-model="editedItem.price" label="ภาพถ่ายสภาพฟาร์ม"></v-file-input>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.status" label="ชื่อฟาร์ม"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.nonf" label="บ้านเลขที่ ถนน ซอย"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.nidf" label="ตำบล"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.nmif" label="อำเภอ"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.nmim" label="จังหวัด"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.nidm" label="รหัสไปรษณีย์"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.mim" label="พิกัดฟาร์มตามระบบ GPS (ละติจูด)"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.weight" label="พิกัดฟาร์มตามระบบ GPS (ลองติจูด)"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.cwidth" label="จำนวนกระบือทั้งหมด"></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6">
+                                <v-text-field outlined v-model="editedItem.blength" label="กลุ่มเกษตรกร"></v-text-field>
+                            </v-col>
+
                         </v-row>
                     </v-container>
                 </v-card-text>
@@ -47,50 +97,16 @@
                 <v-toolbar flat color="white">
 
                     <v-toolbar-title>
-                        <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
+                        <v-text-field v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                     </v-toolbar-title>
                     <v-spacer></v-spacer>
 
-                    <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
-                    <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0"></v-overflow-btn>
-                    <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0"></v-overflow-btn>
-                    <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0"></v-overflow-btn>
+                    <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0" outlined></v-overflow-btn>
+                    <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0" outlined></v-overflow-btn>
+                    <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0" outlined></v-overflow-btn>
+                    <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0" outlined></v-overflow-btn>
 
-                    <!-- <v-dialog v-model="dialog" max-width="500px">
-                        <template v-slot:activator="{ on, attrs }">
-                            <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
-                        </template>
-                        <v-card>
-                            <v-card-title>
-                                <span class="headline">{{ formTitle }}</span>
-                            </v-card-title>
-
-                            <v-card-text>
-                                <v-container>
-                                    <v-row>
-                                        <v-col cols="12" sm="6" md="4">
-                                            <v-text-field v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" sm="6" md="4">
-                                            <v-text-field v-model="editedItem.name" label="ชื่อ"></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" sm="6" md="4">
-                                            <v-text-field v-model="editedItem.Phonenumber" label="เบอร์โทรศัพท์"></v-text-field>
-                                        </v-col>
-                                        <v-col cols="12" sm="6" md="4">
-                                            <v-text-field v-model="editedItem.group" label="กลุ่มผู้ใช้"></v-text-field>
-                                        </v-col>
-                                    </v-row>
-                                </v-container>
-                            </v-card-text>
-
-                            <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
-                                <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
-                            </v-card-actions>
-                        </v-card>
-                    </v-dialog> -->
+                   
                 </v-toolbar>
             </template>
 
@@ -205,7 +221,7 @@ export default {
 
     computed: {
         formTitle() {
-            return this.editedIndex === -1 ? 'เพิ่ม' : 'แก้ไข'
+            return this.editedIndex === -1 ? 'เพิ่มข้อมูลเกษตรกร' : 'แก้ไขข้อมูลเกษตรกร'
         },
     },
 

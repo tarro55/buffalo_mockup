@@ -1,14 +1,14 @@
 <template>
 <div style="padding:20px;">
     <v-container>
-        <h1>รายงานแดชบอร์ด</h1>
+        <h1>แดชบอร์ด</h1>
         <v-divider></v-divider>
     </v-container>
     <v-container grid-list-xs class="w3-margin w3-padding-32">
         <v-flex xs12 row wrap>
             <v-flex xs4>
                 <v-hover v-slot:default="{ hover }" close-delay="200">
-                    <v-card :elevation="hover ? 16 : 2  " class="mx-auto" max-width="400">
+                    <v-card :elevation="hover ? 16 : 2  " class="mx-auto" max-width="350">
                         <v-card-title>
                             <v-icon large left>
                                 mdi-account-multiple
@@ -22,7 +22,7 @@
                         </v-card-text>
 
                         <v-card-text class=" font-weight-bold" large>
-                            <v-btn outlined block @click="$router.push('ReportBuffalo')" color="teal">ดูรายละเอียดเพิ่มเติม</v-btn>
+                            <v-btn outlined block @click="$router.push('farmer')" color="teal">ดูรายละเอียดเพิ่มเติม</v-btn>
                         </v-card-text>
                     </v-card>
                 </v-hover>
@@ -30,7 +30,7 @@
 
             <v-flex xs4>
                 <v-hover v-slot:default="{ hover }" close-delay="200">
-                    <v-card :elevation="hover ? 16 : 2" class="mx-auto w3-margin-left" max-width="400">
+                    <v-card :elevation="hover ? 16 : 2" class="mx-auto w3-margin-left" max-width="350">
                         <v-card-title>
                             <v-icon large left>
                                 mdi-cow
@@ -41,7 +41,7 @@
                             750 คน
                         </v-card-text>
                         <v-card-text class=" font-weight-bold" large>
-                            <v-btn outlined block @click="$router.push('ReportMap')" color="teal">ดูรายละเอียดเพิ่มเติม</v-btn>
+                            <v-btn outlined block @click="$router.push('ReportBuffalo')" color="teal">ดูรายละเอียดเพิ่มเติม</v-btn>
                         </v-card-text>
                     </v-card>
                 </v-hover>
@@ -49,7 +49,7 @@
 
             <v-flex xs4>
                 <v-hover v-slot:default="{ hover }" close-delay="200">
-                    <v-card :elevation="hover ? 16 : 2" class="mx-auto w3-margin-left" max-width="400">
+                    <v-card :elevation="hover ? 16 : 2" class="mx-auto w3-margin-left" max-width="350">
                         <v-card-title>
                             <v-icon large left>
                                 mdi-account-clock
@@ -60,7 +60,7 @@
                             150 คน
                         </v-card-text>
                         <v-card-text class=" font-weight-bold" large>
-                            <v-btn outlined block @click="$router.push('ReportSystem')" color="teal">ดูรายละเอียดเพิ่มเติม</v-btn>
+                            <v-btn outlined block @click="$router.push('Export')" color="teal">ดูรายละเอียดเพิ่มเติม</v-btn>
                         </v-card-text>
                     </v-card>
                 </v-hover>
@@ -82,7 +82,7 @@
         <v-divider></v-divider>
 
         <v-card-actions class="justify-center">
-            <v-btn block text>ดูข้อมูลเพิ่มเติม</v-btn>
+            <v-btn block @click="$router.push('ReportSystem')" text>ดูข้อมูลเพิ่มเติม</v-btn>
         </v-card-actions>
     </v-card>
 </div>
