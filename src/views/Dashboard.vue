@@ -131,6 +131,12 @@
 
     <v-divider></v-divider>
 
+     <template>
+    <div>
+      <apexchart width="500" type="line" :options="options" :series="series"></apexchart>
+    </div>
+  </template>
+
     <v-card class="mx-auto text-center" color="rgba(155, 205, 155)" max-width="600">
         <v-card-text>
             <div class="display-1 font-weight-thin">จำนวนผู้ใช้ในแต่ละเดือน</div>
@@ -151,8 +157,9 @@
 </div>
 </template>
 
-<script>
+<script> 
 export default {
+     
     name: 'Root',
     /*-------------------------ประกาศ components ---------------------------------------*/
     components: {
@@ -165,6 +172,7 @@ export default {
     /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
     data() {
         return {
+            
             picker: null,
             labels: [
                 'ม.ค.',
