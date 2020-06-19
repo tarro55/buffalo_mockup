@@ -8,11 +8,12 @@
                         <v-card class="elevation-12">
                             <v-card-text class="text-center">
                                 <img style="width:65%;" src="https://www.img.in.th/images/209695056f7b9ddfe087f862d5b107d8.png" alt="">
-                                
-                                <v-form>
-                                    <v-text-field label="เข้าสู่ระบบ" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
+                                <v-divider></v-divider>
 
-                                    <v-text-field id="password" label="รหัสผ่าน" name="password" prepend-icon="mdi-lock" type="password"></v-text-field>
+                                <v-form  >
+                                    <v-text-field outlined label="เข้าสู่ระบบ" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
+
+                                    <v-text-field outlined id="password" label="รหัสผ่าน" name="password" prepend-icon="mdi-lock" type="password"></v-text-field>
                                 </v-form>
                             </v-card-text>
                             <v-card-actions>
@@ -82,3 +83,4 @@ background-size: cover;
     background-size: cover;
 }
 </style>
+  

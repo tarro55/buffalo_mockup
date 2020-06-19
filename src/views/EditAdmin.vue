@@ -1,56 +1,95 @@
 <template>
-<div style="padding:20px;">
+<div class="bg" style="padding:20px;">
     <v-container>
         <div>
-            <h3>ข้อมูลผู้ใช้งานระบบ</h3>
+            <h3>ผู้ดูแลระบบ</h3>
         </div>
         <br>
 
-        <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
+        <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
             <template v-slot:top>
-                <v-toolbar flat color="white">
+                <!-- <v-toolbar flat color="white">
+                    <div class="d-flex flex-wrap">
+                        <v-dialog v-model="dialog" max-width="500px">
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-btn color="teal" dark class="mb-2 rounded-lg" large v-bind="attrs" v-on="on">เพิ่มผู้ดูแล</v-btn>
+                                <v-divider class="mx-4" inset vertical></v-divider>
+                            </template>
+                            <v-card>
+                                <v-card-title>
+                                    <span class="headline">{{ formTitle }}</span>
+                                </v-card-title>
 
-                    <v-dialog v-model="dialog" max-width="500px">
+                                <v-card-text>
+                                    <v-container class="rounded-lg">
+                                        <v-col cols="12">
+                                            <v-text-field outlined v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12">
+                                            <v-text-field outlined v-model="editedItem.name" label="ชื่อ"></v-text-field>
+                                        </v-col>
+                                        <v-col cols="12">
+                                            <v-text-field outlined v-model="editedItem.email" label="อีเมล์"></v-text-field>
+                                        </v-col>
+                                    </v-container>
+                                </v-card-text>
 
-                        <template v-slot:activator="{ on, attrs }">
-                            <v-btn color="teal" dark class="mb-2" v-bind="attrs" v-on="on">เพิ่มผู้ดูแล</v-btn>
-                            <v-divider class="mx-4" inset vertical></v-divider>
-                        </template>
+                                <v-card-actions>
+                                    <v-spacer></v-spacer>
+                                    <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
+                                    <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
+                                </v-card-actions>
+                            </v-card>
+                        </v-dialog>
+                        <v-toolbar-title class="">
+                            <v-text-field v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                        </v-toolbar-title>
+                    </div>
+                </v-toolbar> -->
 
-                        <v-card>
-                            <v-card-title>
-                                <span class="headline">{{ formTitle }}</span>
-                            </v-card-title>
+                <v-flex xs12 class="pa-2">
+                    <div class="d-flex grow flex-wrap">
+                        <v-text-field class="rounded-lg" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                        <v-spacer></v-spacer>
+                        <div class="col-ml-6 ">
+                            <v-dialog v-model="dialog" max-width="500px">
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn outlined color="teal" dark class="mb-2 rounded-lg" large v-bind="attrs" v-on="on">เพิ่มผู้ดูแล</v-btn>
+                                    <!-- <v-divider class="mx-4" inset vertical></v-divider> -->
+                                </template>
+                                <v-card>
+                                    <v-card-title>
+                                        <span class="headline">{{ formTitle }}</span>
+                                    </v-card-title>
 
-                            <v-card-text>
-                                <v-container>
-                                    <v-col cols="12">
-                                        <v-text-field outlined v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12">
-                                        <v-text-field outlined v-model="editedItem.name" label="ชื่อ"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12">
-                                        <v-text-field outlined v-model="editedItem.email" label="อีเมล์"></v-text-field>
-                                    </v-col>
-                                </v-container>
-                            </v-card-text>
+                                    <v-card-text>
+                                        <v-container class="rounded-lg">
+                                            <v-col cols="12">
+                                                <v-text-field outlined v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
+                                            </v-col>
+                                            <v-col cols="12">
+                                                <v-text-field outlined v-model="editedItem.name" label="ชื่อ"></v-text-field>
+                                            </v-col>
+                                            <v-col cols="12">
+                                                <v-text-field outlined v-model="editedItem.email" label="อีเมล์"></v-text-field>
+                                            </v-col>
+                                        </v-container>
+                                    </v-card-text>
 
-                            <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
-                                <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
-                            </v-card-actions>
-                        </v-card>
-                    </v-dialog>
+                                    <v-card-actions>
+                                        <v-spacer></v-spacer>
+                                        <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
+                                        <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
+                                    </v-card-actions>
+                                </v-card>
+                            </v-dialog>
+                        </div>
 
-                    <v-toolbar-title>
-                        <v-text-field v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
-                    </v-toolbar-title>
-                    <v-spacer></v-spacer>
+                    </div>
+                </v-flex>
 
-                </v-toolbar>
             </template>
+
             <template v-slot:item.actions="{ item }">
                 <v-tooltip v-model="show" top>
                     <template v-slot:activator="{ on, attrs }">
@@ -193,4 +232,11 @@ export default {
 
 <style  scoped>
 
+</style>
+<style scoped>
+.bg {
+    /* background: rgba(0, 128, 0, 0.1); */
+    background: rgba(242, 243, 244);
+    background-size: cover;
+}
 </style>

@@ -1,37 +1,45 @@
 <template>
 <div>
-    <v-navigation-drawer v-model="drawer" app clipped class="dr-bg"> 
-        <v-list class="w3-margin" shaped> 
+    <v-navigation-drawer v-model="drawer" app clipped class="dr-bg">
+        <v-list class="w3-margin" shaped>
             <v-list-item two-line :class="miniVariant && 'px-0'">
-            <v-list-item-avatar>
-              <img src="https://randomuser.me/api/portraits/men/81.jpg">
-            </v-list-item-avatar>
-            
-            <v-list-item-content>
-              <v-list-item-title>นายแดง แดงแดง</v-list-item-title>
-              <v-list-item-subtitle>dang@gmail.com</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
+                <v-list-item-avatar>
+                    <img src="https://randomuser.me/api/portraits/men/81.jpg">
+                </v-list-item-avatar>
+
+                <v-list-item-content>
+                    <v-list-item-title>นายแดง แดงแดง</v-list-item-title>
+                    <v-list-item-subtitle>dang@gmail.com</v-list-item-subtitle>
+                </v-list-item-content>
+            </v-list-item>
             <v-divider></v-divider>
-            <v-list-item-group v-model="item" color="purple">
+            <v-list-item-group v-model="item" color="green">
+
                 <!-- <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`/officer${item.router}`)"> -->
                 <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`${item.router}`)">
-                    <h2 style="font-size:16px;">{{item.text}}</h2> 
-                </v-list-item>  
+                    <v-list-item-icon>
+                        <v-icon>{{ item.icon }}</v-icon>
+                    </v-list-item-icon>
+
+                    <v-list-item-content>
+                        <v-list-item-title class="">{{ item.text }}</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <!-- <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`${item.router}`)">
+                    <h2 style="font-size:16px;"  >{{item.text}}</h2>
+                </v-list-item> -->
             </v-list-item-group>
         </v-list>
 
-
     </v-navigation-drawer>
 
-    <v-app-bar app clipped-left class="bg" color=" darken-3" >
+    <v-app-bar app clipped-left class="bg" color=" darken-3">
         <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <img style="width:50%;" src="https://www.img.in.th/images/209695056f7b9ddfe087f862d5b107d8.png" alt="">
-            
+            <a href="" @click="$router.push(`farmer_detail`)"><img style="width:50%;" src="https://www.img.in.th/images/209695056f7b9ddfe087f862d5b107d8.png" alt=""></a>
+
         </v-toolbar-title>
         <v-spacer></v-spacer>
-    
 
         <!-- <v-menu offset-y>
             <template v-slot:activator="{ on }">
@@ -40,18 +48,34 @@
                 </v-avatar>
             </template>
             <v-list>
-                <v-list-item @click="logout()">
+                <v-btn color="success">
+                    <v-list-item @click="logout()">
+                        <v-list-item-title>
+                            <v-icon>mdi-logout</v-icon>
+                        </v-list-item-title>
+                    </v-list-item>
+                </v-btn>
+            </v-list>
+        </v-menu> -->
+
+        <v-menu bottom offset-y>
+            <template v-slot:activator="{ on, attrs }">
+                <v-btn-icon class="ma-2" v-bind="attrs" v-on="on">
+                    <v-avatar>
+                        <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
+                    </v-avatar>
+                </v-btn-icon>
+            </template>
+            <v-list>
+                <v-list-item v-for="(item, i) in items1" :key="i" @click="() => {}">
                     <v-list-item-title>
-                        <v-icon>mdi-logout</v-icon>&nbsp;ออกจากระบบ
-                    </v-list-item-title>
+                        {{ item.title }}</v-list-item-title>
                 </v-list-item>
             </v-list>
+        </v-menu>
 
-            
-        </v-menu> -->
-        
     </v-app-bar>
-    
+
 </div>
 </template>
 
@@ -63,40 +87,50 @@ export default {
     data() {
         return {
             drawer: null,
-            item: 0,
-            items: [
+            items1: [{
+                    title: 'ข้อมูลส่วนตัว',
+                },
                 {
+                    title: 'ออกจากระบบ',
+                },
+            ],
+            item: 0,
+            items: [{
+
                     text: "แดชบอร์ด",
-                    icon: "em em-information_source",
+                    icon: "mdi-chart-bell-curve-cumulative",
                     router: "/Dashboard"
                 },
                 {
-                     text: "จัดการข้อมูลผู้ใช้",
+                    icons: "",
+                    text: "จัดการข้อมูลผู้ใช้",
                     sub: "จัดการข้อผูลผู้ใช้",
-                    icon: "em em-information_source",
+                    icon: "mdi-account",
                     router: "/farmer"
                 },
                 {
-                     text: "จัดการผู้ดูแลระบบ",
+                    icons: "",
+                    text: "จัดการผู้ดูแลระบบ",
                     sub: "จัดการผู้ดูแลระบบ",
-                    icon: "em em-information_source",
+                    icon: "mdi-account-cog",
                     router: "/EditAdmin"
                 },
                 {
+                    icons: "",
                     text: "รายงาน",
                     sub: "รายงานข้อมูลต่างๆ",
-                    icon: "em em-information_source",
+                    icon: "mdi-clipboard-text-outline",
                     router: "/report"
                 },
                 {
+                    icons: "",
                     text: "ออกจากระบบ",
-                    icon: "em em-information_source",
+                    icon: "mdi-logout",
                     router: "/Login"
                 },
-                
-                
+
             ],
-            
+
             txt: "Hello World",
             active: false
         };

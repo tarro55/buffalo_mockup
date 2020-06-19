@@ -1,4 +1,5 @@
 <template>
+<div class="bg">
 <v-container grid-list-xs class="w3-margin w3-padding-32">
     <v-flex xs12 row wrap>
         <v-flex xs6>
@@ -72,6 +73,7 @@
     </v-flex>
 
 </v-container>
+</div>
 </template>
 
 <script>

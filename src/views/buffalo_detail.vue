@@ -3,7 +3,7 @@
     <center>
         <v-flex xs12 row wrap>
             <v-flex xs6 pa-3>
-                <v-card elevation="10">
+                <v-card class="elevation-5 rounded-lg">
                     <v-img src="https://images.pexels.com/photos/1054650/pexels-photo-1054650.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" aspect-ratio="1.7"></v-img>
                     <v-list two-line>
                         <center>
@@ -13,7 +13,7 @@
                 </v-card>
             </v-flex>
             <v-flex xs6 pa-3>
-                <v-card elevation="10">
+                <v-card class="elevation-5 rounded-lg ">
                     <v-img src="https://images.pexels.com/photos/2261770/pexels-photo-2261770.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" aspect-ratio="1.7"></v-img>
                     <v-list two-line>
                         <center>
@@ -29,15 +29,15 @@
     <center>
         <v-container>
             <v-flex xs8>
-                <v-card elevation="5">
+                <v-card class="elevation-5 rounded-lg pa-2">
                     <br>
-                    <v-toolbar-title>รายละเอียดกระบือ <v-btn color="success" @click="dialog=false">แก้ไข<v-icon>mdi-pencil</v-icon>
+                    <v-toolbar-title>รายละเอียดกระบือ <v-btn outlined color="teal" @click="dialog=false">แก้ไข<v-icon>mdi-pencil</v-icon>
                         </v-btn>
                     </v-toolbar-title>
                     <br>
-                    <v-flex xs12 offset-xs2 row wrap>
+                    <v-flex row wrap xs12 offset-xs1>
                         <div v-for="item in desserts" :key="item.name">
-                            <v-text-field :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
+                            <v-text-field outlined :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
                         </div>
                     </v-flex>
                 </v-card>
@@ -46,29 +46,43 @@
         </v-container>
 
         <v-flex xs8 row wrap>
-            <v-card elevation="5" outlined  height="150" width="150">
-                <v-card-text class="text-center">
-                    <h6>ใบพันธุ์ประวัติอ้างอิง</h6>
-                    <v-icon size="40">mdi-file-pdf-outline</v-icon>
-                </v-card-text>
-                <center>
+            <v-flex xs6 class="pa-2">
+                <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
+                    <v-card :elevation="hover ? 16 : 2  " class="mx-auto pa-3 rounded-lg">
+                        <div class="d-flex grow flex-wrap">
+                            <v-icon dark large class="elevation-6 error pa-4 rounded-lg" style="max-height: 80px; width: auto;">mdi-file-pdf-outline</v-icon>
+                            <v-spacer></v-spacer>
+                            <div class="col-ml-6 ">
+                                <div class="ml-auto text-right">
+                                    <h7>
+                                        ใบพันธุ์ประวัติอ้างอิง
+                                    </h7>
+                                </div>
+                            </div>
+                        </div>
+                    </v-card>
+                </v-hover>
+            </v-flex>
 
-                </center>
-            </v-card>
-            <br>
-            <v-card elevation="5" outlined height="200" width="200">
-                <v-card-text class="text-center">
-                    <h6>ใบพันธุ์ประวัติทางการ</h6><br>
-                    <v-icon size="40">mdi-file-pdf-outline</v-icon>
-                </v-card-text>
-                <center> 
-                    <v-btn style="width:90%" color="success"><h7>อัพโหลดใบพันธุ์ประวัติทางการ</h7></v-btn>
-                </center>
-                <br>
-            </v-card>
-
+            <v-flex xs6 class="pa-2">
+                <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
+                    <v-card :elevation="hover ? 16 : 2  " class="mx-auto pa-3 rounded-lg">
+                        <div class="d-flex grow flex-wrap">
+                            <v-icon dark large class="elevation-6 error pa-4 rounded-lg" style="max-height: 80px; width: auto;">mdi-file-pdf-outline</v-icon>
+                            <v-spacer></v-spacer>
+                            <div class="col-ml-6 ">
+                                <div class="ml-auto text-right">
+                                    <h7>
+                                        อัพโหลดใบพันธุ์ประวัติอย่างเป็นทางการ
+                                    </h7>
+                                </div>
+                                <v-btn outlined block @click="$router.push('farmer')" color="teal">อัพโหลดใบพันธุ์ประวัติทางการ</v-btn>
+                            </div>
+                        </div>
+                    </v-card>
+                </v-hover>
+            </v-flex>
         </v-flex>
-
     </center>
 
 </v-container>
@@ -88,7 +102,7 @@ export default {
     /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
     data() {
         return {
-            dialog: true, 
+            dialog: true,
             desserts: [{
                     describe: 'หมายเลขบัตรประชาชนเกษตรกร',
                     calories: '3560700337836',
