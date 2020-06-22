@@ -37,7 +37,7 @@
                     <br>
                     <v-flex row wrap xs12 offset-xs1>
                         <div v-for="item in desserts" :key="item.name">
-                            <v-text-field outlined :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
+                            <v-text-field rounded-lg outlined :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
                         </div>
                     </v-flex>
                 </v-card>
@@ -68,7 +68,7 @@
                 <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
                     <v-card :elevation="hover ? 16 : 2  " class="mx-auto pa-3 rounded-lg">
                         <div class="d-flex grow flex-wrap">
-                            <v-icon dark large class="elevation-6 error pa-4 rounded-lg" style="max-height: 80px; width: auto;">mdi-file-pdf-outline</v-icon>
+                            <v-icon dark large class="elevation-6 error rounded-lg" style="max-height: 80px; width: auto;">mdi-file-pdf-outline</v-icon>
                             <v-spacer></v-spacer>
                             <div class="col-ml-6 ">
                                 <div class="ml-auto text-right">
