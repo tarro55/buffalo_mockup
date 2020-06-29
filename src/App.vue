@@ -12,7 +12,7 @@
 
   
 <script>
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Navbar'; 
 export default {
     name: 'Root',
     /*-------------------------ประกาศ components ---------------------------------------*/
@@ -52,6 +52,7 @@ Navbar
 }
 </script>
 
-<style  scoped>
+<style >
+/* @import "css/tailwind.css"; */
 
 </style>

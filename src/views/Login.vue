@@ -1,19 +1,17 @@
 <template>
 <div class="bg">
     <v-dialog class="dr-bg" v-model="dialog" scrollable fullscreen persistent :overlay="false" max-width="500px" transition="dialog-transition">
-        <v-card style="padding:20px;">
+        <!-- <v-card>
             <v-container class="fill-height bg" fluid>
                 <v-row align="center" justify="center">
                     <v-col cols="12" sm="8" md="4">
                         <v-card class="elevation-12">
                             <v-card-text class="text-center">
-                                <img style="width:65%;" src="https://www.img.in.th/images/209695056f7b9ddfe087f862d5b107d8.png" alt="">
+                                <img style="width:65%;" src="https://www.img.in.th/images/209695056f7b9ddfe087f862d5b107d8.png" alt=""> 
                                 <v-divider></v-divider>
-
-                                <v-form  >
-                                    <v-text-field outlined label="เข้าสู่ระบบ" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
-
-                                    <v-text-field outlined id="password" label="รหัสผ่าน" name="password" prepend-icon="mdi-lock" type="password"></v-text-field>
+                                <v-form>
+                                    <v-text-field outlined label="เข้าสู่ระบบ" name="login" prepend-inner-icon="mdi-account" type="text"></v-text-field>
+                                    <v-text-field outlined id="password" label="รหัสผ่าน" name="password" prepend-inner-icon="mdi-lock" type="password"></v-text-field>
                                 </v-form>
                             </v-card-text>
                             <v-card-actions>
@@ -24,7 +22,41 @@
                     </v-col>
                 </v-row>
             </v-container>
+        </v-card> -->
+
+        <v-card> 
+            <v-container class="fill-height bg" fluid>
+                <v-row align="center" justify="center">
+                    <v-col cols="12" sm="8">
+                        <v-card class="rounded-lg"> 
+                            <div class="d-flex flex-no-wrap">
+                                <div>
+                                    <img style="width:80%; height:100%;" class="rounded-lg" src="https://images.pexels.com/photos/1054650/pexels-photo-1054650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                </div>
+                                <v-spacer></v-spacer>
+ 
+                                <v-card-text class="mr-16 pr-10">
+                                    <center>
+                                        <img style="width:65%;" src="https://www.img.in.th/images/209695056f7b9ddfe087f862d5b107d8.png" alt="">
+                                        <h3>ยินต้อนรับเข้าสู่ระบบ</h3>
+                                    </center>
+                                    <v-divider></v-divider>
+                                    <v-form>
+                                        <v-text-field class="rounded-lg" outlined label="เข้าสู่ระบบ" name="login" color="green" prepend-inner-icon="mdi-account" type="text"></v-text-field>
+                                        <v-text-field class="rounded-lg" outlined id="password" label="รหัสผ่าน" color="green" name="password" prepend-inner-icon="mdi-lock" type="password"></v-text-field>
+                                    </v-form>
+                                    <center>
+                                    <v-btn @click="$router.push('Dashboard')" large block dark class="rounded-lg" color="green">เข้าสู่ระบบ</v-btn>
+                                    </center>
+                                </v-card-text>
+                            </div> 
+                        </v-card>
+                    </v-col> 
+                </v-row>
+            </v-container>
         </v-card>
+
+
     </v-dialog>
 </div>
 </template>
@@ -44,7 +76,20 @@ export default {
     data() {
         return {
             dialog: true,
-            txt: 'Hello World'
+            txt: 'Hello World',
+            items: [{
+                    color: '#1F7087',
+                    src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
+                    title: 'Supermodel',
+                    artist: 'Foster the People',
+                },
+                {
+                    color: '#952175',
+                    src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+                    title: 'Halcyon Days',
+                    artist: 'Ellie Goulding',
+                },
+            ],
 
         };
     },
@@ -70,10 +115,9 @@ export default {
 </script>
 
 <style scoped>
-
 .bg {
-   background: #000000 url(https://www.img.in.th/images/fe63e0ee1d678a04ad8d5aefb976aba6.jpg) no-repeat left top;
-background-size: cover;
+    background: #000000 url(https://www.img.in.th/images/fe63e0ee1d678a04ad8d5aefb976aba6.jpg) no-repeat left top;
+    background-size: cover;
 }
 
 .dr-bg {
@@ -82,5 +126,19 @@ background-size: cover;
     background-attachment: fixed;
     background-size: cover;
 }
+
+.bg1 {
+    /* background: rgba(0, 128, 0, 0.1); */
+    /* background: rgba(242, 243, 244);
+    background-size: cover; */
+
+    background: rgba(242, 243, 244);
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 </style>
-  

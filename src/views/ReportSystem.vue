@@ -1,24 +1,20 @@
-<template>
-<div style="padding:20px;">
+<template> 
+<v-container class="bg"> 
     <v-container>
-        <div>
-            <h3>รายงานความเคลื่อนไหวการใช้งานระบบ</h3>
-        </div>
-        <br>
+        <h2>รายงานความเคลื่อนไหวการใช้งานระบบ</h2>
         <v-divider></v-divider>
-
-        <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
+    </v-container>  
+    <v-container>  
+        <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="pa-3 elevation-5 rounded-lg">
             <template v-slot:top>
-                <v-toolbar flat color="white">
-                   
-                    <v-spacer></v-spacer>
-
-                    <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
-                    <v-overflow-btn :items="district" label="กรุณาเลือกเดือน" hide-details class="pa-0"></v-overflow-btn>
-                    <v-overflow-btn :items="place" label="กรุณาเลือกปี" hide-details class="pa-0"></v-overflow-btn>
+                <v-toolbar flat color="white"> 
+                    <!-- <v-spacer></v-spacer> --> 
+                    <v-select color="green" outlined :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg"></v-select>
+                    <v-select color="green" outlined :items="district" label="กรุณาเลือกเดือน" hide-details class="rounded-lg"></v-select>
+                    <v-select color="green" outlined :items="place" label="กรุณาเลือกปี" hide-details class="rounded-lg"></v-select>
 
                     <v-dialog v-model="dialog" max-width="500px">
-                        <v-card>
+                        <v-card class="rounded-lg">
                             <v-card-title>
                                 <span class="headline">{{ formTitle }}</span>
                             </v-card-title>
@@ -56,10 +52,10 @@
             <template v-slot:no-data>
                 <v-btn color="primary" @click="initialize">Reset</v-btn>
             </template>
-        </v-data-table>
+        </v-data-table> 
+    </v-container> 
 
     </v-container>
-</div>
 </template>
 
 <script>
@@ -327,5 +323,19 @@ export default {
 </script>
 
 <style  scoped>
+.bg {
+    /* background: rgba(0, 128, 0, 0.1); */
+    /* background: rgba(242, 243, 244);
+    background-size: cover; */
+
+    background: rgba(242, 243, 244);
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 </style>

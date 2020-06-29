@@ -1,14 +1,22 @@
 <template>
-<div style="padding:20px;">
-    <h1>รายงานเชิงแผนที่</h1>
-    <div>
-        <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0" outlined></v-overflow-btn><br>
-    </div>
-    <v-row align="center" justify="center">
-        <v-card class="pa-4" flat height="400px" width="800" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">
-        </v-card>
-    </v-row>
-</div>
+<v-container class="bg">
+    <v-container>
+        <h2>รายงานเชิงแผนที่</h2>
+        <v-divider></v-divider>
+    </v-container>
+    
+    <v-container >
+        <v-card class="rounded-lg elevation-5 pa-5">
+        <v-select color="green" :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg pa-5" outlined></v-select><br>
+        <!-- <v-row align="center" justify="center"> -->
+            <center>
+            <v-card class="pa-5" flat height="400px" width="800px" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">
+            </v-card>
+            </center>
+        <!-- </v-row> --> 
+    </v-card>
+    </v-container> 
+</v-container>
 </template>
 
 <script>
@@ -62,6 +70,19 @@ export default {
 }
 </script>
 
-<style  scoped>
+<style scoped>
+.bg {
+    /* background: rgba(0, 128, 0, 0.1); */
+    /* background: rgba(242, 243, 244);
+    background-size: cover; */
 
+    background: rgba(242, 243, 244);
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 </style>

@@ -1,26 +1,23 @@
 <template>
-<div style="padding:20px;">
+<v-container class="bg">
     <v-container>
-        <div>
-            <h3>ข้อมูลการเจริญเติบโตของกระบือ </h3>
-        </div>
-        
-        <br>
+        <h2>ข้อมูลการเจริญเติบโตของกระบือ</h2>
         <v-divider></v-divider>
-
-        <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
+    </v-container>
+    <v-container> 
+        <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="  rounded-lg elevation-5">
             <template v-slot:top>
                 <v-toolbar flat color="white">
-                    
+
                     <v-toolbar-title>
-                        <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
+                        <v-text-field color="green" class="rounded-lg" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                     </v-toolbar-title>
                     <v-spacer></v-spacer>
 
-                    <v-overflow-btn :items="province" label="กรุณาเลือกจังหวัด" hide-details class="pa-0"></v-overflow-btn>
-                    <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0"></v-overflow-btn>
-                    <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0"></v-overflow-btn>
-                    <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">ส่งออกรายงาน</v-btn>
+                    <v-select color="green" outlined :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg"></v-select>
+                    <v-select color="green" outlined :items="district" label="กรุณาเลือกอำเภอ" hide-details class="rounded-lg"></v-select>
+                    <v-select color="green" outlined :items="place" label="กรุณาเลือกตำบล" hide-details class="rounded-lg"></v-select>
+                    <v-btn outlined large color="green" dark class="mb-2 mt-2" v-bind="attrs" v-on="on"><h6>ส่งออกรายงาน</h6></v-btn>
                 </v-toolbar>
             </template>
             <template v-slot:item.actions="{ item }">
@@ -40,7 +37,8 @@
         </v-data-table>
 
     </v-container>
-</div>
+
+</v-container>
 </template>
 
 <script>
@@ -320,6 +318,19 @@ export default {
 }
 </script>
 
-<style  scoped>
+<style scoped>
+.bg {
+    /* background: rgba(0, 128, 0, 0.1); */
+    /* background: rgba(242, 243, 244);
+    background-size: cover; */
 
+    background: rgba(242, 243, 244);
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 </style>

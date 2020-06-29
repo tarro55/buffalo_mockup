@@ -1,5 +1,10 @@
 <template>
-<v-container>
+<v-container class="bg">
+    <v-container>
+        <h2>ข้อมูลเกษตกร</h2>
+        <v-divider></v-divider>
+    </v-container>
+    <v-container> 
 
     <v-card class="mx-auto rounded-lg elevation-10" max-width="434">
         <v-img height="220" src="https://images.pexels.com/photos/3145153/pexels-photo-3145153.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
@@ -23,17 +28,17 @@
     <br>
 
     <v-card class="rounded-lg pa-2">
-        <v-tabs grow>
+        <v-tabs grow color="green">
             <v-tab>
-                <v-icon>mdi-account-outline</v-icon>
-                <h5>ข้อมูลเกษตกร</h5>
+                <v-icon >mdi-account-outline</v-icon>
+                <h5 >ข้อมูลเกษตกร</h5>
             </v-tab>
             <v-tab>
                 <v-icon dark>mdi-file-outline</v-icon>
-                <h5>ข้อมูลกระบือ</h5>
+                <h5 >ข้อมูลกระบือ</h5>
             </v-tab>
 
-            <v-tab-item>
+            <v-tab-item >
                 <v-flex xs12 row wrap>
                     <v-flex xs6>
                         <v-card-text>
@@ -42,7 +47,7 @@
                                 <v-spacer></v-spacer>
                                 <div class="col-ml-6 ">
                                     <div class="ml-auto text-right">
-                                        <v-btn class="rounded-lg " color="teal" outlined @click="dialog1=false">แก้ไข<v-icon>mdi-pencil</v-icon>
+                                        <v-btn class="rounded-lg " color="green" outlined @click="dialog1=false">แก้ไข<v-icon>mdi-pencil</v-icon>
                                         </v-btn>
                                     </div>
                                 </div>
@@ -50,7 +55,7 @@
                             <br>
                             <v-flex xs12>
                                 <div v-for="item in informationfarmer" :key="item.name">
-                                    <v-text-field outlined :readonly="dialog1" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
+                                    <v-text-field class="rounded-lg" outlined :readonly="dialog1" v-model="item.calories" name="name" :label="item.describe" :prepend-inner-icon="item.icon" color="green" id="id"></v-text-field>
                                 </div>
                                 <div>
                                     <center>
@@ -69,7 +74,7 @@
                                 <v-spacer></v-spacer>
                                 <div class="col-ml-6 ">
                                     <div class="ml-auto text-right">
-                                        <v-btn class="rounded-lg " color="teal" outlined @click="dialog1=false">แก้ไข<v-icon>mdi-pencil</v-icon>
+                                        <v-btn class="rounded-lg " color="green" outlined @click="dialog1=false">แก้ไข<v-icon>mdi-pencil</v-icon>
                                         </v-btn>
                                     </div>
                                 </div>
@@ -85,7 +90,7 @@
                             <br>
                             <v-flex xs12>
                                 <div v-for="item in informationfarm1" :key="item.name">
-                                    <v-text-field outlined :readonly="dialog1" v-model="item.calories1" name="name" :label="item.describe1" id="id"></v-text-field>
+                                    <v-text-field class="rounded-lg" outlined :readonly="dialog1" v-model="item.calories1" name="name" :label="item.describe1" :prepend-inner-icon="item.icon" color="green" id="id"></v-text-field>
                                 </div>
 
                             </v-flex>
@@ -95,7 +100,7 @@
  
             </v-tab-item>
 
-            <v-tab-item>
+            <v-tab-item >
                 <v-card flat background-color="transparent" color="basil">
                     <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
                         <template v-slot:top>
@@ -103,12 +108,13 @@
                                 <v-toolbar-title>ข้อมูลกระบือ</v-toolbar-title>
                                 <v-divider class="mx-4" inset vertical></v-divider>
                                 <v-toolbar-title>
-                                    <v-text-field v-model="search" clearable flat solo-inverted hide-details append-icon="mdi-magnify" label="Search" single-line></v-text-field>
+                                    <!-- <v-text-field v-model="search" clearable flat solo-inverted hide-details class="" append-icon="mdi-magnify" label="Search" single-line></v-text-field> -->
+                                    <v-text-field class="rounded-lg" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                                 </v-toolbar-title>
                                 <v-spacer></v-spacer>
-                                <v-dialog v-model="dialog" max-width="500px">
+                                <v-dialog v-model="dialog" scrollable max-width="800px">
                                     <template v-slot:activator="{ on, attrs }">
-                                        <v-btn color="teal" outlined large dark class="mb-2" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
+                                        <v-btn color="green" outlined large dark class="mb-2 rounded-lg" v-bind="attrs" v-on="on">เพิ่ม</v-btn>
                                     </template>
                                     <v-card>
                                         <v-card-title>
@@ -118,74 +124,74 @@
                                         <v-card-text>
                                             <v-container>
                                                 <v-row>
-                                                    <v-col cols="12" sm="6">
+                                                    <!-- <v-col cols="12" sm="6">
                                                         <v-text-field outlined v-model="editedItem.IDcardFarmer" label="หมายเลขบัตรประชาชนเกษตรกร"></v-text-field>
+                                                    </v-col> -->
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined v-model="editedItem.nonb" label="ชื่อหรือหมายเลขควาย"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.nonb" label="ชื่อหรือหมายเลขควาย"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined v-model="editedItem.nid" label="หมายเลข NID"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.nid" label="หมายเลข NID"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined v-model="editedItem.nmi" label="หมายเลขไมโครชิป"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.nmi" label="หมายเลขไมโครชิป"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-calendar" color="green" outlined v-model="editedItem.birth" label="วัน/เดือน/ปี เกิด"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.birth" label="วัน/เดือน/ปี เกิด"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-gender-male-female" color="green" outlined v-model="editedItem.sex" label="เพศ"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.sex" label="เพศ"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-calendar-clock" color="green" outlined v-model="editedItem.age" label="อายุ (..ปี..เดือน)"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.age" label="อายุ (..ปี..เดือน)"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-invert-colors" color="green" outlined v-model="editedItem.color" label="สี"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.color" label="สี"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-import" color="green" outlined v-model="editedItem.from" label="แหล่งที่มา"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.from" label="แหล่งที่มา"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined v-model="editedItem.price" label="ราคา"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.price" label="ราคา"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-post-outline" color="green" outlined v-model="editedItem.status" label="สถานะควาย"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.status" label="สถานะควาย"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined v-model="editedItem.nonf" label="ชื่อหรือหมายเลขพ่อ"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.nonf" label="ชื่อหรือหมายเลขพ่อ"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined v-model="editedItem.nidf" label="หมายเลข NID พ่อ"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.nidf" label="หมายเลข NID พ่อ"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined v-model="editedItem.nmif" label="หมายเลขไมโครชิปพ่อ"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.nmif" label="หมายเลขไมโครชิปพ่อ"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined v-model="editedItem.nmim" label="ชื่อหรือหมายเลขแม่"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.nmim" label="ชื่อหรือหมายเลขแม่"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined v-model="editedItem.nidm" label="หมายเลข NID แม่"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.nidm" label="หมายเลข NID แม่"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined v-model="editedItem.mim" label="หมายเลขไมโครชิปแม่"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.mim" label="หมายเลขไมโครชิปแม่"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-weight-kilogram" color="green" outlined v-model="editedItem.weight" label="น้ำหนัก (กิโลกรัม)"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.weight" label="น้ำหนัก (กิโลกรัม)"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-arrow-left-right" color="green" outlined v-model="editedItem.cwidth" label="ความกว้างรอบอก (เซนติเมตร)"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.cwidth" label="ความกว้างรอบอก (เซนติเมตร)"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-arrow-left-right" color="green" outlined v-model="editedItem.blength" label="ความยาวลำตัว (เซนติเมตร)"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.blength" label="ความยาวลำตัว (เซนติเมตร)"></v-text-field>
+                                                        <v-text-field class="rounded-lg" prepend-inner-icon="mdi-human-male-height-variant" color="green" outlined v-model="editedItem.height" label="ความสูง (เซนติเมตร)"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field outlined v-model="editedItem.height" label="ความสูง (เซนติเมตร)"></v-text-field>
+                                                        <v-file-input class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined multiple label="เพิ่มภาพด้านหน้า"></v-file-input>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-file-input outlined multiple label="ภาพด้านหน้า"></v-file-input>
-                                                    </v-col>
-                                                    <v-col cols="12" sm="6">
-                                                        <v-file-input outlined multiple label="ภาพด้านข้าง"></v-file-input>
+                                                        <v-file-input class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined multiple label="เพิ่มภาพด้านข้าง"></v-file-input>
                                                     </v-col>
 
                                                 </v-row>
@@ -194,8 +200,8 @@
 
                                         <v-card-actions>
                                             <v-spacer></v-spacer>
-                                            <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
-                                            <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
+                                            <v-btn color="green" text @click="save"><h5>บันทึก</h5></v-btn>
+                                            <v-btn color="black" text @click="close"><h5>ยกเลิก</h5></v-btn>
                                         </v-card-actions>
                                     </v-card>
                                 </v-dialog>
@@ -241,7 +247,7 @@
 
         </v-tabs>
     </v-card>
-
+</v-container>
 </v-container>
 </template>
 
@@ -285,34 +291,42 @@ export default {
         informationfarmer: [{
                 describe: 'คำนำหน้า',
                 calories: 'นาย',
+                icon: 'mdi-human-male-female'
             },
             {
                 describe: 'ชื่อ',
                 calories: 'เชิดชู',
+                icon: 'mdi-card-account-details-outline',
             },
             {
                 describe: 'นามสกุล',
                 calories: 'แก้วบุญเรือง',
+                icon: 'mdi-card-account-details-outline',
             },
             {
                 describe: 'หมายเลขบัตรประจำตัวประชาชน',
                 calories: '3560700347135',
+                icon: 'mdi-id-card',
             },
             {
                 describe: 'เพศ',
                 calories: 'ชาย',
+                icon: 'mdi-human-male-female',
             },
             {
                 describe: 'อายุ',
                 calories: '58',
+                icon: 'mdi-account-clock-outline',
             },
             {
                 describe: 'ที่อยู่ตามทะเบียนบ้าน',
                 calories: '4 หมู่ 7 ต.เจริญราษฎร์ อ.แม่ใจ จ.พะเยา 56130',
+                icon: 'mdi-home-map-marker',
             },
             {
                 describe: 'เบอร์โทรศัพท์',
                 calories: '0861800385',
+                icon: 'mdi-phone',
             },
 
         ],
@@ -320,42 +334,52 @@ export default {
         informationfarm1: [{
                 describe1: 'ชื่อฟาร์ม',
                 calories1: 'ฟาร์มพ่อหร่วน',
+                icon: 'mdi-home-outline',
             },
             {
                 describe1: 'บ้านเลขที่ ถนน ซอย',
                 calories1: 'เชิดชู',
+                icon: 'mdi-home-map-marker',
             },
             {
                 describe1: 'พิกัดฟาร์มตามระบบ GPS (ละติจูด)',
                 calories1: '19.391271',
+                icon: 'mdi-map-marker-radius-outline',
             },
             {
                 describe1: 'พิกัดฟาร์มตามระบบ GPS (ลองติจูด)',
                 calories1: '99.816495',
+                icon: 'mdi-map-marker-radius-outline',
             },
             {
                 describe1: 'จำนวนควายทั้งหมด',
                 calories1: '40',
+                icon: 'mdi-cow',
             },
             {
                 describe1: 'กลุ่มเกษตรกร',
                 calories1: 'กลุ่มแม่ใจ',
+                icon: 'mdi-account-group-outline',
             },
             {
                 describe1: 'ตำบล',
                 calories1: 'เจริญราษฎร์',
+                icon: 'mdi-map-marker-multiple-outline',
             },
             {
                 describe1: 'อำเภอ',
                 calories1: 'แม่กา',
+                icon: 'mdi-map-marker-multiple-outline',
             },
             {
                 describe1: 'จังหวัด',
                 calories1: 'พะเยา',
+                icon: 'mdi-map-marker-multiple-outline',
             },
             {
                 describe1: 'ไปรษณีย์',
                 calories1: '56000',
+                icon: 'mdi-postage-stamp',
             },
 
         ],
@@ -473,11 +497,18 @@ export default {
 </script>
 
 <style scoped>
-.basil {
-    background-color: #FFFBE6 !important;
-}
+.bg {
+    /* background: rgba(0, 128, 0, 0.1); */
+    /* background: rgba(242, 243, 244);
+    background-size: cover; */ 
 
-.basil--text {
-    color: #356859 !important;
+    background: rgba(242, 243, 244);
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 </style>

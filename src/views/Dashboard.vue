@@ -1,5 +1,6 @@
 <template>
-<div style="padding:20px;" class="bg">
+<v-container class="bg">
+
     <v-container>
         <h2>แดชบอร์ด</h2>
         <v-divider></v-divider>
@@ -8,7 +9,6 @@
     <center>
         <v-container>
             <v-flex xs12 row wrap>
-
                 <v-flex xs8 row wrap>
                     <v-flex xs6 class="pa-2">
                         <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
@@ -30,7 +30,8 @@
                                             </h2>
                                         </div>
                                     </div>
-                                    <v-btn outlined block @click="$router.push('farmer')" color="teal">ดูรายละเอียดเพิ่มเติม</v-btn>
+
+                                    <v-btn outlined block @click="$router.push('farmer')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
                                 </div>
                                 <!-- </div> -->
                             </v-card>
@@ -57,7 +58,7 @@
                                             </h2>
                                         </div>
                                     </div>
-                                    <v-btn outlined block @click="$router.push('ReportSystem')" color="teal">ดูรายละเอียดเพิ่มเติม</v-btn>
+                                    <v-btn outlined block @click="$router.push('ReportSystem')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
                                 </div>
                                 <!-- </div> -->
                             </v-card>
@@ -84,7 +85,7 @@
                                             </h2>
                                         </div>
                                     </div>
-                                    <v-btn outlined block @click="$router.push('ReportSystem')" color="teal">ดูรายละเอียดเพิ่มเติม</v-btn>
+                                    <v-btn outlined block @click="$router.push('ReportSystem')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
                                 </div>
                                 <!-- </div> -->
                             </v-card>
@@ -111,7 +112,7 @@
                                             </h2>
                                         </div>
                                     </div>
-                                    <v-btn outlined block @click="$router.push('ReportSystem')" color="teal">ดูรายละเอียดเพิ่มเติม</v-btn>
+                                    <v-btn outlined block @click="$router.push('ReportSystem')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
                                 </div>
                                 <!-- </div> -->
                             </v-card>
@@ -129,6 +130,7 @@
     </center>
 
     <v-divider></v-divider>
+    
 
     <template>
         <div>
@@ -153,7 +155,7 @@
         </v-card-actions>
     </v-card>
 
-</div>
+</v-container>
 </template>
 
 <script>
@@ -203,12 +205,20 @@ export default {
 }
 </script>
 
-<style  scoped>
-
-</style><style scoped>
+ 
+<style scoped>
 .bg {
     /* background: rgba(0, 128, 0, 0.1); */
+    /* background: rgba(242, 243, 244);
+    background-size: cover; */
+
     background: rgba(242, 243, 244);
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
 }
 </style>

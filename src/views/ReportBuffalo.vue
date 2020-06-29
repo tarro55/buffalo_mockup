@@ -1,25 +1,24 @@
-<template>
-<div style="padding:20px;">
-<v-container>
-    <div>
-        <h3>รายงานสรุปจำนวนกระบือที่มีชีวิต</h3>
-    </div>
-    <br>
-    <v-divider></v-divider>
-
-    <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-1">
+<template> 
+<v-container class="bg">
+    <v-container>
+        <h2>รายงานสรุปจำนวนกระบือที่มีชีวิต</h2>
+        <v-divider></v-divider>
+    </v-container>  
+     
+     <v-container >
+    <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class=" pa-3 rounded-lg elevation-5 ">
         <template v-slot:top>
             <v-toolbar flat color="white">
                 
                 <v-toolbar-title>
-                    <v-text-field v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                    <v-text-field color="green" class="rounded-lg" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                 </v-toolbar-title>
                 <v-spacer></v-spacer>
 
-                <v-overflow-btn :items="province"  label="กรุณาเลือกจังหวัด" hide-details class="pa-0" outlined></v-overflow-btn>
-                <v-overflow-btn :items="district" label="กรุณาเลือกอำเภอ" hide-details class="pa-0" outlined></v-overflow-btn>
-                <v-overflow-btn :items="place" label="กรุณาเลือกตำบล" hide-details class="pa-0" outlined></v-overflow-btn>
-                <v-overflow-btn :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="pa-0" outlined></v-overflow-btn>
+                <v-select color="green" :items="province"  label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg" outlined></v-select>
+                <v-select color="green" :items="district" label="กรุณาเลือกอำเภอ" hide-details class="rounded-lg" outlined></v-select>
+                <v-select color="green" :items="place" label="กรุณาเลือกตำบล" hide-details class="rounded-lg" outlined></v-select>
+                <v-select color="green" :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="rounded-lg" outlined></v-select>
 
                 
             </v-toolbar>
@@ -29,9 +28,9 @@
             <v-btn color="primary" @click="initialize">Reset</v-btn>
         </template>
     </v-data-table>
+    </v-container>
 
-</v-container>
-</div>
+</v-container> 
 </template>
 
 <script>
@@ -310,5 +309,19 @@ export default {
 </script>
 
 <style  scoped>
+.bg {
+    /* background: rgba(0, 128, 0, 0.1); */
+    /* background: rgba(242, 243, 244);
+    background-size: cover; */
+
+    background: rgba(242, 243, 244);
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 </style>
