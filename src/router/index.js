@@ -77,6 +77,11 @@ function view(name){
     name: 'resetPass', 
     component: view('resetPass')
   },
+  {
+    path: '/profile',
+    name: 'profile', 
+    component: view('profile')
+  },
 
 
 

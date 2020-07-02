@@ -4,20 +4,21 @@
     <v-navigation-drawer v-model="drawer" app clipped>
         <!-- <v-list class="w3-margin" shaped> -->
         <v-list dense rounded>
-            <v-list-item two-line :class="miniVariant && 'px-0'">
-                <v-list-item-avatar>
+            <!-- <v-list-item two-line :class="miniVariant && 'px-0'"> -->
+                <v-list-item two-line class="pt-2">
+                <v-list-item-avatar size="50">
                     <img src="https://randomuser.me/api/portraits/men/81.jpg">
                 </v-list-item-avatar>
 
                 <v-list-item-content>
-                    <v-list-item-title>นายแดง แดงแดง</v-list-item-title>
-                    <v-list-item-subtitle>dang@gmail.com</v-list-item-subtitle>
+                    <h5>นายแดง แดงแดง</h5>
+                    <h6 color="grey">dang@gmail.com</h6>
+                    <!-- <v-list-item-title>นายแดง แดงแดง</v-list-item-title> -->
+                    <!-- <v-list-item-subtitle>dang@gmail.com</v-list-item-subtitle> -->
                 </v-list-item-content>
             </v-list-item>
             <v-divider></v-divider>
-            <v-list-item-group v-model="item" color="green">
-
-                <!-- <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`/officer${item.router}`)"> -->
+            <v-list-item-group v-model="item" color="green"> 
                 <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`${item.router}`) " >
                     <v-list-item-icon>
                         <v-icon>{{ item.icon }}</v-icon>
@@ -27,40 +28,21 @@
                         <v-list-item-title class="">{{ item.text }}</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <!-- <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`${item.router}`)">
-                    <h2 style="font-size:16px;"  >{{item.text}}</h2>
-                </v-list-item> -->
             </v-list-item-group>
         </v-list>
 
     </v-navigation-drawer>
 
-    <v-app-bar app clipped-left class="bg" color=" darken-3">
+    <!-- <v-app-bar app clipped-left class="bg" color=" darken-3"> -->
+        <v-app-bar app clipped-left>
         <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <a href="" @click="$router.push(`farmer_detail`)"><img style="width:50%;" src="https://www.img.in.th/images/209695056f7b9ddfe087f862d5b107d8.png" alt=""></a>
 
         </v-toolbar-title>
-        <v-spacer></v-spacer>
+        <v-spacer></v-spacer> 
 
-        <!-- <v-menu offset-y>
-            <template v-slot:activator="{ on }">
-                <v-avatar>
-                    <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
-                </v-avatar>
-            </template>
-            <v-list>
-                <v-btn color="success">
-                    <v-list-item @click="logout()">
-                        <v-list-item-title>
-                            <v-icon>mdi-logout</v-icon>
-                        </v-list-item-title>
-                    </v-list-item>
-                </v-btn>
-            </v-list>
-        </v-menu> -->
-
-        <v-menu bottom offset-y>
+        <!-- <v-menu bottom offset-y>
             <template v-slot:activator="{ on, attrs }">
                 <v-btn-icon class="ma-2" v-bind="attrs" v-on="on">
                     <v-avatar>
@@ -74,7 +56,7 @@
                         {{ item.title }}</v-list-item-title>
                 </v-list-item>
             </v-list>
-        </v-menu>
+        </v-menu> -->
 
     </v-app-bar>
 
@@ -98,10 +80,14 @@ export default {
             ],
             item: 0,
             items: [{
-
                     text: "แดชบอร์ด",
                     icon: "mdi-chart-bell-curve-cumulative",
                     router: "/Dashboard"
+                },
+                {
+                    text: "ข้อมูลส่วนตัว",
+                    icon: "mdi-account",
+                    router: "/profile"
                 },
                 {
                     icons: "",
@@ -181,5 +167,25 @@ export default {
     background-attachment: fixed;
     background-size: cover;
 
+    /* height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+
+}
+
+.bg {
+    /* background: rgba(0, 128, 0, 0.1); */
+    /* background: rgba(242, 243, 244);
+    background-size: cover; */
+
+    background: rgba(242, 243, 244);
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 </style>

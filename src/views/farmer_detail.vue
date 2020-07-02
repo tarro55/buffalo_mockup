@@ -68,7 +68,7 @@
                                                                     <v-text-field dense readonly class="rounded-lg" prepend-inner-icon="mdi-account" color="green" outlined v-model="setPass.username"  label="ชื่อผู้ใช้งาน"></v-text-field>
                                                                 </v-col>
                                                                 <v-col cols="12">
-                                                                    <v-text-field dense readonly class="rounded-lg" prepend-inner-icon="mdi-mail" color="green" outlined v-model="setPass.email" label="อีเมล"></v-text-field>
+                                                                    <v-text-field dense readonly class="rounded-lg" prepend-inner-icon="mdi-email" color="green" outlined v-model="setPass.email" label="อีเมล"></v-text-field>
                                                                 </v-col>
                                                                 <v-col cols="12">
                                                                     <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined v-model="setPass.pass" label="รหัสผ่านใหม่"></v-text-field>
@@ -613,7 +613,7 @@ export default {
 
     /* Center and scale the image nicely */
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
 }
 </style>

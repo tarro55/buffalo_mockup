@@ -122,7 +122,7 @@
                 </v-flex>
 
                 <v-flex xs4 pa-2 class="w3-margin-left ">
-                    <v-date-picker v-model="picker" elevation="5" class="rounded-lg"></v-date-picker>
+                    <v-date-picker md v-model="picker" elevation="5" class="rounded-lg"></v-date-picker>
                 </v-flex>
 
             </v-flex>
@@ -132,10 +132,10 @@
     <v-divider></v-divider>
 
 <v-container grid-list-xs>
-    <v-flex xs12 row wrap>
+    <v-flex xs12 row wrap class="">
         <v-flex xs6>
             <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
-            <v-card :elevation="hover ? 16 : 2"  class="rounded-lg ma-2">
+            <v-card :elevation="hover ? 16 : 2"  class="rounded-lg ma-2 mr-4">
                 <h4 class="text-center">
                     จำนวนผู้ใช้งานในแต่ละเดือน
                 </h4>
@@ -148,7 +148,7 @@
         </v-flex>
         <v-flex xs6>
             <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
-            <v-card :elevation="hover ? 16 : 2" class="rounded-lg ma-2">
+            <v-card :elevation="hover ? 16 : 2" class="rounded-lg ma-2 ml-4">
                 <h4 class="text-center">
                     จำนวนกระบือที่อยู่ในระบบทั้งหมด
                 </h4>
@@ -232,7 +232,9 @@ export default {
 
     /* Center and scale the image nicely */
     background-position: center;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
+    background-repeat: repeat;
     background-size: cover;
+    /* background-size:100% 100%; */
 }
 </style>
