@@ -31,7 +31,7 @@
                                         </div>
                                     </div>
 
-                                    <v-btn outlined block @click="$router.push('farmer')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
+                                    <v-btn class="rounded-lg" outlined block @click="$router.push('farmer')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
                                 </div>
                                 <!-- </div> -->
                             </v-card>
@@ -58,7 +58,7 @@
                                             </h2>
                                         </div>
                                     </div>
-                                    <v-btn outlined block @click="$router.push('ReportSystem')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
+                                    <v-btn class="rounded-lg" outlined block @click="$router.push('ReportSystem')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
                                 </div>
                                 <!-- </div> -->
                             </v-card>
@@ -85,7 +85,7 @@
                                             </h2>
                                         </div>
                                     </div>
-                                    <v-btn outlined block @click="$router.push('ReportSystem')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
+                                    <v-btn class="rounded-lg" outlined block @click="$router.push('ReportBuffalo')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
                                 </div>
                                 <!-- </div> -->
                             </v-card>
@@ -112,7 +112,7 @@
                                             </h2>
                                         </div>
                                     </div>
-                                    <v-btn outlined block @click="$router.push('ReportSystem')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
+                                    <v-btn class="rounded-lg" outlined block @click="$router.push('ReportSystem')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
                                 </div>
                                 <!-- </div> -->
                             </v-card>
@@ -130,31 +130,39 @@
     </center>
 
     <v-divider></v-divider>
+
+<v-container grid-list-xs>
+    <v-flex xs12 row wrap>
+        <v-flex xs6>
+            <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
+            <v-card :elevation="hover ? 16 : 2"  class="rounded-lg ma-2">
+                <h4 class="text-center">
+                    จำนวนผู้ใช้งานในแต่ละเดือน
+                </h4>
+                <column-chart :colors="['#3CB371']" :data="chartData"></column-chart>
+                <center>
+                    <v-btn @click="$router.push('ReportSystem')" block text class="rounded-lg mt-2 mb-3" color="green">ดูข้อมูลเพิ่มเติม</v-btn>
+                </center>
+            </v-card>
+            </v-hover>
+        </v-flex>
+        <v-flex xs6>
+            <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
+            <v-card :elevation="hover ? 16 : 2" class="rounded-lg ma-2">
+                <h4 class="text-center">
+                    จำนวนกระบือที่อยู่ในระบบทั้งหมด
+                </h4>
+                <area-chart :colors="['#1E90FF']" :data="chartData"></area-chart>
+                <center>
+                    <v-btn @click="$router.push('ReportBuffalo')" block text class="rounded-lg mt-2 mb-3" color="green">ดูข้อมูลเพิ่มเติม</v-btn>
+                </center>
+            </v-card>
+            </v-hover>
+        </v-flex>
+    </v-flex>
+
+</v-container>
     
-
-    <template>
-        <div>
-            <apexchart width="500" type="line" :options="options" :series="series"></apexchart>
-        </div>
-    </template>
-
-    <v-card class="mx-auto text-center" color="rgba(155, 205, 155)" max-width="600">
-        <v-card-text>
-            <div class="display-1 font-weight-thin">จำนวนผู้ใช้ในแต่ละเดือน</div>
-        </v-card-text>
-        <v-card-text>
-            <v-sheet class="v-sheet--offset mx-auto" color="rgba(0, 0, 0, .12)" max-width="calc(100% - 32px)">
-                <v-sparkline donut :labels="labels" :value="value" color="white" line-width="2" padding="16"></v-sparkline>
-            </v-sheet>
-        </v-card-text>
-
-        <v-divider></v-divider>
-
-        <v-card-actions class="justify-center">
-            <v-btn block @click="$router.push('ReportSystem')" text>ดูข้อมูลเพิ่มเติม</v-btn>
-        </v-card-actions>
-    </v-card>
-
 </v-container>
 </template>
 
@@ -198,14 +206,20 @@ export default {
                 108,
                 99,
             ],
-
+            chartData: {
+                '2020-06-20': 50,
+                '2020-06-21': 40,
+                '2020-06-22': 30,
+                '2020-06-23': 10,
+                '2020-06-24': 70,
+                '2020-06-25': 45,
+            },
         };
 
     }
 }
 </script>
 
- 
 <style scoped>
 .bg {
     /* background: rgba(0, 128, 0, 0.1); */

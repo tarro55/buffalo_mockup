@@ -12,9 +12,11 @@
     "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
     "lodash": "^4.17.15",
+    "sweetalert2": "^9.15.2",
     "vue": "^2.6.11",
     "vue-apexcharts": "^1.5.3",
     "vue-chartjs": "^3.5.0",
+    "vue-chartkick": "^0.6.0",
     "vue-router": "^3.2.0",
     "vue-thailand-address-autocomplete": "^0.1.1",
     "vuetify": "^2.3.0"

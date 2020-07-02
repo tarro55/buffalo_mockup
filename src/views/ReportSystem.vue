@@ -5,13 +5,13 @@
         <v-divider></v-divider>
     </v-container>  
     <v-container>  
-        <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="pa-3 elevation-5 rounded-lg">
+        <v-data-table dense :headers="headers" :items="desserts" :search="search" sort-by="calories" class="pa-3 elevation-5 rounded-lg">
             <template v-slot:top>
                 <v-toolbar flat color="white"> 
                     <!-- <v-spacer></v-spacer> --> 
-                    <v-select color="green" outlined :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg"></v-select>
-                    <v-select color="green" outlined :items="district" label="กรุณาเลือกเดือน" hide-details class="rounded-lg"></v-select>
-                    <v-select color="green" outlined :items="place" label="กรุณาเลือกปี" hide-details class="rounded-lg"></v-select>
+                    <v-select dense color="green" outlined :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg"></v-select>
+                    <v-select dense color="green" outlined :items="district" label="กรุณาเลือกเดือน" hide-details class="rounded-lg"></v-select>
+                    <v-select dense color="green" outlined :items="place" label="กรุณาเลือกปี" hide-details class="rounded-lg"></v-select>
 
                     <v-dialog v-model="dialog" max-width="500px">
                         <v-card class="rounded-lg">
@@ -182,6 +182,10 @@ export default {
                 value: 'status',
                 sortable: false
             },
+            {
+                text: 'วัน/เดือน/ปี',
+                value: 'time',
+            },
         ],
         desserts: [],
         editedIndex: -1,
@@ -223,6 +227,7 @@ export default {
                     Phonenumber: '0911231231',
                     group: 'กลุ่มแม่ใจ',
                     status: 'ผู้ใช้สมัครสมาชิกเอง',
+                    time: '29/6/2563',
                 },
                 {
                     IDCard: 3123412345612,
@@ -230,6 +235,7 @@ export default {
                     Phonenumber: '0914123412',
                     group: 'กลุ่มแม่ใจ',
                     status: 'เพิ่มโดยแอดมิน',
+                    time: '29/6/2563',
                 },
                 {
                     IDCard: 1231241231233,
@@ -237,6 +243,7 @@ export default {
                     Phonenumber: '0812312312',
                     group: 'กลุ่มพาน',
                     status: 'สมัครบนแอปพลิเคชัน',
+                    time: '29/6/2563',
                 },
                 {
                     IDCard: 1111111111111,
@@ -244,6 +251,7 @@ export default {
                     Phonenumber: '0822312312',
                     group: 'กลุ่มพาน',
                     status: 'สมัครบนแอปพลิเคชัน',
+                    time: '28/6/2563',
                 },
                 {
                     IDCard: 2222222222222,
@@ -251,6 +259,7 @@ export default {
                     Phonenumber: '0833333333',
                     group: 'กลุ่มแม่กา',
                     status: 'สมัครบนแอปพลิเคชัน',
+                    time: '28/6/2563',
                 },
                 {
                     IDCard: 3333333333333,
@@ -258,6 +267,7 @@ export default {
                     Phonenumber: '0844444444',
                     group: 'กลุ่มแม่กา',
                     status: 'เพิ่มโดยแอดมิน',
+                    time: '28/6/2563',
                 },
                 {
                     IDCard: 4444444444444,
@@ -265,6 +275,7 @@ export default {
                     Phonenumber: '0855555555',
                     group: 'กลุ่มพะเยา',
                     status: 'สมัครบนแอปพลิเคชัน',
+                    time: '28/6/2563',
                 },
                 {
                     IDCard: 5555555555555,
@@ -272,6 +283,7 @@ export default {
                     Phonenumber: '0866666666',
                     group: 'กลุ่มพะเยา',
                     status: 'สมัครบนแอปพลิเคชัน',
+                    time: '28/6/2563',
                 },
                 {
                     IDCard: 6666666666666,
@@ -279,6 +291,7 @@ export default {
                     Phonenumber: '0877777777',
                     group: 'กลุ่มพะเยา',
                     status: 'เพิ่มโดยแอดมิน',
+                    time: '27/6/2563',
                 },
                 {
                     IDCard: 7777777777777,
@@ -286,6 +299,7 @@ export default {
                     Phonenumber: '0888888888',
                     group: 'กลุ่มพะเยา',
                     status: 'สมัครบนแอปพลิเคชัน',
+                    time: '27/6/2563',
                 },
 
             ]

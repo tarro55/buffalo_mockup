@@ -7,7 +7,7 @@
     
     <v-container >
         <v-card class="rounded-lg elevation-5 pa-5">
-        <v-select color="green" :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg pa-5" outlined></v-select><br>
+        <v-select dense color="green" :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg pa-5" outlined></v-select><br>
         <!-- <v-row align="center" justify="center"> -->
             <center>
             <v-card class="pa-5" flat height="400px" width="800px" img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg">

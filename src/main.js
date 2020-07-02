@@ -4,11 +4,16 @@ import router from './router'
 import vuetify from './plugins/vuetify';
 import ThailandAutoComplete from './plugins/thai'
 
+import Chartkick from 'vue-chartkick'
+import Chart from 'chart.js'
+Vue.use(Chartkick.use(Chart))
+
+
 Vue.component('ThailandAutoComplete', ThailandAutoComplete)
 Vue.config.productionTip = false
 
 import data from './plugins/thailand/people.json'; 
-Vue.prototype.$txt = data
+Vue.prototype.$txt = data 
 
 new Vue({
   router,

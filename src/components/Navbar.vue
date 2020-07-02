@@ -18,7 +18,7 @@
             <v-list-item-group v-model="item" color="green">
 
                 <!-- <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`/officer${item.router}`)"> -->
-                <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`${item.router}`)">
+                <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`${item.router}`) " >
                     <v-list-item-icon>
                         <v-icon>{{ item.icon }}</v-icon>
                     </v-list-item-icon>
@@ -116,6 +116,13 @@ export default {
                     sub: "จัดการผู้ดูแลระบบ",
                     icon: "mdi-account-cog",
                     router: "/EditAdmin"
+                },
+                {
+                    icons: "",
+                    text: "คำร้องขอลืมรหัสผ่านเกษตกร",
+                    sub: "คำร้องขอลืมรหัสผ่านเกษตกร",
+                    icon: "mdi-account-key",
+                    router: "/resetPass"
                 },
                 {
                     icons: "",

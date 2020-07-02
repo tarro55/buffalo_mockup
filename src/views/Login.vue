@@ -28,13 +28,13 @@
             <v-container class="fill-height bg" fluid>
                 <v-row align="center" justify="center">
                     <v-col cols="12" sm="8">
-                        <v-card class="rounded-lg"> 
+                        <v-card outlined class="rounded-lg"> 
                             <div class="d-flex flex-no-wrap">
                                 <div>
                                     <img style="width:80%; height:100%;" class="rounded-lg" src="https://images.pexels.com/photos/1054650/pexels-photo-1054650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
                                 </div>
                                 <v-spacer></v-spacer>
- 
+
                                 <v-card-text class="mr-16 pr-10">
                                     <center>
                                         <img style="width:65%;" src="https://www.img.in.th/images/209695056f7b9ddfe087f862d5b107d8.png" alt="">
@@ -56,6 +56,27 @@
             </v-container>
         </v-card>
 
+        <!-- <v-card>
+            <v-container class="fill-height bg" fluid>
+                <v-row align="center" justify="center">
+                    <v-col cols="12" sm="8" md="4">
+                        <center>
+                            <img style="width:65%;" src="https://www.img.in.th/images/209695056f7b9ddfe087f862d5b107d8.png" alt="">
+                            <div >
+                                <h3>
+                                    ยินดีต้อนรับเข้าสู่ระบบ
+                                </h3>
+                            </div>
+                        </center>
+                        <v-form>
+                            <v-text-field class="rounded-lg" dark outlined label="เข้าสู่ระบบ" name="login" prepend-inner-icon="mdi-account" type="text"></v-text-field>
+                            <v-text-field class="rounded-lg" dark outlined id="password" label="รหัสผ่าน" name="password" prepend-inner-icon="mdi-lock" type="password"></v-text-field>
+                        </v-form>
+                        <v-btn class="rounded-lg" dark block @click="$router.push('Dashboard')" large color="green">เข้าสู่ระบบ</v-btn>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </v-card> -->
 
     </v-dialog>
 </div>
@@ -116,7 +137,8 @@ export default {
 
 <style scoped>
 .bg {
-    background: #000000 url(https://www.img.in.th/images/fe63e0ee1d678a04ad8d5aefb976aba6.jpg) no-repeat left top;
+    /* background: #000000 url(https://www.img.in.th/images/fe63e0ee1d678a04ad8d5aefb976aba6.jpg) no-repeat left top; */
+    background: #000000 url(https://www.img.in.th/images/c5946e861e009f8f0f4e75c1f1667bac.png) no-repeat left top;
     background-size: cover;
 }
 

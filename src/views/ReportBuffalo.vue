@@ -11,14 +11,14 @@
             <v-toolbar flat color="white">
                 
                 <v-toolbar-title>
-                    <v-text-field color="green" class="rounded-lg" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                    <v-text-field dense color="green" class="rounded-lg" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                 </v-toolbar-title>
                 <v-spacer></v-spacer>
 
-                <v-select color="green" :items="province"  label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg" outlined></v-select>
-                <v-select color="green" :items="district" label="กรุณาเลือกอำเภอ" hide-details class="rounded-lg" outlined></v-select>
-                <v-select color="green" :items="place" label="กรุณาเลือกตำบล" hide-details class="rounded-lg" outlined></v-select>
-                <v-select color="green" :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="rounded-lg" outlined></v-select>
+                <v-select dense color="green" :items="province"  label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg" outlined></v-select>
+                <v-select dense color="green" :items="district" label="กรุณาเลือกอำเภอ" hide-details class="rounded-lg" outlined></v-select>
+                <v-select dense color="green" :items="place" label="กรุณาเลือกตำบล" hide-details class="rounded-lg" outlined></v-select>
+                <v-select dense color="green" :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="rounded-lg" outlined></v-select>
 
                 
             </v-toolbar>
@@ -158,6 +158,18 @@ export default {
                 value: 'age'
             },
             {
+                text: 'ตำบล',
+                value: 'district'
+            },
+            {
+                text: 'อำเภอ',
+                value: 'canton'
+            },
+            {
+                text: 'จังหวัด',
+                value: 'province'
+            },
+            {
                 text: 'ชื่อฟาร์ม',
                 value: 'farm'
             },
@@ -207,6 +219,9 @@ export default {
                     id: 'ลูกมะลิ1',
                     sex: 'เมีย',
                     age: '4 ปี 2 เดือน',
+                    district:'แม่กา',
+                    canton:'เมือง',
+                    province:'พะเยา',
                     farm:'สวัสดิ์ฟาร์ม',
                     group: 'กลุ่มแม่ใจ',
                 },
@@ -214,6 +229,9 @@ export default {
                     id: 'ลูกมะลิ2',
                     sex: 'ผู้',
                     age: '2 ปี 2 เดือน',
+                    district:'แม่กา',
+                    canton:'เมือง',
+                    province:'พะเยา',
                     farm:'สวัสดิ์ฟาร์ม',
                     group: 'กลุ่มแม่ใจ',
                 },
@@ -221,6 +239,9 @@ export default {
                     id: 'ชบา',
                     sex: 'เมีย',
                     age: '4 ปี 0 เดือน',
+                    district:'แม่กา',
+                    canton:'เมือง',
+                    province:'พะเยา',
                     farm:'สวัสดิ์ฟาร์ม',
                     group: 'กลุ่มพาน',
                 },
@@ -228,6 +249,9 @@ export default {
                     id: 'ทองดี',
                     sex: 'ผู้',
                     age: '2 เดือน',
+                    district:'แม่กา',
+                    canton:'เมือง',
+                    province:'พะเยา',
                     farm:'สมพจน์ฟาร์ม',
                     group: 'กลุ่มพาน',
                 },

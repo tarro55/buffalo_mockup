@@ -12,13 +12,12 @@
                 <template v-slot:top>
                     <v-flex xs12 class="pa-2">
                         <div class="d-flex grow flex-wrap">
-                            <v-text-field class="rounded-lg" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                            <v-text-field dense class="rounded-lg pa-2" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                             <v-spacer></v-spacer>
                             <div class="col-ml-6 ">
-                                <v-dialog v-model="dialog" max-width="500px">
+                                <v-dialog scrollable v-model="dialog" max-width="500px">
                                     <template v-slot:activator="{ on, attrs }">
-                                        <v-btn outlined color="green" dark class="mb-2 rounded-lg" large v-bind="attrs" v-on="on">เพิ่มผู้ดูแล</v-btn>
-
+                                        <v-btn outlined color="green" dark class="mr-1 rounded-lg" medium v-bind="attrs" v-on="on">เพิ่มผู้ดูแล<v-icon>mdi-plus</v-icon></v-btn>
                                     </template>
                                     <v-card>
                                         <v-card-title>
@@ -27,22 +26,37 @@
 
                                         <v-card-text>
                                             <v-container class="rounded-lg">
-                                                <v-col cols="12">
-                                                    <v-text-field class="rounded-lg" prepend-inner-icon="mdi-id-card" color="green" outlined v-model="editedItem.IDCard" label="เลขบัตรประชาชน"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12">
-                                                    <v-text-field class="rounded-lg" prepend-inner-icon="mdi-card-account-details-outline" color="green" outlined v-model="editedItem.name" label="ชื่อ"></v-text-field>
-                                                </v-col>
-                                                <v-col cols="12">
-                                                    <v-text-field class="rounded-lg" prepend-inner-icon="mdi-email-outline" color="green" outlined v-model="editedItem.email" label="อีเมล์"></v-text-field>
-                                                </v-col>
+                                                <v-row dense>
+                                                    <v-col cols="12 " sm="6">
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-card-account-details-outline" color="green" outlined v-model="editedItem.name" label="ชื่อจริง"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-card-account-details-outline" color="green" outlined v-model="editedItem.lastname" label="นามสกุล"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12">
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-account" color="green" outlined v-model="editedItem.username" label="ชื่อผู้ใช้งาน"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12">
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined v-model="editedItem.password" label="รหัสผ่าน"></v-text-field>
+                                                    </v-col> 
+                                                    <v-col cols="12" >
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined v-model="editedItem.password" :append-icon="show4 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.emailMatch]" :type="show4 ? 'text' : 'password'" name="input-10-2" label="ยืนยันรหัสผ่าน" hint="กรุณากรอกรหัสผ่านให้ตรงกัน" value="" error @click:append="show4 = !show4"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12">
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-email" color="green" outlined v-model="editedItem.email" label="อีเมล"></v-text-field>
+                                                    </v-col> 
+                                                </v-row>
                                             </v-container>
                                         </v-card-text>
 
                                         <v-card-actions>
                                             <v-spacer></v-spacer>
-                                            <v-btn color="green" text @click="save"><h5>บันทึก</h5></v-btn>
-                                            <v-btn color="black" text @click="close"><h5>ยกเลิก</h5></v-btn>
+                                            <v-btn color="green" text @click="save">
+                                                <h5>บันทึก</h5>
+                                            </v-btn>
+                                            <v-btn color="black" text @click="close">
+                                                <h5>ยกเลิก</h5>
+                                            </v-btn>
                                         </v-card-actions>
                                     </v-card>
                                 </v-dialog>
@@ -83,19 +97,26 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 export default {
     data: () => ({
 
         search: '',
         dialog: false,
-        headers: [{
-                text: 'เลขบัตรประชาชน',
-                value: 'IDCard'
-            },
+        headers: [
             {
-                text: 'ชื่อ',
+                text: 'ชื่อจริง',
                 value: 'name'
             },
+            {
+                text: 'นามสกุล',
+                value: 'lastname'
+            },
+            {
+                text: 'ชื่อผู้ใช้งาน',
+                value: 'username'
+            },
+             
             {
                 text: 'อีเมล์',
                 value: 'email'
@@ -106,6 +127,13 @@ export default {
                 sortable: false
             },
         ],
+        show4: false,
+        password: 'Password',
+        rules: {
+          required: value => !!value || 'กรุณากรอกรหัสผ่านให้ตรงกัน.',
+          min: v => v.length >= 8 || 'Min 8 characters',
+          emailMatch: () => ('กรุณากรอกรหัสผ่านให้ตรงกัน'),
+        },
         desserts: [],
         editedIndex: -1,
         editedItem: {
@@ -141,21 +169,27 @@ export default {
     methods: {
         initialize() {
             this.desserts = [{
-                    IDCard: 1234567890123,
-                    name: 'นายแดง แดงแดง',
-                    email: 'dang@gmail.com',
+                    name: 'นายแดง',
+                    lastname: 'สวัสดี',
+                    username:'dang123',
+                    password: '123456',
+                    email: 'dang1@gmail.com',
                     status: 'ผู้ดูแลระบบ',
                 },
                 {
-                    IDCard: 3123412345612,
-                    name: 'นายดำ ดำดำ',
-                    email: 'dum@gmail.com',
-                    status: 'ผู้ดูแลข้อมูล',
+                    name: 'นายแดง1',
+                    lastname: 'สวัสดี1',
+                    username:'dang1234',
+                    password: '123123',
+                    email: 'dan1g@gmail.com',
+                    status: 'ผู้ดูแลระบบ',
                 },
                 {
-                    IDCard: 1231241231233,
-                    name: 'นายเขียว เขียวเขียว',
-                    email: 'green@gmail.com',
+                    name: 'นายแดง2',
+                    lastname: 'สวัสดี2',
+                    username:'dang1232',
+                    password: '111111',
+                    email: 'dang1@gmail.com',
                     status: 'ผู้ดูแลระบบ',
                 },
 
@@ -163,14 +197,53 @@ export default {
         },
 
         editItem(item) {
-            this.editedIndex = this.desserts.indexOf(item)
-            this.editedItem = Object.assign({}, item)
-            this.dialog = true
+            // this.editedIndex = this.desserts.indexOf(item)
+            // this.editedItem = Object.assign({}, item)
+            // this.dialog = true
+            Swal.fire({
+                title: 'คุณต้องการแก้ไข?',
+                // text: "ใช่หรือไม่",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ตกลง',
+                cancelButtonText: 'ยกเลิก',
+            }).then((result) => {
+                if (result.value) {
+                    this.editedIndex = this.desserts.indexOf(item)
+                    this.editedItem = Object.assign({}, item)
+                    this.dialog = true
+                }
+            })
+
         },
 
         deleteItem(item) {
-            const index = this.desserts.indexOf(item)
-            confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+            // const index = this.desserts.indexOf(item)
+            // confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+            Swal.fire({
+                title: 'คุณต้องการลบใช่หรือไม่?',
+                // text: "ใช่หรือไม่",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ตกลง',
+                cancelButtonText: 'ยกเลิก',
+            }).then((result) => {
+                if (result.value) {
+                    const index = this.desserts.indexOf(item)
+                    this.desserts.splice(index, 1),
+                        Swal.fire(
+
+                            'คุณทำการลบสำเร็จ!',
+                            '',
+                            'success',
+
+                        )
+                }
+            })
         },
 
         close() {
@@ -182,12 +255,37 @@ export default {
         },
 
         save() {
-            if (this.editedIndex > -1) {
+            // if (this.editedIndex > -1) {
+            //     Object.assign(this.desserts[this.editedIndex], this.editedItem)
+            // } else {
+            //     this.desserts.push(this.editedItem)
+            // }
+            // this.close()
+            Swal.fire({
+                title: 'คุณต้องการบันทึก?',
+                // text: "ใช่หรือไม่",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ตกลง',
+                cancelButtonText: 'ยกเลิก',
+            }).then((result) => {
+                if (this.editedIndex > -1) {
                 Object.assign(this.desserts[this.editedIndex], this.editedItem)
             } else {
                 this.desserts.push(this.editedItem)
             }
             this.close()
+                if (result.value) {
+                    Swal.fire(
+                        'บันทึก!',
+                        'คุณทำการบันทึกสำเร็จ',
+                        'success'
+                    )
+                }
+            })
+            
         },
     },
 }

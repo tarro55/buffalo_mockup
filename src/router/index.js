@@ -72,6 +72,11 @@ function view(name){
     name: 'Dashboard', 
     component: view('Dashboard')
   },
+  {
+    path: '/resetPass',
+    name: 'resetPass', 
+    component: view('resetPass')
+  },
 
 
 

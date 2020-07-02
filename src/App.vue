@@ -13,11 +13,14 @@
   
 <script>
 import Navbar from '@/components/Navbar'; 
+ 
 export default {
     name: 'Root',
+    
     /*-------------------------ประกาศ components ---------------------------------------*/
     components: {
-Navbar
+    Navbar
+    
     },
     /*-------------------------รับค่าเมื่อเราเป็น components---------------------------------------*/
     props: {

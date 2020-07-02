@@ -60,8 +60,8 @@
             <v-flex xs12 row wrap>
                 <v-flex xs8 row wrap>
                     <v-container>
-                        <v-card class="elevation-5 rounded-lg pa-2">
-                            <div class="d-flex grow flex-wrap">
+                        <v-card class="elevation-5 rounded-lg pa-3">
+                            <div class="d-flex grow flex-wrap pa-2">
                                 <h3>รายละเอียดกระบือ</h3>
                                 <v-spacer></v-spacer>
                                 <v-btn class="rounded-lg" outlined color="green" @click="dialog=false">แก้ไข<v-icon>mdi-pencil</v-icon>
@@ -69,7 +69,7 @@
                             </div>
                             <v-flex xs12 row wrap>
                                 <div v-for="item in desserts" :key="item.name">
-                                    <v-text-field class="rounded-lg" :prepend-inner-icon="item.icon" color="green" outlined :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
+                                    <v-text-field dense class="rounded-lg" :prepend-inner-icon="item.icon" color="green" outlined :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
                                 </div>
                             </v-flex>
                         </v-card>

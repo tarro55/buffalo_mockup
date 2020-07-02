@@ -4,32 +4,63 @@
         <h2>ข้อมูลการเจริญเติบโตของกระบือ</h2>
         <v-divider></v-divider>
     </v-container>
-    <v-container> 
-        <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="  rounded-lg elevation-5">
+    <v-container>  
+
+        <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
             <template v-slot:top>
-                <v-toolbar flat color="white">
+                <v-flex xs12 class="">
+                    <v-container grid-list-xs>
+                    <div class="d-flex grow flex-wrap">
+                        <v-text-field dense class="rounded-lg pa-1" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                        <v-spacer></v-spacer>
+                        <div class="col-ml-6 "> 
+                                    <v-btn outlined color="green" medium dense dark class="mr-1 rounded-lg" v-bind="attrs" v-on="on">ส่งออกรายงาน</v-btn> 
+                        </div> 
+                    </div>
+                     </v-container>
+                </v-flex>
 
-                    <v-toolbar-title>
-                        <v-text-field color="green" class="rounded-lg" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                <v-toolbar flat color="white" class="">
+                    <!-- <v-toolbar-title>
+                        <v-text-field color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line class="rounded-lg pa-1"></v-text-field>
                     </v-toolbar-title>
-                    <v-spacer></v-spacer>
-
-                    <v-select color="green" outlined :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg"></v-select>
-                    <v-select color="green" outlined :items="district" label="กรุณาเลือกอำเภอ" hide-details class="rounded-lg"></v-select>
-                    <v-select color="green" outlined :items="place" label="กรุณาเลือกตำบล" hide-details class="rounded-lg"></v-select>
-                    <v-btn outlined large color="green" dark class="mb-2 mt-2" v-bind="attrs" v-on="on"><h6>ส่งออกรายงาน</h6></v-btn>
-                </v-toolbar>
+                    <v-spacer></v-spacer> -->
+                    <v-select dense color="green" :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg" outlined></v-select>
+                    <v-select dense color="green" :items="district" label="กรุณาเลือกอำเภอ" hide-details class="rounded-lg" outlined></v-select>
+                    <v-select dense color="green" :items="place" label="กรุณาเลือกตำบล" hide-details class="rounded-lg" outlined></v-select>
+                    <!-- <v-select dense color="green" :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="rounded-lg" outlined></v-select> -->
+                </v-toolbar> 
             </template>
+
             <template v-slot:item.actions="{ item }">
-                <v-icon class="mr-2" @click="$router.push(`farmer_detail`)">
-                    mdi-eye-outline
-                </v-icon>
-                <v-icon class="mr-2" @click="editItem(item)">
-                    mdi-pencil
-                </v-icon>
-                <v-icon @click="deleteItem(item)">
-                    mdi-delete
-                </v-icon>
+
+                <v-tooltip v-model="show" top>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`farmer_detail`)">
+                            <v-icon>mdi-eye-outline</v-icon>
+                        </v-btn>
+                    </template>
+                    <span>ดูข้อมูล</span>
+                </v-tooltip>
+
+                <v-tooltip v-model="show" top>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn icon v-bind="attrs" v-on="on" @click="editItem(item)">
+                            <v-icon>mdi-pencil</v-icon>
+                        </v-btn>
+                    </template>
+                    <span>แก้ไข</span>
+                </v-tooltip>
+
+                <v-tooltip v-model="show" top>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
+                            <v-icon>mdi-delete</v-icon>
+                        </v-btn>
+                    </template>
+                    <span>ลบ</span>
+                </v-tooltip>
+
             </template>
             <template v-slot:no-data>
                 <v-btn color="primary" @click="initialize">Reset</v-btn>
@@ -183,6 +214,18 @@ export default {
             {
                 text: 'จำนวนกระบือายุ 600 วัน',
                 value: 'age600'
+            },
+            {
+                text: 'ตำบล',
+                value: 'district'
+            },
+            {
+                text: 'อำเภอ',
+                value: 'canton'
+            },
+            {
+                text: 'จังหวัด',
+                value: 'province'
             },
             {
                 text: 'กลุ่มผู้ใช้',
