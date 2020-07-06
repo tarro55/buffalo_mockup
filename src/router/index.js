@@ -7,18 +7,18 @@ function view(name){
 }
 
   const routes = [
+  // {
+  //   path: '/',
+  //   name: 'Home',
+  //   component: view('Home')
+  // },
+  // {
+  //   path: '/about',
+  //   name: 'About', 
+  //   component: view('About')
+  // },
   {
     path: '/',
-    name: 'Home',
-    component: view('Home')
-  },
-  {
-    path: '/about',
-    name: 'About', 
-    component: view('About')
-  },
-  {
-    path: '/Login',
     name: 'Login', 
     component: view('Login')
   },
@@ -82,9 +82,6 @@ function view(name){
     name: 'profile', 
     component: view('profile')
   },
-
-
-
 ]
 
 const router = new VueRouter({

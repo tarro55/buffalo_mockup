@@ -121,7 +121,7 @@
 
                 </v-flex>
 
-                <v-flex xs4 pa-2 class="w3-margin-left ">
+                <v-flex xs4 md4 pa-2 class="w3-margin-left ">
                     <v-date-picker md v-model="picker" elevation="5" class="rounded-lg"></v-date-picker>
                 </v-flex>
 
