@@ -121,7 +121,7 @@ export default {
                     icons: "",
                     text: "ออกจากระบบ",
                     icon: "mdi-logout",
-                    router: "/login"
+                    router: "/Login"
                 },
 
             ],
