@@ -270,7 +270,7 @@
 
                                 <v-tooltip v-model="show" top>
                                     <template v-slot:activator="{ on, attrs }">
-                                        <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`buffalo_detail`)">
+                                        <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`buffalodetail`)">
                                             <v-icon>mdi-eye-outline</v-icon>
                                         </v-btn>
                                     </template>

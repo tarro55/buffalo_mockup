@@ -37,7 +37,7 @@
         <v-app-bar app clipped-left>
         <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <a href="" @click="$router.push(`farmer_detail`)"><img style="width:50%;" src="https://www.img.in.th/images/209695056f7b9ddfe087f862d5b107d8.png" alt=""></a>
+            <a href="" @click="$router.push(`farmerdetail`)"><img style="width:50%;" src="https://www.img.in.th/images/209695056f7b9ddfe087f862d5b107d8.png" alt=""></a>
 
         </v-toolbar-title>
         <v-spacer></v-spacer> 
@@ -82,7 +82,7 @@ export default {
             items: [{
                     text: "แดชบอร์ด",
                     icon: "mdi-chart-bell-curve-cumulative",
-                    router: "/Dashboard"
+                    router: "/dashboard"
                 },
                 {
                     text: "ข้อมูลส่วนตัว",
@@ -101,14 +101,14 @@ export default {
                     text: "จัดการผู้ดูแลระบบ",
                     sub: "จัดการผู้ดูแลระบบ",
                     icon: "mdi-account-cog",
-                    router: "/EditAdmin"
+                    router: "/editadmin"
                 },
                 {
                     icons: "",
                     text: "คำร้องขอลืมรหัสผ่านเกษตกร",
                     sub: "คำร้องขอลืมรหัสผ่านเกษตกร",
                     icon: "mdi-account-key",
-                    router: "/resetPass"
+                    router: "/resetpass"
                 },
                 {
                     icons: "",
@@ -121,7 +121,7 @@ export default {
                     icons: "",
                     text: "ออกจากระบบ",
                     icon: "mdi-logout",
-                    router: "/Login"
+                    router: "/login"
                 },
 
             ],

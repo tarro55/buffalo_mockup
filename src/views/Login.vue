@@ -46,7 +46,7 @@
                                         <v-text-field class="rounded-lg" outlined id="password" label="รหัสผ่าน" color="green" name="password" prepend-inner-icon="mdi-lock" type="password"></v-text-field>
                                     </v-form>
                                     <center>
-                                    <v-btn @click="$router.push('Dashboard')" large block dark class="rounded-lg" color="green">เข้าสู่ระบบ</v-btn>
+                                    <v-btn @click="$router.push('dashboard')" large block dark class="rounded-lg" color="green">เข้าสู่ระบบ</v-btn>
                                     </center>
                                 </v-card-text>
                             </div> 

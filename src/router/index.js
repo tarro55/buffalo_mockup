@@ -23,27 +23,27 @@ function view(name){
     component: view('Login')
   },
   {
-    path: '/Report',
+    path: '/report',
     name: 'Report', 
     component: view('Report')
   },
   {
-    path: '/ReportBuffalo',
+    path: '/reportbuffalo',
     name: 'ReportBuffalo', 
     component: view('ReportBuffalo')
   },
   {
-    path: '/ReportMap',
+    path: '/reportmap',
     name: 'ReportMap', 
     component: view('ReportMap')
   },
   {
-    path: '/Export',
+    path: '/export',
     name: 'Export', 
     component: view('Export')
   },
   {
-    path: '/ReportSystem',
+    path: '/reportsystem',
     name: 'ReportSystem', 
     component: view('ReportSystem')
   },
@@ -53,27 +53,27 @@ function view(name){
     component: view('farmer')
   },
   {
-    path: '/farmer_detail',
+    path: '/farmerdetail',
     name: 'farmer_detail', 
     component: view('farmer_detail')
   },
   {
-    path: '/buffalo_detail',
+    path: '/buffalodetail',
     name: 'buffalo_detail', 
     component: view('buffalo_detail')
   },
   {
-    path: '/EditAdmin',
+    path: '/editadmin',
     name: 'EditAdmin', 
     component: view('EditAdmin')
   },
   {
-    path: '/Dashboard',
+    path: '/dashboard',
     name: 'Dashboard', 
     component: view('Dashboard')
   },
   {
-    path: '/resetPass',
+    path: '/resetpass',
     name: 'resetPass', 
     component: view('resetPass')
   },

@@ -58,7 +58,7 @@
                                             </h2>
                                         </div>
                                     </div>
-                                    <v-btn class="rounded-lg" outlined block @click="$router.push('ReportSystem')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
+                                    <v-btn class="rounded-lg" outlined block @click="$router.push('reportsystem')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
                                 </div>
                                 <!-- </div> -->
                             </v-card>
@@ -85,7 +85,7 @@
                                             </h2>
                                         </div>
                                     </div>
-                                    <v-btn class="rounded-lg" outlined block @click="$router.push('ReportBuffalo')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
+                                    <v-btn class="rounded-lg" outlined block @click="$router.push('reportbuffalo')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
                                 </div>
                                 <!-- </div> -->
                             </v-card>
@@ -112,7 +112,7 @@
                                             </h2>
                                         </div>
                                     </div>
-                                    <v-btn class="rounded-lg" outlined block @click="$router.push('ReportSystem')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
+                                    <v-btn class="rounded-lg" outlined block @click="$router.push('reportsystem')" color="green">ดูรายละเอียดเพิ่มเติม</v-btn>
                                 </div>
                                 <!-- </div> -->
                             </v-card>
@@ -141,7 +141,7 @@
                 </h4>
                 <column-chart :colors="['#3CB371']" :data="chartData"></column-chart>
                 <center>
-                    <v-btn @click="$router.push('ReportSystem')" block text class="rounded-lg mt-2 mb-3" color="green">ดูข้อมูลเพิ่มเติม</v-btn>
+                    <v-btn @click="$router.push('reportsystem')" block text class="rounded-lg mt-2 mb-3" color="green">ดูข้อมูลเพิ่มเติม</v-btn>
                 </center>
             </v-card>
             </v-hover>
@@ -154,7 +154,7 @@
                 </h4>
                 <area-chart :colors="['#1E90FF']" :data="chartData"></area-chart>
                 <center>
-                    <v-btn @click="$router.push('ReportBuffalo')" block text class="rounded-lg mt-2 mb-3" color="green">ดูข้อมูลเพิ่มเติม</v-btn>
+                    <v-btn @click="$router.push('reportbuffalo')" block text class="rounded-lg mt-2 mb-3" color="green">ดูข้อมูลเพิ่มเติม</v-btn>
                 </center>
             </v-card>
             </v-hover>

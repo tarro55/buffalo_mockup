@@ -24,7 +24,7 @@
 
                     <v-tooltip v-model="show" top>
                     <template v-slot:activator="{ on, attrs }">
-                        <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`farmer_detail`)">
+                        <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`farmerdetail`)">
                             <v-icon>mdi-eye-outline</v-icon>
                         </v-btn>
                     </template>

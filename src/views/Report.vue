@@ -25,7 +25,7 @@
                                                 </h5>
                                             </div>
                                         </div>
-                                        <v-btn dense medium outlined block @click="$router.push('ReportBuffalo')" class="rounded-lg" color="green">ดูรายงาน</v-btn>
+                                        <v-btn dense medium outlined block @click="$router.push('reportbuffalo')" class="rounded-lg" color="green">ดูรายงาน</v-btn>
                                     </div>
                                 </v-card>
                             </v-hover>
@@ -47,7 +47,7 @@
                                                 </h5>
                                             </div>
                                         </div>
-                                        <v-btn outlined medium block @click="$router.push('ReportMap')" class="rounded-lg" color="green">ดูรายงาน</v-btn>
+                                        <v-btn outlined medium block @click="$router.push('reportmap')" class="rounded-lg" color="green">ดูรายงาน</v-btn>
                                     </div>
                                 </v-card>
                             </v-hover>
@@ -69,7 +69,7 @@
                                                 </h5> 
                                             </div>
                                         </div>
-                                        <v-btn outlined medium block @click="$router.push('ReportSystem')" class="rounded-lg" color="green">ดูรายงาน</v-btn>
+                                        <v-btn outlined medium block @click="$router.push('reportsystem')" class="rounded-lg" color="green">ดูรายงาน</v-btn>
                                     </div>
                                 </v-card>
                             </v-hover>
@@ -93,7 +93,7 @@
                                             </div>
                                         </div>
                                         <!-- <div class="mt-2 ml-auto text-right"> -->
-                                        <v-btn outlined medium block @click="$router.push('Export')" class="rounded-lg" color="green">ดูรายงาน</v-btn>
+                                        <v-btn outlined medium block @click="$router.push('export')" class="rounded-lg" color="green">ดูรายงาน</v-btn>
                                         <!-- </div> -->
                                     </div>
                                 </v-card>
