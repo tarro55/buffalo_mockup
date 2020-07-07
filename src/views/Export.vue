@@ -6,7 +6,7 @@
     </v-container>
     <v-container>  
 
-        <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
+        <v-data-table dense :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
             <template v-slot:top>
                 <v-flex xs12 class="">
                     <v-container grid-list-xs>
@@ -14,7 +14,8 @@
                         <v-text-field dense class="rounded-lg pa-1" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                         <v-spacer></v-spacer>
                         <div class="col-ml-6 "> 
-                                    <v-btn outlined color="green" medium dense dark class="mr-1 rounded-lg" v-bind="attrs" v-on="on">ส่งออกรายงาน</v-btn> 
+                                    <!-- <v-btn outlined color="green" medium dense dark class="mr-1 rounded-lg" v-bind="attrs" v-on="on">ส่งออกรายงาน</v-btn>  -->
+                                    <v-btn outlined color="green" medium dense dark class="mr-1 rounded-lg">ส่งออกรายงาน</v-btn> 
                         </div> 
                     </div>
                      </v-container>
@@ -32,36 +33,38 @@
                 </v-toolbar> 
             </template>
 
-            <template v-slot:item.actions="{ item }">
-
-                <v-tooltip v-model="show" top>
+            <!-- <template v-slot:item.actions="{ item }"> -->
+                <!-- <v-tooltip v-model="show" top> -->
+                    <!-- <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`farmerdetail`)">
                             <v-icon>mdi-eye-outline</v-icon>
                         </v-btn>
                     </template>
                     <span>ดูข้อมูล</span>
-                </v-tooltip>
+                </v-tooltip> -->
 
-                <v-tooltip v-model="show" top>
+                <!-- <v-tooltip v-model="show" top> -->
+                    <!-- <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn icon v-bind="attrs" v-on="on" @click="editItem(item)">
                             <v-icon>mdi-pencil</v-icon>
                         </v-btn>
                     </template>
                     <span>แก้ไข</span>
-                </v-tooltip>
+                </v-tooltip> -->
 
-                <v-tooltip v-model="show" top>
+                <!-- <v-tooltip v-model="show" top> -->
+                    <!-- <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
                             <v-icon>mdi-delete</v-icon>
                         </v-btn>
                     </template>
                     <span>ลบ</span>
-                </v-tooltip>
+                </v-tooltip> -->
 
-            </template>
+            <!-- </template> -->
             <template v-slot:no-data>
                 <v-btn color="primary" @click="initialize">Reset</v-btn>
             </template>

@@ -111,7 +111,8 @@
                             <div class="col-ml-6 ">
                                 <v-dialog scrollable v-model="dialog" max-width="800px">
                                     <template v-slot:activator="{ on, attrs }">
-                                        <v-btn outlined color="green" medium dense dark class="mr-1 rounded-lg" v-bind="attrs" v-on="on">เพิ่มเกษตรกร<v-icon>mdi-plus</v-icon></v-btn>
+                                        <v-btn outlined color="green" medium dense dark class="mr-1 rounded-lg" v-bind="attrs" v-on="on">เพิ่มเกษตรกร<v-icon>mdi-plus</v-icon>
+                                        </v-btn>
                                     </template>
                                     <v-card>
                                         <v-card-title>
@@ -217,7 +218,8 @@
 
             <template v-slot:item.actions="{ item }">
 
-                <v-tooltip v-model="show" top>
+                <!-- <v-tooltip v-model="show" top> -->
+                <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`farmerdetail`)">
                             <v-icon>mdi-eye-outline</v-icon>
@@ -226,7 +228,8 @@
                     <span>ดูข้อมูล</span>
                 </v-tooltip>
 
-                <v-tooltip v-model="show" top>
+                <!-- <v-tooltip v-model="show" top> -->
+                <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn icon v-bind="attrs" v-on="on" @click="editItem(item)">
                             <v-icon>mdi-pencil</v-icon>
@@ -235,7 +238,8 @@
                     <span>แก้ไข</span>
                 </v-tooltip>
 
-                <v-tooltip v-model="show" top>
+                <!-- <v-tooltip v-model="show" top> -->
+                <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
                             <v-icon>mdi-delete</v-icon>
@@ -274,6 +278,32 @@ export default {
             },
         ],
         district: [{
+                text: 'พะเยา'
+            },
+            {
+                text: 'เชียงราย'
+            },
+            {
+                text: 'แพร่'
+            },
+            {
+                text: 'น่าน'
+            },
+        ],
+        place: [{
+                text: 'พะเยา'
+            },
+            {
+                text: 'เชียงราย'
+            },
+            {
+                text: 'แพร่'
+            },
+            {
+                text: 'น่าน'
+            },
+        ],
+        farm: [{
                 text: 'พะเยา'
             },
             {
@@ -486,11 +516,11 @@ export default {
                 cancelButtonText: 'ยกเลิก',
             }).then((result) => {
                 if (this.editedIndex > -1) {
-                Object.assign(this.desserts[this.editedIndex], this.editedItem)
-            } else {
-                this.desserts.push(this.editedItem)
-            }
-            this.close()
+                    Object.assign(this.desserts[this.editedIndex], this.editedItem)
+                } else {
+                    this.desserts.push(this.editedItem)
+                }
+                this.close()
                 if (result.value) {
                     Swal.fire(
                         'บันทึก!',

@@ -13,23 +13,24 @@
                     <v-flex xs12 class="pa-2">
                         <div class="d-flex grow flex-wrap">
                             <v-text-field dense class="rounded-lg pa-2" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
-                            <v-spacer></v-spacer> 
+                            <v-spacer></v-spacer>
 
                         </div>
                     </v-flex>
 
                 </template>
 
-                <template v-slot:item.actions="{  }"> 
+                <template v-slot:item.actions="{  }">
 
-                    <v-tooltip v-model="show" top>
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`farmerdetail`)">
-                            <v-icon>mdi-eye-outline</v-icon>
-                        </v-btn>
-                    </template>
-                    <span>ดูข้อมูล</span>
-                </v-tooltip>
+                    <!-- <v-tooltip v-model="show" top> -->
+                    <v-tooltip top>
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`farmerdetail`)">
+                                <v-icon>mdi-eye-outline</v-icon>
+                            </v-btn>
+                        </template>
+                        <span>ดูข้อมูล</span>
+                    </v-tooltip>
 
                 </template>
                 <template v-slot:no-data>
@@ -42,25 +43,29 @@
 </template>
 
 <script>
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 export default {
     data: () => ({
 
         search: '',
         dialog: false,
         headers: [
+            // {
+            //     text: 'เลขบัตรประจำตัวประชาชน',
+            //     value: 'IDCard'
+            // },
+            // {
+            //     text: 'ชื่อจริงนามสกุล',
+            //     value: 'name'
+            // },
+            // {
+            //     text: 'นามสกุล',
+            //     value: 'lastname'
+            // }, 
             {
-                text: 'เลขบัตรประจำตัวประชาชน',
-                value: 'IDCard'
+                text: 'ชื่อผู้ใช้งาน',
+                value: 'username'
             },
-            {
-                text: 'ชื่อจริงนามสกุล',
-                value: 'name'
-            },
-            {
-                text: 'นามสกุล',
-                value: 'lastname'
-            }, 
             {
                 text: 'เบอร์โทรศัพท์',
                 value: 'phoneNumber'
@@ -76,7 +81,7 @@ export default {
             },
         ],
         show4: false,
-       
+
         desserts: [],
         editedIndex: -1,
         editedItem: {
@@ -112,26 +117,31 @@ export default {
     methods: {
         initialize() {
             this.desserts = [{
-                    IDCard: '1231231231231',
-                    name: 'นาย',
-                    lastname:'แดง',
+                    // IDCard: '1231231231231',
+                    // name: 'นาย',
+                    // lastname:'แดง',
+                    username: 'username1',
                     phoneNumber: '0123123123',
-                    date:'29/6/2020'
+                    date: '29/6/2020'
                     // email: 'dang1@gmail.com', 
                 },
-                { 
-                    IDCard: '1111111111111',
-                    name: 'นาย',
-                    lastname:'เขียว',
-                    phoneNumber: '0111111111',
-                     date:'30/6/2020'
+                {
+                    // IDCard: '1231231231231',
+                    // name: 'นาย',
+                    // lastname:'แดง',
+                    username: 'username2',
+                    phoneNumber: '0123123123',
+                    date: '29/6/2020'
+                    // email: 'dang1@gmail.com', 
                 },
-                { 
-                    IDCard: '2222222222222',
-                    name: 'นาย',
-                    lastname:'ดำ',
-                    phoneNumber: '0222222222',
-                     date:'1/7/2020'
+                {
+                    // IDCard: '1231231231231',
+                    // name: 'นาย',
+                    // lastname:'แดง',
+                    username: 'username13',
+                    phoneNumber: '0123123123',
+                    date: '29/6/2020'
+                    // email: 'dang1@gmail.com', 
                 },
 
             ]
@@ -213,11 +223,11 @@ export default {
                 cancelButtonText: 'ยกเลิก',
             }).then((result) => {
                 if (this.editedIndex > -1) {
-                Object.assign(this.desserts[this.editedIndex], this.editedItem)
-            } else {
-                this.desserts.push(this.editedItem)
-            }
-            this.close()
+                    Object.assign(this.desserts[this.editedIndex], this.editedItem)
+                } else {
+                    this.desserts.push(this.editedItem)
+                }
+                this.close()
                 if (result.value) {
                     Swal.fire(
                         'บันทึก!',
@@ -226,7 +236,7 @@ export default {
                     )
                 }
             })
-            
+
         },
     },
 }

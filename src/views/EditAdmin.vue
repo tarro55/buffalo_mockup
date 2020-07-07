@@ -68,7 +68,8 @@
                 </template>
 
                 <template v-slot:item.actions="{ item }">
-                    <v-tooltip v-model="show" top>
+                    <!-- <v-tooltip v-model="show" top> -->
+                        <v-tooltip top>
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn icon v-bind="attrs" v-on="on" @click="editItem(item)">
                                 <v-icon>mdi-pencil</v-icon>
@@ -77,7 +78,8 @@
                         <span>แก้ไข</span>
                     </v-tooltip>
 
-                    <v-tooltip v-model="show" top>
+                    <!-- <v-tooltip v-model="show" top> -->
+                        <v-tooltip top>
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
                                 <v-icon>mdi-delete</v-icon>

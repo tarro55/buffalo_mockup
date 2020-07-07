@@ -259,7 +259,8 @@
 
                             <template v-slot:item.actions="{ item }">
 
-                                <v-tooltip v-model="show" top>
+                                <!-- <v-tooltip v-model="show" top> -->
+                                    <v-tooltip top>
                                     <template v-slot:activator="{ on, attrs }">
                                         <v-btn icon v-bind="attrs" v-on="on">
                                             <v-icon>mdi-clipboard-text-outline</v-icon>
@@ -268,7 +269,8 @@
                                     <span>ใบพันธุ์ประวัติ</span>
                                 </v-tooltip>
 
-                                <v-tooltip v-model="show" top>
+                                <!-- <v-tooltip v-model="show" top> -->
+                                    <v-tooltip top>
                                     <template v-slot:activator="{ on, attrs }">
                                         <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`buffalodetail`)">
                                             <v-icon>mdi-eye-outline</v-icon>
@@ -277,7 +279,8 @@
                                     <span>ดูข้อมูล</span>
                                 </v-tooltip>
 
-                                <v-tooltip v-model="show" top>
+                                <!-- <v-tooltip v-model="show" top> -->
+                                    <v-tooltip top>
                                     <template v-slot:activator="{ on, attrs }">
                                         <v-btn icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
                                             <v-icon>mdi-delete</v-icon>
