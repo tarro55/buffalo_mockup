@@ -112,6 +112,11 @@
                                         <v-img class="rounded-lg elevation-5" height="200" width="350" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSNf3OTIf1lugjQhtLRTP8cwuosPAJmIykTsry1UL87ArfVFx84&usqp=CAU"></v-img>
                                     </center>
                                 </div>
+                                <v-select dense class="rounded-lg pt-4" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nidf" label="ตำบล"></v-select>
+                                <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nmif" label="อำเภอ"></v-select>
+                                <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nmim" label="จังหวัด"></v-select>
+                                <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-postage-stamp" color="green" outlined v-model="editedItem.nidm" label="รหัสไปรษณีย์"></v-select>
+
                             </v-flex>
                         </v-card-text>
                     </v-flex>
@@ -141,6 +146,11 @@
                                 <div v-for="item in informationfarm1" :key="item.name">
                                     <v-text-field dense class="rounded-lg" outlined :readonly="dialog1" v-model="item.calories1" name="name" :label="item.describe1" :prepend-inner-icon="item.icon" color="green" id="id"></v-text-field>
                                 </div>
+                                <v-select dense class="rounded-lg pt-4" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nidf" label="ตำบล"></v-select>
+                                <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nmif" label="อำเภอ"></v-select>
+                                <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nmim" label="จังหวัด"></v-select>
+                                <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-postage-stamp" color="green" outlined v-model="editedItem.nidm" label="รหัสไปรษณีย์"></v-select>
+
 
                             </v-flex>
                         </v-card-text>
@@ -329,7 +339,7 @@ export default {
 
     data: () => ({
         date: null,
-      menu: false,
+        menu: false,
         tab: null,
         search: '',
         dialog1: true,
@@ -411,26 +421,26 @@ export default {
                 calories: '123/123 ถนน... ซอย1',
                 icon: 'mdi-home-map-marker',
             },
-            {
-                describe: 'ตำบล',
-                calories: 'แม่ใจ',
-                icon: 'mdi-map-marker-multiple-outline',
-            },
-            {
-                describe: 'อำเภอ',
-                calories: 'เมือง',
-                icon: 'mdi-map-marker-multiple-outline',
-            },
-            {
-                describe: 'จังหวัด',
-                calories: 'พะเยา',
-                icon: 'mdi-map-marker-multiple-outline',
-            },
-            {
-                describe: 'รหัสไปรษณีย์',
-                calories: '56000',
-                icon: 'mdi-postage-stamp',
-            },
+            // {
+            //     describe: 'ตำบล',
+            //     calories: 'แม่ใจ',
+            //     icon: 'mdi-map-marker-multiple-outline',
+            // },
+            // {
+            //     describe: 'อำเภอ',
+            //     calories: 'เมือง',
+            //     icon: 'mdi-map-marker-multiple-outline',
+            // },
+            // {
+            //     describe: 'จังหวัด',
+            //     calories: 'พะเยา',
+            //     icon: 'mdi-map-marker-multiple-outline',
+            // },
+            // {
+            //     describe: 'รหัสไปรษณีย์',
+            //     calories: '56000',
+            //     icon: 'mdi-postage-stamp',
+            // },
             {
                 describe: 'เบอร์โทรศัพท์',
                 calories: '0861800385',
@@ -470,26 +480,26 @@ export default {
                 calories1: 'กลุ่มแม่ใจ',
                 icon: 'mdi-account-group-outline',
             },
-            {
-                describe1: 'ตำบล',
-                calories1: 'เจริญราษฎร์',
-                icon: 'mdi-map-marker-multiple-outline',
-            },
-            {
-                describe1: 'อำเภอ',
-                calories1: 'แม่กา',
-                icon: 'mdi-map-marker-multiple-outline',
-            },
-            {
-                describe1: 'จังหวัด',
-                calories1: 'พะเยา',
-                icon: 'mdi-map-marker-multiple-outline',
-            },
-            {
-                describe1: 'ไปรษณีย์',
-                calories1: '56000',
-                icon: 'mdi-postage-stamp',
-            },
+            // {
+            //     describe1: 'ตำบล',
+            //     calories1: 'เจริญราษฎร์',
+            //     icon: 'mdi-map-marker-multiple-outline',
+            // },
+            // {
+            //     describe1: 'อำเภอ',
+            //     calories1: 'แม่กา',
+            //     icon: 'mdi-map-marker-multiple-outline',
+            // },
+            // {
+            //     describe1: 'จังหวัด',
+            //     calories1: 'พะเยา',
+            //     icon: 'mdi-map-marker-multiple-outline',
+            // },
+            // {
+            //     describe1: 'ไปรษณีย์',
+            //     calories1: '56000',
+            //     icon: 'mdi-postage-stamp',
+            // },
 
         ],
 
@@ -521,9 +531,9 @@ export default {
         dialog(val) {
             val || this.close()
         },
-        menu (val) {
-        val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
-      },
+        menu(val) {
+            val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
+        },
     },
 
     created() {
@@ -619,9 +629,9 @@ export default {
             })
         },
 
-        save1 (date) {
-        this.$refs.menu.save(date)
-      },
+        save1(date) {
+            this.$refs.menu.save(date)
+        },
 
         save() {
             // if (this.editedIndex > -1) {
