@@ -6,8 +6,8 @@
             <v-card class="rounded-lg ma-6">
                 <v-layout row wrap>
                     <v-flex xs12 md6 class="pa-4">
-                        <center>
-                            <img style="width:100%; height:100%;" class="rounded-lg" src="https://images.pexels.com/photos/1054650/pexels-photo-1054650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                        <center> 
+                                <img style="width:100%; height:100%;" class="rounded-lg image2" src="https://images.pexels.com/photos/1054650/pexels-photo-1054650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""> 
                         </center>
                     </v-flex>
                     <v-flex xs12 md6 class="pa-4">
@@ -22,7 +22,7 @@
                         <v-btn @click="$router.push('dashboard')" large block dark class="rounded-lg" color="green">เข้าสู่ระบบ</v-btn>
                     </v-flex>
                 </v-layout>
-            </v-card> 
+            </v-card>
         </v-container> 
     </v-dialog>
 
@@ -113,4 +113,13 @@ export default {
     background-repeat: repeat;
     background-size: cover;
 }
+@media(max-width:959px){
+            .image1 {
+                display: block!important; 
+            }
+            .image2 {
+                display: none !important;
+            }
+        }
+ 
 </style>
