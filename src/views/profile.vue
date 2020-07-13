@@ -17,9 +17,9 @@
                             </v-avatar>
                         </center>
                         <br>
-                        <v-btn outlined dense class="rounded-lg ma-2" color="green">อัพโหลดรูป<v-icon>mdi-upload</v-icon>
+                        <v-btn outlined dense class="rounded-lg ma-2" color="green"><v-icon>mdi-upload</v-icon>อัพโหลดรูป
                         </v-btn>
-                        <v-btn outlined dense class="rounded-lg ma-2" color="green" click="dialog1=false">แก้ไข<v-icon>mdi-pencil</v-icon>
+                        <v-btn outlined dense class="rounded-lg ma-2" color="green" click="dialog1=false"><v-icon>mdi-pencil</v-icon>แก้ไข
                         </v-btn>
                         
                     </v-flex>

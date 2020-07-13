@@ -20,9 +20,11 @@
                             <!-- <v-list-item-subtitle>Network Engineer</v-list-item-subtitle> -->
                         </v-list-item-content>
                     </v-list-item>
+                    
                 </v-col>
             </v-row>
         </v-img>
+        <v-btn block color="success"><v-icon>mdi-upload</v-icon>อัพโหลดภาพถ่าย</v-btn>
     </v-card>
     <br>
 
@@ -110,8 +112,10 @@
                                     <center>
                                         <h6>ภาพถ่ายบัตรประจำตัวประชาชน</h6>
                                         <v-img class="rounded-lg elevation-5" height="200" width="350" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSNf3OTIf1lugjQhtLRTP8cwuosPAJmIykTsry1UL87ArfVFx84&usqp=CAU"></v-img>
+                                    <v-btn class="rounded-lg" color="success"><v-icon>mdi-upload</v-icon>อัพโหลดบัตรประชาชน</v-btn>
                                     </center>
                                 </div>
+                                
                                 <v-select dense class="rounded-lg pt-4" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nidf" label="ตำบล"></v-select>
                                 <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nmif" label="อำเภอ"></v-select>
                                 <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nmim" label="จังหวัด"></v-select>
@@ -139,6 +143,7 @@
                                 <center>
                                     <v-img class="rounded-lg elevation-5" height="200" width="auto" src="https://images.pexels.com/photos/158179/lake-constance-sheep-pasture-sheep-blue-158179.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
                                     </v-img>
+                                    <v-btn class="rounded-lg" color="success"><v-icon>mdi-upload</v-icon>อัพโหลดภาพฟาร์ม</v-btn>
                                 </center>
                             </div>
                             <br>
@@ -146,7 +151,8 @@
                                 <div v-for="item in informationfarm1" :key="item.name">
                                     <v-text-field dense class="rounded-lg" outlined :readonly="dialog1" v-model="item.calories1" name="name" :label="item.describe1" :prepend-inner-icon="item.icon" color="green" id="id"></v-text-field>
                                 </div>
-                                <v-select dense class="rounded-lg pt-4" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nidf" label="ตำบล"></v-select>
+                                <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-account-group-outline" color="green" outlined v-model="editedItem.nidf" label="กลุ่มเกษตกร"></v-select>
+                                <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nidf" label="ตำบล"></v-select>
                                 <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nmif" label="อำเภอ"></v-select>
                                 <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nmim" label="จังหวัด"></v-select>
                                 <v-select dense class="rounded-lg" :readonly="dialog1" prepend-inner-icon="mdi-postage-stamp" color="green" outlined v-model="editedItem.nidm" label="รหัสไปรษณีย์"></v-select>
@@ -475,11 +481,11 @@ export default {
                 calories1: '123/123 ถนน123 ซอย123',
                 icon: 'mdi-home-map-marker',
             },
-            {
-                describe1: 'กลุ่มเกษตรกร',
-                calories1: 'กลุ่มแม่ใจ',
-                icon: 'mdi-account-group-outline',
-            },
+            // {
+            //     describe1: 'กลุ่มเกษตรกร',
+            //     calories1: 'กลุ่มแม่ใจ',
+            //     icon: 'mdi-account-group-outline',
+            // },
             // {
             //     describe1: 'ตำบล',
             //     calories1: 'เจริญราษฎร์',
