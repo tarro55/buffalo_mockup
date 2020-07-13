@@ -91,8 +91,8 @@ export default {
                 },
                 {
                     icons: "",
-                    text: "จัดการข้อมูลผู้ใช้",
-                    sub: "จัดการข้อผูลผู้ใช้",
+                    text: "จัดการเกษตกร",
+                    sub: "จัดการเกษตกร",
                     icon: "mdi-account",
                     router: "/farmer"
                 },
@@ -121,7 +121,7 @@ export default {
                     icons: "",
                     text: "ออกจากระบบ",
                     icon: "mdi-logout",
-                    router: "/Login"
+                    router: "/"
                 },
 
             ],

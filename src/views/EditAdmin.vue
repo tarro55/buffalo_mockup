@@ -8,13 +8,13 @@
         </v-container>
 
         <v-container grid-list-xs>
-            <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
+            <v-data-table dense :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
                 <template v-slot:top>
-                    <v-flex xs12 class="pa-2">
+                    <v-flex xs12>
                         <div class="d-flex grow flex-wrap">
-                            <v-text-field dense class="rounded-lg pa-2" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                            <v-text-field dense class="rounded-lg pb-1" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                             <v-spacer></v-spacer>
-                            <div class="col-ml-6 ">
+                            <div class="">
                                 <v-dialog scrollable v-model="dialog" max-width="500px">
                                     <template v-slot:activator="{ on, attrs }">
                                         <v-btn outlined color="green" dark class="mr-1 rounded-lg" medium v-bind="attrs" v-on="on">เพิ่มผู้ดูแล<v-icon>mdi-plus</v-icon></v-btn>
@@ -108,20 +108,24 @@ export default {
         headers: [
             {
                 text: 'ชื่อจริง',
-                value: 'name'
+                value: 'name',
+                sortable: false
             },
             {
                 text: 'นามสกุล',
-                value: 'lastname'
+                value: 'lastname',
+                sortable: false
             },
             {
                 text: 'ชื่อผู้ใช้งาน',
-                value: 'username'
+                value: 'username',
+                sortable: false
             },
              
             {
                 text: 'อีเมล์',
-                value: 'email'
+                value: 'email',
+                sortable: false
             },
             {
                 text: 'การจัดการ',

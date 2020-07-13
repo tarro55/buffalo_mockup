@@ -8,21 +8,24 @@
         </v-container>
 
         <v-container grid-list-xs>
-            <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
+            <v-data-table dense :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
+
                 <template v-slot:top>
-                    <v-flex xs12 class="pa-2">
+                    <v-flex xs12 >
                         <div class="d-flex grow flex-wrap">
                             <v-text-field dense class="rounded-lg pa-2" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                             <v-spacer></v-spacer>
-
                         </div>
                     </v-flex>
 
                 </template>
-
+                <template v-slot:item.glutenfree="{ item }">
+                    <v-simple-checkbox v-model="item.glutenfree" disabled></v-simple-checkbox>
+                    <!-- <v-select chips outlined :items="items" label="Solo field"></v-select> -->
+                </template>
                 <template v-slot:item.actions="{  }">
-
                     <!-- <v-tooltip v-model="show" top> -->
+
                     <v-tooltip top>
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`farmerdetail`)">
@@ -64,15 +67,23 @@ export default {
             // }, 
             {
                 text: 'ชื่อผู้ใช้งาน',
-                value: 'username'
+                value: 'username',
+                sortable: false
             },
             {
                 text: 'เบอร์โทรศัพท์',
-                value: 'phoneNumber'
+                value: 'phoneNumber',
+                sortable: false
             },
             {
                 text: 'ว/ด/ป',
-                value: 'date'
+                value: 'date',
+                sortable: false
+            },
+            {
+                text: 'สถานะ',
+                value: 'glutenfree',
+                sortable: false
             },
             {
                 text: 'การจัดการ',
@@ -122,7 +133,8 @@ export default {
                     // lastname:'แดง',
                     username: 'username1',
                     phoneNumber: '0123123123',
-                    date: '29/6/2020'
+                    date: '29/6/2020',
+                    glutenfree: true,
                     // email: 'dang1@gmail.com', 
                 },
                 {
@@ -131,7 +143,8 @@ export default {
                     // lastname:'แดง',
                     username: 'username2',
                     phoneNumber: '0123123123',
-                    date: '29/6/2020'
+                    date: '29/6/2020',
+                    glutenfree: true,
                     // email: 'dang1@gmail.com', 
                 },
                 {
@@ -140,7 +153,8 @@ export default {
                     // lastname:'แดง',
                     username: 'username13',
                     phoneNumber: '0123123123',
-                    date: '29/6/2020'
+                    date: '29/6/2020',
+                    glutenfree: false,
                     // email: 'dang1@gmail.com', 
                 },
 

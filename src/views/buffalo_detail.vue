@@ -57,28 +57,26 @@
 
     <center>
         <v-container>
-            <v-flex xs12 row wrap>
-                <v-flex xs8 row wrap>
-                    <v-container>
-                        <v-card class="elevation-5 rounded-lg pa-3">
-                            <div class="d-flex grow flex-wrap pa-2">
-                                <h3>รายละเอียดกระบือ</h3>
-                                <v-spacer></v-spacer>
-                                <v-btn class="rounded-lg" outlined color="green" @click="dialog=false">แก้ไข<v-icon>mdi-pencil</v-icon>
-                                </v-btn>
+            <v-layout row wrap>
+                <v-flex xs12 md8>
+                    <v-card class="elevation-5 rounded-lg pa-3 ma-2">
+                        <div class="d-flex grow flex-wrap pa-2">
+                            <h3>รายละเอียดกระบือ</h3>
+                            <v-spacer></v-spacer>
+                            <v-btn class="rounded-lg" outlined color="green" @click="dialog=false">
+                                <v-icon>mdi-pencil</v-icon>แก้ไข
+                            </v-btn>
+                        </div>
+                        <div class="d-flex flex-wrap pa-2">
+                            <div v-for="item in desserts" :key="item.name">
+                                <v-text-field dense class="rounded-lg" :prepend-inner-icon="item.icon" color="green" outlined :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
                             </div>
-                            <v-flex xs12 row wrap>
-                                <div v-for="item in desserts" :key="item.name">
-                                    <v-text-field dense class="rounded-lg" :prepend-inner-icon="item.icon" color="green" outlined :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
-                                </div>
-                            </v-flex>
-                        </v-card>
-                    </v-container>
-
+                            <v-btn class="rounded-lg" block disabled color="success">บันทึก</v-btn>
+                        </div>
+                    </v-card>
                 </v-flex>
-
-                <v-flex xs4 pa-2 class="w3-margin-left ">
-                    <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
+                <v-flex xs12 md4>
+                    <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12 ma-2">
                         <v-card :elevation="hover ? 16 : 2  " class="mx-auto pa-3 rounded-lg">
                             <!-- <div class="v-card--material pa-3 v-card--material-stats v-card v-sheet theme--light v-card--material--has-heading"> -->
                             <div class="d-flex grow flex-wrap">
@@ -111,77 +109,16 @@
 
                                 </div>
                                 <div class="pt-3">
-                                    <center>
-                                    <v-btn outlined block @click="$router.push('farmer')" class="rounded-lg" color="green">อัพโหลดใบพันธุ์ประวัติทางการ</v-btn>
-                                    </center>
+                                    <v-btn outlined @click="$router.push('farmer')" class="rounded-lg" color="green">อัพโหลดใบพันธุ์ประวัติทางการ</v-btn>
                                 </div>
 
                             </div>
                         </v-card>
                     </v-hover>
                 </v-flex>
-
-            </v-flex>
+            </v-layout>
         </v-container>
     </center>
-
-    <!-- <v-container>
-        <v-card class="elevation-5 rounded-lg pa-2">
-            <div class="d-flex grow flex-wrap">
-                <h3>รายละเอียดกระบือ</h3>
-                <v-spacer></v-spacer>
-                <v-btn class="rounded-lg" outlined color="green" @click="dialog=false">แก้ไข<v-icon>mdi-pencil</v-icon>
-                </v-btn>
-            </div>
-
-            <v-row>
-                <v-col cols="12" sm="6">
-                <div v-for="item in desserts" :key="item.name">
-                    <v-text-field class="rounded-lg" :prepend-inner-icon="item.icon" color="green" outlined :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
-                </div>
-                </v-col>
-            </v-row>
-        </v-card>
-    </v-container> -->
-
-    <!-- <v-flex xs8 row wrap>
-        <v-flex xs6 class="pa-2">
-            <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
-                <v-card :elevation="hover ? 16 : 2  " class="mx-auto pa-3 rounded-lg">
-                    <div class="d-flex grow flex-wrap">
-                        <v-icon dark large class="elevation-6 error pa-4 rounded-lg" style="max-height: 80px; width: auto;">mdi-file-pdf-outline</v-icon>
-                        <v-spacer></v-spacer>
-                        <div class="col-ml-6 ">
-                            <div class="ml-auto text-right">
-                                <h7>
-                                    ใบพันธุ์ประวัติอ้างอิง
-                                </h7>
-                            </div>
-                        </div>
-                    </div>
-                </v-card>
-            </v-hover>
-        </v-flex>
-
-        <v-flex xs6 class="pa-2">
-            <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
-                <v-card :elevation="hover ? 16 : 2  " class="mx-auto pa-3 rounded-lg">
-                    <div class="d-flex grow flex-wrap">
-                        <v-icon dark large class="elevation-6 error pa-4 rounded-lg" style="max-height: 80px; width: auto;">mdi-file-pdf-outline</v-icon>
-                        <v-spacer></v-spacer>
-                        <div class="col-ml-6 ">
-                            <div class="ml-auto text-right">
-                                <h7>
-                                    อัพโหลดใบพันธุ์ประวัติอย่างเป็นทางการ
-                                </h7>
-                            </div>
-                            <v-btn outlined block @click="$router.push('farmer')" color="green">อัพโหลดใบพันธุ์ประวัติทางการ</v-btn>
-                        </div>
-                    </div>
-                </v-card>
-            </v-hover>
-        </v-flex>
-    </v-flex> -->
 
 </v-container>
 </template>

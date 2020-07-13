@@ -7,18 +7,24 @@
     <v-container>  
         <v-data-table dense :headers="headers" :items="desserts" :search="search" sort-by="calories" class="pa-3 elevation-5 rounded-lg">
             <template v-slot:top>
-                <v-toolbar flat color="white"> 
+                <!-- <v-toolbar flat color="white">  -->
                     <!-- <v-spacer></v-spacer> --> 
-                    <v-select dense color="green" outlined :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg"></v-select>
-                    <v-select dense color="green" outlined :items="district" label="กรุณาเลือกเดือน" hide-details class="rounded-lg"></v-select>
-                    <v-select dense color="green" outlined :items="place" label="กรุณาเลือกปี" hide-details class="rounded-lg"></v-select>
-
+                    <v-layout row wrap>
+                        <v-flex xs12 md4>
+                            <v-select dense color="green" outlined :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg pa-2"></v-select>
+                        </v-flex>
+                        <v-flex xs12 md4>
+                            <v-select dense color="green" outlined :items="district" label="กรุณาเลือกเดือน" hide-details class="rounded-lg pa-2"></v-select>
+                        </v-flex>
+                        <v-flex xs12 md4>
+                            <v-select dense color="green" outlined :items="place" label="กรุณาเลือกปี" hide-details class="rounded-lg pa-2"></v-select>
+                        </v-flex>
+                    </v-layout> 
                     <v-dialog v-model="dialog" max-width="500px">
                         <v-card class="rounded-lg">
                             <v-card-title>
                                 <span class="headline">{{ formTitle }}</span>
-                            </v-card-title>
-
+                            </v-card-title> 
                             <v-card-text>
                                 <v-container>
                                     <v-row>
@@ -46,7 +52,7 @@
                             </v-card-actions>
                         </v-card>
                     </v-dialog>
-                </v-toolbar>
+                <!-- </v-toolbar> -->
             </template>
 
             <template v-slot:no-data>
@@ -163,19 +169,23 @@ export default {
         dialog: false,
         headers: [{
                 text: 'เลขบัตรประชาชน',
-                value: 'IDCard'
+                value: 'IDCard',
+                 sortable: false
             },
             {
                 text: 'ชื่อ',
-                value: 'name'
+                value: 'name',
+                 sortable: false
             },
             {
                 text: 'เบอร์โทรศัพท์',
-                value: 'Phonenumber'
+                value: 'Phonenumber',
+                 sortable: false
             },
             {
                 text: 'กลุ่มผู้ใช้',
-                value: 'group'
+                value: 'group',
+                 sortable: false
             },
             {
                 text: 'สถานะการสมัครสมาชิก',
@@ -185,6 +195,7 @@ export default {
             {
                 text: 'วัน/เดือน/ปี',
                 value: 'time',
+                 sortable: false
             },
         ],
         desserts: [],

@@ -1,177 +1,192 @@
-<template> 
-<v-container class="bg">
-    <v-container>
-        <h2>รายงานสรุปจำนวนกระบือที่มีชีวิต</h2>
-        <v-divider></v-divider>
-    </v-container>  
-     
-     <v-container >
-    <v-data-table :headers="headers" :items="desserts" :search="search" sort-by="calories" class=" pa-3 rounded-lg elevation-5 ">
-        <template v-slot:top>
-            <v-toolbar flat color="white">
-                
-                <v-toolbar-title>
-                    <v-text-field dense color="green" class="rounded-lg" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
-                </v-toolbar-title>
-                <v-spacer></v-spacer>
+<template>
+ <v-container class="bg">
+     <v-container>
+         <h2>รายงานสรุปจำนวนกระบือที่มีชีวิต</h2>
+         <v-divider></v-divider>
+     </v-container>
 
-                <v-select dense color="green" :items="province"  label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg" outlined></v-select>
-                <v-select dense color="green" :items="district" label="กรุณาเลือกอำเภอ" hide-details class="rounded-lg" outlined></v-select>
-                <v-select dense color="green" :items="place" label="กรุณาเลือกตำบล" hide-details class="rounded-lg" outlined></v-select>
-                <v-select dense color="green" :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="rounded-lg" outlined></v-select>
+     <v-container>
+         <v-data-table dense :headers="headers" :items="desserts" :search="search" sort-by="calories" class=" pa-3 rounded-lg elevation-5 ">
+             <template v-slot:top>
+                 <!-- <v-toolbar flat color="white"> -->
+                 <v-layout row wrap>
+                     <v-flex xs12 md4>
+                         <!-- <v-toolbar-title> -->
+                         <v-text-field dense color="green" class="rounded-lg" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                         <!-- </v-toolbar-title> -->
+                     </v-flex>
+                     <v-spacer></v-spacer>
+                     <v-flex xs12 md2>
+                         <v-select dense color="green" :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg" outlined></v-select>
+                     </v-flex>
+                     <v-flex xs12 md2>
+                         <v-select dense color="green" :items="district" label="กรุณาเลือกอำเภอ" hide-details class="rounded-lg" outlined></v-select>
+                     </v-flex>
+                     <v-flex xs12 md2>
+                         <v-select dense color="green" :items="place" label="กรุณาเลือกตำบล" hide-details class="rounded-lg" outlined></v-select>
+                     </v-flex>
+                     <v-flex xs12 md2>
+                         <v-select dense color="green" :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="rounded-lg" outlined></v-select>
+                     </v-flex>
+                 </v-layout>
+                 <!-- </v-toolbar> -->
+             </template>
 
-                
-            </v-toolbar>
-        </template>
-        
-        <template v-slot:no-data>
-            <v-btn color="primary" @click="initialize">Reset</v-btn>
-        </template>
-    </v-data-table>
-    </v-container>
+             <template v-slot:no-data>
+                 <v-btn color="primary" @click="initialize">Reset</v-btn>
+             </template>
+         </v-data-table>
+     </v-container>
 
-</v-container> 
+ </v-container>
 </template>
 
 <script>
 export default {
-    data: () => ({ 
-            province: [{
-                    text: 'พะเยา'
-                },
-                {
-                    text: 'เชียงราย'
-                },
-                {
-                    text: 'แพร่'
-                },
-                {
-                    text: 'น่าน'
-                },
-            ],
-            district: [{
-                    text: 'พะเยา'
-                },
-                {
-                    text: 'เชียงราย'
-                },
-                {
-                    text: 'แพร่'
-                },
-                {
-                    text: 'น่าน'
-                },
-            ],
-            place: [{
-                    text: 'ปัว'
-                },
-                {
-                    text: 'แงง'
-                },
-                {
-                    text: 'สถาน'
-                },
-                {
-                    text: 'ศิลาแลง'
-                },
-                {
-                    text: 'ศิลาเพชร'
-                },
-                {
-                    text: 'อวน'
-                },
-                {
-                    text: 'ไชยวัฒนา'
-                },
-                {
-                    text: 'เจดีย์ชัย'
-                },
-                {
-                    text: 'ภูคา'
-                },
-                {
-                    text: 'สกาด'
-                },
-                {
-                    text: 'ป่ากลาง'
-                },
-                {
-                    text: '	วรนคร'
-                },
-            ],
-            farm: [{
-                    text: 'เชียงกลาง'
-                },
-                {
-                    text: 'ท่าวังผา'
-                },
-                {
-                    text: 'ทุ่งช้าง'
-                },
-                {
-                    text: 'นาน้อย'
-                },
-                {
-                    text: 'บ่อเกลือ'
-                },
-                {
-                    text: 'นาน้อย'
-                },
-                {
-                    text: 'บ้านหลวง'
-                },
-                {
-                    text: 'ปัว'
-                },
-                {
-                    text: 'ภูเพียง'
-                },
-                {
-                    text: 'แม่จริม'
-                },
-                {
-                    text: 'เมืองน่าน'
-                },
-                {
-                    text: 'เวียงสา'
-                },
-                {
-                    text: 'สองแคว'
-                },
-                {
-                    text: 'สันติสุข'
-                },
-            ],
-         
+    data: () => ({
+        province: [{
+                text: 'พะเยา'
+            },
+            {
+                text: 'เชียงราย'
+            },
+            {
+                text: 'แพร่'
+            },
+            {
+                text: 'น่าน'
+            },
+        ],
+        district: [{
+                text: 'พะเยา'
+            },
+            {
+                text: 'เชียงราย'
+            },
+            {
+                text: 'แพร่'
+            },
+            {
+                text: 'น่าน'
+            },
+        ],
+        place: [{
+                text: 'ปัว'
+            },
+            {
+                text: 'แงง'
+            },
+            {
+                text: 'สถาน'
+            },
+            {
+                text: 'ศิลาแลง'
+            },
+            {
+                text: 'ศิลาเพชร'
+            },
+            {
+                text: 'อวน'
+            },
+            {
+                text: 'ไชยวัฒนา'
+            },
+            {
+                text: 'เจดีย์ชัย'
+            },
+            {
+                text: 'ภูคา'
+            },
+            {
+                text: 'สกาด'
+            },
+            {
+                text: 'ป่ากลาง'
+            },
+            {
+                text: '	วรนคร'
+            },
+        ],
+        farm: [{
+                text: 'เชียงกลาง'
+            },
+            {
+                text: 'ท่าวังผา'
+            },
+            {
+                text: 'ทุ่งช้าง'
+            },
+            {
+                text: 'นาน้อย'
+            },
+            {
+                text: 'บ่อเกลือ'
+            },
+            {
+                text: 'นาน้อย'
+            },
+            {
+                text: 'บ้านหลวง'
+            },
+            {
+                text: 'ปัว'
+            },
+            {
+                text: 'ภูเพียง'
+            },
+            {
+                text: 'แม่จริม'
+            },
+            {
+                text: 'เมืองน่าน'
+            },
+            {
+                text: 'เวียงสา'
+            },
+            {
+                text: 'สองแคว'
+            },
+            {
+                text: 'สันติสุข'
+            },
+        ],
+
         search: '',
         dialog: false,
         headers: [{
                 text: 'ชื่อหรือหมายเลขกระบือ',
-                value: 'id'
+                value: 'id',
+                sortable: false
             },
             {
                 text: 'เพศ',
-                value: 'sex'
+                value: 'sex',
+                sortable: false
             },
             {
                 text: 'อายุ',
-                value: 'age'
+                value: 'age',
+                sortable: false
             },
             {
                 text: 'ตำบล',
-                value: 'district'
+                value: 'district',
+                sortable: false
             },
             {
                 text: 'อำเภอ',
-                value: 'canton'
+                value: 'canton',
+                sortable: false
             },
             {
                 text: 'จังหวัด',
-                value: 'province'
+                value: 'province',
+                sortable: false
             },
             {
                 text: 'ชื่อฟาร์ม',
-                value: 'farm'
+                value: 'farm',
+                sortable: false
             },
             {
                 text: 'กลุ่มผู้ใช้',
@@ -185,14 +200,14 @@ export default {
             id: '',
             sex: '',
             age: '',
-            farm:'',
+            farm: '',
             group: '',
         },
         defaultItem: {
             id: '',
             sex: '',
             age: '',
-            farm:'',
+            farm: '',
             group: '',
         },
     }),
@@ -219,82 +234,82 @@ export default {
                     id: 'ลูกมะลิ1',
                     sex: 'เมีย',
                     age: '4 ปี 2 เดือน',
-                    district:'แม่กา',
-                    canton:'เมือง',
-                    province:'พะเยา',
-                    farm:'สวัสดิ์ฟาร์ม',
+                    district: 'แม่กา',
+                    canton: 'เมือง',
+                    province: 'พะเยา',
+                    farm: 'สวัสดิ์ฟาร์ม',
                     group: 'กลุ่มแม่ใจ',
                 },
                 {
                     id: 'ลูกมะลิ2',
                     sex: 'ผู้',
                     age: '2 ปี 2 เดือน',
-                    district:'แม่กา',
-                    canton:'เมือง',
-                    province:'พะเยา',
-                    farm:'สวัสดิ์ฟาร์ม',
+                    district: 'แม่กา',
+                    canton: 'เมือง',
+                    province: 'พะเยา',
+                    farm: 'สวัสดิ์ฟาร์ม',
                     group: 'กลุ่มแม่ใจ',
                 },
                 {
                     id: 'ชบา',
                     sex: 'เมีย',
                     age: '4 ปี 0 เดือน',
-                    district:'แม่กา',
-                    canton:'เมือง',
-                    province:'พะเยา',
-                    farm:'สวัสดิ์ฟาร์ม',
+                    district: 'แม่กา',
+                    canton: 'เมือง',
+                    province: 'พะเยา',
+                    farm: 'สวัสดิ์ฟาร์ม',
                     group: 'กลุ่มพาน',
                 },
                 {
                     id: 'ทองดี',
                     sex: 'ผู้',
                     age: '2 เดือน',
-                    district:'แม่กา',
-                    canton:'เมือง',
-                    province:'พะเยา',
-                    farm:'สมพจน์ฟาร์ม',
+                    district: 'แม่กา',
+                    canton: 'เมือง',
+                    province: 'พะเยา',
+                    farm: 'สมพจน์ฟาร์ม',
                     group: 'กลุ่มพาน',
                 },
                 {
                     id: 'ขวัญ',
                     sex: 'ผู้',
                     age: '3 เดือน',
-                    farm:'สมพจน์ฟาร์ม',
+                    farm: 'สมพจน์ฟาร์ม',
                     group: 'กลุ่มแม่กา',
                 },
                 {
                     id: 'มาลี',
                     sex: 'ผู้',
                     age: '2 ปี 9 เดือน',
-                    farm:'ไพรัชฟาร์ม',
+                    farm: 'ไพรัชฟาร์ม',
                     group: 'กลุ่มแม่กา',
                 },
                 {
                     id: 'เปีย',
                     sex: 'เมีย',
                     age: '1 ปี 2 เดือน',
-                    farm:'พิเชษฐ์ฟาร์ม',
+                    farm: 'พิเชษฐ์ฟาร์ม',
                     group: 'กลุ่มพะเยา',
                 },
                 {
                     id: 'ดำ',
                     sex: 'ผู้',
                     age: '5 ปี 7 เดือน',
-                    farm:'พิเชษฐ์ฟาร์ม',
+                    farm: 'พิเชษฐ์ฟาร์ม',
                     group: 'กลุ่มพะเยา',
                 },
                 {
                     id: 'ทุย',
                     sex: 'เมีย',
                     age: '3 ปี 1 เดือน',
-                    farm:'ฟาร์มพ่อหร่วน',
+                    farm: 'ฟาร์มพ่อหร่วน',
                     group: 'กลุ่มพะเยา',
                 },
                 {
                     id: 'แท่งทอง',
                     sex: 'เมีย',
                     age: '9 เดือน',
-                    farm:'ฟาร์มพ่อหร่วน',
+                    farm: 'ฟาร์มพ่อหร่วน',
                     group: 'กลุ่มพะเยา',
                 },
 
@@ -332,7 +347,7 @@ export default {
 }
 </script>
 
-<style  scoped>
+<style scoped>
 .bg {
     /* background: rgba(0, 128, 0, 0.1); */
     /* background: rgba(242, 243, 244);
@@ -347,5 +362,4 @@ export default {
     background-repeat: repeat;
     background-size: cover;
 }
-
 </style>

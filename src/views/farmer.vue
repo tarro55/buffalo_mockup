@@ -1,117 +1,24 @@
 <template>
 <v-container class="bg">
     <v-container>
-        <h2>ข้อมูลผู้ใช้</h2>
+        <h2>เกษตกร</h2>
         <v-divider></v-divider>
-    </v-container>
-    <!-- <v-container grid-list-xs>
-        <v-flex xs12 row wrap class="pa-2">
-            <div class="d-flex flex-wrap">
-                <h2>ข้อมูลผู้ใช้</h2>
-
-            </div>
-            <v-spacer></v-spacer>
-            <v-dialog v-model="dialog" max-width="500px">
-                <template v-slot:activator="{ on, attrs }">
-                    <v-btn outlined color="green" large dark class="mb-2 rounded-lg" v-bind="attrs" v-on="on">เพิ่มเกษตรกร</v-btn>
-                </template>
-                <v-card>
-                    <v-card-title>
-                        <span class="headline">{{ formTitle }}</span>
-                    </v-card-title>
-
-                    <v-card-text>
-                        <v-container>
-                            <v-row>
-                                <v-col cols="12" sm="6"> 
-                                    <v-text-field outlined v-model="editedItem.IDcardFarmer" label="หมายเลขบัตรประชาชน"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.nonb" label="ชื่อ "></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.nid" label="นามสกุล"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-file-input outlined accept="image/*" v-model="editedItem.birth" label="ภาพถ่ายบัตรประจำตัวประชาชน"></v-file-input>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.sex" label="เพศ"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.age" label="อายุ"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.color" label="ที่อยู่ตามทะเบียนบ้าน"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.nmi" label="เบอร์โทรศัพท์"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-file-input outlined accept="image/*" v-model="editedItem.from" label="ภาพถ่ายเจ้าของฟาร์ม"></v-file-input>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-file-input outlined accept="image/*" v-model="editedItem.price" label="ภาพถ่ายสภาพฟาร์ม"></v-file-input>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.status" label="ชื่อฟาร์ม"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.nonf" label="บ้านเลขที่ ถนน ซอย"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.nidf" label="ตำบล"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.nmif" label="อำเภอ"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.nmim" label="จังหวัด"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.nidm" label="รหัสไปรษณีย์"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.mim" label="พิกัดฟาร์มตามระบบ GPS (ละติจูด)"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.weight" label="พิกัดฟาร์มตามระบบ GPS (ลองติจูด)"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.cwidth" label="จำนวนกระบือทั้งหมด"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field outlined v-model="editedItem.blength" label="กลุ่มเกษตรกร"></v-text-field>
-                                </v-col>
-
-                            </v-row>
-                        </v-container>
-                    </v-card-text>
-
-                    <v-card-actions>
-                        <v-spacer></v-spacer>
-                        <v-btn color="blue darken-1" text @click="close">ยกเลิก</v-btn>
-                        <v-btn color="blue darken-1" text @click="save">บันทึก</v-btn>
-                    </v-card-actions>
-                </v-card>
-            </v-dialog>
-
-        </v-flex>
-        <v-divider></v-divider>
-    </v-container> -->
+    </v-container> 
 
     <v-container grid-list-xs>
-        <v-data-table dense :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
+        <!-- <v-data-table dense :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2"> -->
+        <v-data-table dense :headers="headers" :items="desserts" :search="search" class="elevation-5 rounded-lg pa-2">
             <template v-slot:top>
-                <v-flex xs12 class="">
-                    <v-container grid-list-xs>
-                        <div class="d-flex grow flex-wrap">
-                            <v-text-field dense class="rounded-lg pa-1" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                <!-- <v-flex xs12 class="">
+                    <v-container grid-list-xs> -->
+                        <div class="d-flex grow flex-wrap pb-2">
+                            <v-text-field dense class="rounded-lg " color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                             <v-spacer></v-spacer>
-                            <div class="col-ml-6 ">
+                            <div class="pt-1">
                                 <v-dialog scrollable v-model="dialog" max-width="800px">
                                     <template v-slot:activator="{ on, attrs }">
-                                        <v-btn outlined color="green" medium dense dark class="mr-1 rounded-lg" v-bind="attrs" v-on="on">เพิ่มเกษตรกร<v-icon>mdi-plus</v-icon>
+                                        <v-btn outlined color="green" medium dense dark class="mr-1 rounded-lg" v-bind="attrs" v-on="on">
+                                            <v-icon>mdi-plus</v-icon>เพิ่มเกษตรกร
                                         </v-btn>
                                     </template>
                                     <v-card>
@@ -201,23 +108,37 @@
                             </div>
 
                         </div>
-                    </v-container>
-                </v-flex>
+                    <!-- </v-container>
+                </v-flex> -->
 
-                <v-toolbar flat color="white" class="">
-                    <!-- <v-toolbar-title>
+                <v-layout row wrap>
+                    <v-flex xs12 md3>
+                        <v-select dense color="green" :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg" outlined></v-select>
+                    </v-flex>
+                    <v-flex xs12 md3>
+                        <v-select dense color="green" :items="district" label="กรุณาเลือกอำเภอ" hide-details class="rounded-lg" outlined></v-select>
+                    </v-flex>
+                    <v-flex xs12 md3>
+                        <v-select dense color="green" :items="place" label="กรุณาเลือกตำบล" hide-details class="rounded-lg" outlined></v-select>
+                    </v-flex>
+                    <v-flex xs12 md3>
+                        <v-select dense color="green" :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="rounded-lg" outlined></v-select>
+                    </v-flex>
+                </v-layout>
+                <!-- <v-toolbar flat color="white" class=""> -->
+                <!-- <v-toolbar-title>
                         <v-text-field color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line class="rounded-lg pa-1"></v-text-field>
                     </v-toolbar-title>
                     <v-spacer></v-spacer> -->
-                    <v-select dense color="green" :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg" outlined></v-select>
+
+                <!-- <v-select dense color="green" :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg" outlined></v-select>
                     <v-select dense color="green" :items="district" label="กรุณาเลือกอำเภอ" hide-details class="rounded-lg" outlined></v-select>
                     <v-select dense color="green" :items="place" label="กรุณาเลือกตำบล" hide-details class="rounded-lg" outlined></v-select>
-                    <v-select dense color="green" :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="rounded-lg" outlined></v-select>
-                </v-toolbar>
+                    <v-select dense color="green" :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="rounded-lg" outlined></v-select> -->
+                <!-- </v-toolbar> -->
             </template>
 
-            <template v-slot:item.actions="{ item }">
-
+            <template v-slot:item.actions="{ item }"> 
                 <!-- <v-tooltip v-model="show" top> -->
                 <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
@@ -321,24 +242,28 @@ export default {
         dialog: false,
         headers: [{
                 text: 'เลขบัตรประชาชน',
-                value: 'IDCard'
+                value: 'IDCard',
+                sortable: false,
             },
             {
                 text: 'ชื่อ',
-                value: 'name'
+                value: 'name',
+                sortable: false,
             },
             {
                 text: 'เบอร์โทรศัพท์',
-                value: 'Phonenumber'
+                value: 'Phonenumber',
+                sortable: false,
             },
             {
                 text: 'กลุ่มผู้ใช้',
-                value: 'group'
+                value: 'group',
+                sortable: false,
             },
             {
                 text: 'การจัดการ',
                 value: 'actions',
-                sortable: false
+                sortable: false,
             },
         ],
         desserts: [],

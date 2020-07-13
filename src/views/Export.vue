@@ -4,67 +4,36 @@
         <h2>ข้อมูลการเจริญเติบโตของกระบือ</h2>
         <v-divider></v-divider>
     </v-container>
-    <v-container>  
+    <v-container>
 
         <v-data-table dense :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
             <template v-slot:top>
-                <v-flex xs12 class="">
-                    <v-container grid-list-xs>
-                    <div class="d-flex grow flex-wrap">
-                        <v-text-field dense class="rounded-lg pa-1" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
-                        <v-spacer></v-spacer>
-                        <div class="col-ml-6 "> 
-                                    <!-- <v-btn outlined color="green" medium dense dark class="mr-1 rounded-lg" v-bind="attrs" v-on="on">ส่งออกรายงาน</v-btn>  -->
-                                    <v-btn outlined color="green" medium dense dark class="mr-1 rounded-lg">ส่งออกรายงาน</v-btn> 
-                        </div> 
-                    </div>
-                     </v-container>
-                </v-flex>
+                <!-- <v-flex xs12 class=""> -->
+                    <!-- <v-container grid-list-xs> -->
+                        <div class="d-flex grow flex-wrap">
+                            <v-text-field dense class="rounded-lg pb-2" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                            <v-spacer></v-spacer> 
+                                <!-- <v-btn outlined color="green" medium dense dark class="mr-1 rounded-lg" v-bind="attrs" v-on="on">ส่งออกรายงาน</v-btn>  -->
+                                <v-btn outlined color="green" medium dense dark class="rounded-lg">ส่งออกรายงาน</v-btn>
+                           
+                        </div>
+                    <!-- </v-container> -->
+                <!-- </v-flex> -->
 
-                <v-toolbar flat color="white" class="">
-                    <!-- <v-toolbar-title>
-                        <v-text-field color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line class="rounded-lg pa-1"></v-text-field>
-                    </v-toolbar-title>
-                    <v-spacer></v-spacer> -->
-                    <v-select dense color="green" :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg" outlined></v-select>
-                    <v-select dense color="green" :items="district" label="กรุณาเลือกอำเภอ" hide-details class="rounded-lg" outlined></v-select>
-                    <v-select dense color="green" :items="place" label="กรุณาเลือกตำบล" hide-details class="rounded-lg" outlined></v-select>
-                    <!-- <v-select dense color="green" :items="farm" label="กรุณาเลือกฟาร์ม" hide-details class="rounded-lg" outlined></v-select> -->
-                </v-toolbar> 
+                <!-- <v-toolbar flat color="white" class=""> -->
+                    <v-layout row wrap>
+                        <v-flex xs12 md4>
+                        <v-select dense color="green" :items="province" label="กรุณาเลือกจังหวัด" hide-details class="rounded-lg pa-3 " outlined></v-select>
+                    </v-flex>
+                    <v-flex xs12 md4>
+                        <v-select dense color="green" :items="district" label="กรุณาเลือกอำเภอ" hide-details class="rounded-lg pa-3" outlined></v-select>
+                    </v-flex>
+                    <v-flex xs12 md4>
+                         <v-select dense color="green" :items="place" label="กรุณาเลือกตำบล" hide-details class="rounded-lg pa-3" outlined></v-select> 
+                    </v-flex> 
+                    </v-layout>
+                <!-- </v-toolbar> -->
             </template>
-
-            <!-- <template v-slot:item.actions="{ item }"> -->
-                <!-- <v-tooltip v-model="show" top> -->
-                    <!-- <v-tooltip top>
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`farmerdetail`)">
-                            <v-icon>mdi-eye-outline</v-icon>
-                        </v-btn>
-                    </template>
-                    <span>ดูข้อมูล</span>
-                </v-tooltip> -->
-
-                <!-- <v-tooltip v-model="show" top> -->
-                    <!-- <v-tooltip top>
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-btn icon v-bind="attrs" v-on="on" @click="editItem(item)">
-                            <v-icon>mdi-pencil</v-icon>
-                        </v-btn>
-                    </template>
-                    <span>แก้ไข</span>
-                </v-tooltip> -->
-
-                <!-- <v-tooltip v-model="show" top> -->
-                    <!-- <v-tooltip top>
-                    <template v-slot:activator="{ on, attrs }">
-                        <v-btn icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
-                            <v-icon>mdi-delete</v-icon>
-                        </v-btn>
-                    </template>
-                    <span>ลบ</span>
-                </v-tooltip> -->
-
-            <!-- </template> -->
             <template v-slot:no-data>
                 <v-btn color="primary" @click="initialize">Reset</v-btn>
             </template>
@@ -196,43 +165,53 @@ export default {
         dialog: false,
         headers: [{
                 text: 'เลขบัตรประชาชน',
-                value: 'IDCard'
+                value: 'IDCard',
+                sortable: false
             },
             {
                 text: 'ชื่อ',
-                value: 'name'
+                value: 'name',
+                sortable: false
             },
             {
                 text: 'จำนวนกระบือทั้งหมด',
-                value: 'Phonenumber'
+                value: 'Phonenumber',
+                sortable: false
             },
             {
                 text: 'จำนวนกระบือายุ 240 วัน',
-                value: 'age240'
+                value: 'age240',
+                sortable: false
             },
             {
                 text: 'จำนวนกระบือายุ 400 วัน',
-                value: 'age400'
+                value: 'age400',
+                sortable: false
             },
             {
                 text: 'จำนวนกระบือายุ 600 วัน',
-                value: 'age600'
+                value: 'age600',
+                sortable: false
             },
             {
                 text: 'ตำบล',
-                value: 'district'
+                value: 'district',
+                sortable: false
             },
             {
                 text: 'อำเภอ',
-                value: 'canton'
+                value: 'canton',
+                sortable: false
             },
             {
                 text: 'จังหวัด',
-                value: 'province'
+                value: 'province',
+                sortable: false
             },
             {
                 text: 'กลุ่มผู้ใช้',
-                value: 'group'
+                value: 'group',
+                sortable: false
             },
         ],
         desserts: [],

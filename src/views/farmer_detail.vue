@@ -4,161 +4,169 @@
         <h2>ข้อมูลเกษตกร</h2>
         <v-divider></v-divider>
     </v-container>
-    <v-container>
+    <!-- <v-container> -->
+    <v-card class="mx-auto rounded-lg elevation-10" max-width="434">
+        <v-img height="220" src="https://images.pexels.com/photos/3145153/pexels-photo-3145153.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            <v-row align="end" class="fill-height">
+                <v-col align-self="start" class="pa-0" cols="12">
+                    <v-avatar class="profile elevation-10 rounded-lg" color="grey" size="164" tile>
+                        <v-img src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img>
+                    </v-avatar>
+                </v-col>
+                <v-col class="py-0">
+                    <v-list-item color="rgba(0, 0, 0, .4)" dark>
+                        <v-list-item-content>
+                            <v-list-item-title class="title">นายแดง</v-list-item-title>
+                            <!-- <v-list-item-subtitle>Network Engineer</v-list-item-subtitle> -->
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-col>
+            </v-row>
+        </v-img>
+    </v-card>
+    <br>
 
-        <v-card class="mx-auto rounded-lg elevation-10" max-width="434">
-            <v-img height="220" src="https://images.pexels.com/photos/3145153/pexels-photo-3145153.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-                <v-row align="end" class="fill-height">
-                    <v-col align-self="start" class="pa-0" cols="12">
-                        <v-avatar class="profile elevation-10 rounded-lg" color="grey" size="164" tile>
-                            <v-img src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img>
-                        </v-avatar>
-                    </v-col>
-                    <v-col class="py-0">
-                        <v-list-item color="rgba(0, 0, 0, .4)" dark>
-                            <v-list-item-content>
-                                <v-list-item-title class="title">นายแดง</v-list-item-title>
-                                <!-- <v-list-item-subtitle>Network Engineer</v-list-item-subtitle> -->
-                            </v-list-item-content>
-                        </v-list-item>
-                    </v-col>
-                </v-row>
-            </v-img>
-        </v-card>
-        <br>
+    <v-card dense class="rounded-lg pa-2">
+        <v-tabs grow color="green">
+            <v-tab class="rounded-lg">
+                <v-icon>mdi-account-outline</v-icon>
+                <h5>ข้อมูลเกษตกร</h5>
+            </v-tab>
+            <v-tab class="rounded-lg">
+                <v-icon dark>mdi-file-outline</v-icon>
+                <h5>ข้อมูลกระบือ</h5>
+            </v-tab>
 
-        <v-card dense class="rounded-lg pa-2">
-            <v-tabs grow color="green">
-                <v-tab>
-                    <v-icon>mdi-account-outline</v-icon>
-                    <h5>ข้อมูลเกษตกร</h5>
-                </v-tab>
-                <v-tab>
-                    <v-icon dark>mdi-file-outline</v-icon>
-                    <h5>ข้อมูลกระบือ</h5>
-                </v-tab>
-
-                <v-tab-item>
-                    <v-flex xs12 row wrap>
-                        <v-flex xs6>
-                            <v-card-text>
-                                <div class="d-flex grow flex-wrap">
-                                    <h5>ข้อมูลผู้ใช้</h5>
-                                    <v-spacer></v-spacer>
-                                    <div class="col-ml-6 ">
-                                        <div class="ml-auto text-right">
-                                            <v-btn class="rounded-lg mr-1" color="green" outlined @click="dialog1=false">แก้ไข<v-icon>mdi-pencil</v-icon>
+            <v-tab-item>
+                <v-layout row wrap>
+                    <v-flex xs12 md6>
+                        <v-card-text>
+                            <div class="d-flex grow flex-wrap">
+                                <h5>ข้อมูลผู้ใช้</h5>
+                                <v-spacer></v-spacer>
+                                <!-- <div class="col-ml-6 "> -->
+                                <div class="ml-auto text-right">
+                                    <v-btn class="rounded-lg" color="green" outlined @click="dialog1=false">
+                                        <v-icon>mdi-pencil</v-icon>แก้ไข
+                                    </v-btn>
+                                    <v-dialog scrollable v-model="dialog" max-width="400px">
+                                        <template v-slot:activator="{ on, attrs }">
+                                            <v-btn outlined color="error" medium dense dark class="ml-1 rounded-lg" v-bind="attrs" v-on="on">
+                                                <v-icon>mdi-account-key</v-icon>ตั้งค่ารหัสผ่าน
                                             </v-btn>
+                                        </template>
+                                        <v-card>
+                                            <v-card-title>
+                                                <span class="headline">
+                                                    <h4>ตั้งค่ารหัสผ่าน</h4>
+                                                </span>
+                                            </v-card-title>
 
-                                            <v-dialog scrollable v-model="dialog" max-width="400px">
-                                                <template v-slot:activator="{ on, attrs }">
-                                                    <v-btn outlined color="error" medium dense dark class="ml-1 rounded-lg" v-bind="attrs" v-on="on">
-                                                        ตั้งค่ารหัสผ่าน<v-icon>mdi-account-key</v-icon>
-                                                    </v-btn>
-                                                </template>
-                                                <v-card>
-                                                    <v-card-title>
-                                                        <span class="headline"><h4>ตั้งค่ารหัสผ่าน</h4></span>
-                                                    </v-card-title>
+                                            <v-card-text>
+                                                <v-container>
+                                                    <v-row dense>
+                                                        <v-col cols="12">
+                                                            <v-text-field dense readonly class="rounded-lg" prepend-inner-icon="mdi-account" color="green" outlined v-model="setPass.username" label="ชื่อผู้ใช้งาน"></v-text-field>
+                                                        </v-col>
+                                                        <v-col cols="12">
+                                                            <v-text-field dense readonly class="rounded-lg" prepend-inner-icon="mdi-email" color="green" outlined v-model="setPass.email" label="อีเมล"></v-text-field>
+                                                        </v-col>
+                                                        <v-col cols="12">
+                                                            <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined v-model="setPass.pass" label="รหัสผ่านใหม่"></v-text-field>
+                                                        </v-col>
+                                                        <v-col cols="12">
+                                                            <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined v-model="setPass.cpass" label="ยืนยันรหัสผ่านใหม่"></v-text-field>
+                                                        </v-col>
+                                                    </v-row>
+                                                </v-container>
+                                            </v-card-text>
 
-                                                    <v-card-text>
-                                                        <v-container>
-                                                            <v-row dense>
-                                                                <v-col cols="12">
-                                                                    <v-text-field dense readonly class="rounded-lg" prepend-inner-icon="mdi-account" color="green" outlined v-model="setPass.username"  label="ชื่อผู้ใช้งาน"></v-text-field>
-                                                                </v-col>
-                                                                <v-col cols="12">
-                                                                    <v-text-field dense readonly class="rounded-lg" prepend-inner-icon="mdi-email" color="green" outlined v-model="setPass.email" label="อีเมล"></v-text-field>
-                                                                </v-col>
-                                                                <v-col cols="12">
-                                                                    <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined v-model="setPass.pass" label="รหัสผ่านใหม่"></v-text-field>
-                                                                </v-col>
-                                                                <v-col cols="12">
-                                                                    <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined v-model="setPass.cpass" label="ยืนยันรหัสผ่านใหม่"></v-text-field>
-                                                                </v-col>
-                                                            </v-row>
-                                                        </v-container>
-                                                    </v-card-text>
+                                            <v-card-actions>
+                                                <v-spacer></v-spacer>
+                                                <v-btn color="green" text @click="save">
+                                                    <h5>บันทึก</h5>
+                                                </v-btn>
+                                                <v-btn color="black" text @click="close">
+                                                    <h5>ยกเลิก</h5>
+                                                </v-btn>
+                                            </v-card-actions>
+                                        </v-card>
+                                    </v-dialog>
 
-                                                    <v-card-actions>
-                                                        <v-spacer></v-spacer>
-                                                        <v-btn color="green" text @click="save">
-                                                            <h5>บันทึก</h5>
-                                                        </v-btn>
-                                                        <v-btn color="black" text @click="close">
-                                                            <h5>ยกเลิก</h5>
-                                                        </v-btn>
-                                                    </v-card-actions>
-                                                </v-card>
-                                            </v-dialog>
-                                            
-                                        </div>
-                                    </div>
                                 </div>
-                                <br>
-                                <v-flex xs12>
-                                    <div v-for="item in informationfarmer" :key="item.name">
-                                        <v-text-field dense class="rounded-lg" outlined :readonly="dialog1" v-model="item.calories" name="name" :label="item.describe" :prepend-inner-icon="item.icon" color="green" id="id"></v-text-field>
-                                    </div>
-                                    <div>
-                                        <center>
-                                            <h6>ภาพถ่ายบัตรประจำตัวประชาชน</h6>
-                                            <v-img class="rounded-lg elevation-5" height="200" width="350" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSNf3OTIf1lugjQhtLRTP8cwuosPAJmIykTsry1UL87ArfVFx84&usqp=CAU"></v-img>
-                                        </center>
-                                    </div>
-                                </v-flex>
-                            </v-card-text>
-                        </v-flex>
-
-                        <v-flex xs6>
-                            <v-card-text>
-                                <div class="d-flex grow flex-wrap">
-                                    <h5>ข้อมูลฟาร์ม</h5>
-                                    <v-spacer></v-spacer>
-                                    <div class="col-ml-6 ">
-                                        <div class="ml-auto text-right">
-                                            <v-btn class="rounded-lg " color="green" outlined @click="dialog1=false">แก้ไข<v-icon>mdi-pencil</v-icon>
-                                            </v-btn>
-                                        </div>
-                                    </div>
+                                <!-- </div> -->
+                            </div>
+                            <br>
+                            <v-flex xs12>
+                                <div v-for="item in informationfarmer" :key="item.name">
+                                    <v-text-field dense class="rounded-lg" outlined :readonly="dialog1" v-model="item.calories" name="name" :label="item.describe" :prepend-inner-icon="item.icon" color="green" id="id"></v-text-field>
                                 </div>
-
                                 <div>
-                                    <h6>สภาพฟาร์ม</h6>
                                     <center>
-                                        <v-img class="rounded-lg elevation-5" height="200" width="auto" src="https://images.pexels.com/photos/158179/lake-constance-sheep-pasture-sheep-blue-158179.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-                                        </v-img>
+                                        <h6>ภาพถ่ายบัตรประจำตัวประชาชน</h6>
+                                        <v-img class="rounded-lg elevation-5" height="200" width="350" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSNf3OTIf1lugjQhtLRTP8cwuosPAJmIykTsry1UL87ArfVFx84&usqp=CAU"></v-img>
                                     </center>
                                 </div>
-                                <br>
-                                <v-flex xs12>
-                                    <div v-for="item in informationfarm1" :key="item.name">
-                                        <v-text-field dense class="rounded-lg" outlined :readonly="dialog1" v-model="item.calories1" name="name" :label="item.describe1" :prepend-inner-icon="item.icon" color="green" id="id"></v-text-field>
-                                    </div>
-
-                                </v-flex>
-                            </v-card-text>
-                        </v-flex>
+                            </v-flex>
+                        </v-card-text>
                     </v-flex>
+                    <v-flex xs12 md6>
+                        <v-card-text>
+                            <div class="d-flex grow flex-wrap">
+                                <h5>ข้อมูลฟาร์ม</h5>
+                                <v-spacer></v-spacer>
+                                <div class="col-ml-6 ">
+                                    <div class="ml-auto text-right">
+                                        <v-btn class="rounded-lg " color="green" outlined @click="dialog1=false">
+                                            <v-icon>mdi-pencil</v-icon>แก้ไข
+                                        </v-btn>
+                                    </div>
+                                </div>
+                            </div>
 
-                </v-tab-item>
+                            <div>
+                                <h6>สภาพฟาร์ม</h6>
+                                <center>
+                                    <v-img class="rounded-lg elevation-5" height="200" width="auto" src="https://images.pexels.com/photos/158179/lake-constance-sheep-pasture-sheep-blue-158179.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                                    </v-img>
+                                </center>
+                            </div>
+                            <br>
+                            <v-flex xs12>
+                                <div v-for="item in informationfarm1" :key="item.name">
+                                    <v-text-field dense class="rounded-lg" outlined :readonly="dialog1" v-model="item.calories1" name="name" :label="item.describe1" :prepend-inner-icon="item.icon" color="green" id="id"></v-text-field>
+                                </div>
 
-                <v-tab-item>
-                    <v-card flat background-color="transparent" color="basil">
-                        <v-data-table dense :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
-                            <template v-slot:top>
-                                <v-toolbar flat color="white">
+                            </v-flex>
+                        </v-card-text>
+                    </v-flex>
+                </v-layout>
+
+                <v-btn class="rounded-lg" disabled block color="success">บันทึก</v-btn>
+            </v-tab-item>
+
+            <v-tab-item>
+                <v-card flat background-color="transparent" color="basil">
+                    <v-data-table dense :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
+                        <template v-slot:top>
+                            <!-- <v-toolbar flat color="white"> -->
+                                <div class="d-flex grow flex-wrap pb-2">
+                                <v-flex xs12 md2>
                                     <v-toolbar-title>ข้อมูลกระบือ</v-toolbar-title>
-                                    <v-divider class="mx-4" inset vertical></v-divider>
-                                    <v-toolbar-title>
-                                        <!-- <v-text-field v-model="search" clearable flat solo-inverted hide-details class="" append-icon="mdi-magnify" label="Search" single-line></v-text-field> -->
-                                        <v-text-field dense class="rounded-lg" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
-                                    </v-toolbar-title>
-                                    <v-spacer></v-spacer>
+                                </v-flex>
+                                <v-divider class="mx-4" inset vertical></v-divider>
+                                <v-flex xs12 md5>
+                                    <!-- <v-toolbar-title> -->
+                                    <!-- <v-text-field v-model="search" clearable flat solo-inverted hide-details class="" append-icon="mdi-magnify" label="Search" single-line></v-text-field> -->
+                                    <v-text-field dense class="rounded-lg mb-1" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
+                                    <!-- </v-toolbar-title> -->
+                                </v-flex> 
+                                <v-spacer></v-spacer>
+                                <v-flex xs12 md4>
                                     <v-dialog v-model="dialog" scrollable max-width="800px">
                                         <template v-slot:activator="{ on, attrs }">
                                             <v-btn color="green" outlined medium dark class="mb-2 rounded-lg" v-bind="attrs" v-on="on">
-                                                เพิ่มกระบือ<v-icon>mdi-plus</v-icon>
+                                                <v-icon>mdi-plus</v-icon>เพิ่มกระบือ
                                             </v-btn>
                                         </template>
                                         <v-card>
@@ -254,52 +262,53 @@
                                             </v-card-actions>
                                         </v-card>
                                     </v-dialog>
-                                </v-toolbar>
-                            </template>
+                                </v-flex>
+                                </div>
+                            <!-- </v-toolbar> -->
+                        </template>
 
-                            <template v-slot:item.actions="{ item }">
+                        <template v-slot:item.actions="{ item }">
+                            <!-- <v-tooltip v-model="show" top> -->
+                            <v-tooltip top>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn icon v-bind="attrs" v-on="on">
+                                        <v-icon>mdi-clipboard-text-outline</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>ใบพันธุ์ประวัติ</span>
+                            </v-tooltip>
 
-                                <!-- <v-tooltip v-model="show" top> -->
-                                    <v-tooltip top>
-                                    <template v-slot:activator="{ on, attrs }">
-                                        <v-btn icon v-bind="attrs" v-on="on">
-                                            <v-icon>mdi-clipboard-text-outline</v-icon>
-                                        </v-btn>
-                                    </template>
-                                    <span>ใบพันธุ์ประวัติ</span>
-                                </v-tooltip>
+                            <!-- <v-tooltip v-model="show" top> -->
+                            <v-tooltip top>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`buffalodetail`)">
+                                        <v-icon>mdi-eye-outline</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>ดูข้อมูล</span>
+                            </v-tooltip>
 
-                                <!-- <v-tooltip v-model="show" top> -->
-                                    <v-tooltip top>
-                                    <template v-slot:activator="{ on, attrs }">
-                                        <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`buffalodetail`)">
-                                            <v-icon>mdi-eye-outline</v-icon>
-                                        </v-btn>
-                                    </template>
-                                    <span>ดูข้อมูล</span>
-                                </v-tooltip>
+                            <!-- <v-tooltip v-model="show" top> -->
+                            <v-tooltip top>
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
+                                        <v-icon>mdi-delete</v-icon>
+                                    </v-btn>
+                                </template>
+                                <span>ลบ</span>
+                            </v-tooltip>
 
-                                <!-- <v-tooltip v-model="show" top> -->
-                                    <v-tooltip top>
-                                    <template v-slot:activator="{ on, attrs }">
-                                        <v-btn icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
-                                            <v-icon>mdi-delete</v-icon>
-                                        </v-btn>
-                                    </template>
-                                    <span>ลบ</span>
-                                </v-tooltip>
+                        </template>
+                        <template v-slot:no-data>
+                            <v-btn color="primary" @click="initialize">Reset</v-btn>
+                        </template>
+                    </v-data-table>
+                </v-card>
+            </v-tab-item>
 
-                            </template>
-                            <template v-slot:no-data>
-                                <v-btn color="primary" @click="initialize">Reset</v-btn>
-                            </template>
-                        </v-data-table>
-                    </v-card>
-                </v-tab-item>
-
-            </v-tabs>
-        </v-card>
-    </v-container>
+        </v-tabs>
+    </v-card>
+    <!-- </v-container> -->
 </v-container>
 </template>
 
@@ -317,35 +326,40 @@ export default {
         ],
         headers: [{
                 text: 'ชื่อ',
-                value: 'name'
+                value: 'name',
+                sortable: false
             },
             {
                 text: 'เบอร์หู',
-                value: 'number'
+                value: 'number',
+                sortable: false
             },
             {
                 text: 'พันธุ์',
-                value: 'gene'
+                value: 'gene',
+                sortable: false
             },
             {
                 text: 'อายุ',
-                value: 'age'
+                value: 'age',
+                sortable: false
             },
             {
                 text: 'เพศ',
-                value: 'sex'
+                value: 'sex',
+                sortable: false
             },
             {
                 text: 'การจัดการ',
                 value: 'actions',
-                // sortable: false
+                sortable: false
             },
         ],
-        setPass:{
+        setPass: {
             username: 'dang123',
-            email:'dang123@email.com',
-            pass:'',
-            cpass:'',
+            email: 'dang123@email.com',
+            pass: '',
+            cpass: '',
         },
 
         informationfarmer: [{
