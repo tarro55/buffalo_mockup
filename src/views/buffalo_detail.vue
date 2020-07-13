@@ -70,17 +70,19 @@
                         <div class="d-flex flex-wrap pa-2">
                             <div v-for="item in desserts" :key="item.name">
                                 <v-text-field dense class="rounded-lg" :prepend-inner-icon="item.icon" color="green" outlined :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
-                            </div> 
-                        </div>
-                        <div class="d-flex flex-wrap pa-2">
+                            </div>
+                            <v-menu ref="menu" v-model="menu" :close-on-content-click="false" transition="scale-transition" offset-y min-width="290px">
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-text-field outlined dense color="green" v-model="date" class="rounded-lg" label="วัน/เดือน/ปีเกิด" prepend-inner-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
+                                </template>
+                                <v-date-picker :readonly="dialog" color="green" ref="picker" v-model="date" :max="new Date().toISOString().substr(0, 10)" min="1950-01-01" @change="save1"></v-date-picker>
+                            </v-menu>
                             <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-gender-male-female" color="green" outlined label="เพศ"></v-select>
                             <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-invert-colors" color="green" outlined label="สี"></v-select>
                             <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-import" color="green" outlined label="แหล่งที่มา"></v-select>
-                            <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-post-outline" color="green" outlined label="สถานะ"></v-select>
-
-                            <v-btn class="rounded-lg" block disabled color="success">บันทึก</v-btn>
-
-                        </div>
+                            <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-post-outline" color="green" outlined label="สถานะ"></v-select> 
+                            <v-btn class="rounded-lg" block disabled color="success">บันทึก</v-btn> 
+                        </div> 
                     </v-card>
                 </v-flex>
                 <v-flex xs12 md4>
@@ -145,6 +147,8 @@ export default {
     /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
     data() {
         return {
+             date: null,
+      menu: false,
             dialog: true,
             desserts: [
                 // {
@@ -167,11 +171,11 @@ export default {
                     calories: ' ',
                     icon: 'mdi-numeric'
                 },
-                {
-                    describe: 'วัน/เดือน/ปี เกิด',
-                    calories: ' ',
-                    icon: 'mdi-calendar'
-                },
+                // {
+                //     describe: 'วัน/เดือน/ปี เกิด',
+                //     calories: ' ',
+                //     icon: 'mdi-calendar'
+                // },
                 // {
                 //     describe: 'เพศ',
                 //     calories: 'เมีย',
@@ -270,11 +274,19 @@ export default {
     computed: {
 
     },
-    /*-------------------------Methods------------------------------------------*/
-    methods: {
-        /******* Methods default run ******/
-        load: async function () {}
+     watch: { 
+        menu (val) {
+        val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
+      },
     },
+    /*-------------------------Methods------------------------------------------*/
+    methods: { 
+        load: async function () {},
+        save1 (date) {
+        this.$refs.menu.save(date)
+      },
+    },
+    
 }
 </script>
 

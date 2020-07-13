@@ -29,8 +29,12 @@
                                         <v-card-text>
                                             <v-container>
                                                 <v-row dense>
+                                                    
                                                     <v-col cols="12">
                                                         <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-id-card" color="green" outlined v-model="editedItem.IDcardFarmer" label="หมายเลขบัตรประชาชน"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-select dense class="rounded-lg" prepend-inner-icon="mdi-card-account-details-outline" color="green" outlined v-model="editedItem.nonb" label="คำนำหน้า "></v-select>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
                                                         <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-card-account-details-outline" color="green" outlined v-model="editedItem.nonb" label="ชื่อ "></v-text-field>
@@ -42,7 +46,7 @@
                                                         <v-file-input dense chips class="rounded-lg" prepend-inner-icon="" color="green" outlined accept="image/*" v-model="editedItem.birth" label="ภาพถ่ายบัตรประจำตัวประชาชน"></v-file-input>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-human-male-female" color="green" outlined v-model="editedItem.sex" label="เพศ"></v-text-field>
+                                                        <v-select dense class="rounded-lg" prepend-inner-icon="mdi-human-male-female" color="green" outlined v-model="editedItem.sex" label="เพศ"></v-select>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
                                                         <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-account-clock-outline" color="green" outlined v-model="editedItem.age" label="อายุ"></v-text-field>

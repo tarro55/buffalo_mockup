@@ -98,6 +98,11 @@
                             </div>
                             <br>
                             <v-flex xs12>
+                                <v-select dense class="rounded-lg" outlined :readonly="dialog1" prepend-inner-icon="mdi-human-male-female" color="green" id="id" label="คำนำหน้า"></v-select>
+                                <v-text-field dense class="rounded-lg" outlined :readonly="dialog1" prepend-inner-icon="mdi-card-account-details-outline" color="green" id="id" label="ชื่อ"></v-text-field>
+                                <v-text-field dense class="rounded-lg" outlined :readonly="dialog1" prepend-inner-icon="mdi-card-account-details-outline" color="green" id="id" label="นามสกุล"></v-text-field>
+                                <v-select dense class="rounded-lg" outlined :readonly="dialog1" prepend-inner-icon="mdi-human-male-female" color="green" id="id" label="เพศ"></v-select>
+
                                 <div v-for="item in informationfarmer" :key="item.name">
                                     <v-text-field dense class="rounded-lg" outlined :readonly="dialog1" v-model="item.calories" name="name" :label="item.describe" :prepend-inner-icon="item.icon" color="green" id="id"></v-text-field>
                                 </div>
@@ -150,7 +155,7 @@
                     <v-data-table dense :headers="headers" :items="desserts" :search="search" sort-by="calories" class="elevation-5 rounded-lg pa-2">
                         <template v-slot:top>
                             <!-- <v-toolbar flat color="white"> -->
-                                <div class="d-flex grow flex-wrap pb-2">
+                            <div class="d-flex grow flex-wrap pb-2">
                                 <v-flex xs12 md2>
                                     <v-toolbar-title>ข้อมูลกระบือ</v-toolbar-title>
                                 </v-flex>
@@ -160,7 +165,7 @@
                                     <!-- <v-text-field v-model="search" clearable flat solo-inverted hide-details class="" append-icon="mdi-magnify" label="Search" single-line></v-text-field> -->
                                     <v-text-field dense class="rounded-lg mb-1" color="green" v-model="search" clearable flat hide-details append-icon="mdi-magnify" label="ค้นหา" outlined single-line></v-text-field>
                                     <!-- </v-toolbar-title> -->
-                                </v-flex> 
+                                </v-flex>
                                 <v-spacer></v-spacer>
                                 <v-flex xs12 md4>
                                     <v-dialog v-model="dialog" scrollable max-width="800px">
@@ -171,7 +176,7 @@
                                         </template>
                                         <v-card>
                                             <v-card-title>
-                                                <span class="headline">{{ formTitle }}</span>
+                                                <h4>เพิ่มควาย</h4>
                                             </v-card-title>
 
                                             <v-card-text>
@@ -190,7 +195,13 @@
                                                             <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined v-model="editedItem.nmi" label="หมายเลขไมโครชิป"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" sm="6">
-                                                            <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-calendar" color="green" outlined v-model="editedItem.birth" label="วัน/เดือน/ปี เกิด"></v-text-field>
+                                                            <v-menu ref="menu" v-model="menu" :close-on-content-click="false" transition="scale-transition" offset-y min-width="290px">
+                                                                <template v-slot:activator="{ on, attrs }">
+                                                                    <v-text-field outlined dense v-model="date" class="rounded-lg" label="วัน/เดือน/ปีเกิด" prepend-inner-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
+                                                                </template>
+                                                                <v-date-picker ref="picker" v-model="date" :max="new Date().toISOString().substr(0, 10)" min="1950-01-01" @change="save1"></v-date-picker>
+                                                            </v-menu>
+                                                            <!-- <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-calendar" color="green" outlined v-model="editedItem.birth" label="วัน/เดือน/ปี เกิด"></v-text-field> -->
                                                         </v-col>
                                                         <v-col cols="12" sm="6">
                                                             <v-select dense class="rounded-lg" prepend-inner-icon="mdi-gender-male-female" color="green" outlined v-model="editedItem.sex" label="เพศ"></v-select>
@@ -263,7 +274,7 @@
                                         </v-card>
                                     </v-dialog>
                                 </v-flex>
-                                </div>
+                            </div>
                             <!-- </v-toolbar> -->
                         </template>
 
@@ -317,6 +328,8 @@ import Swal from 'sweetalert2'
 export default {
 
     data: () => ({
+        date: null,
+      menu: false,
         tab: null,
         search: '',
         dialog1: true,
@@ -362,35 +375,41 @@ export default {
             cpass: '',
         },
 
-        informationfarmer: [{
-                describe: 'คำนำหน้า',
-                calories: 'นาย',
-                icon: 'mdi-human-male-female'
-            },
-            {
-                describe: 'ชื่อ',
-                calories: 'เชิดชู',
-                icon: 'mdi-card-account-details-outline',
-            },
-            {
-                describe: 'นามสกุล',
-                calories: 'แก้วบุญเรือง',
-                icon: 'mdi-card-account-details-outline',
-            },
+        informationfarmer: [
+            // {
+            //     describe: 'คำนำหน้า',
+            //     calories: 'นาย',
+            //     icon: 'mdi-human-male-female'
+            // },
+            // {
+            //     describe: 'ชื่อ',
+            //     calories: 'เชิดชู',
+            //     icon: 'mdi-card-account-details-outline',
+            // },
+            // {
+            //     describe: 'นามสกุล',
+            //     calories: 'แก้วบุญเรือง',
+            //     icon: 'mdi-card-account-details-outline',
+            // },
             {
                 describe: 'หมายเลขบัตรประจำตัวประชาชน',
                 calories: '3560700347135',
                 icon: 'mdi-id-card',
             },
-            {
-                describe: 'เพศ',
-                calories: 'ชาย',
-                icon: 'mdi-human-male-female',
-            },
+            // {
+            //     describe: 'เพศ',
+            //     calories: 'ชาย',
+            //     icon: 'mdi-human-male-female',
+            // },
             {
                 describe: 'อายุ',
                 calories: '58',
                 icon: 'mdi-account-clock-outline',
+            },
+            {
+                describe: 'บ้านเลขที่/ถนน/ซอย',
+                calories: '123/123 ถนน... ซอย1',
+                icon: 'mdi-home-map-marker',
             },
             {
                 describe: 'ตำบล',
@@ -410,7 +429,7 @@ export default {
             {
                 describe: 'รหัสไปรษณีย์',
                 calories: '56000',
-                icon: 'mdi-home-map-marker',
+                icon: 'mdi-postage-stamp',
             },
             {
                 describe: 'เบอร์โทรศัพท์',
@@ -425,11 +444,7 @@ export default {
                 calories1: 'ฟาร์มพ่อหร่วน',
                 icon: 'mdi-home-outline',
             },
-            {
-                describe1: 'บ้านเลขที่ ถนน ซอย',
-                calories1: 'เชิดชู',
-                icon: 'mdi-home-map-marker',
-            },
+
             {
                 describe1: 'พิกัดฟาร์มตามระบบ GPS (ละติจูด)',
                 calories1: '19.391271',
@@ -444,6 +459,11 @@ export default {
                 describe1: 'จำนวนควายทั้งหมด',
                 calories1: '40',
                 icon: 'mdi-cow',
+            },
+            {
+                describe1: 'บ้านเลขที่ ถนน ซอย',
+                calories1: '123/123 ถนน123 ซอย123',
+                icon: 'mdi-home-map-marker',
             },
             {
                 describe1: 'กลุ่มเกษตรกร',
@@ -501,6 +521,9 @@ export default {
         dialog(val) {
             val || this.close()
         },
+        menu (val) {
+        val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
+      },
     },
 
     created() {
@@ -595,6 +618,10 @@ export default {
                 this.editedIndex = -1
             })
         },
+
+        save1 (date) {
+        this.$refs.menu.save(date)
+      },
 
         save() {
             // if (this.editedIndex > -1) {
