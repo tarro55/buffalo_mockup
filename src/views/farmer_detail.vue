@@ -193,22 +193,22 @@
                                                             <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-calendar" color="green" outlined v-model="editedItem.birth" label="วัน/เดือน/ปี เกิด"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" sm="6">
-                                                            <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-gender-male-female" color="green" outlined v-model="editedItem.sex" label="เพศ"></v-text-field>
+                                                            <v-select dense class="rounded-lg" prepend-inner-icon="mdi-gender-male-female" color="green" outlined v-model="editedItem.sex" label="เพศ"></v-select>
                                                         </v-col>
                                                         <v-col cols="12" sm="6">
                                                             <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-calendar-clock" color="green" outlined v-model="editedItem.age" label="อายุ (..ปี..เดือน)"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" sm="6">
-                                                            <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-invert-colors" color="green" outlined v-model="editedItem.color" label="สี"></v-text-field>
+                                                            <v-select dense class="rounded-lg" prepend-inner-icon="mdi-invert-colors" color="green" outlined v-model="editedItem.color" label="สี"></v-select>
                                                         </v-col>
                                                         <v-col cols="12" sm="6">
-                                                            <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-import" color="green" outlined v-model="editedItem.from" label="แหล่งที่มา"></v-text-field>
+                                                            <v-select dense class="rounded-lg" prepend-inner-icon="mdi-import" color="green" outlined v-model="editedItem.from" label="แหล่งที่มา"></v-select>
                                                         </v-col>
                                                         <v-col cols="12" sm="6">
                                                             <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined v-model="editedItem.price" label="ราคา"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" sm="6">
-                                                            <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-post-outline" color="green" outlined v-model="editedItem.status" label="สถานะควาย"></v-text-field>
+                                                            <v-select dense class="rounded-lg" prepend-inner-icon="mdi-post-outline" color="green" outlined v-model="editedItem.status" label="สถานะควาย"></v-select>
                                                         </v-col>
                                                         <v-col cols="12" sm="6">
                                                             <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined v-model="editedItem.nonf" label="ชื่อหรือหมายเลขพ่อ"></v-text-field>
@@ -393,8 +393,23 @@ export default {
                 icon: 'mdi-account-clock-outline',
             },
             {
-                describe: 'ที่อยู่ตามทะเบียนบ้าน',
-                calories: '4 หมู่ 7 ต.เจริญราษฎร์ อ.แม่ใจ จ.พะเยา 56130',
+                describe: 'ตำบล',
+                calories: 'แม่ใจ',
+                icon: 'mdi-map-marker-multiple-outline',
+            },
+            {
+                describe: 'อำเภอ',
+                calories: 'เมือง',
+                icon: 'mdi-map-marker-multiple-outline',
+            },
+            {
+                describe: 'จังหวัด',
+                calories: 'พะเยา',
+                icon: 'mdi-map-marker-multiple-outline',
+            },
+            {
+                describe: 'รหัสไปรษณีย์',
+                calories: '56000',
                 icon: 'mdi-home-map-marker',
             },
             {

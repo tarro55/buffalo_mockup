@@ -70,8 +70,16 @@
                         <div class="d-flex flex-wrap pa-2">
                             <div v-for="item in desserts" :key="item.name">
                                 <v-text-field dense class="rounded-lg" :prepend-inner-icon="item.icon" color="green" outlined :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
-                            </div>
+                            </div> 
+                        </div>
+                        <div class="d-flex flex-wrap pa-2">
+                            <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-gender-male-female" color="green" outlined label="เพศ"></v-select>
+                            <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-invert-colors" color="green" outlined label="สี"></v-select>
+                            <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-import" color="green" outlined label="แหล่งที่มา"></v-select>
+                            <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-post-outline" color="green" outlined label="สถานะ"></v-select>
+
                             <v-btn class="rounded-lg" block disabled color="success">บันทึก</v-btn>
+
                         </div>
                     </v-card>
                 </v-flex>
@@ -164,36 +172,36 @@ export default {
                     calories: ' ',
                     icon: 'mdi-calendar'
                 },
-                {
-                    describe: 'เพศ',
-                    calories: 'เมีย',
-                    icon: 'mdi-gender-male-female'
-                },
+                // {
+                //     describe: 'เพศ',
+                //     calories: 'เมีย',
+                //     icon: 'mdi-gender-male-female'
+                // },
                 {
                     describe: 'อายุ (..ปี..เดือน) ',
                     calories: '4ปี 0เดือน',
                     icon: 'mdi-calendar-clock'
                 },
-                {
-                    describe: 'สี',
-                    calories: 'ดำ',
-                    icon: 'mdi-invert-colors'
-                },
-                {
-                    describe: 'แหล่งที่มา ',
-                    calories: 'พ่อค้าคนกลาง',
-                    icon: 'mdi-import'
-                },
+                // {
+                //     describe: 'สี',
+                //     calories: 'ดำ',
+                //     icon: 'mdi-invert-colors'
+                // },
+                // {
+                //     describe: 'แหล่งที่มา ',
+                //     calories: 'พ่อค้าคนกลาง',
+                //     icon: 'mdi-import'
+                // },
                 {
                     describe: 'ราคา',
                     calories: '50000',
                     icon: 'mdi-numeric'
                 },
-                {
-                    describe: 'สถานะควาย',
-                    calories: 'ท้อง',
-                    icon: 'mdi-post-outline'
-                },
+                // {
+                //     describe: 'สถานะควาย',
+                //     calories: 'ท้อง',
+                //     icon: 'mdi-post-outline'
+                // },
                 {
                     describe: 'ชื่อหรือหมายเลขพ่อ',
                     calories: ' ',

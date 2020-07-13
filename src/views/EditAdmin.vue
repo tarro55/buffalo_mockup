@@ -17,7 +17,7 @@
                             <div class="">
                                 <v-dialog scrollable v-model="dialog" max-width="500px">
                                     <template v-slot:activator="{ on, attrs }">
-                                        <v-btn outlined color="green" dark class="mr-1 rounded-lg" medium v-bind="attrs" v-on="on">เพิ่มผู้ดูแล<v-icon>mdi-plus</v-icon></v-btn>
+                                        <v-btn outlined color="green" dark class="mr-1 rounded-lg" medium v-bind="attrs" v-on="on"><v-icon>mdi-plus</v-icon>เพิ่มผู้ดูแล</v-btn>
                                     </template>
                                     <v-card>
                                         <v-card-title>

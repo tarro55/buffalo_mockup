@@ -23,7 +23,7 @@
                                     </template>
                                     <v-card>
                                         <v-card-title>
-                                            <span class="headline">{{ formTitle }}</span>
+                                            <h4>เพิ่มเกษตกร</h4>
                                         </v-card-title>
 
                                         <v-card-text>
@@ -48,11 +48,28 @@
                                                         <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-account-clock-outline" color="green" outlined v-model="editedItem.age" label="อายุ"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
-                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-home-map-marker" color="green" outlined v-model="editedItem.color" label="ที่อยู่ตามทะเบียนบ้าน"></v-text-field>
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.color" label="ตำบล"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.color" label="อำเภอ"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.color" label="จังหวัด"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" sm="6">
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.color" label="รหัสไปรษณีย์"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" sm="6">
                                                         <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-phone" color="green" outlined v-model="editedItem.nmi" label="เบอร์โทรศัพท์"></v-text-field>
                                                     </v-col>
+                                                    <v-col cols="12" sm="12">
+                                                        <v-divider></v-divider>
+                                                    </v-col> 
+                                                    <v-col cols="12" sm="12" class="pb-4">
+                                                        <center>
+                                                        <h4 >ฟาร์ม</h4>
+                                                        </center>
+                                                    </v-col> 
                                                     <v-col cols="12" sm="6">
                                                         <v-file-input dense chips class="rounded-lg" prepend-inner-icon="" color="green" outlined accept="image/*" v-model="editedItem.from" label="ภาพถ่ายเจ้าของฟาร์ม"></v-file-input>
                                                     </v-col>
@@ -62,9 +79,9 @@
                                                     <v-col cols="12" sm="6">
                                                         <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-home-outline" color="green" outlined v-model="editedItem.status" label="ชื่อฟาร์ม"></v-text-field>
                                                     </v-col>
-                                                    <v-col cols="12" sm="6">
+                                                    <!-- <v-col cols="12" sm="6">
                                                         <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nonf" label="บ้านเลขที่ ถนน ซอย"></v-text-field>
-                                                    </v-col>
+                                                    </v-col> -->
                                                     <v-col cols="12" sm="6">
                                                         <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nidf" label="ตำบล"></v-text-field>
                                                     </v-col>
@@ -256,7 +273,7 @@ export default {
                 sortable: false,
             },
             {
-                text: 'กลุ่มผู้ใช้',
+                text: 'กลุ่มเกษตกร',
                 value: 'group',
                 sortable: false,
             },
