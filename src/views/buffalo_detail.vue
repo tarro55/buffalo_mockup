@@ -160,6 +160,9 @@
                                         </h6>
                                     </div>
                                 </div>
+                                <div class="pt-3">
+                                    <v-btn outlined @click="$router.push('farmer')" class="rounded-lg" color="green">อัพโหลดใบพันธุ์ประวัติอ้างอิง</v-btn>
+                                </div>
                             </div>
                             <!-- </div> -->
                         </v-card>
