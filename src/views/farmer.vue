@@ -29,10 +29,6 @@
                                 <v-card-text>
                                     <v-container>
                                         <v-row dense>
-
-                                            <v-col cols="12">
-                                                <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-id-card" color="green" outlined v-model="editedItem.IDcardFarmer" label="หมายเลขบัตรประชาชน"></v-text-field>
-                                            </v-col>
                                             <v-col cols="12" sm="6">
                                                 <v-select dense class="rounded-lg" prepend-inner-icon="mdi-card-account-details-outline" color="green" outlined v-model="editedItem.nonb" label="คำนำหน้า "></v-select>
                                             </v-col>
@@ -41,6 +37,9 @@
                                             </v-col>
                                             <v-col cols="12" sm="6">
                                                 <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-card-account-details-outline" color="green" outlined v-model="editedItem.nid" label="นามสกุล"></v-text-field>
+                                            </v-col>
+                                            <v-col cols="12" sm="6">
+                                                <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-id-card" color="green" outlined v-model="editedItem.IDcardFarmer" label="หมายเลขบัตรประชาชน"></v-text-field>
                                             </v-col>
                                             <v-col cols="12" sm="6">
                                                 <v-file-input dense chips class="rounded-lg" prepend-inner-icon="" color="green" outlined accept="image/*" v-model="editedItem.birth" label="ภาพถ่ายบัตรประจำตัวประชาชน"></v-file-input>
@@ -52,6 +51,12 @@
                                                 <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-account-clock-outline" color="green" outlined v-model="editedItem.age" label="อายุ"></v-text-field>
                                             </v-col>
                                             <v-col cols="12" sm="6">
+                                                <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-home" color="green" outlined v-model="editedItem.age" label="ที่อยู่"></v-text-field>
+                                            </v-col>
+                                            <v-col cols="12" sm="6">
+                                                <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-phone" color="green" outlined v-model="editedItem.nmi" label="เบอร์โทรศัพท์"></v-text-field>
+                                            </v-col>
+                                            <!-- <v-col cols="12" sm="6">
                                                 <v-select dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined label="ตำบล"></v-select>
                                             </v-col>
                                             <v-col cols="12" sm="6">
@@ -62,20 +67,18 @@
                                             </v-col>
                                             <v-col cols="12" sm="6">
                                                 <v-select dense class="rounded-lg" prepend-inner-icon="mdi-postage-stamp" color="green" outlined label="รหัสไปรษณีย์"></v-select>
-                                            </v-col>
-                                            <v-col cols="12" sm="6">
-                                                <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-phone" color="green" outlined v-model="editedItem.nmi" label="เบอร์โทรศัพท์"></v-text-field>
-                                            </v-col>
-                                            <v-col cols="12" sm="12">
+                                            </v-col> -->
+
+                                            <!-- <v-col cols="12" sm="12">
                                                 <v-divider></v-divider>
                                             </v-col>
                                             <v-col cols="12" sm="12" class="pb-4">
                                                 <center>
                                                     <h4>ฟาร์ม</h4>
                                                 </center>
-                                            </v-col>
-                                            <v-col cols="12" >
-                                                <!-- <v-file-input dense chips class="rounded-lg" prepend-inner-icon="" color="green" outlined accept="image/*" v-model="editedItem.from" label="ภาพถ่ายเจ้าของฟาร์ม"></v-file-input> -->
+                                            </v-col> -->
+                                            <v-col cols="12" sm="6">
+                                                <v-file-input dense chips class="rounded-lg" prepend-inner-icon="" color="green" outlined accept="image/*" v-model="editedItem.from" label="ภาพถ่ายเจ้าของฟาร์ม"></v-file-input>
                                             </v-col>
                                             <v-col cols="12" sm="6">
                                                 <v-file-input dense chips class="rounded-lg" prepend-inner-icon="" color="green" outlined accept="image/*" v-model="editedItem.price" label="ภาพถ่ายสภาพฟาร์ม"></v-file-input>
@@ -83,21 +86,10 @@
                                             <v-col cols="12" sm="6">
                                                 <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-home-outline" color="green" outlined v-model="editedItem.status" label="ชื่อฟาร์ม"></v-text-field>
                                             </v-col>
-                                            <!-- <v-col cols="12" sm="6">
-                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nonf" label="บ้านเลขที่ ถนน ซอย"></v-text-field>
-                                                    </v-col> --> 
                                             <v-col cols="12" sm="6">
-                                                <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-radius-outline" color="green" outlined v-model="editedItem.mim" label="พิกัดฟาร์มตามระบบ GPS (ละติจูด)"></v-text-field>
+                                                <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-home" color="green" outlined v-model="editedItem.nonf" label="ที่อยู่ฟาร์ม"></v-text-field>
                                             </v-col>
-                                            <v-col cols="12" sm="6">
-                                                <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-radius-outline" color="green" outlined v-model="editedItem.weight" label="พิกัดฟาร์มตามระบบ GPS (ลองติจูด)"></v-text-field>
-                                            </v-col>
-                                            <v-col cols="12" sm="6">
-                                                <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined v-model="editedItem.cwidth" label="จำนวนกระบือทั้งหมด"></v-text-field>
-                                            </v-col>
-                                            <v-col cols="12" sm="6">
-                                                <v-select dense class="rounded-lg" prepend-inner-icon="mdi-account-group-outline" color="green" outlined v-model="editedItem.blength" label="กลุ่มเกษตรกร"></v-select>
-                                            </v-col>
+
                                             <v-col cols="12" sm="6">
                                                 <v-select dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-multiple-outline" color="green" outlined v-model="editedItem.nidf" label="ตำบล"></v-select>
                                             </v-col>
@@ -109,6 +101,18 @@
                                             </v-col>
                                             <v-col cols="12" sm="6">
                                                 <v-select dense class="rounded-lg" prepend-inner-icon="mdi-postage-stamp" color="green" outlined v-model="editedItem.nidm" label="รหัสไปรษณีย์"></v-select>
+                                            </v-col>
+                                            <v-col cols="12" sm="6">
+                                                <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-radius-outline" color="green" outlined v-model="editedItem.mim" label="พิกัดฟาร์มตามระบบ GPS (ละติจูด)"></v-text-field>
+                                            </v-col>
+                                            <v-col cols="12" sm="6">
+                                                <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-map-marker-radius-outline" color="green" outlined v-model="editedItem.weight" label="พิกัดฟาร์มตามระบบ GPS (ลองติจูด)"></v-text-field>
+                                            </v-col>
+                                            <v-col cols="12" sm="6">
+                                                <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined v-model="editedItem.cwidth" label="จำนวนกระบือทั้งหมด"></v-text-field>
+                                            </v-col>
+                                            <v-col cols="12" sm="6">
+                                                <v-select dense class="rounded-lg" prepend-inner-icon="mdi-account-group-outline" color="green" outlined v-model="editedItem.blength" label="กลุ่มเกษตรกร"></v-select>
                                             </v-col>
 
                                         </v-row>
