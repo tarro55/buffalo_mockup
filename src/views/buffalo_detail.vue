@@ -73,31 +73,30 @@
                             </div>
 
                             <v-row no-gutters class="pr-3">
-                                <v-col>
+                                <v-flex xs12 md4>
                                     <v-menu ref="menu" v-model="menu" :close-on-content-click="false" transition="scale-transition" offset-y min-width="290px">
                                         <template v-slot:activator="{ on, attrs }">
                                             <v-text-field outlined dense color="green" v-model="date" class="rounded-lg" label="วัน/เดือน/ปีเกิด" prepend-inner-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"></v-text-field>
                                         </template>
                                         <v-date-picker :readonly="dialog" color="green" ref="picker" v-model="date" :max="new Date().toISOString().substr(0, 10)" min="1950-01-01" @change="save1"></v-date-picker>
                                     </v-menu>
-                                </v-col>
-                                <v-col>
+                                </v-flex>
+                                <v-flex xs12 md4>
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-gender-male-female" color="green" outlined label="เพศ"></v-select>
-                                </v-col>
-                                <v-col>
+                                </v-flex>
+                                <v-flex xs12 md4>
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-invert-colors" color="green" outlined label="สี"></v-select>
-                                </v-col>
-
+                                </v-flex>
                             </v-row>
+
                             <v-row no-gutters class="pr-3">
-                                <v-col >
+                                <v-flex xs12 md6>
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-import" color="green" outlined label="แหล่งที่มา"></v-select>
-                                </v-col>
-                                <v-col>
+                                </v-flex>
+                                <v-flex xs12 md6>
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-post-outline" color="green" outlined label="สถานะ"></v-select>
-                                </v-col>
+                                </v-flex>
                             </v-row>
-
                             <v-btn class="rounded-lg" block disabled color="success">บันทึก</v-btn>
                         </div>
 
