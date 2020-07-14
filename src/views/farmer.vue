@@ -17,7 +17,7 @@
                     <div class="pt-1">
                         <v-dialog scrollable v-model="dialog" max-width="800px">
                             <template v-slot:activator="{ on, attrs }">
-                                <v-btn outlined color="green" medium dense dark class="mr-1 rounded-lg" v-bind="attrs" v-on="on">
+                                <v-btn outlined color="green" block medium dense dark class="mr-1 rounded-lg" v-bind="attrs" v-on="on">
                                     <v-icon>mdi-plus</v-icon>เพิ่มเกษตรกร
                                 </v-btn>
                             </template>
@@ -274,6 +274,26 @@ export default {
             {
                 text: 'เบอร์โทรศัพท์',
                 value: 'Phonenumber',
+                sortable: false,
+            },
+            {
+                text: 'ตำบล',
+                value: 'place',
+                sortable: false,
+            },
+            {
+                text: 'อำเภอ',
+                value: 'district',
+                sortable: false,
+            },
+            {
+                text: 'จังหวัด',
+                value: 'province',
+                sortable: false,
+            },
+            {
+                text: 'ฟาร์ม',
+                value: 'farm',
                 sortable: false,
             },
             {

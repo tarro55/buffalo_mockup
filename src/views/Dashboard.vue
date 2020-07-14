@@ -32,7 +32,7 @@
                             <v-icon dark large class="icondash info pa-7 rounded-lg">mdi-account-multiple</v-icon>
                             <div class="ml-auto text-right">
                                 <div class="body-3 grey--text font-weight-light">
-                                    จำนวนผู้ใช้ที่อยู่ในระบบ
+                                    เกษตกร
                                 </div>
                                 <div class="body-3 grey--text font-weight-light">
                                     ทั้งหมด
