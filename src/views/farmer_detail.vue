@@ -222,7 +222,6 @@
                                                                 </template>
                                                                 <v-date-picker color="green" ref="picker" v-model="date" :max="new Date().toISOString().substr(0, 10)" min="1950-01-01" @change="save1"></v-date-picker>
                                                             </v-menu>
-                                                            <!-- <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-calendar" color="green" outlined v-model="editedItem.birth" label="วัน/เดือน/ปี เกิด"></v-text-field> -->
                                                         </v-col>
                                                         <v-col cols="12" sm="6">
                                                             <v-select dense class="rounded-lg" prepend-inner-icon="mdi-gender-male-female" color="green" outlined v-model="editedItem.sex" label="เพศ"></v-select>
@@ -278,7 +277,6 @@
                                                         <v-col cols="12" sm="6">
                                                             <v-file-input dense class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined multiple label="เพิ่มภาพด้านหลัง"></v-file-input>
                                                         </v-col>
-
                                                     </v-row>
                                                 </v-container>
                                             </v-card-text>
@@ -368,11 +366,11 @@ export default {
                 value: 'number',
                 sortable: false
             },
-            {
-                text: 'พันธุ์',
-                value: 'gene',
-                sortable: false
-            },
+            // {
+            //     text: 'พันธุ์',
+            //     value: 'gene',
+            //     sortable: false
+            // },
             {
                 text: 'อายุ',
                 value: 'age',
