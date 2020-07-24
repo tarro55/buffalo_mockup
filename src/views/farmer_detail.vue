@@ -95,10 +95,10 @@
 
                                             <v-card-actions>
                                                 <v-spacer></v-spacer>
-                                                <v-btn color="green" dark @click="save">
+                                                <v-btn color="green" class="rounded-lg" dark @click="save">
                                                     <h5>บันทึก</h5>
                                                 </v-btn>
-                                                <v-btn color="error" @click="close">
+                                                <v-btn color="error" class="rounded-lg" @click="close">
                                                     <h5>ยกเลิก</h5>
                                                 </v-btn>
                                             </v-card-actions>
@@ -294,10 +294,10 @@
 
                                             <v-card-actions>
                                                 <v-spacer></v-spacer>
-                                                <v-btn color="green" dark @click="save">
+                                                <v-btn color="green" class="rounded-lg" dark @click="save">
                                                     <h5>บันทึก</h5>
                                                 </v-btn>
-                                                <v-btn color="error" @click="close">
+                                                <v-btn color="error" class="rounded-lg" @click="close">
                                                     <h5>ยกเลิก</h5>
                                                 </v-btn>
                                             </v-card-actions>
@@ -387,12 +387,7 @@ export default {
                 text: 'เบอร์หู',
                 value: 'number',
                 sortable: false
-            },
-            // {
-            //     text: 'พันธุ์',
-            //     value: 'gene',
-            //     sortable: false
-            // },
+            }, 
             {
                 text: 'อายุ',
                 value: 'age',

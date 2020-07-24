@@ -51,10 +51,10 @@
 
                                         <v-card-actions>
                                             <v-spacer></v-spacer>
-                                            <v-btn color="green" text @click="save">
+                                            <v-btn color="green" class="rounded-lg" dark @click="save">
                                                 <h5>บันทึก</h5>
                                             </v-btn>
-                                            <v-btn color="black" text @click="close">
+                                            <v-btn color="error" class="rounded-lg" @click="close">
                                                 <h5>ยกเลิก</h5>
                                             </v-btn>
                                         </v-card-actions>
