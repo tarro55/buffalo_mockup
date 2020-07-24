@@ -19,16 +19,15 @@
                     </v-flex>
 
                 </template>
-                <template v-slot:item.glutenfree="{ item }">
-                    <v-simple-checkbox v-model="item.glutenfree" disabled></v-simple-checkbox>
+                <!-- <template v-slot:item.glutenfree="{ item }"> -->
+                    <!-- <v-simple-checkbox v-model="item.glutenfree" disabled></v-simple-checkbox> -->
                     <!-- <v-select chips outlined :items="items" label="Solo field"></v-select> -->
-                </template>
+                <!-- </template> -->
                 <template v-slot:item.actions="{  }">
-                    <!-- <v-tooltip v-model="show" top> -->
-
+                    <!-- <v-tooltip v-model="show" top> --> 
                     <v-tooltip top>
                         <template v-slot:activator="{ on, attrs }">
-                            <v-btn icon v-bind="attrs" v-on="on" @click="$router.push(`farmerdetail`)">
+                            <v-btn color="success" icon v-bind="attrs" v-on="on" @click="$router.push(`farmerdetail`)">
                                 <v-icon>mdi-eye-outline</v-icon>
                             </v-btn>
                         </template>
@@ -52,19 +51,7 @@ export default {
 
         search: '',
         dialog: false,
-        headers: [
-            // {
-            //     text: 'เลขบัตรประจำตัวประชาชน',
-            //     value: 'IDCard'
-            // },
-            // {
-            //     text: 'ชื่อจริงนามสกุล',
-            //     value: 'name'
-            // },
-            // {
-            //     text: 'นามสกุล',
-            //     value: 'lastname'
-            // }, 
+        headers: [ 
             {
                 text: 'ชื่อผู้ใช้งาน',
                 value: 'username',
@@ -76,13 +63,13 @@ export default {
                 sortable: false
             },
             {
-                text: 'ว/ด/ป',
-                value: 'date',
+                text: 'สถานะการแก้ไขรหัสผ่าน',
+                value: 'glutenfree',
                 sortable: false
             },
             {
-                text: 'สถานะ',
-                value: 'glutenfree',
+                text: 'วันที่ขอคำร้อง',
+                value: 'date',
                 sortable: false
             },
             {
@@ -90,6 +77,7 @@ export default {
                 value: 'actions',
                 sortable: false
             },
+
         ],
         show4: false,
 
@@ -134,7 +122,8 @@ export default {
                     username: 'username1',
                     phoneNumber: '0123123123',
                     date: '29/6/2020',
-                    glutenfree: true,
+                    glutenfree: 'ยังไม่ได้แก้ไขรหัสผ่าน',
+                    // glutenfree: true,
                     // email: 'dang1@gmail.com', 
                 },
                 {
@@ -144,7 +133,7 @@ export default {
                     username: 'username2',
                     phoneNumber: '0123123123',
                     date: '29/6/2020',
-                    glutenfree: true,
+                    glutenfree: 'แก้ไขรหัสผ่านแล้ว',
                     // email: 'dang1@gmail.com', 
                 },
                 {
@@ -154,7 +143,7 @@ export default {
                     username: 'username13',
                     phoneNumber: '0123123123',
                     date: '29/6/2020',
-                    glutenfree: false,
+                    glutenfree: 'แก้ไขรหัสผ่านแล้ว',
                     // email: 'dang1@gmail.com', 
                 },
 

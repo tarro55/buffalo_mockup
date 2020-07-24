@@ -2,6 +2,11 @@
  <v-container class="bg">
      <v-container>
          <h2>รายงานสรุปจำนวนกระบือที่มีชีวิต</h2>
+         <v-breadcrumbs :items="bc" large>
+            <template v-slot:divider>
+                <v-icon>mdi-chevron-right</v-icon>
+            </template>
+        </v-breadcrumbs> 
          <v-divider></v-divider>
      </v-container>
 
@@ -44,6 +49,17 @@
 <script>
 export default {
     data: () => ({
+        bc: [{
+                text: 'รายงาน',
+                disabled: false,
+                href: '/#/report',
+            },
+            {
+                text: 'รายงานสรุปจำนวนกระบือที่มีชีวิต',
+                disabled: false,
+                href: '/#/reportbuffalo',
+            },
+        ],
         province: [{
                 text: 'พะเยา'
             },

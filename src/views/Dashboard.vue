@@ -2,6 +2,11 @@
 <v-container class="bg">
 
     <v-container>
+        <!-- <v-breadcrumbs :items="bc" large>
+            <template v-slot:divider>
+                <v-icon>mdi-chevron-right</v-icon>
+            </template>
+        </v-breadcrumbs> -->
         <h2>แดชบอร์ด</h2>
         <v-divider></v-divider>
     </v-container>
@@ -9,20 +14,20 @@
     <v-container grid-list-xs>
         <v-layout row wrap>
             <v-flex xs12 md4>
-                <v-hover v-slot:default="{ hover }" close-delay="200">
-                    <v-card class="pa-3 rounded-lg ma-2" flat :elevation="hover ? 16 : 2  ">
-                        <v-img style="height:160px" src="https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-                            <!-- <v-row class="pa-2">  -->
-                                <center>
-                                <v-avatar class="rounded-lg pt-3 elevation-5" size="120">
-                                    <v-img src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img>
-                                </v-avatar> 
-                                    <v-list-item-title class="title body-3 white--text font-weight-light" ><h5>นายแดง สุขใจ (ผู้ดูแลระบบ)</h5></v-list-item-title>
-                             
-                                </center> 
-                        </v-img>
-                    </v-card>
-                </v-hover>
+                <v-card class="pa-3 rounded-lg ma-2">
+                    <v-img style="height:160px" src="https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                        <!-- <v-row class="pa-2">  -->
+                        <center>
+                            <v-avatar class="rounded-lg pt-3 elevation-5" size="120">
+                                <v-img src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img>
+                            </v-avatar>
+                            <v-list-item-title class="title body-3 white--text font-weight-light">
+                                <h5>นายแดง สุขใจ (ผู้ดูแลระบบ)</h5>
+                            </v-list-item-title>
+
+                        </center>
+                    </v-img>
+                </v-card>
             </v-flex>
 
             <v-flex xs12 md4>
@@ -70,11 +75,9 @@
             </v-flex>
 
             <v-flex xs12 md4>
-                <v-hover v-slot:default="{ hover }" close-delay="200">
-                    <v-card class="pa-3 rounded-lg ma-2" flat :elevation="hover ? 16 : 2  ">
-                        <v-img style="height:160px" src="https://images.pexels.com/photos/46188/bison-buffalo-american-animal-46188.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></v-img>
-                    </v-card>
-                </v-hover>
+                <v-card class="pa-3 rounded-lg ma-2">
+                    <v-img style="height:160px" src="https://images.pexels.com/photos/46188/bison-buffalo-american-animal-46188.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></v-img>
+                </v-card>
             </v-flex>
 
             <v-flex xs12 md4>
@@ -124,20 +127,20 @@
                 <v-date-picker v-model="picker" elevation="5" class="rounded-lg ma-3"></v-date-picker>
             </v-flex> -->
         </v-layout>
-    </v-container>
+    </v-container> 
 
-    <v-divider></v-divider>
     <v-container grid-list-xs>
         <v-layout row wrap>
             <v-flex xs12 md6>
                 <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
                     <v-card :elevation="hover ? 16 : 2" class="rounded-lg ma-2 mr-4 pa-4">
+                        <v-select :items="labels" label="กรุณาเลือกปี" outlined></v-select>
                         <h4 class="text-center">
                             จำนวนผู้ใช้งานในแต่ละเดือน
                         </h4>
-                        <column-chart :colors="['#3CB371']" :data="chartData"></column-chart>
-                        <center>
-                            <v-btn @click="$router.push('reportsystem')" block text class="rounded-lg mt-2 mb-3" color="green">ดูข้อมูลเพิ่มเติม</v-btn>
+                        <column-chart :colors="['#3CB371']" :data="month"></column-chart>
+                        <center class="pt-4">
+                            <v-btn outlined @click="$router.push('reportsystem')" block text class="rounded-lg mt-2 mb-3" color="green">ดูข้อมูลเพิ่มเติม</v-btn>
                         </center>
                     </v-card>
                 </v-hover>
@@ -145,12 +148,13 @@
             <v-flex xs12 md6>
                 <v-hover v-slot:default="{ hover }" close-delay="200" class="lg4 sm6 xs12">
                     <v-card :elevation="hover ? 16 : 2" class="rounded-lg ma-2 ml-4 pa-4">
+                        <v-select :items="labels" label="กรุณาเลือกปี" outlined></v-select>
                         <h4 class="text-center">
                             จำนวนกระบือที่อยู่ในระบบทั้งหมด
                         </h4>
-                        <area-chart :colors="['#1E90FF']" :data="chartData"></area-chart>
-                        <center>
-                            <v-btn @click="$router.push('reportbuffalo')" block text class="rounded-lg mt-2 mb-3" color="green">ดูข้อมูลเพิ่มเติม</v-btn>
+                        <area-chart :colors="['#1E90FF']" :data="month"></area-chart>
+                        <center class="pt-4">
+                            <v-btn outlined @click="$router.push('reportbuffalo')" block text class="rounded-lg mt-2 mb-3" color="green">ดูข้อมูลเพิ่มเติม</v-btn>
                         </center>
                     </v-card>
                 </v-hover>
@@ -176,21 +180,27 @@ export default {
     /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
     data() {
         return {
+            bc: [{
+                text: 'แดชบอร์ด',
+                disabled: false,
+                link: 'true',
+                href: '/#/dashboard',
+            }, ],
 
             picker: null,
             labels: [
-                'ม.ค.',
-                'ก.พ.',
-                'ม.ค.',
-                'เม.ย.',
-                'พ.ค.',
-                'มิ.ย.',
-                'ก.ค.',
-                'ส.ค.',
-                'ก.ย..',
-                'ต.ค.',
-                'พ.ย.',
-                'ธ.ค.',
+                '2558',
+                '2559',
+                '2560',
+                '2561',
+                '2562',
+                '2563',
+                '2564',
+                '2565',
+                '2566',
+                '2567',
+                '2568',
+                '2569',
             ],
             value: [
                 100,
@@ -209,8 +219,21 @@ export default {
                 '2020-06-24': 70,
                 '2020-06-25': 45,
             },
-        };
-
+            month: {
+                'มกราคม': 1,
+                'กุมภาพันธ์': 2,
+                'มีนาคม': 3,
+                'เมษายน': 4,
+                'พฤษภาคม': 5,
+                'มิถุนายน': 6,
+                'กรกฎาคม': 7,
+                'สิงหาคม': 8,
+                'กันยายน': 9,
+                'ตุลาคม': 10,
+                'พฤศจิกายน': 11,
+                'ธันวาคม': 12
+            },
+        }
     }
 }
 </script>

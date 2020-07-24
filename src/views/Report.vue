@@ -111,11 +111,11 @@
     <v-container grid-list-xs>
         <v-layout row wrap>
             <v-flex xs12 md4>
-                <v-hover v-slot:default="{ hover }" close-delay="200">
-                    <v-card class="pa-3 rounded-lg ma-2" flat :elevation="hover ? 16 : 2  ">
+                <!-- <v-hover v-slot:default="{ hover }" close-delay="200"> -->
+                    <v-card class="pa-3 rounded-lg ma-2" >
                         <v-img style="height:135px" src="https://images.pexels.com/photos/46188/bison-buffalo-american-animal-46188.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></v-img>
                     </v-card>
-                </v-hover>
+                <!-- </v-hover> -->
             </v-flex>
 
             <v-flex xs12 md4>
@@ -157,11 +157,11 @@
             </v-flex>
 
             <v-flex xs12 md4>
-                <v-hover v-slot:default="{ hover }" close-delay="200">
-                    <v-card class="pa-3 rounded-lg ma-2" flat :elevation="hover ? 16 : 2  ">
+                <!-- <v-hover v-slot:default="{ hover }" close-delay="200"> -->
+                    <v-card class="pa-3 rounded-lg ma-2"  >
                         <v-img style="height:135px" src="https://images.pexels.com/photos/1054650/pexels-photo-1054650.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></v-img>
                     </v-card>
-                </v-hover>
+                <!-- </v-hover> -->
             </v-flex>
 
             <v-flex xs12 md4>

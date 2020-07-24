@@ -3,6 +3,11 @@
 
     <v-container>
         <h2>ข้อมูลส่วนตัว</h2>
+        <!-- <v-breadcrumbs :items="bc" large>
+            <template v-slot:divider>
+                <v-icon>mdi-chevron-right</v-icon>
+            </template>
+        </v-breadcrumbs> -->
         <v-divider></v-divider>
     </v-container>
   
@@ -29,7 +34,7 @@
                         <v-text-field outlined dense class="rounded-lg" prepend-inner-icon="mdi-account" color="green" label="ชื่อผู้ใช้งาน"></v-text-field>
                         <v-text-field outlined dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" label="รหัสผ่าน"></v-text-field>
                         <v-text-field outlined dense class="rounded-lg" prepend-inner-icon="mdi-email" color="green" label="อีเมล"></v-text-field>
-                        <v-btn @click="$router.push('dashboard')" item-disabled large block dark class="rounded-lg" color="green">บันทึก</v-btn>
+                        <v-btn @click="$router.push('profile')" item-disabled large block dark class="rounded-lg" color="green">บันทึก</v-btn>
                     </v-flex>
                 </v-layout>
             </v-card>
@@ -54,6 +59,13 @@ export default {
     /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
     data() {
         return {
+            bc: [{
+                    text: 'ข้อมูลส่วนตัว',
+                    disabled: false, 
+                    link:'true',
+                    href: '/#/profile',
+                }, 
+            ],
 
         };
 

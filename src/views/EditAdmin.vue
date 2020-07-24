@@ -37,7 +37,7 @@
                                                         <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-account" color="green" outlined v-model="editedItem.username" label="ชื่อผู้ใช้งาน"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12">
-                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined v-model="editedItem.password" label="รหัสผ่าน"></v-text-field>
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" type="password" outlined v-model="editedItem.password" label="รหัสผ่าน"></v-text-field>
                                                     </v-col> 
                                                     <v-col cols="12" >
                                                         <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined v-model="editedItem.password" :append-icon="show4 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.emailMatch]" :type="show4 ? 'text' : 'password'" name="input-10-2" label="ยืนยันรหัสผ่าน" hint="กรุณากรอกรหัสผ่านให้ตรงกัน" value="" error @click:append="show4 = !show4"></v-text-field>
@@ -71,7 +71,7 @@
                     <!-- <v-tooltip v-model="show" top> -->
                         <v-tooltip top>
                         <template v-slot:activator="{ on, attrs }">
-                            <v-btn icon v-bind="attrs" v-on="on" @click="editItem(item)">
+                            <v-btn color="warning" icon v-bind="attrs" v-on="on" @click="editItem(item)">
                                 <v-icon>mdi-pencil</v-icon>
                             </v-btn>
                         </template>
@@ -81,7 +81,7 @@
                     <!-- <v-tooltip v-model="show" top> -->
                         <v-tooltip top>
                         <template v-slot:activator="{ on, attrs }">
-                            <v-btn icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
+                            <v-btn color="error" icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
                                 <v-icon>mdi-delete</v-icon>
                             </v-btn>
                         </template>

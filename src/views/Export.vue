@@ -2,6 +2,11 @@
 <v-container class="bg">
     <v-container>
         <h2>ข้อมูลการเจริญเติบโตของกระบือ</h2>
+        <v-breadcrumbs :items="bc" large>
+            <template v-slot:divider>
+                <v-icon>mdi-chevron-right</v-icon>
+            </template>
+        </v-breadcrumbs>
         <v-divider></v-divider>
     </v-container>
     <v-container>
@@ -47,6 +52,17 @@
 <script>
 export default {
     data: () => ({
+        bc: [{
+                text: 'รายงาน',
+                disabled: false,
+                href: '/#/report',
+            },
+            {
+                text: 'ข้อมูลการเจริญเติบโตของกระบือ',
+                disabled: false,
+                href: '/#/export',
+            },
+            ],
         province: [{
                 text: 'พะเยา'
             },

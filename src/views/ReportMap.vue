@@ -2,6 +2,11 @@
 <v-container class="bg">
     <v-container>
         <h2>รายงานเชิงแผนที่</h2>
+        <v-breadcrumbs :items="bc" large>
+            <template v-slot:divider>
+                <v-icon>mdi-chevron-right</v-icon>
+            </template>
+        </v-breadcrumbs>
         <v-divider></v-divider>
     </v-container>
     
@@ -33,6 +38,17 @@ export default {
     /*-------------------------ประกาศตัวแปรที่ใช้ ผูกกับ v-model ---------------------------------------*/
     data() {
         return {
+            bc: [{
+                text: 'รายงาน',
+                disabled: false,
+                href: '/#/report',
+            },
+            {
+                text: 'รายงานเชิงแผนที่',
+                disabled: false,
+                href: '/#/reportmap',
+            },
+            ],
             province: [{
                     text: 'พะเยา'
                 },

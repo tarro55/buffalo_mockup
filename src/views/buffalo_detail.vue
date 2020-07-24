@@ -2,6 +2,11 @@
 <v-container class="bg">
     <v-container>
         <h2>ข้อมูลกระบือ</h2>
+        <v-breadcrumbs :items="bc" large>
+            <template v-slot:divider>
+                <v-icon>mdi-chevron-right</v-icon>
+            </template>
+        </v-breadcrumbs>
         <v-divider></v-divider>
     </v-container>
 
@@ -79,10 +84,10 @@
                                     <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined label="ชื่อหรือหมายเลขควาย"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined label="หมายเลข NID"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric-10-box-multiple-outline" color="green"  type="number" outlined label="หมายเลข NID"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined label="หมายเลขไมโครซิป"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green"  type="number" outlined label="หมายเลขไมโครซิป"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
                                     <v-menu ref="menu" v-model="menu" :close-on-content-click="false" transition="scale-transition" offset-y min-width="290px">
@@ -96,7 +101,7 @@
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-gender-male-female" color="green" outlined label="เพศ"></v-select>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-calendar-clock" color="green" outlined label="อายุ"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-calendar-clock" color="green"  type="number" outlined label="อายุ"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-invert-colors" color="green" outlined label="สี"></v-select>
@@ -105,7 +110,7 @@
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-import" color="green" outlined label="แหล่งที่มา"></v-select>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined label="ราคา"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green"  type="number" outlined label="ราคา"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-post-outline" color="green" outlined label="สถานะ"></v-select>
@@ -114,31 +119,31 @@
                                     <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined label="ชื่อหรือหมายเลขพ่อ"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined label="หมายเลข NID พ่อ"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric-10-box-multiple-outline" color="green" outlined type="number" label="หมายเลข NID พ่อ"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined label="หมายเลขไมโครชิปพ่อ"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined type="number" label="หมายเลขไมโครชิปพ่อ"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
                                     <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined label="ชื่อหรือหมายเลขแม่"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined label="หมายเลข NID แม่"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric-10-box-multiple-outline" color="green" outlined type="number" label="หมายเลข NID แม่"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined label="หมายเลขไมโครชิปแม่"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined type="number" label="หมายเลขไมโครชิปแม่"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-weight-kilogram" color="green" outlined label="น้ำหนัก(กิโลกรัม)"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-weight-kilogram" color="green" outlined type="number" label="น้ำหนัก(กิโลกรัม)"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-arrow-left-right" color="green" outlined label="ความกว้างรอบอก(เซนติเมตร)"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-arrow-left-right" color="green" outlined type="number" label="ความกว้างรอบอก(เซนติเมตร)"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-arrow-left-right" color="green" outlined label="ความยาวรอบลำตัว(เซนติเมตร)"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-arrow-left-right" color="green" outlined type="number" label="ความยาวรอบลำตัว(เซนติเมตร)"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-human-male-height-variant" color="green" outlined label="ความสูง(เซนติเมตร)"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-human-male-height-variant" color="green" outlined type="number" label="ความสูง(เซนติเมตร)"></v-text-field>
                                 </v-flex>
                             </v-row>  
                             <v-btn class="rounded-lg" block disabled color="success">บันทึก</v-btn>
@@ -215,6 +220,23 @@ export default {
             date: null,
             menu: false,
             dialog: true,
+            bc: [
+            {
+                    text: 'เกษตกร',
+                    disabled: false,  
+                    href: '/#/farmer',
+                }, 
+                {
+                    text: 'ข้อมูลเกษตกร',
+                    disabled: false,  
+                    href: '/#/farmerdetail',
+                },
+                {
+                    text: 'ข้อมูลกระบือ',
+                    disabled: false,  
+                    href: '/#/buffalodetail',
+                }, 
+            ],
             desserts: [
                 // {
                 //     describe: 'หมายเลขบัตรประชาชนเกษตรกร',

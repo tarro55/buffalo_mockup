@@ -2,6 +2,11 @@
 <v-container class="bg"> 
     <v-container>
         <h2>รายงานความเคลื่อนไหวการใช้งานระบบ</h2>
+        <v-breadcrumbs :items="bc" large>
+            <template v-slot:divider>
+                <v-icon>mdi-chevron-right</v-icon>
+            </template>
+        </v-breadcrumbs>
         <v-divider></v-divider>
     </v-container>  
     <v-container>  
@@ -67,6 +72,17 @@
 <script>
 export default {
     data: () => ({
+        bc: [{
+                text: 'รายงาน',
+                disabled: false,
+                href: '/#/report',
+            },
+            {
+                text: 'รายงานเชิงแผนที่',
+                disabled: false,
+                href: '/#/reportsystem',
+            },
+            ],
         province: [{
                 text: 'พะเยา'
             },
@@ -193,7 +209,7 @@ export default {
                 sortable: false
             },
             {
-                text: 'วัน/เดือน/ปี',
+                text: 'วันที่ใช้ล่าสุด ',
                 value: 'time',
                  sortable: false
             },
