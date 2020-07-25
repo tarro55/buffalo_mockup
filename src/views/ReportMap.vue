@@ -1,5 +1,5 @@
 <template>
-<v-container class="bg">
+<div class="bg">
     <v-container>
         <h2>รายงานเชิงแผนที่</h2>
         <v-breadcrumbs :items="bc" large>
@@ -21,7 +21,7 @@
         <!-- </v-row> --> 
     </v-card>
     </v-container> 
-</v-container>
+</div>
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
-<v-container class="bg">
+<div class="bg">
+    <v-container> 
     <v-container>
         <h2>เกษตกร</h2>
         <!-- <v-breadcrumbs :items="bc" large>
@@ -206,8 +207,8 @@
         </v-data-table>
 
     </v-container>
-
-</v-container>
+    </v-container>
+</div>
 </template>
 
 <script>

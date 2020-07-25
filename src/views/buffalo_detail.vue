@@ -1,5 +1,5 @@
 <template>
-<v-container class="bg">
+ <div class="bg">
     <v-container>
         <h2>ข้อมูลกระบือ</h2>
         <v-breadcrumbs :items="bc" large>
@@ -200,7 +200,7 @@
         
     </center>
 
-</v-container>
+ </div>
 </template>
 
 <script>

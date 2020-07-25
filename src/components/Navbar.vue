@@ -2,10 +2,10 @@
 <div>
     <!-- <v-navigation-drawer v-model="drawer" app clipped class="dr-bg"> -->
     <v-navigation-drawer v-model="drawer" app clipped>
-        <!-- <v-list class="w3-margin" shaped> -->
+        <!-- <v-list class="w3-margin" shaped> --> 
         <v-list dense rounded>
             <!-- <v-list-item two-line :class="miniVariant && 'px-0'"> -->
-                <v-list-item two-line class="pt-2">
+            <v-list-item two-line class="pt-2">
                 <v-list-item-avatar size="50">
                     <img src="https://randomuser.me/api/portraits/men/81.jpg">
                 </v-list-item-avatar>
@@ -18,8 +18,8 @@
                 </v-list-item-content>
             </v-list-item>
             <v-divider></v-divider>
-            <v-list-item-group v-model="item" color="green"> 
-                <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`${item.router}`) " >
+            <v-list-item-group v-model="item" color="green">
+                <v-list-item v-for="(item, i) in items" :key="i" @click="$router.push(`${item.router}`) ">
                     <v-list-item-icon>
                         <v-icon>{{ item.icon }}</v-icon>
                     </v-list-item-icon>
@@ -34,13 +34,13 @@
     </v-navigation-drawer>
 
     <!-- <v-app-bar app clipped-left class="bg" color=" darken-3"> -->
-        <v-app-bar app clipped-left>
-        <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
+    <v-app-bar app clipped-left color="white" elevate-on-scroll >
+        <v-toolbar-title style="width: 300px" class="ml-0 pl-3" >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <a href="" @click="$router.push(`farmerdetail`)"><img style="width:50%;" src="https://www.img.in.th/images/209695056f7b9ddfe087f862d5b107d8.png" alt=""></a>
 
         </v-toolbar-title>
-        <v-spacer></v-spacer> 
+        <v-spacer></v-spacer>
 
         <!-- <v-menu bottom offset-y>
             <template v-slot:activator="{ on, attrs }">
@@ -174,18 +174,11 @@ export default {
 
 }
 
-.bg {
-    /* background: rgba(0, 128, 0, 0.1); */
-    /* background: rgba(242, 243, 244);
-    background-size: cover; */
-
-    background: rgba(242, 243, 244);
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
+.bg { 
+    background: rgba(242, 243, 244); 
+    height: 100%; 
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
 }
 </style>

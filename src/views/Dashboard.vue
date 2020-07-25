@@ -1,5 +1,6 @@
 <template>
-<v-container class="bg">
+<!-- <v-container class="bg"> -->
+    <div class="bg">
 
     <v-container>
         <!-- <v-breadcrumbs :items="bc" large>
@@ -161,8 +162,9 @@
             </v-flex>
         </v-layout>
     </v-container>
-
-</v-container>
+    
+    </div>
+<!-- </v-container> -->
 </template>
 
 <script>

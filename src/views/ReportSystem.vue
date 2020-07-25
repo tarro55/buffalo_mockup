@@ -1,5 +1,5 @@
 <template> 
-<v-container class="bg"> 
+<div class="bg"> 
     <v-container>
         <h2>รายงานความเคลื่อนไหวการใช้งานระบบ</h2>
         <v-breadcrumbs :items="bc" large>
@@ -66,7 +66,7 @@
         </v-data-table> 
     </v-container> 
 
-    </v-container>
+</div>
 </template>
 
 <script>

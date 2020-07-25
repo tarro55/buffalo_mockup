@@ -17,11 +17,15 @@
                             <div class="">
                                 <v-dialog scrollable v-model="dialog" max-width="500px">
                                     <template v-slot:activator="{ on, attrs }">
-                                        <v-btn outlined color="green" dark class="mr-1 rounded-lg" medium v-bind="attrs" v-on="on"><v-icon>mdi-plus</v-icon>เพิ่มผู้ดูแล</v-btn>
+                                        <v-btn outlined color="green" dark class="mr-1 rounded-lg" medium v-bind="attrs" v-on="on">
+                                            <v-icon>mdi-plus</v-icon>เพิ่มผู้ดูแล
+                                        </v-btn>
                                     </template>
                                     <v-card>
                                         <v-card-title>
-                                            <span class="headline">{{ formTitle }}</span>
+                                            <span class="headline">
+                                                <h3>เพิ่มผู้ดูแล</h3>
+                                            </span>
                                         </v-card-title>
 
                                         <v-card-text>
@@ -37,14 +41,14 @@
                                                         <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-account" color="green" outlined v-model="editedItem.username" label="ชื่อผู้ใช้งาน"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12">
-                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" type="password" outlined v-model="editedItem.password" label="รหัสผ่าน"></v-text-field>
-                                                    </v-col> 
-                                                    <v-col cols="12" >
-                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined v-model="editedItem.password" :append-icon="show4 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.emailMatch]" :type="show4 ? 'text' : 'password'" name="input-10-2" label="ยืนยันรหัสผ่าน" hint="กรุณากรอกรหัสผ่านให้ตรงกัน" value="" error @click:append="show4 = !show4"></v-text-field>
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :type="show1 ? 'text' : 'password'" name="input-10-1" label="รหัสผ่าน" counter @click:append="show1 = !show1"></v-text-field>
                                                     </v-col>
+                                                    <v-col col="12">
+                                                        <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined :append-icon="show4 ? 'mdi-eye' : 'mdi-eye-off'" :type="show4 ? 'text' : 'password'" name="input-10-2" label="ยืนยันรหัสผ่าน" value="" counter error @click:append="show4 = !show4"></v-text-field>
+                                                    </v-col> 
                                                     <v-col cols="12">
                                                         <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-email" color="green" outlined v-model="editedItem.email" label="อีเมล"></v-text-field>
-                                                    </v-col> 
+                                                    </v-col>
                                                 </v-row>
                                             </v-container>
                                         </v-card-text>
@@ -69,7 +73,7 @@
 
                 <template v-slot:item.actions="{ item }">
                     <!-- <v-tooltip v-model="show" top> -->
-                        <v-tooltip top>
+                    <v-tooltip top>
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn color="warning" icon v-bind="attrs" v-on="on" @click="editItem(item)">
                                 <v-icon>mdi-pencil</v-icon>
@@ -79,7 +83,7 @@
                     </v-tooltip>
 
                     <!-- <v-tooltip v-model="show" top> -->
-                        <v-tooltip top>
+                    <v-tooltip top>
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn color="error" icon v-bind="attrs" v-on="on" @click="deleteItem(item)">
                                 <v-icon>mdi-delete</v-icon>
@@ -102,11 +106,20 @@
 import Swal from 'sweetalert2'
 export default {
     data: () => ({
+        show1: false,
+        show2: true,
+        show3: false,
+        show4: false,
+        password: 'Password', 
+        rules: {
+            required: value => !!value || 'กรุณากรอกรหัสผ่านให้ตรงกัน.',
+            min: v => v.length >= 8 || 'Min 8 characters',
+            emailMatch: () => ('กรุณากรอกรหัสผ่านให้ตรงกัน'),
+        }, 
 
         search: '',
         dialog: false,
-        headers: [
-            {
+        headers: [{
                 text: 'ชื่อจริง',
                 value: 'name',
                 sortable: false
@@ -121,7 +134,7 @@ export default {
                 value: 'username',
                 sortable: false
             },
-             
+
             {
                 text: 'อีเมล์',
                 value: 'email',
@@ -133,13 +146,7 @@ export default {
                 sortable: false
             },
         ],
-        show4: false,
-        password: 'Password',
-        rules: {
-          required: value => !!value || 'กรุณากรอกรหัสผ่านให้ตรงกัน.',
-          min: v => v.length >= 8 || 'Min 8 characters',
-          emailMatch: () => ('กรุณากรอกรหัสผ่านให้ตรงกัน'),
-        },
+        
         desserts: [],
         editedIndex: -1,
         editedItem: {
@@ -177,7 +184,7 @@ export default {
             this.desserts = [{
                     name: 'นายแดง',
                     lastname: 'สวัสดี',
-                    username:'dang123',
+                    username: 'dang123',
                     password: '123456',
                     email: 'dang1@gmail.com',
                     status: 'ผู้ดูแลระบบ',
@@ -185,7 +192,7 @@ export default {
                 {
                     name: 'นายแดง1',
                     lastname: 'สวัสดี1',
-                    username:'dang1234',
+                    username: 'dang1234',
                     password: '123123',
                     email: 'dan1g@gmail.com',
                     status: 'ผู้ดูแลระบบ',
@@ -193,7 +200,7 @@ export default {
                 {
                     name: 'นายแดง2',
                     lastname: 'สวัสดี2',
-                    username:'dang1232',
+                    username: 'dang1232',
                     password: '111111',
                     email: 'dang1@gmail.com',
                     status: 'ผู้ดูแลระบบ',
@@ -278,11 +285,11 @@ export default {
                 cancelButtonText: 'ยกเลิก',
             }).then((result) => {
                 if (this.editedIndex > -1) {
-                Object.assign(this.desserts[this.editedIndex], this.editedItem)
-            } else {
-                this.desserts.push(this.editedItem)
-            }
-            this.close()
+                    Object.assign(this.desserts[this.editedIndex], this.editedItem)
+                } else {
+                    this.desserts.push(this.editedItem)
+                }
+                this.close()
                 if (result.value) {
                     Swal.fire(
                         'บันทึก!',
@@ -291,7 +298,7 @@ export default {
                     )
                 }
             })
-            
+
         },
     },
 }

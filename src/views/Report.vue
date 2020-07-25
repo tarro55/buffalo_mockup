@@ -1,5 +1,5 @@
 <template>
-<v-container class="bg">
+<div class="bg">
     <v-container>
         <h2>รายงาน</h2>
         <v-divider></v-divider>
@@ -204,7 +204,7 @@
         </v-layout>
     </v-container>
 
-</v-container>
+</div>
 </template>
 
 <script>

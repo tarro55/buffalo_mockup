@@ -1,5 +1,5 @@
 <template>
-<v-container class="bg">
+<div class="bg">
     <v-container>
         <h2>ข้อมูลการเจริญเติบโตของกระบือ</h2>
         <v-breadcrumbs :items="bc" large>
@@ -46,7 +46,7 @@
 
     </v-container>
 
-</v-container>
+</div>
 </template>
 
 <script>

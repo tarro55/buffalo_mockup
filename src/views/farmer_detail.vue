@@ -1,5 +1,5 @@
 <template>
-<v-container class="bg">
+<div class="bg">
     <v-container>
         <!-- <v-btn fab @click="$router.go(-1)" small>
             <v-icon class="icon">mdi-chevron-left</v-icon>
@@ -12,7 +12,7 @@
         </v-breadcrumbs>
         <v-divider></v-divider>
     </v-container>
-    <!-- <v-container> -->
+    <v-container>
     <v-card class="mx-auto rounded-lg elevation-10" max-width="434">
         <v-img height="220" src="https://images.pexels.com/photos/3145153/pexels-photo-3145153.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
             <v-row align="end" class="fill-height">
@@ -61,7 +61,7 @@
                                     <v-btn class="rounded-lg" color="green" outlined @click="dialog1=false">
                                         <v-icon>mdi-pencil</v-icon>แก้ไข
                                     </v-btn>
-                                    <v-dialog scrollable v-model="dialog" max-width="400px">
+                                    <v-dialog scrollable v-model="dialogPassword" max-width="400px">
                                         <template v-slot:activator="{ on, attrs }">
                                             <v-btn outlined color="error" medium dense dark class="ml-1 rounded-lg" v-bind="attrs" v-on="on">
                                                 <v-icon>mdi-account-key</v-icon>ตั้งค่ารหัสผ่าน
@@ -84,10 +84,10 @@
                                                             <v-text-field dense readonly class="rounded-lg" prepend-inner-icon="mdi-email" color="green" outlined v-model="setPass.email" label="อีเมล"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12">
-                                                            <v-text-field dense class="rounded-lg" type="password" prepend-inner-icon="mdi-lock" color="green" outlined v-model="setPass.pass" label="รหัสผ่านใหม่"></v-text-field>
+                                                            <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :type="show1 ? 'text' : 'password'" name="input-10-1" label="รหัสผ่าน" counter @click:append="show1 = !show1"></v-text-field>
                                                         </v-col>
-                                                        <v-col cols="12">
-                                                            <v-text-field dense class="rounded-lg" type="password" prepend-inner-icon="mdi-lock" color="green" outlined v-model="setPass.cpass" label="ยืนยันรหัสผ่านใหม่"></v-text-field>
+                                                        <v-col col="12">
+                                                            <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-lock" color="green" outlined :append-icon="show4 ? 'mdi-eye' : 'mdi-eye-off'" :type="show4 ? 'text' : 'password'" name="input-10-2" label="ยืนยันรหัสผ่าน" value="" counter error @click:append="show4 = !show4"></v-text-field>
                                                         </v-col>
                                                     </v-row>
                                                 </v-container>
@@ -95,10 +95,10 @@
 
                                             <v-card-actions>
                                                 <v-spacer></v-spacer>
-                                                <v-btn color="green" class="rounded-lg" dark @click="save">
+                                                <v-btn color="green" class="rounded-lg" dark @click="savePassword">
                                                     <h5>บันทึก</h5>
                                                 </v-btn>
-                                                <v-btn color="error" class="rounded-lg" @click="close">
+                                                <v-btn color="error" class="rounded-lg" @click="closePassword">
                                                     <h5>ยกเลิก</h5>
                                                 </v-btn>
                                             </v-card-actions>
@@ -349,8 +349,8 @@
 
         </v-tabs>
     </v-card>
-    <!-- </v-container> -->
-</v-container>
+    </v-container>
+</div>
 </template>
 
 <script>
@@ -358,6 +358,16 @@ import Swal from 'sweetalert2'
 export default {
 
     data: () => ({
+        show1: false,
+        show2: true,
+        show3: false,
+        show4: false,
+        password: 'Password', 
+        rules: {
+            required: value => !!value || 'กรุณากรอกรหัสผ่านให้ตรงกัน.',
+            min: v => v.length >= 8 || 'Min 8 characters',
+            emailMatch: () => ('กรุณากรอกรหัสผ่านให้ตรงกัน'),
+        }, 
         bc: [{
                 text: 'เกษตกร',
                 disabled: false,
@@ -375,6 +385,7 @@ export default {
         search: '',
         dialog1: true,
         dialog: false,
+        dialogPassword: false,
         items: [
             'ข้อมูลเกษตกร', 'ข้อมูลกระบือ',
         ],
@@ -387,7 +398,7 @@ export default {
                 text: 'เบอร์หู',
                 value: 'number',
                 sortable: false
-            }, 
+            },
             {
                 text: 'อายุ',
                 value: 'age',
@@ -658,17 +669,9 @@ export default {
             this.$refs.menu.save(date)
         },
 
-        save() {
-            // if (this.editedIndex > -1) {
-            //     Object.assign(this.desserts[this.editedIndex], this.editedItem)
-            // } else {
-            //     this.desserts.push(this.editedItem)
-            // }
-            // this.close()
-
+        save() { 
             Swal.fire({
-                title: 'คุณต้องการบันทึก?',
-                // text: "ใช่หรือไม่",
+                title: 'คุณต้องการบันทึก?', 
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -682,6 +685,35 @@ export default {
                     this.desserts.push(this.editedItem)
                 }
                 this.close()
+                if (result.value) {
+                    Swal.fire(
+                        'บันทึก!',
+                        'คุณทำการบันทึกสำเร็จ',
+                        'success'
+                    )
+                }
+            })
+        },
+
+        closePassword() {
+            this.dialogPassword = false
+            this.$nextTick(() => {
+                this.editedItem = Object.assign({}, this.defaultItem)
+                this.editedIndex = -1
+            })
+        },
+
+        savePassword() { 
+            Swal.fire({
+                title: 'คุณต้องการบันทึก?', 
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ตกลง',
+                cancelButtonText: 'ยกเลิก',
+            }).then((result) => {
+                this.dialogPassword = false
                 if (result.value) {
                     Swal.fire(
                         'บันทึก!',
