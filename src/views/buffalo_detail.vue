@@ -1,6 +1,6 @@
 <template>
- <div class="bg">
-    <v-container>
+<div class="bg">
+    <v-container grid-list-xs>
         <h2>ข้อมูลกระบือ</h2>
         <v-breadcrumbs :items="bc" large>
             <template v-slot:divider>
@@ -10,60 +10,39 @@
         <v-divider></v-divider>
     </v-container>
 
-    <center>
-        <v-flex xs12 row wrap>
-            <v-flex xs6 pa-3>
-                <v-card class="rounded-lg">
-                    <v-img src="https://images.pexels.com/photos/1054650/pexels-photo-1054650.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" aspect-ratio="1.7"></v-img>
-                    <v-list two-line>
-                        <center>
-                            <h5>ภาพด้านข้าง</h5>
-                        </center>
-                    </v-list>
-                    <v-btn block color="success">อัพโหลดภาพ</v-btn>
-                </v-card>
-            </v-flex>
-            <v-flex xs6 pa-3>
-                <v-card class="rounded-lg ">
-                    <v-img src="https://images.pexels.com/photos/2261770/pexels-photo-2261770.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" aspect-ratio="1.7"></v-img>
-                    <v-list two-line>
-                        <center>
-                            <h5>ภาพด้านหลัง</h5>
-                        </center>
-                    </v-list>
-                    <v-btn block color="success">อัพโหลดภาพ</v-btn>
-                </v-card>
-            </v-flex>
-        </v-flex>
-    </center>
+    <v-container grid-list-xs>
+        <center>
+            <!-- <v-flex xs12 row wrap> -->
+            <v-layout row wrap>
+                <v-flex xs12 md6 pa-3>
+                    <v-card class="rounded-lg">
+                        <v-img src="https://images.pexels.com/photos/1054650/pexels-photo-1054650.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" aspect-ratio="2"></v-img>
+                        <v-list two-line>
+                            <center>
+                                <h5>ภาพด้านข้าง</h5>
+                            </center>
+                        </v-list>
+                        <v-btn block color="success">อัพโหลดภาพ</v-btn>
+                    </v-card>
+                </v-flex>
+                <v-flex xs12 md6 pa-3>
+                    <v-card class="rounded-lg ">
+                        <v-img src="https://images.pexels.com/photos/2261770/pexels-photo-2261770.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" aspect-ratio="2"></v-img>
+                        <v-list two-line>
+                            <center>
+                                <h5>ภาพด้านหลัง</h5>
+                            </center>
+                        </v-list>
+                        <v-btn block color="success">อัพโหลดภาพ</v-btn>
+                    </v-card>
+                </v-flex>
+            </v-layout>
+            <!-- </v-flex> -->
+        </center>
+    </v-container>
 
-    <!-- <v-container>
-        <v-flex xs12>
-            <v-card class="elevation-5 rounded-lg pa-2">
-                <div class="d-flex grow flex-wrap">
-                    <h3>รายละเอียดกระบือ</h3>
-                    <v-spacer></v-spacer>
-                    <v-btn outlined color="green" @click="dialog=false">แก้ไข<v-icon>mdi-pencil</v-icon>
-                    </v-btn>
-                </div>
-                <v-toolbar-title>รายละเอียดกระบือ
-                    <v-btn outlined color="green" @click="dialog=false">แก้ไข<v-icon>mdi-pencil</v-icon>
-                    </v-btn>
-                </v-toolbar-title>
-                <br>
-                <v-flex row wrap xs12 offset-xs1>
-                    <v-flex xs12>
-                        <div v-for="item in desserts" :key="item.name">
-                            <v-text-field class="rounded-lg" :prepend-inner-icon="item.icon" color="green" outlined :readonly="dialog" v-model="item.calories" name="name" :label="item.describe" id="id"></v-text-field>
-                        </div>
-                    </v-flex>
-            </v-card>
-        </v-flex>
-        <br>
-    </v-container> -->
-
-    <center>
-        <v-container>
+    <v-container grid-list-xs>
+        <center>
             <v-layout row wrap>
                 <v-flex xs12 md8>
                     <v-card class="elevation-5 rounded-lg pa-3 ma-2">
@@ -84,10 +63,10 @@
                                     <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-cow" color="green" outlined label="ชื่อหรือหมายเลขควาย"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric-10-box-multiple-outline" color="green"  type="number" outlined label="หมายเลข NID"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric-10-box-multiple-outline" color="green" type="number" outlined label="หมายเลข NID"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green"  type="number" outlined label="หมายเลขไมโครซิป"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" type="number" outlined label="หมายเลขไมโครซิป"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
                                     <v-menu ref="menu" v-model="menu" :close-on-content-click="false" transition="scale-transition" offset-y min-width="290px">
@@ -101,7 +80,7 @@
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-gender-male-female" color="green" outlined label="เพศ"></v-select>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-calendar-clock" color="green"  type="number" outlined label="อายุ"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-calendar-clock" color="green" type="number" outlined label="อายุ"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-invert-colors" color="green" outlined label="สี"></v-select>
@@ -110,7 +89,7 @@
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-import" color="green" outlined label="แหล่งที่มา"></v-select>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green"  type="number" outlined label="ราคา"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" type="number" outlined label="ราคา"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-post-outline" color="green" outlined label="สถานะ"></v-select>
@@ -145,7 +124,7 @@
                                 <v-flex xs12 md4>
                                     <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-human-male-height-variant" color="green" outlined type="number" label="ความสูง(เซนติเมตร)"></v-text-field>
                                 </v-flex>
-                            </v-row>  
+                            </v-row>
                             <v-btn class="rounded-lg" block disabled color="success">บันทึก</v-btn>
                         </div>
 
@@ -196,11 +175,10 @@
                     </v-hover>
                 </v-flex>
             </v-layout>
-        </v-container>
-        
-    </center>
+        </center>
+    </v-container>
 
- </div>
+</div>
 </template>
 
 <script>
@@ -220,22 +198,21 @@ export default {
             date: null,
             menu: false,
             dialog: true,
-            bc: [
-            {
+            bc: [{
                     text: 'เกษตกร',
-                    disabled: false,  
+                    disabled: false,
                     href: '/#/farmer',
-                }, 
+                },
                 {
                     text: 'ข้อมูลเกษตกร',
-                    disabled: false,  
+                    disabled: false,
                     href: '/#/farmerdetail',
                 },
                 {
                     text: 'ข้อมูลกระบือ',
-                    disabled: false,  
+                    disabled: false,
                     href: '/#/buffalodetail',
-                }, 
+                },
             ],
             desserts: [
                 // {
