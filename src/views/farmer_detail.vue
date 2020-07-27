@@ -247,7 +247,7 @@
                                                             <v-select dense class="rounded-lg" prepend-inner-icon="mdi-import" color="green" outlined v-model="editedItem.from" label="แหล่งที่มา"></v-select>
                                                         </v-col>
                                                         <v-col cols="12" sm="6">
-                                                            <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" outlined v-model="editedItem.price" type="number" label="ราคา"></v-text-field>
+                                                            <v-text-field dense class="rounded-lg" prepend-inner-icon="mdi-tag-outline" color="green" outlined v-model="editedItem.price" type="number" label="ราคา"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" sm="6">
                                                             <v-select dense class="rounded-lg" prepend-inner-icon="mdi-post-outline" color="green" outlined v-model="editedItem.status" label="สถานะควาย"></v-select>

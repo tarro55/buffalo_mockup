@@ -89,7 +89,7 @@
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-import" color="green" outlined label="แหล่งที่มา"></v-select>
                                 </v-flex>
                                 <v-flex xs12 md4>
-                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-numeric" color="green" type="number" outlined label="ราคา"></v-text-field>
+                                    <v-text-field dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-tag-outline" color="green" type="number" outlined label="ราคา"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 md4>
                                     <v-select dense :readonly="dialog" class="rounded-lg" prepend-inner-icon="mdi-post-outline" color="green" outlined label="สถานะ"></v-select>
