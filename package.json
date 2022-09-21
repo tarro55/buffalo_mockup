@@ -19,7 +19,7 @@
     "vue-chartkick": "^0.6.0",
     "vue-router": "^3.2.0",
     "vue-thailand-address-autocomplete": "^0.1.1",
-    "vuetify": "^2.3.0"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
